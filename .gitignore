@@ -1,0 +1,16 @@
+# Kompilierte Dateien
+*.class
+*.jar
+
+# Build-Verzeichnisse
+bin/
+out/
+
+# IDE-Dateien
+.vscode/
+.idea/
+*.iml
+
+# Betriebssystem
+.DS_Store
+Thumbs.db/bin/

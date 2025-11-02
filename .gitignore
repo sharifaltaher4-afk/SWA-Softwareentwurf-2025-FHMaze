@@ -14,3 +14,7 @@ out/
 # Betriebssystem
 .DS_Store
 Thumbs.db/bin/
+
+.settings/
+.classpath
+.project

@@ -46,6 +46,8 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         // Reihenfolge: West ==> Nord ==> Ost ==> Süd (Priorität)
         String[] directions = {"west", "north", "east", "south"};
         String[] cells = {westCell, northCell, eastCell, southCell};
+        String finishDir = checkFinishPriority(northCell, eastCell, southCell, westCell);
+        if (finishDir != null) return finishDir;
         
         String bestDirection = null;      // Bisher beste gefundene Richtung
         int minVisits = Integer.MAX_VALUE; // Minimale Besuchszahl (Start: sehr groß)
@@ -142,4 +144,18 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         // Kein FINISH oder ungültiges Format → normale Zelle
         return false;
     }
+
+    /**
+     * Prüft, ob sich eine eigene FINISH-Zelle in Sichtweite befindet
+     * und gibt deren Richtung als Bewegungsbefehl zurück.
+     */
+    private String checkFinishPriority(String northCell, String eastCell, String southCell, String westCell) {
+        String target = "FINISH " + myPlayerId;
+        if (northCell.startsWith(target)) return "go north";
+        if (eastCell.startsWith(target))  return "go east";
+        if (southCell.startsWith(target)) return "go south";
+        if (westCell.startsWith(target))  return "go west";
+        return null;
+    }
+
 }

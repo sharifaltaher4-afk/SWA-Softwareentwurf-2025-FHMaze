@@ -1,12 +1,12 @@
 package de.fhms.eti.players;
 
 /**
- * Data Transfer Object (DTO) für Rundendaten
+ * Data Transfer Object (DTO) fÃ¼r Rundendaten
  * 
- * Speichert alle Informationen die der Bot in jede Runde erhält:
+ * Speichert alle Informationen die der Bot in jede Runde erhÃ¤lt:
  * - Ergebnis der letzten Aktion
  * - Status der aktuellen Zelle
- * - Status der umgebenden Zellen (Nord, Ost, Süd, West)
+ * - Status der umgebenden Zellen (Nord, Ost, SÃ¼d, West)
  * 
  * Wird in jeder Runde neu erstellt.
  */

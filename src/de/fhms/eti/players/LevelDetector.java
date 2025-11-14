@@ -1,7 +1,7 @@
 package de.fhms.eti.players;
 
 /**
- * Der LevelDetector erkennt und verwaltet das aktuelle Spieölevel
+ * Der LevelDetector erkennt und verwaltet das aktuelle SpieÃ¶level
  * 
  * Verantwortung(SRP):
  *  Analysiert Zellstatus um Level 1 und zwei von eonerander zu unterscheiden
@@ -35,41 +35,57 @@ public class LevelDetector implements ILevelDetector {
      */
     @Override
     public int detectLevel(String finishCell) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'detectLevel'");
+        if (finishCell == null || !finishCell.startsWith("FINISH")) {
+            return currentLevel;
+        }
+        String[] parts = finishCell.split(" ");
+
+        if (parts.length >= 3) {
+            this.currentLevel = 2;
+            System.err.println("Level 2 erkannt Formulare benötigt.");
+            setCurrentLevel(currentLevel);
+        } else if (parts.length == 2) {
+            this.currentLevel = 1;
+            System.err.println("Level 1 erkannt  einfaches Labyrinth.");
+            setCurrentLevel(currentLevel);
+        }
+        return currentLevel;
     }
 
     /**
-     * Gibt zurück ob aktuell Level 1 gespielt wird
+     * Gibt zurÃ¼ck ob aktuell Level 1 gespielt wird
      * 
      * @return true wenn Level 1, sonst false
      */
     @Override
     public boolean isLevel1() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isLevel1'");
+        return currentLevel == 1;
     }
 
     /**
-     * Gibt zurück ob aktuell Level 2 gespielt wird  
+     * Gibt zurÃ¼ck ob aktuell Level 2 gespielt wird  
      * 
      * @return true wenn Level 2, sonst false
      */
     @Override
     public boolean isLevel2() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isLevel2'");
+        return currentLevel == 2;
     }
 
     /**
-     * Gibt das aktuell erkannte Level zurück
+     * Gibt das aktuell erkannte Level zurÃ¼ck
      * 
      * @return 1 oder 2
      */
     @Override
     public int getCurrentLevel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCurrentLevel'");
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(int level){
+        if (level == 1 || level == 2 ) {
+            this.currentLevel=level;
+            System.err.println("Level manuell gesetzt auf: " + level);
+        }
     }
 }
-

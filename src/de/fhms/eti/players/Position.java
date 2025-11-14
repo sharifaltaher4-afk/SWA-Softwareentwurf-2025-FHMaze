@@ -5,7 +5,7 @@ package de.fhms.eti.players;
  * Verantwortung(SRP):
  *  - Speichert x und y Koordinaten
  *  - Berechnet neue Positionen nach Bewegung
- *  - Stellt eine Vergleichbarkeit sicher (für Hashset/HashMap)
+ *  - Stellt eine Vergleichbarkeit sicher (fÃ¼r Hashset/HashMap)
  */
 
 public class Position {
@@ -34,7 +34,7 @@ public class Position {
     // Neue Position nach Bewegung berechnen
     /**
      * Berechnet eine neue Position basierend auf einer Bewegungsrichtung.
-     * Diese Methode ändert die aktuelle Position nicht (immutable)
+     * Diese Methode Ã¤ndert die aktuelle Position nicht (immutable)
      * sondern erstellt eine neue Position
      * @param direction Richtungen
      * @return Neue Position nch der Bewegung
@@ -46,13 +46,13 @@ public class Position {
             case "south": return new Position(x, y + 1);
             case "east":  return new Position(x + 1, y);
             case "west":  return new Position(x - 1, y);
-            default: return this; // Bei ungültige Richtung gibt die aktuelle Pos. züruck
+            default: return this; // Bei ungÃ¼ltige Richtung gibt die aktuelle Pos. zÃ¼ruck
         }
     }
     
     /**
      * Verhleicht zwei Posi. auf Gleichheit.
-     * notwendig für Hashset und HashMap
+     * notwendig fÃ¼r Hashset und HashMap
      * 
      * zwei Posi. sind nur dann gleich, wenn x und y identisch sind.
      * @param obj Objekt zum Vergleichen
@@ -66,15 +66,15 @@ public class Position {
     }
     
     /**
-     * Erzeugt einen Hash-Code für die Pos.
-     * Notwendig für HashSet und HashMap
+     * Erzeugt einen Hash-Code fÃ¼r die Pos.
+     * Notwendig fÃ¼r HashSet und HashMap
      * 
-     * Positionen und den gleichen Koordinaten müssen den gleichen Hash-Code haben
+     * Positionen und den gleichen Koordinaten mÃ¼ssen den gleichen Hash-Code haben
      * @return Hash-Code
      */
     @Override
     public int hashCode() {
-        //Voraussetzung Das Labyrinth ist maximal 1000 breit (sizeX ≤ 1000)
+        //Voraussetzung Das Labyrinth ist maximal 1000 breit (sizeX â‰¤ 1000)
         return x * 1000 + y;
     }
 

@@ -1,26 +1,28 @@
 package de.fhms.eti.players;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * FormManager Verwaltet das Sammeln von formularen in Level 2
  * 
  * Verantwortung (SRP):
- * - Prüft ob Formulare aufgenommen werden können
+ * - PrÃ¼ft ob Formulare aufgenommen werden kÃ¶nnen
  * - Verwaltet die Reihenfolge der Formulare (A=0, B=1, C=2, ...)
- * - Zählt gesammelte Formulare
- * - Prüft ob alle benötigten Formulare gesammelt wurden
+ * - ZÃ¤hlt gesammelte Formulare
+ * - PrÃ¼ft ob alle benÃ¶tigten Formulare gesammelt wurden
  * 
  * FORM-Format: "FORM <playerId> <formId>"
- * Beispiel: "FORM 0 1" ==> Formular B für Spieler 0
+ * Beispiel: "FORM 0 1" ==> Formular B fÃ¼r Spieler 0
  */
 public class FormManager implements IFormManager {
     private int myPlayerId;           // Eigene Spieler-ID
     private List<Integer> collectedForms;  // Gesammelte Formular-IDs
-    private int nextFormId;           // Nächste erwartete Formular-ID ""Reihenfolge
-    private int totalFormsNeeded;     // Anzahl benötigter Formulare
-    
+    private int nextFormId;           // NÃ¤chste erwartete Formular-ID ""Reihenfolge
+    private int totalFormsNeeded;     // Anzahl benÃ¶tigter Formulare
+    private Map<Integer, Position> foundFormPositions;// Formular Positionen
     /**
      * Konstruktor Initialisiert den FormManager
      * 
@@ -29,18 +31,19 @@ public class FormManager implements IFormManager {
     public FormManager(int playerId) {
         this.myPlayerId = playerId;
         this.collectedForms = new ArrayList<>();
-        this.nextFormId = 0;          // Start mit Formular A (ID 0)
+        this.nextFormId = 1;          // Start mit Formular A (ID 1)
         this.totalFormsNeeded = -1;   // Noch unbekannt
-        System.err.println("FormManager initialisiert für Spieler " + playerId);
+        this.foundFormPositions = new HashMap<>();
+        System.err.println("FormManager initialisiert fÃ¼r Spieler " + playerId);
     }
     
     /**
-     * Prüft ob ein Formular auf der aktuellen Zelle aufgenommen werden kann
+     * PrÃ¼ft ob ein Formular auf der aktuellen Zelle aufgenommen werden kann
      * 
-     * Bedingungen für take:
+     * Bedingungen fÃ¼r take:
      * 1. Zelle muss FORM-String enthalten
-     * 2. Formular muss für diesen Spieler sein
-     * 3. Formular muss in der richtigen Reihenfolge sein (nächste erwartete ID)
+     * 2. Formular muss fÃ¼r diesen Spieler sein
+     * 3. Formular muss in der richtigen Reihenfolge sein (nÃ¤chste erwartete ID)
      * 
      * @param cellStatus Der Zellstatus-String
      * @return true wenn Formular aufgenommen werden kann sonst false
@@ -56,13 +59,13 @@ public class FormManager implements IFormManager {
             return false;  // Parsing fehlgeschlagen
         }
         
-        // PRÜFUNG 1: Gehört das Formular diesem Spieler?
+        // PRÃœFUNG 1: GehÃ¶rt das Formular diesem Spieler?
         if (!formInfo.isValidForPlayer(myPlayerId)) {
-            System.err.println("Formular gehört Spieler " + formInfo.getPlayerId() + " - nicht mir!");
+            System.err.println("Formular gehÃ¶rt Spieler " + formInfo.getPlayerId() + "  nicht mir!");
             return false;
         }
         
-        // PRÜFUNG 2: Ist es das nächste Formular in der Reihenfolge?
+        // PRÃœFUNG 2: Ist es das nÃ¤chste Formular in der Reihenfolge?
         if (!isValidFormOrder(formInfo.getFormId())) {
             System.err.println("Falsche Reihenfolge! Erwartet: " + nextFormId + ", Gefunden: " + formInfo.getFormId());
             return false;
@@ -73,7 +76,7 @@ public class FormManager implements IFormManager {
     }
     
     /**
-     * Nimmt ein Formular auf und fügt es zur Sammlung hinzu
+     * Nimmt ein Formular auf und fÃ¼gt es zur Sammlung hinzu
      * 
      * @param cellStatus Der Zellstatus-String mit FORM-Information
      * @return true wenn Formular erfolgreich aufgenommen wurde, sonst false
@@ -86,12 +89,12 @@ public class FormManager implements IFormManager {
         
         FormInfo formInfo = parseFormCell(cellStatus);
         if (formInfo != null) {
-            // Formular zur Sammlung hinzufügen
+            // Formular zur Sammlung hinzufÃ¼gen
             collectedForms.add(formInfo.getFormId());
-            nextFormId++;  // Nächstes Formular in der Reihenfolge erwarten
+            nextFormId++;  // NÃ¤chstes Formular in der Reihenfolge erwarten
             
             System.err.println("Formular " + formInfo.getFormId() + " aufgenommen! " +
-                             "Gesammelt: " + collectedForms + ", Nächstes: " + nextFormId);
+                             "Gesammelt: " + collectedForms + ", NÃ¤chstes: " + nextFormId);
             return true;
         }
         
@@ -99,14 +102,14 @@ public class FormManager implements IFormManager {
     }
     
     /**
-     * Prüft ob alle benötigten Formulare gesammelt wurden
+     * PrÃ¼ft ob alle benÃ¶tigten Formulare gesammelt wurden
      * 
      * @return true wenn alle Formulare gesammelt, sonst false
      */
     @Override
     public boolean hasAllForms() {
         if (totalFormsNeeded == -1) {
-            // Anzahl benötigter Formulare noch unbekannt
+            // Anzahl benÃ¶tigter Formulare noch unbekannt
             return false;
         }
         
@@ -118,9 +121,9 @@ public class FormManager implements IFormManager {
     }
     
     /**
-     * Gibt die ID des nächsten erwarteten Formulars zurück
+     * Gibt die ID des nÃ¤chsten erwarteten Formulars zurÃ¼ck
      * 
-     * @return Nächste Formular-ID (A=0, B=1, C=2, ...)
+     * @return NÃ¤chste Formular ID (A=0, B=1, C=2, ...)
      */
     @Override
     public int getNextFormId() {
@@ -128,23 +131,23 @@ public class FormManager implements IFormManager {
     }
     
     /**
-     * Gibt die Liste der gesammelten Formulare zurück
+     * Gibt die Liste der gesammelten Formulare zurÃ¼ck
      * 
      * @return Liste mit Formular-IDs
      */
     @Override
     public List<Integer> getCollectedForms() {
-        return new ArrayList<>(collectedForms);  // Kopie zurückgeben
+        return new ArrayList<>(collectedForms);  // Kopie zurÃ¼ckgeben
     }
     
     /**
-     * Setzt die Anzahl der benötigten Formulare (vom FINISH-String)
+     * Setzt die Anzahl der benÃ¶tigten Formulare (vom FINISH-String)
      * 
-     * @param formCount Anzahl der benötigten Formulare
+     * @param formCount Anzahl der benÃ¶tigten Formulare
      */
     public void setTotalFormsNeeded(int formCount) {
         this.totalFormsNeeded = formCount;
-        System.err.println("Benötigte Formulare: " + formCount);
+        System.err.println("BenÃ¶tigte Formulare: " + formCount);
     }
     
     /**
@@ -168,12 +171,44 @@ public class FormManager implements IFormManager {
     }
     
     /**
-     * Prüft ob die Formular-ID der richtigen Reihenfolge entspricht
+     * PrÃ¼ft ob die Formular-ID der richtigen Reihenfolge entspricht
      * 
-     * @param formId Die zu prüfende Formular-ID
+     * @param formId Die zu prÃ¼fende Formular-ID
      * @return true wenn Reihenfolge korrekt, sonst false
      */
     private boolean isValidFormOrder(int formId) {
         return formId == nextFormId;
     }
+
+    /**
+     * Merkt sich die Position eines Formulars
+     * @param formId
+     * @param position
+     */
+    public void rememberFormPosition(int formId, Position position){
+        foundFormPositions.put(formId, position);
+        System.err.println("Position von Formular"+ formId + "gemerkt" + position);
+    }
+
+    /**
+     * Gibt die gemerkte Position eines Formulars zurÃ¼ck
+     * @param formId
+     * @return
+     */
+    public Position getRememberedFormPosition(int formId){
+        return  foundFormPositions.get(formId);
+    }
+
+
+    /**
+     * prÃ¼ft ob die Anzahl benÃ¶tigter Formulare bekannt ist
+     * @return (totalFormsNeeded != -1)
+     */
+    public boolean knowsTotalForms(){
+        return totalFormsNeeded != -1;
+    }
+
+
+
+    
 }

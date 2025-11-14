@@ -3,11 +3,11 @@ package de.fhms.eti.players;
 import java.util.HashMap;
 
 /**
- * Maze stellt das Wissen vom Bots über das Labyrinth dar
+ * Maze stellt das Wissen vom Bots Ã¼ber das Labyrinth dar
  * 
  * Verantwortung (SRP):
- * - Speichert Labyrinth-Metadaten (Größe, Level)
- * - Verwaltet besuchte Positionen mit Besuchszähler
+ * - Speichert Labyrinth-Metadaten (GrÃ¶ÃŸe, Level)
+ * - Verwaltet besuchte Positionen mit BesuchszÃ¤hler
  * 
  * Implementiert IMazeMemory (DIP Dependency Inversion Principle)
  */
@@ -16,15 +16,15 @@ public class Maze implements IMazeMemory {
     private int sizeY;
     private int level;
     
-    // Gedächtnis: HashMap speichert Position ==> Anzahl der besuche
-    // Wichtig: HashMap statt HashSet, um besuche zu zählen
+    // GedÃ¤chtnis: HashMap speichert Position ==> Anzahl der besuche
+    // Wichtig: HashMap statt HashSet, um besuche zu zÃ¤hlen
     private HashMap<Position, Integer> visitCount;
     
     /**
-     * Konstruktor: Erstellt ein neues Labyrinth-Gedächtnis
+     * Konstruktor: Erstellt ein neues Labyrinth-GedÃ¤chtnis
      * 
      * @param sizeX Breite des Labyrinths
-     * @param sizeY Höhe des Labyrinths
+     * @param sizeY HÃ¶he des Labyrinths
      * @param level Level des Spiels
      */
     public Maze(int sizeX, int sizeY, int level) {
@@ -35,14 +35,14 @@ public class Maze implements IMazeMemory {
     }
     
     /**
-     * Markiert eine Posi. als besucht (erhöht den Zähler)
+     * Markiert eine Posi. als besucht (erhÃ¶ht den ZÃ¤hler)
      * 
      * @param pos Die besuchte Position
      */
     @Override
     public void markVisited(Position pos) {
         // getOrDefault: Wenn Position noch nicht in Map ==> 0, sonst aktueller Wert
-        // Dann +1 und zurück in Map speichern
+        // Dann +1 und zurÃ¼ck in Map speichern
         visitCount.put(pos, visitCount.getOrDefault(pos, 0) + 1);
     }
     
@@ -53,16 +53,16 @@ public class Maze implements IMazeMemory {
     
     // Wie oft wurde diese Position besucht?
     /**
-     * Gibt zurück, wie oft eine Position besucht wurde
+     * Gibt zurÃ¼ck, wie oft eine Position besucht wurde
      * 
      * Implementiert IMazeMemory.getVisitCount()
      * 
-     * Wichtig für intelligentes Backtracking:
+     * Wichtig fÃ¼r intelligentes Backtracking:
      * - Feld mit 0 Besuchen ==> Bevorzugen!
      * - Feld mit 1 Besuch ==> Ok
      * - Feld mit 5 Besuchen ==> Nur wenn nichts anderes geht
      * 
-     * @param pos Die zu prüfende Position
+     * @param pos Die zu prÃ¼fende Position
      * @return Anzahl der Besuche (0 wenn nie besucht)
      */
     public int getVisitCount(Position pos) {

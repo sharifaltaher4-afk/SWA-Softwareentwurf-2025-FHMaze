@@ -11,21 +11,21 @@ public interface ILevelDetector {
     int detectLevel(String finishCell);
 
     /**
-     * Gibt zurück ob aktuell Level 1 gespielt wird
+     * Gibt zurÃ¼ck ob aktuell Level 1 gespielt wird
      * 
      * @return true wenn Level 1, sonst false
      */
     boolean isLevel1();
 
     /**
-     * Gibt zurück ob aktuell Level 2 gespielt wird
+     * Gibt zurÃ¼ck ob aktuell Level 2 gespielt wird
      * 
      * @return true wenn Level 2, sonst false
      */
     boolean isLevel2();
 
      /**
-     * Gibt das aktuell erkannte Level zurück
+     * Gibt das aktuell erkannte Level zurÃ¼ck
      * 
      * @return 1 oder 2
      */

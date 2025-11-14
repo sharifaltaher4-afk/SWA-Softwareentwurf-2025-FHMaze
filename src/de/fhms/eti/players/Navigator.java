@@ -9,8 +9,8 @@ package de.fhms.eti.players;
  * - Aktualisiert Position nach Bewegung
  * - Markiert besuchte Positionen
  * 
- * Erfüllt DIP (Dependency Inversion):
- * - Hängt von INavigationStrategy ab (nicht von konkreter Implementierung)
+ * ErfÃ¼llt DIP (Dependency Inversion):
+ * - HÃ¤ngt von INavigationStrategy ab (nicht von konkreter Implementierung)
  * - Strategie kann zur Laufzeit gewechselt werden
  */
 
@@ -27,13 +27,13 @@ public class Navigator {
     }
     
     /**
-     * entscheidet die nächste Bewegung
+     * entscheidet die nÃ¤chste Bewegung
      * 
      * gibt  die Entscheidung an die Strategie (Strategy Pattern). Del
      * 
-     * @param northCell Status nördliche Zelle
-     * @param eastCell Status östliche Zelle
-     * @param southCell Status südliche Zelle
+     * @param northCell Status nÃ¶rdliche Zelle
+     * @param eastCell Status Ã¶stliche Zelle
+     * @param southCell Status sÃ¼dliche Zelle
      * @param westCell Status westliche Zelle
      * @return Bewegungsbefehl, z.B. "go north"
      */
@@ -61,5 +61,14 @@ public class Navigator {
     
     public void setStrategy(INavigationStrategy newStrategy) {
         this.strategy = newStrategy;
+    }
+    /**
+     * Gibt die aktuelle Strategie zurÃ¼ck
+     * Wichtig fÃ¼r Strategy-Wechsel in MyBot
+     * 
+     * @return Die aktuelle Navigations-Strategie
+     */
+    public INavigationStrategy getStrategy() {
+        return strategy;
     }
 }

@@ -1,4 +1,6 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Kommunikations_Klassen;
+
+import de.fhms.eti.players.Domain_Klassen.Position;
 
 /**
  * Data Transfer Object (DTO) für Initialisierungsdaten

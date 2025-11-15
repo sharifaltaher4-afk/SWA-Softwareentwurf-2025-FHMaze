@@ -1,10 +1,12 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Kommunikations_Klassen;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import de.fhms.eti.players.Domain_Klassen.Position;
 
 public class Logger {
 

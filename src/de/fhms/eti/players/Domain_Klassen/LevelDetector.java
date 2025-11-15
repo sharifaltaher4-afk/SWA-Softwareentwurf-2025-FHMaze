@@ -1,7 +1,7 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Domain_Klassen;
 
 /**
- * Der LevelDetector erkennt und verwaltet das aktuelle SpieÃ¶level
+ * Der LevelDetector erkennt und verwaltet das aktuelle Spieölevel
  * 
  * Verantwortung(SRP):
  *  Analysiert Zellstatus um Level 1 und zwei von eonerander zu unterscheiden
@@ -43,17 +43,17 @@ public class LevelDetector implements ILevelDetector {
         if (parts.length >= 3) {
             this.currentLevel = 2;
             System.err.println("Level 2 erkannt Formulare benötigt.");
-            setCurrentLevel(currentLevel);
+            //setCurrentLevel(currentLevel);
         } else if (parts.length == 2) {
             this.currentLevel = 1;
             System.err.println("Level 1 erkannt  einfaches Labyrinth.");
-            setCurrentLevel(currentLevel);
+            //setCurrentLevel(currentLevel);
         }
         return currentLevel;
     }
 
     /**
-     * Gibt zurÃ¼ck ob aktuell Level 1 gespielt wird
+     * Gibt zurück ob aktuell Level 1 gespielt wird
      * 
      * @return true wenn Level 1, sonst false
      */
@@ -63,7 +63,7 @@ public class LevelDetector implements ILevelDetector {
     }
 
     /**
-     * Gibt zurÃ¼ck ob aktuell Level 2 gespielt wird  
+     * Gibt zurück ob aktuell Level 2 gespielt wird  
      * 
      * @return true wenn Level 2, sonst false
      */
@@ -73,7 +73,7 @@ public class LevelDetector implements ILevelDetector {
     }
 
     /**
-     * Gibt das aktuell erkannte Level zurÃ¼ck
+     * Gibt das aktuell erkannte Level zurück
      * 
      * @return 1 oder 2
      */

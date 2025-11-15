@@ -1,4 +1,4 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Domain_Klassen;
 
 /**
  * FormInfo Datenklasse für Formular Informationen

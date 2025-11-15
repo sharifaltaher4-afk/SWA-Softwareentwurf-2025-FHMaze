@@ -1,4 +1,4 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Kommunikations_Klassen;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
  * - Ausgeben von Befehlen (System.out)
  * - Parsen der Protokoll-Daten
  * 
- * Entscheidet nicht Ã¼ber Spiellogik (das machen andere Klassen)
+ * Entscheidet nicht über Spiellogik (das machen andere Klassen)
  */
 public class GameCommunication {
     private Scanner input;
@@ -76,7 +76,7 @@ public class GameCommunication {
     /**
      * Sendet eine aktion zu die Spielumgebung
      * 
-     * MÃ¶gliche Aktionen:
+     * Mögliche Aktionen:
      * - "go north"
      * - "go south"
      * - "go east"

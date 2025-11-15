@@ -1,9 +1,10 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Strategie_Klassen;
+ //SimpleNavigationStrategy - Intelligente Navigationsstrategie
+ //mit KORRIGIERTER FINISH-Priorität und Formular-Suche
 
-/**
- * SimpleNavigationStrategy - Intelligente Navigationsstrategie
- * mit KORRIGIERTER FINISH-Priorität und Formular-Suche
- */
+import de.fhms.eti.players.Domain_Klassen.Maze;
+import de.fhms.eti.players.Domain_Klassen.Position;
+
 public class SimpleNavigationStrategy implements INavigationStrategy {
     private Maze maze;
     private int myPlayerId;
@@ -14,9 +15,7 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
     }
     
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell, 
-                                String southCell, String westCell) {
-        
+    public String decideNextMove(Position currentPos, String northCell, String eastCell, String southCell, String westCell) {
         // KRITISCH: FINISH-Priorität MUSS ZUERST kommen!
         String finishDir = checkFinishPriority(northCell, eastCell, southCell, westCell);
         if (finishDir != null) {
@@ -65,14 +64,9 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         return bestDirection;
     }
     
-    /**
-     * Prüft ob eigenes FINISH in Sichtweite ist
-     * 
-     * WICHTIG: Format ist "FINISH playerId formCount" z.B. "FINISH 1 2"
-     * Wir müssen nur auf "FINISH 1" (playerId) prüfen, nicht auf exakten String!
-     */
-    private String checkFinishPriority(String northCell, String eastCell, 
-                                      String southCell, String westCell) {
+ 
+    private String checkFinishPriority(String northCell, String eastCell, String southCell, String westCell) {
+
         // Prüfe ob myPlayerId gesetzt ist
         if (myPlayerId == -1) {
             System.err.println("myPlayerId noch nicht gesetzt!");
@@ -97,12 +91,12 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
             return "go west";
         }
         
-        return null;  // Kein eigenes FINISH in Sichtweite
+          return null ;//Kein eigenes FINISH in Sichtweite
+          
     }
     
-    /**
-     * Hilfsmethode um zu prüfen ob eine Zelle mein FINISH ist
-     */
+
+    //Hilfsmethode um zu prüfen ob eine Zelle mein FINISH ist
     private boolean isMyFinish(String cellStatus) {
         if (cellStatus == null || !cellStatus.startsWith("FINISH")) {
             return false;
@@ -127,4 +121,5 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         this.myPlayerId = playerId;
         System.err.println("impleNavigationStrategy: PlayerId gesetzt auf " + playerId);
     }
-}
+} 
+

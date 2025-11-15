@@ -2,7 +2,7 @@
 cd /home/shaif/fhmaze_pg2_2_prak_2025/
 
 echo "Kompiliere alle Java-Dateien..."
-javac src/de/fhms/eti/players/*.java
+javac src/de/fhms/eti/players/*/*.java
 
 if [ $? -eq 0 ]; then
     echo "Kompilierung erfolgreich!"
@@ -11,11 +11,11 @@ if [ $? -eq 0 ]; then
     cd src
 
     # MyBot.jar ohne Ausführen des Bots erstellen
-    echo "Main-Class: de.fhms.eti.players.MyBot" > MyBot.mf
+    echo "Main-Class: de.fhms.eti.players.Erzeugungsmuster_Klassen.MyBot" > MyBot.mf
     jar cfm MyBot.jar MyBot.mf -C . de/fhms/eti/players
 
     # MinimalBot.jar ohne Ausführen des Bots erstellen
-    echo "Main-Class: de.fhms.eti.players.MinimalBot" > MinimalBot.mf
+    echo "Main-Class: de.fhms.eti.players.Domain_Klassen.MinimalBot" > MinimalBot.mf
     jar cfm MinimalBot.jar MinimalBot.mf -C . de/fhms/eti/players
 
     echo "JAR-Dateien erstellt"
@@ -34,4 +34,5 @@ if [ $? -eq 0 ]; then
 
 else
     echo "Kompilierungsfehler!"
+    exit 1
 fi

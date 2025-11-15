@@ -1,4 +1,4 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Domain_Klassen;
 
 import java.util.List;
 

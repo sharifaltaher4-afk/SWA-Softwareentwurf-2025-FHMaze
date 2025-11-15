@@ -1,4 +1,4 @@
-package de.fhms.eti.players;
+package de.fhms.eti.players.Domain_Klassen;
 import java.lang.String;
 
 public interface ILevelDetector {
@@ -11,21 +11,21 @@ public interface ILevelDetector {
     int detectLevel(String finishCell);
 
     /**
-     * Gibt zurÃ¼ck ob aktuell Level 1 gespielt wird
+     * Gibt zurück ob aktuell Level 1 gespielt wird
      * 
      * @return true wenn Level 1, sonst false
      */
     boolean isLevel1();
 
     /**
-     * Gibt zurÃ¼ck ob aktuell Level 2 gespielt wird
+     * Gibt zurück ob aktuell Level 2 gespielt wird
      * 
      * @return true wenn Level 2, sonst false
      */
     boolean isLevel2();
 
      /**
-     * Gibt das aktuell erkannte Level zurÃ¼ck
+     * Gibt das aktuell erkannte Level zurück
      * 
      * @return 1 oder 2
      */

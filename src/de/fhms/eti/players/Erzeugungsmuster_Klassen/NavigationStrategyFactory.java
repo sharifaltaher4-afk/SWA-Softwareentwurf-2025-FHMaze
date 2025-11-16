@@ -2,8 +2,12 @@ package de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
 import de.fhms.eti.players.Domain_Klassen.IFormManager;
 import de.fhms.eti.players.Domain_Klassen.Maze;
+import de.fhms.eti.players.Strategie_Klassen.BFSPathFinderStrategy;
+import de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
 import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
-import de.fhms.eti.players.Strategie_Klassen.*;
+import de.fhms.eti.players.Strategie_Klassen.IntelligentExplorationStrategy;
+import de.fhms.eti.players.Strategie_Klassen.RightHandRuleStrategy;
+import de.fhms.eti.players.Strategie_Klassen.SimpleNavigationStrategy;
 
 /**
  * Konkrete Factory für Navigationsstrategien
@@ -21,7 +25,7 @@ import de.fhms.eti.players.Strategie_Klassen.*;
  * - DIP: Abhängigkeit von Interfaces, nicht Implementierungen
  */
 public class NavigationStrategyFactory implements INavigationStrategyFactory {
-    
+
     /**
      * Erstellt Strategie basierend auf Level
      * 
@@ -36,21 +40,21 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
     @Override
     public INavigationStrategy createStrategy(int level, Maze maze, IFormManager formManager) {
         INavigationStrategy strategy;
-        
+
         if (level == 1) {
-            System.err.println("[FACTORY] Factory: Erstelle SimpleNavigationStrategy für Level 1");
+            System.err.println("[FACTORY] Factory: Erstelle SimpleNavigationStrategy fuer Level 1");
             strategy = new SimpleNavigationStrategy(maze);
         } else if (level == 2) {
-            System.err.println("[FACTORY] Factory: Erstelle FormCollectionStrategy für Level 2");
+            System.err.println("[FACTORY] Factory: Erstelle FormCollectionStrategy fuer Level 2");
             if (formManager == null) {
-                throw new IllegalArgumentException("FormManager erforderlich für Level 2");
+                throw new IllegalArgumentException("FormManager erforderlich fuer Level 2");
             }
-            strategy = new FormCollectionStrategy(maze, formManager);
+            strategy = new FormCollectionStrategy(maze, formManager, new BFSPathFinderStrategy());
         } else {
             System.err.println("  Unbekanntes Level " + level + " - nutze SimpleNavigationStrategy");
             strategy = new SimpleNavigationStrategy(maze);
         }
-        
+
         return strategy;
     }
     
@@ -67,37 +71,38 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
     @Override
     public INavigationStrategy createStrategyByType(StrategyType strategyType, Maze maze, IFormManager formManager) {
         INavigationStrategy strategy;
-        
+
         switch (strategyType) {
             case SIMPLE:
                 System.err.println("Factory: Erstelle SimpleNavigationStrategy");
                 strategy = new SimpleNavigationStrategy(maze);
                 break;
-                
+
             case RIGHT_HAND_RULE:
                 System.err.println("[FACTORY] Factory: Erstelle RightHandRuleStrategy");
                 strategy = new RightHandRuleStrategy();
                 break;
-                
+
             case FORM_COLLECTION:
                 System.err.println("[FACTORY] Factory: Erstelle FormCollectionStrategy");
                 if (formManager == null) {
-                    throw new IllegalArgumentException("FormManager erforderlich für FormCollectionStrategy");
+                    throw new IllegalArgumentException("FormManager erforderlich fuer FormCollectionStrategy");
                 }
-                strategy = new FormCollectionStrategy(maze, formManager);
+                strategy = new FormCollectionStrategy(maze, formManager, new BFSPathFinderStrategy());
                 break;
-                
+
             case INTELLIGENT_EXPLORATION:
                 System.err.println("[FACTORY] Factory: Erstelle IntelligentExplorationStrategy");
                 strategy = new IntelligentExplorationStrategy(maze);
                 break;
-                
+
             default:
                 System.err.println("  Unbekannter Strategietyp - nutze SimpleNavigationStrategy");
                 strategy = new SimpleNavigationStrategy(maze);
                 break;
         }
-        
+
         return strategy;
     }
 }
+

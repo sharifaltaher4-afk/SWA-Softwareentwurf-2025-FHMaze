@@ -1,6 +1,7 @@
 # Kompilierte Dateien
 *.class
 *.jar
+*.json
 
 # Build-Verzeichnisse
 bin/

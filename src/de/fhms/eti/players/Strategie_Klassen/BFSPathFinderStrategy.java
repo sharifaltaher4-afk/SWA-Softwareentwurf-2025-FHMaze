@@ -16,9 +16,9 @@ import de.fhms.eti.players.Domain_Klassen.Position;
  *
  * Verantwortung (SRP):
  *  - Speichert alle bereits gesehenen Zellen
- *  - Berechnet den k&uuml;rzesten Weg zu einem Ziel oder zur n&auml;chsten Front (unerforschte Nachbarn)
+ *  - Berechnet den kürzesten Weg zu einem Ziel oder zur nächsten Front (unerforschte Nachbarn)
  *
- * Strategien nutzen ausschlie&szlig;lich das {@link IPathFinder}-Interface (DIP),
+ * Strategien nutzen ausschließlich das {@link IPathFinder}-Interface (DIP),
  * sodass die Pfadlogik sauber gekapselt ist.
  */
 public class BFSPathFinderStrategy implements IPathFinder {
@@ -93,7 +93,7 @@ public class BFSPathFinderStrategy implements IPathFinder {
     }
 
     /**
-     * Fuehrt eine Breitensuche durch, bis die Zielbedingung erf&uuml;llt ist.
+     * Fuehrt eine Breitensuche durch, bis die Zielbedingung erfüllt ist.
      * Die Bedingung kann z.B. "erreiche dieses Ziel" oder "finde eine Zelle
      * mit unbekannten Nachbarn" bedeuten.
      */

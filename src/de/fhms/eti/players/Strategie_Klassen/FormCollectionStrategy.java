@@ -1,4 +1,7 @@
 package de.fhms.eti.players.Strategie_Klassen;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,90 +19,145 @@ import de.fhms.eti.players.Domain_Klassen.Position;
  * 4. Keine komplexen Listen/Sortierungen
  */
 public class FormCollectionStrategy implements INavigationStrategy {
-    private Maze maze;
-    private int myPlayerId;
-    private IFormManager formManager;
-    private Map<Integer, Position> formPositions;
-    private Position finishPosition;
+    private final Maze maze;
+    private final IFormManager formManager;
+    private final Map<Integer, Position> formPositions;
+    private final IPathFinder pathFinder;
+    private final INavigationStrategy fallbackStrategy;
 
-    public FormCollectionStrategy(Maze maze, IFormManager formManager) {
+    private int myPlayerId;
+    private Position finishPosition;
+    private Deque<String> currentPlan;
+    private Position activeTarget;
+
+    public FormCollectionStrategy(Maze maze, IFormManager formManager, IPathFinder pathFinder) {
         this.maze = maze;
         this.formManager = formManager;
         this.formPositions = new HashMap<>();
+        this.pathFinder = pathFinder;
+        this.fallbackStrategy = new RightHandRuleStrategy();
+        this.currentPlan = new ArrayDeque<>();
+        this.activeTarget = null;
         this.myPlayerId = -1;
         this.finishPosition = null;
-        System.err.println("[OK] FormCollectionStrategy (SCHNELL) initialisiert");
     }
 
     @Override
     public void setPlayerId(int playerId) {
         this.myPlayerId = playerId;
+        fallbackStrategy.setPlayerId(playerId);
     }
 
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell, 
-                                String southCell, String westCell) {
-        System.err.println("[DEBUG] FormCollectionStrategy.decideNextMove aufgerufen bei " + currentPos);
-        // Speichere sichtbare Formulare & FINISH
+    public String decideNextMove(Position currentPos, String northCell, String eastCell,
+                                 String southCell, String westCell) {
+        pathFinder.updateKnowledge(currentPos, northCell, eastCell, southCell, westCell);
         scanAndSave(currentPos, "north", northCell);
         scanAndSave(currentPos, "east", eastCell);
         scanAndSave(currentPos, "south", southCell);
         scanAndSave(currentPos, "west", westCell);
-        
-        // Bestimme Ziel
+
         Position target = determineTarget();
-        
-        // Navigiere
         if (target != null) {
-            String move = navigateToTarget(currentPos, target, northCell, eastCell, southCell, westCell);
-            if (move != null) return move;
+            refreshPlan(currentPos, target);
+            String planned = pollPlannedMove(northCell, eastCell, southCell, westCell);
+            if (planned != null) {
+                return planned;
+            }
+        } else {
+            currentPlan.clear();
+            activeTarget = null;
+            String frontierMove = tryFrontierPlan(currentPos, northCell, eastCell, southCell, westCell);
+            if (frontierMove != null) {
+                return frontierMove;
+            }
         }
-        
-        // Exploration
-        return explore(currentPos, northCell, eastCell, southCell, westCell);
+
+        String exploration = explore(currentPos, northCell, eastCell, southCell, westCell);
+        if (exploration != null) {
+            return exploration;
+        }
+        return fallbackStrategy.decideNextMove(currentPos, northCell, eastCell, southCell, westCell);
+    }
+
+    private void refreshPlan(Position currentPos, Position target) {
+        if (!target.equals(activeTarget) || currentPlan.isEmpty()) {
+            currentPlan = pathFinder.buildPath(currentPos, target, myPlayerId);
+            activeTarget = target;
+        }
+    }
+
+    private String pollPlannedMove(String northCell, String eastCell, String southCell, String westCell) {
+        while (currentPlan != null && !currentPlan.isEmpty()) {
+            String move = currentPlan.peekFirst();
+            if (isMoveCurrentlyPossible(move, northCell, eastCell, southCell, westCell)) {
+                currentPlan.pollFirst();
+                return move;
+            }
+            currentPlan.clear();
+        }
+        return null;
+    }
+
+    private String tryFrontierPlan(Position currentPos, String northCell, String eastCell,
+                                   String southCell, String westCell) {
+        Deque<String> frontierPlan = pathFinder.buildPathToFrontier(currentPos, myPlayerId);
+        if (frontierPlan == null || frontierPlan.isEmpty()) {
+            return null;
+        }
+        currentPlan = frontierPlan;
+        activeTarget = null;
+        return pollPlannedMove(northCell, eastCell, southCell, westCell);
+    }
+
+    private boolean isMoveCurrentlyPossible(String move, String northCell, String eastCell,
+                                            String southCell, String westCell) {
+        if (move == null) {
+            return false;
+        }
+        String direction = move.replace("go ", "");
+        String cellStatus = getCellInDirection(direction, northCell, eastCell, southCell, westCell);
+        return canMove(cellStatus);
     }
 
     /**
-     * Scannt und speichert Formular/FINISH sofort
+     * Speichert sichtbare Formulare/Finish.
      */
     private void scanAndSave(Position currentPos, String direction, String cellStatus) {
-        if (cellStatus == null) return;
-        
+        if (cellStatus == null) {
+            return;
+        }
+
         Position neighborPos = calculatePos(currentPos, direction);
-        
-        // FINISH speichern
+
         if (cellStatus.startsWith("FINISH") && finishPosition == null) {
             try {
                 String[] parts = cellStatus.split(" ");
                 if (parts.length >= 2) {
-                    int fpid = Integer.parseInt(parts[1]);
-                    if (fpid == myPlayerId) {
+                    int ownerId = Integer.parseInt(parts[1]);
+                    if (ownerId == myPlayerId) {
                         finishPosition = neighborPos;
-                        System.err.println("[INFO] FINISH bei " + neighborPos);
                     }
                 }
-            } catch (Exception e) {}
+            } catch (NumberFormatException ignored) {
+            }
         }
-        
-        // FORMULAR speichern
+
         if (cellStatus.startsWith("FORM")) {
             try {
                 String[] parts = cellStatus.split(" ");
                 if (parts.length >= 3) {
-                    int fpid = Integer.parseInt(parts[1]);
-                    int fid = Integer.parseInt(parts[2]);
-                    if (fpid == myPlayerId && !formPositions.containsKey(fid)) {
-                        formPositions.put(fid, neighborPos);
-                        System.err.println("[DEBUG] FORM " + fid + " bei " + neighborPos);
+                    int ownerId = Integer.parseInt(parts[1]);
+                    int formId = Integer.parseInt(parts[2]);
+                    if (ownerId == myPlayerId && !formPositions.containsKey(formId)) {
+                        formPositions.put(formId, neighborPos);
                     }
                 }
-            } catch (Exception e) {}
+            } catch (NumberFormatException ignored) {
+            }
         }
     }
 
-    /**
-     * Berechnet Nachbar-Position
-     */
     private Position calculatePos(Position pos, String dir) {
         switch (dir) {
             case "north": return new Position(pos.getX(), pos.getY() - 1);
@@ -110,69 +168,26 @@ public class FormCollectionStrategy implements INavigationStrategy {
         }
     }
 
-    /**
-     * Bestimmt Ziel
-     */
     private Position determineTarget() {
         int nextFormId = formManager.getNextFormId();
-        
-        // PRIO 1: Nächstes Formular
         if (formPositions.containsKey(nextFormId)) {
-            System.err.println("[INFO] Ziel: FORM " + nextFormId);
             return formPositions.get(nextFormId);
         }
-        
-        // PRIO 2: Zum FINISH wenn alle Formulare da
+
         if (formManager.hasAllForms() && finishPosition != null) {
-            System.err.println("[INFO] Zum FINISH");
             return finishPosition;
         }
-        
+
         return null;
     }
 
-    /**
-     * Navigiert zum Ziel (einfache Manhattan-Strategie)
-     */
-    private String navigateToTarget(Position curr, Position target, 
-                                    String north, String east, String south, String west) {
-        int dx = target.getX() - curr.getX();
-        int dy = target.getY() - curr.getY();
-        
-        // Priorisiere größere Distanz
-        if (Math.abs(dx) >= Math.abs(dy)) {
-            // X-Richtung wichtiger
-            if (dx > 0 && canMove(east)) return "go east";
-            if (dx < 0 && canMove(west)) return "go west";
-            if (dy > 0 && canMove(south)) return "go south";
-            if (dy < 0 && canMove(north)) return "go north";
-        } else {
-            // Y-Richtung wichtiger
-            if (dy > 0 && canMove(south)) return "go south";
-            if (dy < 0 && canMove(north)) return "go north";
-            if (dx > 0 && canMove(east)) return "go east";
-            if (dx < 0 && canMove(west)) return "go west";
-        }
-        
-        // Versuch andere Richtungen
-        if (dx > 0 && canMove(east)) return "go east";
-        if (dx < 0 && canMove(west)) return "go west";
-        if (dy > 0 && canMove(south)) return "go south";
-        if (dy < 0 && canMove(north)) return "go north";
-        
-        return null;
-    }
-
-    /**
-     * Exploration - wähle am wenigsten besuchte Richtung
-     */
     private String explore(Position curr, String north, String east, String south, String west) {
         String[] dirs = {"north", "east", "south", "west"};
         String[] cells = {north, east, south, west};
-        
+
         String best = null;
         int minVisits = Integer.MAX_VALUE;
-        
+
         for (int i = 0; i < 4; i++) {
             if (canMove(cells[i])) {
                 Position next = curr.move(dirs[i]);
@@ -183,20 +198,33 @@ public class FormCollectionStrategy implements INavigationStrategy {
                 }
             }
         }
-        
-        return best != null ? best : "go north";
+
+        return best;
     }
 
-    /**
-     * Prüft ob Bewegung möglich
-     */
     private boolean canMove(String cell) {
-        if (cell == null || cell.equals("WALL")) return false;
-        if (cell.startsWith("FORM")) return true;
+        if (cell == null || "WALL".equals(cell)) {
+            return false;
+        }
+        if (cell.startsWith("FORM")) {
+            return true;
+        }
         return !INavigationStrategy.isOtherPlayersFinish(cell, myPlayerId);
     }
 
+    private String getCellInDirection(String direction, String north, String east, String south, String west) {
+        switch (direction) {
+            case "north": return north;
+            case "east": return east;
+            case "south": return south;
+            case "west": return west;
+            default: return null;
+        }
+    }
+
     public void setTargetPosition(Position position) {
-        // Für Kompatibilität
+        this.finishPosition = position;
+        this.activeTarget = null;
+        this.currentPlan.clear();
     }
 }

@@ -34,7 +34,7 @@ public class MyBot {
         Logger logger = Logger.getInstance();
         
         try {
-            // 📖 PHASE 1: INITIALISIERUNG
+            // PHASE 1: INITIALISIERUNG
             InitData initData = comm.readInit();
             
             String mazeName = args.length > 0 ? args[0] : "Unknown";
@@ -51,7 +51,7 @@ public class MyBot {
             // Erstelle Factory für Strategien (Factory Method Pattern)
             INavigationStrategyFactory strategyFactory = new NavigationStrategyFactory();
             
-            // 🔨 Erstelle Bot-Konfiguration mit Builder Pattern
+            //  Erstelle Bot-Konfiguration mit Builder Pattern
             BotConfig botConfig = new BotConfigBuilder()
                 .withMaze(maze)
                 .withFormManager(formManager)

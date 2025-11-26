@@ -1,5 +1,7 @@
 package de.fhms.eti.players.Kommunikations_Klassen;
 
+import de.fhms.eti.players.Domain_Klassen.Cell;
+
 /**
  * Data Transfer Object (DTO) für Rundendaten
  * 
@@ -12,14 +14,14 @@ package de.fhms.eti.players.Kommunikations_Klassen;
  */
 public class TurnData {
     public final String lastActionResult;// z.B. "ok", "failed", "invalid"
-    public final String currentCell;// Status wo Bot steht: "FLOOR", "FINISH 0 1"
-    public final String northCell;
-    public final String eastCell;
-    public final String southCell;
-    public final String westCell;
+    public final Cell currentCell;// Status wo Bot steht: "FLOOR", "FINISH 0 1"
+    public final Cell northCell;
+    public final Cell eastCell;
+    public final Cell southCell;
+    public final Cell westCell;
     
-    public TurnData(String lastActionResult, String currentCell, 
-                   String northCell, String eastCell, String southCell, String westCell) {
+    public TurnData(String lastActionResult, Cell currentCell,
+                   Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         this.lastActionResult = lastActionResult;
         this.currentCell = currentCell;
         this.northCell = northCell;

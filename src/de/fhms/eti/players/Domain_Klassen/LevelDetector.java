@@ -34,7 +34,9 @@ public class LevelDetector implements ILevelDetector {
      * @return Erkanntes Level (1 oder 2)
      */
     @Override
-    public int detectLevel(String finishCell) {
+    public int detectLevel(Cell finishCell) {
+        // TODO
+        /*
         if (finishCell == null || !finishCell.startsWith("FINISH")) {
             return currentLevel;
         }
@@ -49,6 +51,7 @@ public class LevelDetector implements ILevelDetector {
             System.err.println("Level 1 erkannt  einfaches Labyrinth.");
             //setCurrentLevel(currentLevel);
         }
+        */
         return currentLevel;
     }
 

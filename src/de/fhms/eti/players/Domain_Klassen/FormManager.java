@@ -49,8 +49,8 @@ public class FormManager implements IFormManager {
      * @return true wenn Formular aufgenommen werden kann sonst false
      */
     @Override
-    public boolean canTakeForm(String cellStatus) {
-        if (cellStatus == null || !cellStatus.startsWith("FORM")) {
+    public boolean canTakeForm(Cell cellStatus) {
+        if (!(cellStatus instanceof FormCell)) {
             return false;  // Kein FORM-String
         }
         
@@ -163,7 +163,7 @@ public class FormManager implements IFormManager {
      * @param cellStatus FORM-String z.B. "FORM 0 1"
      * @return FormInfo-Objekt oder null bei Fehler
      */
-    private FormInfo parseFormCell(String cellStatus) {
+    private FormInfo parseFormCell(FormCell cellStatus) {
         try {
             String[] parts = cellStatus.split(" ");
             if (parts.length >= 3) {

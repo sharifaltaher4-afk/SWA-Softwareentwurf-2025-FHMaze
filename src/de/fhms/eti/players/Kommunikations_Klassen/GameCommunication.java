@@ -1,5 +1,8 @@
 package de.fhms.eti.players.Kommunikations_Klassen;
 
+import de.fhms.eti.players.Domain_Klassen.Action;
+import de.fhms.eti.players.Domain_Klassen.Cell;
+
 import java.util.Scanner;
 
 /**
@@ -14,8 +17,12 @@ import java.util.Scanner;
  */
 public class GameCommunication {
     private Scanner input;
+    private final ISerialize serializer;
+    private final IDeserialize deserializer;
     
-    public GameCommunication() {
+    public GameCommunication(ISerialize serializer, IDeserialize deserializer) {
+        this.serializer = serializer;
+        this.deserializer = deserializer;
         this.input = new Scanner(System.in);
     }
     
@@ -63,11 +70,11 @@ public class GameCommunication {
         if (!input.hasNext()) return null;
         
         String lastActionResult = input.nextLine();
-        String currentCell = input.nextLine();
-        String northCell = input.nextLine();
-        String eastCell = input.nextLine();
-        String southCell = input.nextLine();
-        String westCell = input.nextLine();
+        Cell currentCell = serializer.serializeCellStatus(input.nextLine());
+        Cell northCell = serializer.serializeCellStatus(input.nextLine());
+        Cell eastCell = serializer.serializeCellStatus(input.nextLine());
+        Cell southCell = serializer.serializeCellStatus(input.nextLine());
+        Cell westCell = serializer.serializeCellStatus(input.nextLine());
         
         return new TurnData(lastActionResult, currentCell, northCell, eastCell, southCell, westCell);
     }
@@ -85,8 +92,8 @@ public class GameCommunication {
      * 
      * @param action Der zu sendende Befehl
      */
-    public void sendAction(String action) {
-        System.out.println(action);
+    public void sendAction(Action action) {
+        System.out.println(deserializer.deserializeAction(action));
     }
     
     public void close() {

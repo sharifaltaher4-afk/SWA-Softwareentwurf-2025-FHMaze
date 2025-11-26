@@ -2,8 +2,7 @@ package de.fhms.eti.players.Strategie_Klassen;
  //SimpleNavigationStrategy - Intelligente Navigationsstrategie
  //mit KORRIGIERTER FINISH-Priorität und Formular-Suche
 
-import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Domain_Klassen.Position;
+import de.fhms.eti.players.Domain_Klassen.*;
 
 public class SimpleNavigationStrategy implements INavigationStrategy {
     private Maze maze;
@@ -15,19 +14,19 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
     }
     
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell, String southCell, String westCell) {
+    public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         // KRITISCH: FINISH-Priorität MUSS ZUERST kommen!
-        String finishDir = checkFinishPriority(northCell, eastCell, southCell, westCell);
+        GoAction finishDir = checkFinishPriority(northCell, eastCell, southCell, westCell);
         if (finishDir != null) {
             System.err.println("FINISH in Sichtweite: " + finishDir);
             return finishDir;
         }
         
         // Arrays für systematisches Durchgehen
-        String[] directions = {"west", "north", "east", "south"};
-        String[] cells = {westCell, northCell, eastCell, southCell};
+        Direction[] directions = {Direction.west, Direction.north, Direction.east, Direction.south};
+        Cell[] cells = {westCell, northCell, eastCell, southCell};
         
-        String bestDirection = null;
+        Direction bestDirection = null;
         int minVisits = Integer.MAX_VALUE;
         
         // Phase 1: Finde beste Richtung (ignoriere fremde FINISH)
@@ -45,7 +44,7 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
                 // Wähle Richtung mit wenigsten Besuchen
                 if (visits < minVisits) {
                     minVisits = visits;
-                    bestDirection = "go " + directions[i];
+                    bestDirection = directions[i];
                 }
             }
         }
@@ -54,18 +53,18 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         if (bestDirection == null) {
             System.err.println("Keine optimale Richtung - verwende Fallback");
             for (int i = 0; i < 4; i++) {
-                if (!cells[i].equals("WALL")) {
-                    bestDirection = "go " + directions[i];
+                if (!(cells[i] instanceof WallCell)) {
+                    bestDirection = directions[i];
                     break;
                 }
             }
         }
         
-        return bestDirection;
+        return new GoAction(bestDirection);
     }
     
  
-    private String checkFinishPriority(String northCell, String eastCell, String southCell, String westCell) {
+    private GoAction checkFinishPriority(Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
 
         // Prüfe ob myPlayerId gesetzt ist
         if (myPlayerId == -1) {
@@ -76,19 +75,19 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
         // Prüfe jede Richtung auf eigenes FINISH
         if (isMyFinish(northCell)) {
             System.err.println("Eigenes FINISH im Norden gefunden!");
-            return "go north";
+            return new GoAction(Direction.north);
         }
         if (isMyFinish(eastCell)) {
             System.err.println("Eigenes FINISH im Osten gefunden!");
-            return "go east";
+            return new GoAction(Direction.east);
         }
         if (isMyFinish(southCell)) {
             System.err.println("Eigenes FINISH im Süden gefunden!");
-            return "go south";
+            return new GoAction(Direction.south);
         }
         if (isMyFinish(westCell)) {
             System.err.println("Eigenes FINISH im Westen gefunden!");
-            return "go west";
+            return new GoAction(Direction.west);
         }
         
           return null ;//Kein eigenes FINISH in Sichtweite
@@ -97,22 +96,13 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
     
 
     //Hilfsmethode um zu prüfen ob eine Zelle mein FINISH ist
-    private boolean isMyFinish(String cellStatus) {
-        if (cellStatus == null || !cellStatus.startsWith("FINISH")) {
+    private boolean isMyFinish(Cell cellStatus) {
+        if (!(cellStatus instanceof FinishCell finishCell)) {
             return false;
         }
-        
-        try {
-            String[] parts = cellStatus.split(" ");
-            if (parts.length >= 2) {
-                int finishPlayerId = Integer.parseInt(parts[1]);
-                return (finishPlayerId == myPlayerId);
-            }
-        } catch (NumberFormatException e) {
-            System.err.println("Fehler beim Parsen: " + cellStatus);
-        }
-        
-        return false;
+
+        int foreignPlayerId = finishCell.getPlayerId();
+        return foreignPlayerId == myPlayerId;
     }
 
 

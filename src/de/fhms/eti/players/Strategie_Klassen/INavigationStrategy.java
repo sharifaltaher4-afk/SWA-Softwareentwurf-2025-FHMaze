@@ -1,5 +1,8 @@
 package de.fhms.eti.players.Strategie_Klassen;
 
+import de.fhms.eti.players.Domain_Klassen.Cell;
+import de.fhms.eti.players.Domain_Klassen.FinishCell;
+import de.fhms.eti.players.Domain_Klassen.GoAction;
 import de.fhms.eti.players.Domain_Klassen.Position;
 
 /**
@@ -24,8 +27,8 @@ public interface INavigationStrategy {
      * @param westCell Status der Zelle im Westen
      * @return Befehl für die nächste Bewegung Z.B "go north"
      */
-    String decideNextMove(Position currentPos, String northCell, String eastCell, 
-                         String southCell, String westCell);
+    GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
+                            Cell southCell, Cell westCell);
     
     /**
      * Setzt die Spieler-ID für diese Strategie
@@ -41,29 +44,19 @@ public interface INavigationStrategy {
      *STATISCHE Methode: Prüft ob eine Zelle ein FINISH für einen anderen Spieler ist
      * Kann von allen Implementierungen verwendet werden ohne Instanz
      * 
-     * @param cellStatus Der Zellstatus-String
+     * @param cell Der Zellstatus-String
      * @param myPlayerId Die eigene Spieler-ID
      * @return true wenn die Zelle ein fremdes Ziel ist
      */
-    static boolean isOtherPlayersFinish(String cellStatus, int myPlayerId) {
-        if (cellStatus == null || !cellStatus.startsWith("FINISH")) {
-            return false;  // Kein FINISH-String
+    static boolean isOtherPlayersFinish(Cell cell, int myPlayerId) {
+        if (!(cell instanceof FinishCell finishCell)) {
+            return false;
         }
-        
-        try {
-            String[] parts = cellStatus.split(" ");
-            if (parts.length >= 2) {
-                int finishPlayerId = Integer.parseInt(parts[1]);
-                boolean isOtherPlayer = (finishPlayerId != myPlayerId);
-                if (isOtherPlayer) {
-                    System.err.println("Ignoriere fremdes Ziel für Spieler " + finishPlayerId);
-                }
-                return isOtherPlayer;
-            }
-        } catch (NumberFormatException e) {
-            // Ignorieren falls Parsing fehlschlägt
+        int foreignPlayerId = finishCell.getPlayerId();
+        boolean isOtherPlayer = foreignPlayerId != myPlayerId;
+        if (isOtherPlayer) {
+            System.err.println("Ignoriere fremdes Ziel für Spieler " + foreignPlayerId);
         }
-        
-        return false;
+        return isOtherPlayer;
     }
 }

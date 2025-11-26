@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import de.fhms.eti.players.Domain_Klassen.Action;
+import de.fhms.eti.players.Domain_Klassen.Cell;
 import de.fhms.eti.players.Domain_Klassen.Position;
 
 public class Logger {
@@ -74,22 +76,22 @@ public class Logger {
         }
     }
 
-    public void logMovement(Position from, Position to, String action, String reason) {
+    public void logMovement(Position from, Position to, Action action, String reason) {
         log("BEWEGUNG: " + from + " -> " + to + " | Aktion: " + action + " | Grund: " + reason);
     }
 
-    public void logCellStatus(Position pos, String current, String north,
-                              String east, String south, String west) {
+    public void logCellStatus(Position pos, Cell current, Cell north,
+                              Cell east, Cell south, Cell west) {
         log("ZELLSTATUS bei " + pos + ":");
         log("Aktuell: " + current);
         log("Nord: " + north + " | Ost: " + east + " | Süd: " + south + " | West: " + west);
     }
 
-    public void logFormInfo(String cellStatus, boolean canTake, String reason) {
+    public void logFormInfo(Cell cellStatus, boolean canTake, String reason) {
         log("FORMULAR: " + cellStatus + " | Kann nehmen: " + canTake + " | Grund: " + reason);
     }
 
-    public void logLevelDetection(String finishCell, int detectedLevel) {
+    public void logLevelDetection(Cell finishCell, int detectedLevel) {
         log("LEVEL-ERKENNUNG: FINISH='" + finishCell + "' -> Level " + detectedLevel);
     }
 

@@ -1,7 +1,6 @@
 package de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.Navigator;
-import de.fhms.eti.players.Domain_Klassen.Position;
+import de.fhms.eti.players.Domain_Klassen.*;
 import de.fhms.eti.players.Kommunikations_Klassen.GameCommunication;
 import de.fhms.eti.players.Kommunikations_Klassen.TurnData;
 import de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
@@ -115,13 +114,13 @@ public class GameController {
             }
         
         // FINISH-Zelle Verarbeitung
-        if (turnData.currentCell.startsWith("FINISH")) {
+        if (turnData.currentCell instanceof FinishCell) {
             processFinishCell(turnData.currentCell);
         }
         
         // Prüfe ob finish möglich
         if (shouldFinish(turnData.currentCell)) {
-            comm.sendAction("finish");
+            comm.sendAction(new FinishAction());
             config.getLogger().log("[SUCCESS] FINISH gesendet - Mission erfüllt!");
             return false; // Spiel beenden
         }
@@ -130,7 +129,7 @@ public class GameController {
         manageStrategy(turnCount, currentPos);
         
         // Bewegungsentscheidung
-        String action = navigator.decideNextMove(
+        GoAction action = navigator.decideNextMove(
             turnData.northCell, turnData.eastCell, 
             turnData.southCell, turnData.westCell
         );
@@ -175,7 +174,7 @@ public class GameController {
      * Verarbeitet Formular-Aktionen
      */
     private boolean processFormActions(TurnData turnData, int turnCount) {
-    if (turnData.currentCell.startsWith("FORM")) {
+    if (turnData.currentCell instanceof FormCell) {
         boolean canTake = config.getFormManager().canTakeForm(turnData.currentCell);
         
         if (canTake) {
@@ -223,7 +222,7 @@ public class GameController {
     /**
      * Verarbeitet FINISH-Zelle
      */
-    private void processFinishCell(String finishCell) {
+    private void processFinishCell(Cell finishCell) {
         try {
             String[] parts = finishCell.split(" ");
             int finishPlayerId = Integer.parseInt(parts[1]);
@@ -253,14 +252,13 @@ public class GameController {
     /**
      * Prüft ob FINISH ausgeführt werden kann
      */
-    private boolean shouldFinish(String currentCell) {
-        if (!currentCell.startsWith("FINISH")) {
+    private boolean shouldFinish(Cell currentCell) {
+        if (!(currentCell instanceof FinishCell finishCell)) {
             return false;
         }
         
         try {
-            String[] parts = currentCell.split(" ");
-            int finishPlayerId = Integer.parseInt(parts[1]);
+            int finishPlayerId = finishCell.getPlayerId();
             
             if (finishPlayerId != config.getPlayerId()) {
                 return false;
@@ -344,12 +342,13 @@ public class GameController {
     /**
      * Fallback-Aktion wenn keine optimale Richtung gefunden
      */
-    private String getFallbackAction(TurnData turnData) {
-        if (!turnData.northCell.equals("WALL")) return "go north";
-        else if (!turnData.eastCell.equals("WALL")) return "go east";
-        else if (!turnData.southCell.equals("WALL")) return "go south";
-        else if (!turnData.westCell.equals("WALL")) return "go west";
-        else return "go north";
+    private GoAction getFallbackAction(TurnData turnData) {
+        // TODO: Verbesserung: switch-case
+        if (!(turnData.northCell instanceof WallCell)) return new GoAction(Direction.north);
+        else if (!(turnData.eastCell instanceof WallCell)) return new GoAction(Direction.east);
+        else if (!(turnData.southCell instanceof WallCell)) return new GoAction(Direction.south);
+        else if (!(turnData.westCell instanceof WallCell)) return new GoAction(Direction.west);
+        else return new GoAction(Direction.north);
     }
     
     /**

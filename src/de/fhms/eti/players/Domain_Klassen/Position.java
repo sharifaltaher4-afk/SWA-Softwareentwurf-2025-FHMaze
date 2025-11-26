@@ -39,15 +39,15 @@ public class Position {
      * @param direction Richtungen
      * @return Neue Position nch der Bewegung
      */
-    public Position move(String direction) {
-        switch(direction) {
+    public Position move(Direction direction) {
+        return switch (direction) {
             // Vorstellung als Koordinaten System...
-            case "north": return new Position(x, y - 1);
-            case "south": return new Position(x, y + 1);
-            case "east":  return new Position(x + 1, y);
-            case "west":  return new Position(x - 1, y);
-            default: return this; // Bei ungültige Richtung gibt die aktuelle Pos. züruck
-        }
+            case Direction.north -> new Position(x, y - 1);
+            case Direction.south -> new Position(x, y + 1);
+            case Direction.east -> new Position(x + 1, y);
+            case Direction.west -> new Position(x - 1, y);
+            default -> this; // Bei ungültige Richtung gibt die aktuelle Pos. züruck
+        };
     }
     
     /**
@@ -56,7 +56,7 @@ public class Position {
      * 
      * zwei Posi. sind nur dann gleich, wenn x und y identisch sind.
      * @param obj Objekt zum Vergleichen
-     * @param true wenn Positionen gleich sonst false.
+     * @return true wenn Positionen gleich sonst false.
      */
     @Override
     public boolean equals(Object obj) {

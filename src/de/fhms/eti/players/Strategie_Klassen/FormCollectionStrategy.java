@@ -5,9 +5,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.fhms.eti.players.Domain_Klassen.IFormManager;
-import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Domain_Klassen.Position;
+import de.fhms.eti.players.Domain_Klassen.*;
 
 /**
  * FormCollectionStrategy - SCHNELL & SMART
@@ -27,7 +25,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
 
     private int myPlayerId;
     private Position finishPosition;
-    private Deque<String> currentPlan;
+    private Deque<GoAction> currentPlan;
     private Position activeTarget;
 
     public FormCollectionStrategy(Maze maze, IFormManager formManager, IPathFinder pathFinder) {
@@ -49,31 +47,29 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell,
-                                 String southCell, String westCell) {
+    public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
+                                 Cell southCell, Cell westCell) {
         pathFinder.updateKnowledge(currentPos, northCell, eastCell, southCell, westCell);
-        scanAndSave(currentPos, "north", northCell);
-        scanAndSave(currentPos, "east", eastCell);
-        scanAndSave(currentPos, "south", southCell);
-        scanAndSave(currentPos, "west", westCell);
+        scanAndSave(currentPos, Direction.north, northCell);
+        scanAndSave(currentPos, Direction.east, eastCell);
+        scanAndSave(currentPos, Direction.south, southCell);
+        scanAndSave(currentPos, Direction.west, westCell);
 
         Position target = determineTarget();
         if (target != null) {
             refreshPlan(currentPos, target);
-            String planned = pollPlannedMove(northCell, eastCell, southCell, westCell);
-            if (planned != null) {
+            GoAction planned = pollPlannedMove(northCell, eastCell, southCell, westCell);
+            if (planned != null)
                 return planned;
-            }
         } else {
             currentPlan.clear();
             activeTarget = null;
-            String frontierMove = tryFrontierPlan(currentPos, northCell, eastCell, southCell, westCell);
-            if (frontierMove != null) {
+            GoAction frontierMove = tryFrontierPlan(currentPos, northCell, eastCell, southCell, westCell);
+            if (frontierMove != null)
                 return frontierMove;
-            }
         }
 
-        String exploration = explore(currentPos, northCell, eastCell, southCell, westCell);
+        GoAction exploration = explore(currentPos, northCell, eastCell, southCell, westCell);
         if (exploration != null) {
             return exploration;
         }
@@ -87,9 +83,9 @@ public class FormCollectionStrategy implements INavigationStrategy {
         }
     }
 
-    private String pollPlannedMove(String northCell, String eastCell, String southCell, String westCell) {
+    private GoAction pollPlannedMove(Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         while (currentPlan != null && !currentPlan.isEmpty()) {
-            String move = currentPlan.peekFirst();
+            GoAction move = currentPlan.peekFirst();
             if (isMoveCurrentlyPossible(move, northCell, eastCell, southCell, westCell)) {
                 currentPlan.pollFirst();
                 return move;
@@ -99,9 +95,9 @@ public class FormCollectionStrategy implements INavigationStrategy {
         return null;
     }
 
-    private String tryFrontierPlan(Position currentPos, String northCell, String eastCell,
-                                   String southCell, String westCell) {
-        Deque<String> frontierPlan = pathFinder.buildPathToFrontier(currentPos, myPlayerId);
+    private GoAction tryFrontierPlan(Position currentPos, Cell northCell, Cell eastCell,
+                                   Cell southCell, Cell westCell) {
+        Deque<GoAction> frontierPlan = pathFinder.buildPathToFrontier(currentPos, myPlayerId);
         if (frontierPlan == null || frontierPlan.isEmpty()) {
             return null;
         }
@@ -110,62 +106,44 @@ public class FormCollectionStrategy implements INavigationStrategy {
         return pollPlannedMove(northCell, eastCell, southCell, westCell);
     }
 
-    private boolean isMoveCurrentlyPossible(String move, String northCell, String eastCell,
-                                            String southCell, String westCell) {
-        if (move == null) {
-            return false;
-        }
-        String direction = move.replace("go ", "");
-        String cellStatus = getCellInDirection(direction, northCell, eastCell, southCell, westCell);
+    private boolean isMoveCurrentlyPossible(GoAction action, Cell northCell, Cell eastCell,
+                                            Cell southCell, Cell westCell) {
+        Cell cellStatus = getCellInDirection(action.getDirection(), northCell, eastCell, southCell, westCell);
         return canMove(cellStatus);
     }
 
     /**
      * Speichert sichtbare Formulare/Finish.
      */
-    private void scanAndSave(Position currentPos, String direction, String cellStatus) {
+    private void scanAndSave(Position currentPos, Direction direction, Cell cellStatus) {
         if (cellStatus == null) {
             return;
         }
 
         Position neighborPos = calculatePos(currentPos, direction);
 
-        if (cellStatus.startsWith("FINISH") && finishPosition == null) {
-            try {
-                String[] parts = cellStatus.split(" ");
-                if (parts.length >= 2) {
-                    int ownerId = Integer.parseInt(parts[1]);
-                    if (ownerId == myPlayerId) {
-                        finishPosition = neighborPos;
-                    }
-                }
-            } catch (NumberFormatException ignored) {
+        if (cellStatus instanceof FinishCell finishCell && finishPosition == null) {
+            int foreignPlayerId = finishCell.getPlayerId();
+            if (myPlayerId == foreignPlayerId) {
+                finishPosition = neighborPos;
             }
         }
 
-        if (cellStatus.startsWith("FORM")) {
-            try {
-                String[] parts = cellStatus.split(" ");
-                if (parts.length >= 3) {
-                    int ownerId = Integer.parseInt(parts[1]);
-                    int formId = Integer.parseInt(parts[2]);
-                    if (ownerId == myPlayerId && !formPositions.containsKey(formId)) {
-                        formPositions.put(formId, neighborPos);
-                    }
-                }
-            } catch (NumberFormatException ignored) {
+        if (cellStatus instanceof FormCell formCell) {
+            int formId =  formCell.getFormId();
+            if (formId == myPlayerId && !formPositions.containsKey(formCell.getFormId())) {
+                formPositions.put(formId, neighborPos);
             }
         }
     }
 
-    private Position calculatePos(Position pos, String dir) {
-        switch (dir) {
-            case "north": return new Position(pos.getX(), pos.getY() - 1);
-            case "east":  return new Position(pos.getX() + 1, pos.getY());
-            case "south": return new Position(pos.getX(), pos.getY() + 1);
-            case "west":  return new Position(pos.getX() - 1, pos.getY());
-            default: return pos;
-        }
+    private Position calculatePos(Position pos, Direction dir) {
+        return switch (dir) {
+            case Direction.north -> new Position(pos.getX(), pos.getY() - 1);
+            case Direction.east -> new Position(pos.getX() + 1, pos.getY());
+            case Direction.south -> new Position(pos.getX(), pos.getY() + 1);
+            case Direction.west -> new Position(pos.getX() - 1, pos.getY());
+        };
     }
 
     private Position determineTarget() {
@@ -181,11 +159,11 @@ public class FormCollectionStrategy implements INavigationStrategy {
         return null;
     }
 
-    private String explore(Position curr, String north, String east, String south, String west) {
-        String[] dirs = {"north", "east", "south", "west"};
-        String[] cells = {north, east, south, west};
+    private GoAction explore(Position curr, Cell north, Cell east, Cell south, Cell west) {
+        Direction[] dirs = {Direction.north, Direction.east, Direction.south, Direction.west};
+        Cell[] cells = {north, east, south, west};
 
-        String best = null;
+        Direction bestDirection = null;
         int minVisits = Integer.MAX_VALUE;
 
         for (int i = 0; i < 4; i++) {
@@ -194,32 +172,31 @@ public class FormCollectionStrategy implements INavigationStrategy {
                 int visits = maze.getVisitCount(next);
                 if (visits < minVisits) {
                     minVisits = visits;
-                    best = "go " + dirs[i];
+                    bestDirection = dirs[i];
                 }
             }
         }
 
-        return best;
+        return new GoAction(bestDirection);
     }
 
-    private boolean canMove(String cell) {
-        if (cell == null || "WALL".equals(cell)) {
+    private boolean canMove(Cell cell) {
+        if (cell instanceof WallCell) {
             return false;
         }
-        if (cell.startsWith("FORM")) {
+        if (cell instanceof FormCell) {
             return true;
         }
         return !INavigationStrategy.isOtherPlayersFinish(cell, myPlayerId);
     }
 
-    private String getCellInDirection(String direction, String north, String east, String south, String west) {
-        switch (direction) {
-            case "north": return north;
-            case "east": return east;
-            case "south": return south;
-            case "west": return west;
-            default: return null;
-        }
+    private Cell getCellInDirection(Direction direction, Cell north, Cell east, Cell south, Cell west) {
+        return switch (direction) {
+            case Direction.north -> north;
+            case Direction.east -> east;
+            case Direction.south -> south;
+            case Direction.west -> west;
+        };
     }
 
     public void setTargetPosition(Position position) {

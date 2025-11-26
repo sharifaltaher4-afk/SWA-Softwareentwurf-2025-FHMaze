@@ -3,10 +3,7 @@ package de.fhms.eti.players.Erzeugungsmuster_Klassen;
 import de.fhms.eti.players.Domain_Klassen.FormManager;
 import de.fhms.eti.players.Domain_Klassen.LevelDetector;
 import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Kommunikations_Klassen.GameCommunication;
-import de.fhms.eti.players.Kommunikations_Klassen.InitData;
-import de.fhms.eti.players.Kommunikations_Klassen.Logger;
-import de.fhms.eti.players.Kommunikations_Klassen.TurnData;
+import de.fhms.eti.players.Kommunikations_Klassen.*;
 
 /**
  * MyBot - Optimierte Version mit Erzeugungsmustern
@@ -30,7 +27,9 @@ import de.fhms.eti.players.Kommunikations_Klassen.TurnData;
 public class MyBot {
     
     public static void main(String[] args) {
-        GameCommunication comm = new GameCommunication();
+        ISerialize serializer = new TextSerializer();
+        IDeserialize deserializer = new TextDeserializer();
+        GameCommunication comm = new GameCommunication(serializer, deserializer);
         Logger logger = Logger.getInstance();
         
         try {

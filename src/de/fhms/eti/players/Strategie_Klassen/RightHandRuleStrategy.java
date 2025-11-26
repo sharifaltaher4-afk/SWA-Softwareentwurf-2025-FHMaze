@@ -1,6 +1,8 @@
 package de.fhms.eti.players.Strategie_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.Position;
+import de.fhms.eti.players.Domain_Klassen.*;
+
+import java.nio.file.DirectoryStream;
 
 /**
  * RightHandRuleStrategy folgt immer der rechten Wand
@@ -18,11 +20,11 @@ import de.fhms.eti.players.Domain_Klassen.Position;
  * Nachteil: Nicht der kürzeste Weg
  */
 public class RightHandRuleStrategy implements INavigationStrategy {
-    private String lastDirection;
+    private Direction lastDirection;
     private int myPlayerId;
 
     public RightHandRuleStrategy() {
-        this.lastDirection = "north"; // Standardrichtung beim Start
+        this.lastDirection = Direction.north; // Standardrichtung beim Start
         this.myPlayerId = -1;
     }
     
@@ -39,14 +41,14 @@ public class RightHandRuleStrategy implements INavigationStrategy {
      * @return Befehl für nächste Bewegung
      */
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell, 
-                                String southCell, String westCell) {
+    public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
+                                   Cell southCell, Cell westCell) {
         // Rechte-Hand-Regel implementieren
         // Hole die Richtungen in rechte Hand Priorität(abhängig von der letzten Richtung)
-        String[] directions = getDirectionsInRightHandOrder(lastDirection);
+        Direction[] directions = getDirectionsInRightHandOrder(lastDirection);
 
         // Hole die zugehörigen Zellstatus in der gleichen Reihenfolge
-        String[] cells = {getCellInDirection(directions[0], northCell, eastCell, southCell, westCell),
+        Cell[] cells = {getCellInDirection(directions[0], northCell, eastCell, southCell, westCell),
                          getCellInDirection(directions[1], northCell, eastCell, southCell, westCell),
                          getCellInDirection(directions[2], northCell, eastCell, southCell, westCell),
                          getCellInDirection(directions[3], northCell, eastCell, southCell, westCell)
@@ -56,16 +58,16 @@ public class RightHandRuleStrategy implements INavigationStrategy {
             if (INavigationStrategy.isOtherPlayersFinish(cells[i], myPlayerId)) {
                 continue;  // äberspringe fremde Ziele
             }
-            if (!cells[i].equals("WALL")) {
+            if (!(cells[i] instanceof WallCell)) {
                 lastDirection = directions[i]; // Merke diese Richtung
-                return "go " + directions[i];
+                return new GoAction(directions[i]);
             }
         }
         // Fallback
         for (int i = 0; i < 4; i++) {
-            if (!cells[i].equals("WALL")) {
+            if (!(cells[i] instanceof WallCell)) {
                 lastDirection = directions[i];
-                return "go " + directions[i];
+                return new GoAction(directions[i]);
             }
         }
         // Sollte eigentlich nie passieren weil immer mindestens eine freie Richtung 
@@ -83,19 +85,17 @@ public class RightHandRuleStrategy implements INavigationStrategy {
      * @param currentDirection Aktuelle/letzte Richtung
      * @return Array mit 4 Richtungen in Prioritätsreihenfolge
      */
-    private String[] getDirectionsInRightHandOrder(String currentDirection) {
-        switch(currentDirection) {
-            // Ging schon nach Norden ==> Rechts ist Osten 
-            case "north": return new String[]{"east", "north", "west", "south"};
+    private Direction[] getDirectionsInRightHandOrder(Direction currentDirection) {
+        return switch (currentDirection) {
+            // Ging schon nach Norden ==> Rechts ist Osten
+            case Direction.north -> new Direction[]{Direction.east, Direction.north, Direction.west, Direction.south};
             // Ging schoni nach Osten ==> Rechts ist Süden
-            case "east":  return new String[]{"south", "east", "north", "west"};
+            case Direction.east -> new Direction[]{Direction.south, Direction.east, Direction.north, Direction.west};
             // Ging schon nach Süden ==> Rechts ist Westen
-            case "south": return new String[]{"west", "south", "east", "north"};
+            case Direction.south -> new Direction[]{Direction.west, Direction.south, Direction.east, Direction.north};
             // Ging nach Westen ==> Rechts ist Norden
-            case "west":  return new String[]{"north", "west", "south", "east"};
-            // Fallback: Normale Reihenfolge
-            default: return new String[]{"north", "east", "south", "west"};
-        }
+            case Direction.west -> new Direction[]{Direction.north, Direction.west, Direction.south, Direction.east};
+        };
     }
     
     /**
@@ -110,14 +110,13 @@ public class RightHandRuleStrategy implements INavigationStrategy {
      * @param west Status West
      * @return Zellstatus in der gewünschten Richtung
      */
-    private String getCellInDirection(String direction, String north, String east, String south, String west) {
-        switch(direction) {
-            case "north": return north;
-            case "east": return east;
-            case "south": return south;
-            case "west": return west;
-            default: return "WALL";
-        }
+    private Cell getCellInDirection(Direction direction, Cell north, Cell east, Cell south, Cell west) {
+        return switch (direction) {
+            case Direction.north -> north;
+            case Direction.east -> east;
+            case Direction.south -> south;
+            case Direction.west -> west;
+        };
     }
 
     @Override

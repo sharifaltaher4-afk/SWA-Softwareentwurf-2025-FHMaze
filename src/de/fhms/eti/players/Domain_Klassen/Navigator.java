@@ -39,7 +39,7 @@ public class Navigator {
      * @param westCell Status westliche Zelle
      * @return Bewegungsbefehl, z.B. "go north"
      */
-    public String decideNextMove(String northCell, String eastCell, String southCell, String westCell) {
+    public GoAction decideNextMove(Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         // Frage die Strategie nach der Entscheidung
         return strategy.decideNextMove(currentPosition, northCell, eastCell, southCell, westCell);
     }
@@ -51,9 +51,8 @@ public class Navigator {
      * - Berechnet neue Position
      * - Markiert neue Position als besucht
      */
-    public void updatePosition(String action) {
-        String direction = action.replace("go ", "");
-        currentPosition = currentPosition.move(direction);
+    public void updatePosition(GoAction action) {
+        currentPosition = currentPosition.move(action.getDirection());
         maze.markVisited(currentPosition);
     }
     

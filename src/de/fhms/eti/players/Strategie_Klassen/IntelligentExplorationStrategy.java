@@ -2,8 +2,7 @@ package de.fhms.eti.players.Strategie_Klassen;
 
 import java.util.*;
 
-import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Domain_Klassen.Position;
+import de.fhms.eti.players.Domain_Klassen.*;
 
 /**
  * IntelligentExplorationStrategy - A* Pathfinding mit Sackgassen-Vermeidung
@@ -36,14 +35,14 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
     }
     
     @Override
-    public String decideNextMove(Position currentPos, String northCell, String eastCell,
-                                String southCell, String westCell) {
+    public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
+                                Cell southCell, Cell westCell) {
         
-        String[] directions = {"north", "east", "south", "west"};
-        String[] cells = {northCell, eastCell, southCell, westCell};
+        Direction[] directions = {Direction.north, Direction.east, Direction.south, Direction.west};
+        Cell[] cells = {northCell, eastCell, southCell, westCell};
         
         //  PHASE 1: Gibt es einen DIREKTEN unbesuchten Nachbarn?
-        String directUnvisited = findDirectUnvisitedNeighbor(currentPos, directions, cells);
+        GoAction directUnvisited = findDirectUnvisitedNeighbor(currentPos, directions, cells);
         if (directUnvisited != null) {
             System.err.println("🆕 Direkter unbesuchter Nachbar: " + directUnvisited);
             return directUnvisited;
@@ -68,7 +67,7 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
         
         //  PHASE 4: Navigiere zum Ziel
         if (currentTarget != null) {
-            String move = navigateTowards(currentPos, currentTarget, directions, cells);
+            GoAction move = navigateTowards(currentPos, currentTarget, directions, cells);
             if (move != null) {
                 return move;
             }
@@ -81,12 +80,12 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
     /**
      * Findet einen direkt angrenzenden unbesuchten Nachbarn
      */
-    private String findDirectUnvisitedNeighbor(Position currentPos, String[] directions, String[] cells) {
+    private GoAction findDirectUnvisitedNeighbor(Position currentPos, Direction[] directions, Cell[] cells) {
         for (int i = 0; i < 4; i++) {
             if (isCellAccessible(cells[i])) {
                 Position nextPos = currentPos.move(directions[i]);
                 if (maze.getVisitCount(nextPos) == 0 && !deadEnds.contains(nextPos)) {
-                    return "go " + directions[i];
+                    return new GoAction(directions[i]);
                 }
             }
         }
@@ -97,7 +96,7 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
      * Prüft ob aktuelle Position eine Sackgasse ist
      * Definition: Nur 1 freier Ausgang UND alle Nachbarn wurden besucht
      */
-    private boolean isDeadEnd(Position currentPos, String[] directions, String[] cells) {
+    private boolean isDeadEnd(Position currentPos, Direction[] directions, Cell[] cells) {
         int freeExits = 0;
         int visitedNeighbors = 0;
         
@@ -118,7 +117,7 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
     /**
      * Findet die nächste unbesuchte Position im Labyrinth (BFS)
      */
-    private Position findNearestUnvisitedPosition(Position start, String[] directions, String[] cells) {
+    private Position findNearestUnvisitedPosition(Position start, Direction[] directions, Cell[] cells) {
         Queue<Position> queue = new LinkedList<>();
         Set<Position> visited = new HashSet<>();
         
@@ -137,7 +136,7 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
                 Position current = queue.poll();
                 
                 // Prüfe alle 4 Richtungen
-                for (String dir : directions) {
+                for (Direction dir : directions) {
                     Position next = current.move(dir);
                     
                     if (visited.contains(next) || deadEnds.contains(next)) {
@@ -165,8 +164,8 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
     /**
      * Navigiert in Richtung des Ziels (Greedy Best-First)
      */
-    private String navigateTowards(Position current, Position target, String[] directions, String[] cells) {
-        String bestMove = null;
+    private GoAction navigateTowards(Position current, Position target, Direction[] directions, Cell[] cells) {
+        Direction bestMove = null;
         int bestDistance = Integer.MAX_VALUE;
         
         for (int i = 0; i < 4; i++) {
@@ -183,19 +182,19 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
                 // Wähle Richtung die uns näher zum Ziel bringt
                 if (distance < bestDistance) {
                     bestDistance = distance;
-                    bestMove = "go " + directions[i];
+                    bestMove = directions[i];
                 }
             }
         }
         
-        return bestMove;
+        return new GoAction(bestMove);
     }
     
     /**
      * Fallback: Wähle am wenigsten besuchte Richtung
      */
-    private String findLeastVisitedMove(Position currentPos, String[] directions, String[] cells) {
-        String bestMove = null;
+    private GoAction findLeastVisitedMove(Position currentPos, Direction[] directions, Cell[] cells) {
+        Direction bestMove = null;
         int minVisits = Integer.MAX_VALUE;
         
         for (int i = 0; i < 4; i++) {
@@ -209,7 +208,7 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
                 int visits = maze.getVisitCount(nextPos);
                 if (visits < minVisits) {
                     minVisits = visits;
-                    bestMove = "go " + directions[i];
+                    bestMove = directions[i];
                 }
             }
         }
@@ -219,19 +218,19 @@ public class IntelligentExplorationStrategy implements INavigationStrategy {
             for (int i = 0; i < 4; i++) {
                 if (isCellAccessible(cells[i])) {
                     System.err.println("  Keine bessere Option - nutze Sackgasse");
-                    return "go " + directions[i];
+                    return new GoAction(directions[i]);
                 }
             }
         }
         
-        return bestMove != null ? bestMove : "go north";
+        return new GoAction(bestMove != null ? bestMove : Direction.north);
     }
     
     /**
      * Prüft ob eine Zelle zugänglich ist
      */
-    private boolean isCellAccessible(String cell) {
-        return !cell.equals("WALL") && 
+    private boolean isCellAccessible(Cell cell) {
+        return cell.isAccessable() &&
                !INavigationStrategy.isOtherPlayersFinish(cell, myPlayerId);
     }
     

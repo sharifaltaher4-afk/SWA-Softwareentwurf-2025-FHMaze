@@ -8,7 +8,7 @@ public interface ILevelDetector {
      * @param finishCell Der FINISH-Zellstatus String
      * @return Erkanntes Level (1 oder 2)
      */
-    int detectLevel(String finishCell);
+    int detectLevel(Cell finishCell);
 
     /**
      * Gibt zurück ob aktuell Level 1 gespielt wird

@@ -114,8 +114,8 @@ public class GameController {
             }
         
         // FINISH-Zelle Verarbeitung
-        if (turnData.currentCell instanceof FinishCell) {
-            processFinishCell(turnData.currentCell);
+        if (turnData.currentCell instanceof FinishCell finishCell) {
+            processFinishCell(finishCell);
         }
         
         // Prüfe ob finish möglich
@@ -174,14 +174,14 @@ public class GameController {
      * Verarbeitet Formular-Aktionen
      */
     private boolean processFormActions(TurnData turnData, int turnCount) {
-    if (turnData.currentCell instanceof FormCell) {
-        boolean canTake = config.getFormManager().canTakeForm(turnData.currentCell);
+    if (turnData.currentCell instanceof FormCell formCell) {
+        boolean canTake = config.getFormManager().canTakeForm(formCell);
         
         if (canTake) {
             config.getLogger().logFormInfo(turnData.currentCell, true, "Kann genommen werden");
-            boolean success = config.getFormManager().takeForm(turnData.currentCell);
+            boolean success = config.getFormManager().takeForm(formCell);
             if (success) {
-                comm.sendAction("take");
+                comm.sendAction(new TakeAction());
                 config.getLogger().log("[INFO] Formular genommen: take");
                 config.getLogger().logCollectedForms(
                     config.getFormManager().getCollectedForms(), 
@@ -190,7 +190,7 @@ public class GameController {
                 return true;  // ← Formular genommen, KEINE Bewegung mehr!
             }
         } else {
-            logFormRejectionReason(turnData.currentCell);
+            logFormRejectionReason(formCell);
         }
     }
     return false;  // WICHTIG! Kein Formular genommen, Bewegung erlauben
@@ -199,42 +199,32 @@ public class GameController {
     /**
      * Loggt warum Formular nicht genommen werden kann
      */
-    private void logFormRejectionReason(String cellStatus) {
-        try {
-            String[] parts = cellStatus.split(" ");
-            if (parts.length >= 3) {
-                int formPlayerId = Integer.parseInt(parts[1]);
-                int formId = Integer.parseInt(parts[2]);
-                int expectedId = config.getFormManager().getNextFormId();
-                
-                if (formPlayerId != config.getPlayerId()) {
-                    config.getLogger().logFormInfo(cellStatus, false, "Falscher Spieler");
-                } else if (formId != expectedId) {
-                    config.getLogger().logFormInfo(cellStatus, false, 
-                        "Falsche Reihenfolge: Erwartet " + expectedId + ", Gefunden " + formId);
-                }
-            }
-        } catch (NumberFormatException e) {
-            config.getLogger().logFormInfo(cellStatus, false, "Ungültiges Format");
+    private void logFormRejectionReason(FormCell cellStatus) {
+        int formPlayerId = cellStatus.getPlayerId();
+        int formId = cellStatus.getFormId();
+        int expectedId = config.getFormManager().getNextFormId();
+
+        if (formPlayerId != config.getPlayerId()) {
+            config.getLogger().logFormInfo(cellStatus, false, "Falscher Spieler");
+        } else if (formId != expectedId) {
+            config.getLogger().logFormInfo(cellStatus, false,
+                "Falsche Reihenfolge: Erwartet " + expectedId + ", Gefunden " + formId);
         }
     }
     
     /**
      * Verarbeitet FINISH-Zelle
      */
-    private void processFinishCell(Cell finishCell) {
-        try {
-            String[] parts = finishCell.split(" ");
-            int finishPlayerId = Integer.parseInt(parts[1]);
+    private void processFinishCell(FinishCell finishCell) {
+            int finishPlayerId = finishCell.getPlayerId();
             
             if (finishPlayerId == config.getPlayerId()) {
-                if (config.getLevelDetector().isLevel2() && parts.length >= 3) {
-                    int formCount = Integer.parseInt(parts[2]);
+                if (config.getLevelDetector().isLevel2()) {
+                    int formCount = finishCell.getFormCount();
                     config.getFormManager().setTotalFormsNeeded(formCount);
                     config.getLogger().log("[INFO] Eigenes Ziel! Benötigte Formulare: " + formCount);
                     
-                    if (navigator.getStrategy() instanceof FormCollectionStrategy) {
-                        FormCollectionStrategy formStrategy = (FormCollectionStrategy) navigator.getStrategy();
+                    if (navigator.getStrategy() instanceof FormCollectionStrategy formStrategy) {
                         formStrategy.setTargetPosition(navigator.getCurrentPosition());
                         config.getLogger().log("[POS] Ziel-Position gemerkt: " + navigator.getCurrentPosition());
                     }
@@ -244,9 +234,6 @@ public class GameController {
             } else {
                 config.getLogger().log("[BLOCKED] Fremdes Ziel von Spieler " + finishPlayerId);
             }
-        } catch (NumberFormatException e) {
-            config.getLogger().log("  Fehler beim Parsen: " + finishCell);
-        }
     }
     
     /**

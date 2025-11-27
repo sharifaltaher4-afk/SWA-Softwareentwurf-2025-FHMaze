@@ -15,7 +15,7 @@ public interface IFormManager {
      * @param cellStatus Der Zellstatus-String
      * @return true wenn Formular aufgenommen werden kann
      */
-    boolean canTakeForm(String cellStatus);
+    boolean canTakeForm(FormCell cellStatus);
     
     /**
      * Nimmt ein Formular auf
@@ -23,7 +23,7 @@ public interface IFormManager {
      * @param cellStatus Der Zellstatus-String mit FORM-Information  
      * @return true wenn Formular erfolgreich aufgenommen wurde
      */
-    boolean takeForm(String cellStatus);
+    boolean takeForm(FormCell cellStatus);
     
     /**
      * Prüft ob alle benötigten Formulare gesammelt wurden

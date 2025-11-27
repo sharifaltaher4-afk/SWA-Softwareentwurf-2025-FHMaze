@@ -49,15 +49,8 @@ public class FormManager implements IFormManager {
      * @return true wenn Formular aufgenommen werden kann sonst false
      */
     @Override
-    public boolean canTakeForm(Cell cellStatus) {
-        if (!(cellStatus instanceof FormCell)) {
-            return false;  // Kein FORM-String
-        }
-        
-        FormInfo formInfo = parseFormCell(cellStatus);
-        if (formInfo == null) {
-            return false;  // Parsing fehlgeschlagen
-        }
+    public boolean canTakeForm(FormCell cellStatus) {
+        FormInfo formInfo = parseFormCell(cellStatus); // TODO: redundant
         
         // PRÜFUNG 1: Gehört das Formular diesem Spieler?
         if (!formInfo.isValidForPlayer(myPlayerId)) {
@@ -82,7 +75,7 @@ public class FormManager implements IFormManager {
      * @return true wenn Formular erfolgreich aufgenommen wurde, sonst false
      */
     @Override
-    public boolean takeForm(String cellStatus) {
+    public boolean takeForm(FormCell cellStatus) {
         if (!canTakeForm(cellStatus)) {
             return false;  // Formular kann nicht aufgenommen werden
         }
@@ -164,17 +157,7 @@ public class FormManager implements IFormManager {
      * @return FormInfo-Objekt oder null bei Fehler
      */
     private FormInfo parseFormCell(FormCell cellStatus) {
-        try {
-            String[] parts = cellStatus.split(" ");
-            if (parts.length >= 3) {
-                int playerId = Integer.parseInt(parts[1]);
-                int formId = Integer.parseInt(parts[2]);
-                return new FormInfo(playerId, formId);
-            }
-        } catch (NumberFormatException e) {
-            System.err.println("Fehler beim Parsen des FORM-Strings: " + cellStatus);
-        }
-        return null;
+        return new FormInfo(cellStatus.getPlayerId(), cellStatus.getFormId()); // TODO: redundant
     }
     
     /**

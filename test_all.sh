@@ -1,4 +1,4 @@
-cd ~/fhmaze_pg2_2_prak_2025
+#!/usr/bin/env bash
 
 echo "=== VOLLSTÄNDIGER TEST ALLER LABYRINTHE ==="
 for i in 01 02 03 04 05 06 07 08 09 10; do

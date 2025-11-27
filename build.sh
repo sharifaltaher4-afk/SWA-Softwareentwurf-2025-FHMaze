@@ -1,5 +1,6 @@
 #!/bin/bash
-cd /home/shaif/fhmaze_pg2_2_prak_2025/
+
+set -xe
 
 echo "Kompiliere alle Java-Dateien..."
 javac src/de/fhms/eti/players/*/*.java

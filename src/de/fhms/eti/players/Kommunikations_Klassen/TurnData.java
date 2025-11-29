@@ -9,6 +9,9 @@ import de.fhms.eti.players.Domain_Klassen.Cell;
  * - Ergebnis der letzten Aktion
  * - Status der aktuellen Zelle
  * - Status der umgebenden Zellen (Nord, Ost, Süd, West)
+ * LEVEL 3 ERWEITERUNG:
+ * - Speichert zusaetzlich RAW-Strings fuer Gegner-Erkennung
+ * - Raw-Strings enthalten Gegner-Marker ("!")
  * 
  * Wird in jeder Runde neu erstellt.
  */
@@ -19,9 +22,9 @@ public class TurnData {
     public final Cell eastCell;
     public final Cell southCell;
     public final Cell westCell;
+
     
-    public TurnData(String lastActionResult, Cell currentCell,
-                   Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
+    public TurnData(String lastActionResult, Cell currentCell, Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         this.lastActionResult = lastActionResult;
         this.currentCell = currentCell;
         this.northCell = northCell;

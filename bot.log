@@ -1,1855 +1,331 @@
-[2025-11-16 23:58:05.531] BOT GESTARTET - Labyrinth: Unknown, Spieler: 4, Level: 2
-[2025-11-16 23:58:05.538]   Bot-Konfiguration erstellt mit Builder Pattern
-[2025-11-16 23:58:05.543] Bot initialisiert - ID: 4, Startposition: (10,7)
-[2025-11-16 23:58:05.545] GameController initialisiert
-[2025-11-16 23:58:05.545] GameController (Singleton) initialisiert
-[2025-11-16 23:58:05.546] === RUNDE 1 ===
-[2025-11-16 23:58:05.547] ZELLSTATUS bei (10,7):
-[2025-11-16 23:58:05.548] Aktuell: FLOOR
-[2025-11-16 23:58:05.550] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.552] BEWEGUNG: (10,7) -> (10,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.555] Bot 4 | Level: 2 | Formulare: [] | Position: (10,6) | Strategie: FormCollectionStrategy | Runde: 1
-[2025-11-16 23:58:05.573] === RUNDE 2 ===
-[2025-11-16 23:58:05.573] ZELLSTATUS bei (10,6):
-[2025-11-16 23:58:05.573] Aktuell: FLOOR
-[2025-11-16 23:58:05.573] Nord: FLOOR | Ost: FORM 1 3 | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.573] BEWEGUNG: (10,6) -> (10,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.573] Bot 4 | Level: 2 | Formulare: [] | Position: (10,5) | Strategie: FormCollectionStrategy | Runde: 2
-[2025-11-16 23:58:05.593] === RUNDE 3 ===
-[2025-11-16 23:58:05.593] ZELLSTATUS bei (10,5):
-[2025-11-16 23:58:05.593] Aktuell: FLOOR
-[2025-11-16 23:58:05.593] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.593] BEWEGUNG: (10,5) -> (10,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.593] Bot 4 | Level: 2 | Formulare: [] | Position: (10,4) | Strategie: FormCollectionStrategy | Runde: 3
-[2025-11-16 23:58:05.611] === RUNDE 4 ===
-[2025-11-16 23:58:05.611] ZELLSTATUS bei (10,4):
-[2025-11-16 23:58:05.612] Aktuell: FLOOR
-[2025-11-16 23:58:05.612] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.612] BEWEGUNG: (10,4) -> (11,4) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.612] Bot 4 | Level: 2 | Formulare: [] | Position: (11,4) | Strategie: FormCollectionStrategy | Runde: 4
-[2025-11-16 23:58:05.629] === RUNDE 5 ===
-[2025-11-16 23:58:05.629] ZELLSTATUS bei (11,4):
-[2025-11-16 23:58:05.629] Aktuell: FLOOR
-[2025-11-16 23:58:05.629] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.630] BEWEGUNG: (11,4) -> (12,4) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.630] Bot 4 | Level: 2 | Formulare: [] | Position: (12,4) | Strategie: FormCollectionStrategy | Runde: 5
-[2025-11-16 23:58:05.654] === RUNDE 6 ===
-[2025-11-16 23:58:05.654] ZELLSTATUS bei (12,4):
-[2025-11-16 23:58:05.654] Aktuell: FLOOR
-[2025-11-16 23:58:05.654] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.655] BEWEGUNG: (12,4) -> (13,4) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.655] Bot 4 | Level: 2 | Formulare: [] | Position: (13,4) | Strategie: FormCollectionStrategy | Runde: 6
-[2025-11-16 23:58:05.671] === RUNDE 7 ===
-[2025-11-16 23:58:05.671] ZELLSTATUS bei (13,4):
-[2025-11-16 23:58:05.671] Aktuell: FLOOR
-[2025-11-16 23:58:05.671] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.671] BEWEGUNG: (13,4) -> (13,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.671] Bot 4 | Level: 2 | Formulare: [] | Position: (13,3) | Strategie: FormCollectionStrategy | Runde: 7
-[2025-11-16 23:58:05.689] === RUNDE 8 ===
-[2025-11-16 23:58:05.689] ZELLSTATUS bei (13,3):
-[2025-11-16 23:58:05.689] Aktuell: FLOOR
-[2025-11-16 23:58:05.689] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.689] BEWEGUNG: (13,3) -> (13,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.689] Bot 4 | Level: 2 | Formulare: [] | Position: (13,2) | Strategie: FormCollectionStrategy | Runde: 8
-[2025-11-16 23:58:05.712] === RUNDE 9 ===
-[2025-11-16 23:58:05.712] ZELLSTATUS bei (13,2):
-[2025-11-16 23:58:05.712] Aktuell: FLOOR
-[2025-11-16 23:58:05.712] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.712] BEWEGUNG: (13,2) -> (13,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.712] Bot 4 | Level: 2 | Formulare: [] | Position: (13,1) | Strategie: FormCollectionStrategy | Runde: 9
-[2025-11-16 23:58:05.731] === RUNDE 10 ===
-[2025-11-16 23:58:05.731] ZELLSTATUS bei (13,1):
-[2025-11-16 23:58:05.731] Aktuell: FLOOR
-[2025-11-16 23:58:05.731] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.731] BEWEGUNG: (13,1) -> (14,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.731] Bot 4 | Level: 2 | Formulare: [] | Position: (14,1) | Strategie: FormCollectionStrategy | Runde: 10
-[2025-11-16 23:58:05.748] === RUNDE 11 ===
-[2025-11-16 23:58:05.748] ZELLSTATUS bei (14,1):
-[2025-11-16 23:58:05.748] Aktuell: FLOOR
-[2025-11-16 23:58:05.748] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.748] BEWEGUNG: (14,1) -> (15,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.749] Bot 4 | Level: 2 | Formulare: [] | Position: (15,1) | Strategie: FormCollectionStrategy | Runde: 11
-[2025-11-16 23:58:05.765] === RUNDE 12 ===
-[2025-11-16 23:58:05.765] ZELLSTATUS bei (15,1):
-[2025-11-16 23:58:05.765] Aktuell: FLOOR
-[2025-11-16 23:58:05.765] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.765] BEWEGUNG: (15,1) -> (16,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.765] Bot 4 | Level: 2 | Formulare: [] | Position: (16,1) | Strategie: FormCollectionStrategy | Runde: 12
-[2025-11-16 23:58:05.785] === RUNDE 13 ===
-[2025-11-16 23:58:05.785] ZELLSTATUS bei (16,1):
-[2025-11-16 23:58:05.785] Aktuell: FLOOR
-[2025-11-16 23:58:05.785] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.785] BEWEGUNG: (16,1) -> (17,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.785] Bot 4 | Level: 2 | Formulare: [] | Position: (17,1) | Strategie: FormCollectionStrategy | Runde: 13
-[2025-11-16 23:58:05.802] === RUNDE 14 ===
-[2025-11-16 23:58:05.802] ZELLSTATUS bei (17,1):
-[2025-11-16 23:58:05.802] Aktuell: FLOOR
-[2025-11-16 23:58:05.802] Nord: WALL | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.802] BEWEGUNG: (17,1) -> (17,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:05.802] Bot 4 | Level: 2 | Formulare: [] | Position: (17,2) | Strategie: FormCollectionStrategy | Runde: 14
-[2025-11-16 23:58:05.819] === RUNDE 15 ===
-[2025-11-16 23:58:05.819] ZELLSTATUS bei (17,2):
-[2025-11-16 23:58:05.819] Aktuell: FLOOR
-[2025-11-16 23:58:05.819] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.819] BEWEGUNG: (17,2) -> (17,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:05.819] Bot 4 | Level: 2 | Formulare: [] | Position: (17,3) | Strategie: FormCollectionStrategy | Runde: 15
-[2025-11-16 23:58:05.836] === RUNDE 16 ===
-[2025-11-16 23:58:05.836] ZELLSTATUS bei (17,3):
-[2025-11-16 23:58:05.836] Aktuell: FLOOR
-[2025-11-16 23:58:05.836] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.837] BEWEGUNG: (17,3) -> (17,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:05.837] Bot 4 | Level: 2 | Formulare: [] | Position: (17,4) | Strategie: FormCollectionStrategy | Runde: 16
-[2025-11-16 23:58:05.854] === RUNDE 17 ===
-[2025-11-16 23:58:05.854] ZELLSTATUS bei (17,4):
-[2025-11-16 23:58:05.854] Aktuell: FLOOR
-[2025-11-16 23:58:05.854] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.855] BEWEGUNG: (17,4) -> (17,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:05.855] Bot 4 | Level: 2 | Formulare: [] | Position: (17,5) | Strategie: FormCollectionStrategy | Runde: 17
-[2025-11-16 23:58:05.873] === RUNDE 18 ===
-[2025-11-16 23:58:05.873] ZELLSTATUS bei (17,5):
-[2025-11-16 23:58:05.873] Aktuell: FLOOR
-[2025-11-16 23:58:05.873] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.873] BEWEGUNG: (17,5) -> (17,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:05.873] Bot 4 | Level: 2 | Formulare: [] | Position: (17,6) | Strategie: FormCollectionStrategy | Runde: 18
-[2025-11-16 23:58:05.890] === RUNDE 19 ===
-[2025-11-16 23:58:05.890] ZELLSTATUS bei (17,6):
-[2025-11-16 23:58:05.890] Aktuell: FLOOR
-[2025-11-16 23:58:05.890] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.891] BEWEGUNG: (17,6) -> (18,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.891] Bot 4 | Level: 2 | Formulare: [] | Position: (18,6) | Strategie: FormCollectionStrategy | Runde: 19
-[2025-11-16 23:58:05.908] === RUNDE 20 ===
-[2025-11-16 23:58:05.908] ZELLSTATUS bei (18,6):
-[2025-11-16 23:58:05.908] Aktuell: FLOOR
-[2025-11-16 23:58:05.908] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.908] BEWEGUNG: (18,6) -> (19,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:05.908] Bot 4 | Level: 2 | Formulare: [] | Position: (19,6) | Strategie: FormCollectionStrategy | Runde: 20
-[2025-11-16 23:58:05.924] === RUNDE 21 ===
-[2025-11-16 23:58:05.924] ZELLSTATUS bei (19,6):
-[2025-11-16 23:58:05.924] Aktuell: FLOOR
-[2025-11-16 23:58:05.924] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:05.924] BEWEGUNG: (19,6) -> (19,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.924] Bot 4 | Level: 2 | Formulare: [] | Position: (19,5) | Strategie: FormCollectionStrategy | Runde: 21
-[2025-11-16 23:58:05.944] === RUNDE 22 ===
-[2025-11-16 23:58:05.944] ZELLSTATUS bei (19,5):
-[2025-11-16 23:58:05.944] Aktuell: FLOOR
-[2025-11-16 23:58:05.944] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.945] BEWEGUNG: (19,5) -> (19,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.945] Bot 4 | Level: 2 | Formulare: [] | Position: (19,4) | Strategie: FormCollectionStrategy | Runde: 22
-[2025-11-16 23:58:05.960] === RUNDE 23 ===
-[2025-11-16 23:58:05.960] ZELLSTATUS bei (19,4):
-[2025-11-16 23:58:05.960] Aktuell: FLOOR
-[2025-11-16 23:58:05.960] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.960] BEWEGUNG: (19,4) -> (19,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.960] Bot 4 | Level: 2 | Formulare: [] | Position: (19,3) | Strategie: FormCollectionStrategy | Runde: 23
-[2025-11-16 23:58:05.982] === RUNDE 24 ===
-[2025-11-16 23:58:05.982] ZELLSTATUS bei (19,3):
-[2025-11-16 23:58:05.982] Aktuell: FLOOR
-[2025-11-16 23:58:05.982] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.983] BEWEGUNG: (19,3) -> (19,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.983] Bot 4 | Level: 2 | Formulare: [] | Position: (19,2) | Strategie: FormCollectionStrategy | Runde: 24
-[2025-11-16 23:58:05.997] === RUNDE 25 ===
-[2025-11-16 23:58:05.997] ZELLSTATUS bei (19,2):
-[2025-11-16 23:58:05.997] Aktuell: FLOOR
-[2025-11-16 23:58:05.997] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:05.997] BEWEGUNG: (19,2) -> (19,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:05.997] Bot 4 | Level: 2 | Formulare: [] | Position: (19,1) | Strategie: FormCollectionStrategy | Runde: 25
-[2025-11-16 23:58:06.015] === RUNDE 26 ===
-[2025-11-16 23:58:06.015] ZELLSTATUS bei (19,1):
-[2025-11-16 23:58:06.015] Aktuell: FLOOR
-[2025-11-16 23:58:06.015] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: WALL
-[2025-11-16 23:58:06.015] BEWEGUNG: (19,1) -> (20,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.015] Bot 4 | Level: 2 | Formulare: [] | Position: (20,1) | Strategie: FormCollectionStrategy | Runde: 26
-[2025-11-16 23:58:06.032] === RUNDE 27 ===
-[2025-11-16 23:58:06.032] ZELLSTATUS bei (20,1):
-[2025-11-16 23:58:06.032] Aktuell: FLOOR
-[2025-11-16 23:58:06.032] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.032] BEWEGUNG: (20,1) -> (21,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.032] Bot 4 | Level: 2 | Formulare: [] | Position: (21,1) | Strategie: FormCollectionStrategy | Runde: 27
-[2025-11-16 23:58:06.049] === RUNDE 28 ===
-[2025-11-16 23:58:06.049] ZELLSTATUS bei (21,1):
-[2025-11-16 23:58:06.049] Aktuell: FLOOR
-[2025-11-16 23:58:06.049] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.049] BEWEGUNG: (21,1) -> (22,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.049] Bot 4 | Level: 2 | Formulare: [] | Position: (22,1) | Strategie: FormCollectionStrategy | Runde: 28
-[2025-11-16 23:58:06.068] === RUNDE 29 ===
-[2025-11-16 23:58:06.068] ZELLSTATUS bei (22,1):
-[2025-11-16 23:58:06.068] Aktuell: FLOOR
-[2025-11-16 23:58:06.068] Nord: WALL | Ost: FLOOR | Süd: FORM 2 1 | West: FLOOR
-[2025-11-16 23:58:06.068] BEWEGUNG: (22,1) -> (23,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.068] Bot 4 | Level: 2 | Formulare: [] | Position: (23,1) | Strategie: FormCollectionStrategy | Runde: 29
-[2025-11-16 23:58:06.085] === RUNDE 30 ===
-[2025-11-16 23:58:06.085] ZELLSTATUS bei (23,1):
-[2025-11-16 23:58:06.085] Aktuell: FLOOR
-[2025-11-16 23:58:06.085] Nord: WALL | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.086] BEWEGUNG: (23,1) -> (23,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.086] Bot 4 | Level: 2 | Formulare: [] | Position: (23,2) | Strategie: FormCollectionStrategy | Runde: 30
-[2025-11-16 23:58:06.104] === RUNDE 31 ===
-[2025-11-16 23:58:06.104] ZELLSTATUS bei (23,2):
-[2025-11-16 23:58:06.104] Aktuell: FLOOR
-[2025-11-16 23:58:06.104] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FORM 2 1
-[2025-11-16 23:58:06.104] BEWEGUNG: (23,2) -> (23,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.104] Bot 4 | Level: 2 | Formulare: [] | Position: (23,3) | Strategie: FormCollectionStrategy | Runde: 31
-[2025-11-16 23:58:06.124] === RUNDE 32 ===
-[2025-11-16 23:58:06.124] ZELLSTATUS bei (23,3):
-[2025-11-16 23:58:06.124] Aktuell: FLOOR
-[2025-11-16 23:58:06.124] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.124] BEWEGUNG: (23,3) -> (23,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.124] Bot 4 | Level: 2 | Formulare: [] | Position: (23,4) | Strategie: FormCollectionStrategy | Runde: 32
-[2025-11-16 23:58:06.145] === RUNDE 33 ===
-[2025-11-16 23:58:06.145] ZELLSTATUS bei (23,4):
-[2025-11-16 23:58:06.145] Aktuell: FLOOR
-[2025-11-16 23:58:06.145] Nord: FLOOR | Ost: WALL | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.145] BEWEGUNG: (23,4) -> (22,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.145] Bot 4 | Level: 2 | Formulare: [] | Position: (22,4) | Strategie: FormCollectionStrategy | Runde: 33
-[2025-11-16 23:58:06.167] === RUNDE 34 ===
-[2025-11-16 23:58:06.167] ZELLSTATUS bei (22,4):
-[2025-11-16 23:58:06.167] Aktuell: FLOOR
-[2025-11-16 23:58:06.167] Nord: FLOOR | Ost: FLOOR | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.167] BEWEGUNG: (22,4) -> (22,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.167] Bot 4 | Level: 2 | Formulare: [] | Position: (22,3) | Strategie: FormCollectionStrategy | Runde: 34
-[2025-11-16 23:58:06.186] === RUNDE 35 ===
-[2025-11-16 23:58:06.186] ZELLSTATUS bei (22,3):
-[2025-11-16 23:58:06.186] Aktuell: FLOOR
-[2025-11-16 23:58:06.186] Nord: FORM 2 1 | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.186] BEWEGUNG: (22,3) -> (22,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.186] Bot 4 | Level: 2 | Formulare: [] | Position: (22,4) | Strategie: FormCollectionStrategy | Runde: 35
-[2025-11-16 23:58:06.206] === RUNDE 36 ===
-[2025-11-16 23:58:06.206] ZELLSTATUS bei (22,4):
-[2025-11-16 23:58:06.206] Aktuell: FLOOR
-[2025-11-16 23:58:06.206] Nord: FLOOR | Ost: FLOOR | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.206] BEWEGUNG: (22,4) -> (21,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.206] Bot 4 | Level: 2 | Formulare: [] | Position: (21,4) | Strategie: FormCollectionStrategy | Runde: 36
-[2025-11-16 23:58:06.223] === RUNDE 37 ===
-[2025-11-16 23:58:06.223] ZELLSTATUS bei (21,4):
-[2025-11-16 23:58:06.223] Aktuell: FLOOR
-[2025-11-16 23:58:06.223] Nord: FLOOR | Ost: FLOOR | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.223] BEWEGUNG: (21,4) -> (20,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.223] Bot 4 | Level: 2 | Formulare: [] | Position: (20,4) | Strategie: FormCollectionStrategy | Runde: 37
-[2025-11-16 23:58:06.242] === RUNDE 38 ===
-[2025-11-16 23:58:06.242] ZELLSTATUS bei (20,4):
-[2025-11-16 23:58:06.242] Aktuell: FLOOR
-[2025-11-16 23:58:06.242] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.242] BEWEGUNG: (20,4) -> (20,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.242] Bot 4 | Level: 2 | Formulare: [] | Position: (20,5) | Strategie: FormCollectionStrategy | Runde: 38
-[2025-11-16 23:58:06.263] === RUNDE 39 ===
-[2025-11-16 23:58:06.263] ZELLSTATUS bei (20,5):
-[2025-11-16 23:58:06.263] Aktuell: FLOOR
-[2025-11-16 23:58:06.263] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.263] BEWEGUNG: (20,5) -> (20,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.263] Bot 4 | Level: 2 | Formulare: [] | Position: (20,6) | Strategie: FormCollectionStrategy | Runde: 39
-[2025-11-16 23:58:06.283] === RUNDE 40 ===
-[2025-11-16 23:58:06.283] ZELLSTATUS bei (20,6):
-[2025-11-16 23:58:06.283] Aktuell: FLOOR
-[2025-11-16 23:58:06.283] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.283] BEWEGUNG: (20,6) -> (21,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.283] Bot 4 | Level: 2 | Formulare: [] | Position: (21,6) | Strategie: FormCollectionStrategy | Runde: 40
-[2025-11-16 23:58:06.302] === RUNDE 41 ===
-[2025-11-16 23:58:06.302] ZELLSTATUS bei (21,6):
-[2025-11-16 23:58:06.302] Aktuell: FLOOR
-[2025-11-16 23:58:06.302] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.302] BEWEGUNG: (21,6) -> (22,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.302] Bot 4 | Level: 2 | Formulare: [] | Position: (22,6) | Strategie: FormCollectionStrategy | Runde: 41
-[2025-11-16 23:58:06.323] === RUNDE 42 ===
-[2025-11-16 23:58:06.323] ZELLSTATUS bei (22,6):
-[2025-11-16 23:58:06.323] Aktuell: FLOOR
-[2025-11-16 23:58:06.323] Nord: WALL | Ost: FLOOR | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.323] BEWEGUNG: (22,6) -> (23,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.323] Bot 4 | Level: 2 | Formulare: [] | Position: (23,6) | Strategie: FormCollectionStrategy | Runde: 42
-[2025-11-16 23:58:06.340] === RUNDE 43 ===
-[2025-11-16 23:58:06.340] ZELLSTATUS bei (23,6):
-[2025-11-16 23:58:06.340] Aktuell: FLOOR
-[2025-11-16 23:58:06.340] Nord: WALL | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.340] BEWEGUNG: (23,6) -> (23,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.340] Bot 4 | Level: 2 | Formulare: [] | Position: (23,7) | Strategie: FormCollectionStrategy | Runde: 43
-[2025-11-16 23:58:06.357] === RUNDE 44 ===
-[2025-11-16 23:58:06.357] ZELLSTATUS bei (23,7):
-[2025-11-16 23:58:06.357] Aktuell: FLOOR
-[2025-11-16 23:58:06.357] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.357] BEWEGUNG: (23,7) -> (23,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.357] Bot 4 | Level: 2 | Formulare: [] | Position: (23,8) | Strategie: FormCollectionStrategy | Runde: 44
-[2025-11-16 23:58:06.378] === RUNDE 45 ===
-[2025-11-16 23:58:06.378] ZELLSTATUS bei (23,8):
-[2025-11-16 23:58:06.378] Aktuell: FLOOR
-[2025-11-16 23:58:06.378] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.378] BEWEGUNG: (23,8) -> (23,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.378] Bot 4 | Level: 2 | Formulare: [] | Position: (23,9) | Strategie: FormCollectionStrategy | Runde: 45
-[2025-11-16 23:58:06.397] === RUNDE 46 ===
-[2025-11-16 23:58:06.397] ZELLSTATUS bei (23,9):
-[2025-11-16 23:58:06.397] Aktuell: FLOOR
-[2025-11-16 23:58:06.397] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.397] BEWEGUNG: (23,9) -> (23,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.397] Bot 4 | Level: 2 | Formulare: [] | Position: (23,10) | Strategie: FormCollectionStrategy | Runde: 46
-[2025-11-16 23:58:06.413] === RUNDE 47 ===
-[2025-11-16 23:58:06.413] ZELLSTATUS bei (23,10):
-[2025-11-16 23:58:06.413] Aktuell: FLOOR
-[2025-11-16 23:58:06.413] Nord: FLOOR | Ost: WALL | Süd: FLOOR | West: FLOOR
-[2025-11-16 23:58:06.413] BEWEGUNG: (23,10) -> (23,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.413] Bot 4 | Level: 2 | Formulare: [] | Position: (23,11) | Strategie: FormCollectionStrategy | Runde: 47
-[2025-11-16 23:58:06.429] === RUNDE 48 ===
-[2025-11-16 23:58:06.429] ZELLSTATUS bei (23,11):
-[2025-11-16 23:58:06.429] Aktuell: FLOOR
-[2025-11-16 23:58:06.429] Nord: FLOOR | Ost: WALL | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.429] BEWEGUNG: (23,11) -> (22,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.429] Bot 4 | Level: 2 | Formulare: [] | Position: (22,11) | Strategie: FormCollectionStrategy | Runde: 48
-[2025-11-16 23:58:06.446] === RUNDE 49 ===
-[2025-11-16 23:58:06.446] ZELLSTATUS bei (22,11):
-[2025-11-16 23:58:06.446] Aktuell: FLOOR
-[2025-11-16 23:58:06.446] Nord: FLOOR | Ost: FLOOR | Süd: WALL | West: FLOOR
-[2025-11-16 23:58:06.446] BEWEGUNG: (22,11) -> (22,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.446] Bot 4 | Level: 2 | Formulare: [] | Position: (22,10) | Strategie: FormCollectionStrategy | Runde: 49
-[2025-11-16 23:58:06.470] === RUNDE 50 ===
-[2025-11-16 23:58:06.470] ZELLSTATUS bei (22,10):
-[2025-11-16 23:58:06.470] Aktuell: FLOOR
-[2025-11-16 23:58:06.470] Nord: FLOOR | Ost: FLOOR | Süd: FLOOR | West: FORM 3 2
-[2025-11-16 23:58:06.470] BEWEGUNG: (22,10) -> (22,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.471] Bot 4 | Level: 2 | Formulare: [] | Position: (22,9) | Strategie: FormCollectionStrategy | Runde: 50
-[2025-11-16 23:58:06.475] [STAT] Statistik Runde 50: Position (22,9) wurde 1x besucht
-[2025-11-16 23:58:06.491] === RUNDE 51 ===
-[2025-11-16 23:58:06.491] BEWEGUNG: (22,9) -> (22,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.491] Bot 4 | Level: 2 | Formulare: [] | Position: (22,8) | Strategie: FormCollectionStrategy | Runde: 51
-[2025-11-16 23:58:06.510] === RUNDE 52 ===
-[2025-11-16 23:58:06.510] BEWEGUNG: (22,8) -> (22,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.510] Bot 4 | Level: 2 | Formulare: [] | Position: (22,9) | Strategie: FormCollectionStrategy | Runde: 52
-[2025-11-16 23:58:06.528] === RUNDE 53 ===
-[2025-11-16 23:58:06.528] BEWEGUNG: (22,9) -> (21,9) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.528] Bot 4 | Level: 2 | Formulare: [] | Position: (21,9) | Strategie: FormCollectionStrategy | Runde: 53
-[2025-11-16 23:58:06.548] === RUNDE 54 ===
-[2025-11-16 23:58:06.548] BEWEGUNG: (21,9) -> (21,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.548] Bot 4 | Level: 2 | Formulare: [] | Position: (21,10) | Strategie: FormCollectionStrategy | Runde: 54
-[2025-11-16 23:58:06.568] === RUNDE 55 ===
-[2025-11-16 23:58:06.571] FORMULAR: FORM 3 2 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:06.572] BEWEGUNG: (21,10) -> (21,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.572] Bot 4 | Level: 2 | Formulare: [] | Position: (21,11) | Strategie: FormCollectionStrategy | Runde: 55
-[2025-11-16 23:58:06.592] === RUNDE 56 ===
-[2025-11-16 23:58:06.592] BEWEGUNG: (21,11) -> (20,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.592] Bot 4 | Level: 2 | Formulare: [] | Position: (20,11) | Strategie: FormCollectionStrategy | Runde: 56
-[2025-11-16 23:58:06.614] === RUNDE 57 ===
-[2025-11-16 23:58:06.614] BEWEGUNG: (20,11) -> (19,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.614] Bot 4 | Level: 2 | Formulare: [] | Position: (19,11) | Strategie: FormCollectionStrategy | Runde: 57
-[2025-11-16 23:58:06.634] === RUNDE 58 ===
-[2025-11-16 23:58:06.634] BEWEGUNG: (19,11) -> (19,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.634] Bot 4 | Level: 2 | Formulare: [] | Position: (19,10) | Strategie: FormCollectionStrategy | Runde: 58
-[2025-11-16 23:58:06.652] === RUNDE 59 ===
-[2025-11-16 23:58:06.652] BEWEGUNG: (19,10) -> (19,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.652] Bot 4 | Level: 2 | Formulare: [] | Position: (19,9) | Strategie: FormCollectionStrategy | Runde: 59
-[2025-11-16 23:58:06.669] === RUNDE 60 ===
-[2025-11-16 23:58:06.669] BEWEGUNG: (19,9) -> (20,9) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.669] Bot 4 | Level: 2 | Formulare: [] | Position: (20,9) | Strategie: FormCollectionStrategy | Runde: 60
-[2025-11-16 23:58:06.685] === RUNDE 61 ===
-[2025-11-16 23:58:06.685] BEWEGUNG: (20,9) -> (21,9) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.685] Bot 4 | Level: 2 | Formulare: [] | Position: (21,9) | Strategie: FormCollectionStrategy | Runde: 61
-[2025-11-16 23:58:06.705] === RUNDE 62 ===
-[2025-11-16 23:58:06.705] BEWEGUNG: (21,9) -> (22,9) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:06.705] Bot 4 | Level: 2 | Formulare: [] | Position: (22,9) | Strategie: FormCollectionStrategy | Runde: 62
-[2025-11-16 23:58:06.723] === RUNDE 63 ===
-[2025-11-16 23:58:06.723] BEWEGUNG: (22,9) -> (22,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.723] Bot 4 | Level: 2 | Formulare: [] | Position: (22,8) | Strategie: FormCollectionStrategy | Runde: 63
-[2025-11-16 23:58:06.742] === RUNDE 64 ===
-[2025-11-16 23:58:06.742] BEWEGUNG: (22,8) -> (22,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:06.742] Bot 4 | Level: 2 | Formulare: [] | Position: (22,7) | Strategie: FormCollectionStrategy | Runde: 64
-[2025-11-16 23:58:06.759] === RUNDE 65 ===
-[2025-11-16 23:58:06.759] BEWEGUNG: (22,7) -> (21,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.759] Bot 4 | Level: 2 | Formulare: [] | Position: (21,7) | Strategie: FormCollectionStrategy | Runde: 65
-[2025-11-16 23:58:06.776] === RUNDE 66 ===
-[2025-11-16 23:58:06.776] BEWEGUNG: (21,7) -> (20,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.776] Bot 4 | Level: 2 | Formulare: [] | Position: (20,7) | Strategie: FormCollectionStrategy | Runde: 66
-[2025-11-16 23:58:06.796] === RUNDE 67 ===
-[2025-11-16 23:58:06.796] BEWEGUNG: (20,7) -> (19,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.796] Bot 4 | Level: 2 | Formulare: [] | Position: (19,7) | Strategie: FormCollectionStrategy | Runde: 67
-[2025-11-16 23:58:06.817] === RUNDE 68 ===
-[2025-11-16 23:58:06.817] BEWEGUNG: (19,7) -> (18,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.818] Bot 4 | Level: 2 | Formulare: [] | Position: (18,7) | Strategie: FormCollectionStrategy | Runde: 68
-[2025-11-16 23:58:06.833] === RUNDE 69 ===
-[2025-11-16 23:58:06.833] BEWEGUNG: (18,7) -> (17,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:06.833] Bot 4 | Level: 2 | Formulare: [] | Position: (17,7) | Strategie: FormCollectionStrategy | Runde: 69
-[2025-11-16 23:58:06.849] === RUNDE 70 ===
-[2025-11-16 23:58:06.849] BEWEGUNG: (17,7) -> (17,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.849] Bot 4 | Level: 2 | Formulare: [] | Position: (17,8) | Strategie: FormCollectionStrategy | Runde: 70
-[2025-11-16 23:58:06.869] === RUNDE 71 ===
-[2025-11-16 23:58:06.869] BEWEGUNG: (17,8) -> (17,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.869] Bot 4 | Level: 2 | Formulare: [] | Position: (17,9) | Strategie: FormCollectionStrategy | Runde: 71
-[2025-11-16 23:58:06.889] === RUNDE 72 ===
-[2025-11-16 23:58:06.889] BEWEGUNG: (17,9) -> (17,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.889] Bot 4 | Level: 2 | Formulare: [] | Position: (17,10) | Strategie: FormCollectionStrategy | Runde: 72
-[2025-11-16 23:58:06.902] === RUNDE 73 ===
-[2025-11-16 23:58:06.902] BEWEGUNG: (17,10) -> (17,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.902] Bot 4 | Level: 2 | Formulare: [] | Position: (17,11) | Strategie: FormCollectionStrategy | Runde: 73
-[2025-11-16 23:58:06.917] === RUNDE 74 ===
-[2025-11-16 23:58:06.917] BEWEGUNG: (17,11) -> (17,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.917] Bot 4 | Level: 2 | Formulare: [] | Position: (17,12) | Strategie: FormCollectionStrategy | Runde: 74
-[2025-11-16 23:58:06.932] === RUNDE 75 ===
-[2025-11-16 23:58:06.932] BEWEGUNG: (17,12) -> (17,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.932] Bot 4 | Level: 2 | Formulare: [] | Position: (17,13) | Strategie: FormCollectionStrategy | Runde: 75
-[2025-11-16 23:58:06.948] === RUNDE 76 ===
-[2025-11-16 23:58:06.948] BEWEGUNG: (17,13) -> (17,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.948] Bot 4 | Level: 2 | Formulare: [] | Position: (17,14) | Strategie: FormCollectionStrategy | Runde: 76
-[2025-11-16 23:58:06.968] === RUNDE 77 ===
-[2025-11-16 23:58:06.968] BEWEGUNG: (17,14) -> (17,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.968] Bot 4 | Level: 2 | Formulare: [] | Position: (17,15) | Strategie: FormCollectionStrategy | Runde: 77
-[2025-11-16 23:58:06.989] === RUNDE 78 ===
-[2025-11-16 23:58:06.989] BEWEGUNG: (17,15) -> (17,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:06.989] Bot 4 | Level: 2 | Formulare: [] | Position: (17,16) | Strategie: FormCollectionStrategy | Runde: 78
-[2025-11-16 23:58:07.007] === RUNDE 79 ===
-[2025-11-16 23:58:07.007] BEWEGUNG: (17,16) -> (17,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.007] Bot 4 | Level: 2 | Formulare: [] | Position: (17,17) | Strategie: FormCollectionStrategy | Runde: 79
-[2025-11-16 23:58:07.023] === RUNDE 80 ===
-[2025-11-16 23:58:07.023] BEWEGUNG: (17,17) -> (18,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.023] Bot 4 | Level: 2 | Formulare: [] | Position: (18,17) | Strategie: FormCollectionStrategy | Runde: 80
-[2025-11-16 23:58:07.040] === RUNDE 81 ===
-[2025-11-16 23:58:07.040] BEWEGUNG: (18,17) -> (19,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.040] Bot 4 | Level: 2 | Formulare: [] | Position: (19,17) | Strategie: FormCollectionStrategy | Runde: 81
-[2025-11-16 23:58:07.058] === RUNDE 82 ===
-[2025-11-16 23:58:07.058] BEWEGUNG: (19,17) -> (20,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.058] Bot 4 | Level: 2 | Formulare: [] | Position: (20,17) | Strategie: FormCollectionStrategy | Runde: 82
-[2025-11-16 23:58:07.073] === RUNDE 83 ===
-[2025-11-16 23:58:07.073] BEWEGUNG: (20,17) -> (21,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.073] Bot 4 | Level: 2 | Formulare: [] | Position: (21,17) | Strategie: FormCollectionStrategy | Runde: 83
-[2025-11-16 23:58:07.090] === RUNDE 84 ===
-[2025-11-16 23:58:07.090] BEWEGUNG: (21,17) -> (22,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.090] Bot 4 | Level: 2 | Formulare: [] | Position: (22,17) | Strategie: FormCollectionStrategy | Runde: 84
-[2025-11-16 23:58:07.106] === RUNDE 85 ===
-[2025-11-16 23:58:07.106] BEWEGUNG: (22,17) -> (22,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.106] Bot 4 | Level: 2 | Formulare: [] | Position: (22,16) | Strategie: FormCollectionStrategy | Runde: 85
-[2025-11-16 23:58:07.123] === RUNDE 86 ===
-[2025-11-16 23:58:07.123] BEWEGUNG: (22,16) -> (22,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.123] Bot 4 | Level: 2 | Formulare: [] | Position: (22,15) | Strategie: FormCollectionStrategy | Runde: 86
-[2025-11-16 23:58:07.143] === RUNDE 87 ===
-[2025-11-16 23:58:07.143] BEWEGUNG: (22,15) -> (22,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.143] Bot 4 | Level: 2 | Formulare: [] | Position: (22,14) | Strategie: FormCollectionStrategy | Runde: 87
-[2025-11-16 23:58:07.164] === RUNDE 88 ===
-[2025-11-16 23:58:07.164] BEWEGUNG: (22,14) -> (22,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.164] Bot 4 | Level: 2 | Formulare: [] | Position: (22,13) | Strategie: FormCollectionStrategy | Runde: 88
-[2025-11-16 23:58:07.183] === RUNDE 89 ===
-[2025-11-16 23:58:07.183] BEWEGUNG: (22,13) -> (23,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.183] Bot 4 | Level: 2 | Formulare: [] | Position: (23,13) | Strategie: FormCollectionStrategy | Runde: 89
-[2025-11-16 23:58:07.197] === RUNDE 90 ===
-[2025-11-16 23:58:07.197] BEWEGUNG: (23,13) -> (23,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.197] Bot 4 | Level: 2 | Formulare: [] | Position: (23,14) | Strategie: FormCollectionStrategy | Runde: 90
-[2025-11-16 23:58:07.212] === RUNDE 91 ===
-[2025-11-16 23:58:07.212] BEWEGUNG: (23,14) -> (23,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.212] Bot 4 | Level: 2 | Formulare: [] | Position: (23,15) | Strategie: FormCollectionStrategy | Runde: 91
-[2025-11-16 23:58:07.229] === RUNDE 92 ===
-[2025-11-16 23:58:07.229] BEWEGUNG: (23,15) -> (23,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.229] Bot 4 | Level: 2 | Formulare: [] | Position: (23,16) | Strategie: FormCollectionStrategy | Runde: 92
-[2025-11-16 23:58:07.246] === RUNDE 93 ===
-[2025-11-16 23:58:07.246] BEWEGUNG: (23,16) -> (23,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.246] Bot 4 | Level: 2 | Formulare: [] | Position: (23,17) | Strategie: FormCollectionStrategy | Runde: 93
-[2025-11-16 23:58:07.261] === RUNDE 94 ===
-[2025-11-16 23:58:07.261] BEWEGUNG: (23,17) -> (23,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.261] Bot 4 | Level: 2 | Formulare: [] | Position: (23,18) | Strategie: FormCollectionStrategy | Runde: 94
-[2025-11-16 23:58:07.276] === RUNDE 95 ===
-[2025-11-16 23:58:07.276] BEWEGUNG: (23,18) -> (22,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.276] Bot 4 | Level: 2 | Formulare: [] | Position: (22,18) | Strategie: FormCollectionStrategy | Runde: 95
-[2025-11-16 23:58:07.292] === RUNDE 96 ===
-[2025-11-16 23:58:07.292] BEWEGUNG: (22,18) -> (21,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.292] Bot 4 | Level: 2 | Formulare: [] | Position: (21,18) | Strategie: FormCollectionStrategy | Runde: 96
-[2025-11-16 23:58:07.309] === RUNDE 97 ===
-[2025-11-16 23:58:07.309] BEWEGUNG: (21,18) -> (20,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.309] Bot 4 | Level: 2 | Formulare: [] | Position: (20,18) | Strategie: FormCollectionStrategy | Runde: 97
-[2025-11-16 23:58:07.327] === RUNDE 98 ===
-[2025-11-16 23:58:07.327] BEWEGUNG: (20,18) -> (20,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.327] Bot 4 | Level: 2 | Formulare: [] | Position: (20,19) | Strategie: FormCollectionStrategy | Runde: 98
-[2025-11-16 23:58:07.346] === RUNDE 99 ===
-[2025-11-16 23:58:07.346] BEWEGUNG: (20,19) -> (20,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.346] Bot 4 | Level: 2 | Formulare: [] | Position: (20,20) | Strategie: FormCollectionStrategy | Runde: 99
-[2025-11-16 23:58:07.362] === RUNDE 100 ===
-[2025-11-16 23:58:07.362] BEWEGUNG: (20,20) -> (21,20) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.362] Bot 4 | Level: 2 | Formulare: [] | Position: (21,20) | Strategie: FormCollectionStrategy | Runde: 100
-[2025-11-16 23:58:07.362] [STAT] Statistik Runde 100: Position (21,20) wurde 1x besucht
-[2025-11-16 23:58:07.377] === RUNDE 101 ===
-[2025-11-16 23:58:07.377] BEWEGUNG: (21,20) -> (22,20) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.392] === RUNDE 102 ===
-[2025-11-16 23:58:07.392] BEWEGUNG: (22,20) -> (23,20) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:07.409] === RUNDE 103 ===
-[2025-11-16 23:58:07.409] BEWEGUNG: (23,20) -> (23,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.427] === RUNDE 104 ===
-[2025-11-16 23:58:07.427] BEWEGUNG: (23,21) -> (23,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.443] === RUNDE 105 ===
-[2025-11-16 23:58:07.443] BEWEGUNG: (23,22) -> (22,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.459] === RUNDE 106 ===
-[2025-11-16 23:58:07.459] FORMULAR: FORM 4 1 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:07.460] [INFO] Formular genommen: take
-[2025-11-16 23:58:07.462] GESAMMELTE FORMULARE: [1] | Nächstes erwartet: 2[[2025-11-16 23:58:07.480] === RUNDE 107 ===
-[2025-11-16 23:58:07.480] BEWEGUNG: (22,22) -> (22,23) | Aktion: go south | Grund: Navigation[[2025-11-16 23:58:07.499] === RUNDE 108 ===
-[2025-11-16 23:58:07.499] BEWEGUNG: (22,23) -> (23,23) | Aktion: go east | Grund: Navigation[[2025-11-16 23:58:07.518] === RUNDE 109 ===
-[2025-11-16 23:58:07.518] BEWEGUNG: (23,23) -> (22,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.536] === RUNDE 110 ===
-[2025-11-16 23:58:07.536] BEWEGUNG: (22,23) -> (21,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.536] Bot 4 | Level: 2 | Formulare: [1] | Position: (21,23) | Strategie: FormCollectionStrategy | Runde: 110[[2025-11-16 23:58:07.555] === RUNDE 111 ===
-[2025-11-16 23:58:07.555] BEWEGUNG: (21,23) -> (21,22) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.573] === RUNDE 112 ===
-[2025-11-16 23:58:07.573] BEWEGUNG: (21,22) -> (20,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.591] === RUNDE 113 ===
-[2025-11-16 23:58:07.591] BEWEGUNG: (20,22) -> (20,21) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.609] === RUNDE 114 ===
-[2025-11-16 23:58:07.609] BEWEGUNG: (20,21) -> (19,21) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.627] === RUNDE 115 ===
-[2025-11-16 23:58:07.627] BEWEGUNG: (19,21) -> (19,20) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.645] === RUNDE 116 ===
-[2025-11-16 23:58:07.645] BEWEGUNG: (19,20) -> (19,19) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.664] === RUNDE 117 ===
-[2025-11-16 23:58:07.664] BEWEGUNG: (19,19) -> (19,18) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.684] === RUNDE 118 ===
-[2025-11-16 23:58:07.684] BEWEGUNG: (19,18) -> (18,18) | Aktion: go west | Grund: Navigation[[2025-11-16 23:58:07.703] === RUNDE 119 ===
-[2025-11-16 23:58:07.703] BEWEGUNG: (18,18) -> (17,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:07.723] === RUNDE 120 ===
-[2025-11-16 23:58:07.723] BEWEGUNG: (17,18) -> (17,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:07.723] Bot 4 | Level: 2 | Formulare: [1] | Position: (17,19) | Strategie: FormCollectionStrategy | Runde: 120[[2025-11-16 23:58:07.740] === RUNDE 121 ===
-[2025-11-16 23:58:07.740] BEWEGUNG: (17,19) -> (17,20) | Aktion: go south | Grund: Navigation[[2025-11-16 23:58:07.759] === RUNDE 122 ===
-[2025-11-16 23:58:07.759] BEWEGUNG: (17,20) -> (17,21) | Aktion: go south | Grund: Navigation[[2025-11-16 23:58:07.778] === RUNDE 123 ===
-[2025-11-16 23:58:07.778] BEWEGUNG: (17,21) -> (17,22) | Aktion: go south | Grund: Navigation[[2025-11-16 23:58:07.798] === RUNDE 124 ===
-[2025-11-16 23:58:07.798] BEWEGUNG: (17,22) -> (17,23) | Aktion: go south | Grund: Navigatio[2[2025-11-16 23:58:07.817] === RUNDE 125 ===
-[2025-11-16 23:58:07.817] BEWEGUNG: (17,23) -> (16,23) | Aktion: go west | Grund: Navigation[[2025-11-16 23:58:07.835] === RUNDE 126 ===
-[2025-11-16 23:58:07.835] BEWEGUNG: (16,23) -> (16,22) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.855] === RUNDE 127 ===
-[2025-11-16 23:58:07.855] BEWEGUNG: (16,22) -> (16,21) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.873] === RUNDE 128 ===
-[2025-11-16 23:58:07.873] BEWEGUNG: (16,21) -> (16,20) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.895] === RUNDE 129 ===
-[2025-11-16 23:58:07.895] BEWEGUNG: (16,20) -> (16,19) | Aktion: go north | Grund: Navigation[[2025-11-16 23:58:07.914] === RUNDE 130 ===
-[2025-11-16 23:58:07.914] BEWEGUNG: (16,19) -> (16,18) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:07.914] Bot 4 | Level: 2 | Formulare: [1] | Position: (16,18) | Strategie: FormCollectionStrategy | Runde: 13[2[2025-11-16 23:58:07.937] === RUNDE 131 ===
-[2025-11-16 23:58:07.937] BEWEGUNG: (16,18) -> (16,17) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:07.954] === RUNDE 132 ===
-[2025-11-16 23:58:07.954] BEWEGUNG: (16,17) -> (16,16) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:07.976] === RUNDE 133 ===
-[2025-11-16 23:58:07.976] BEWEGUNG: (16,16) -> (16,15) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:07.994] === RUNDE 134 ===
-[2025-11-16 23:58:07.994] BEWEGUNG: (16,15) -> (16,14) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:08.012] === RUNDE 135 ===
-[2025-11-16 23:58:08.012] BEWEGUNG: (16,14) -> (16,13) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:08.031] === RUNDE 136 ===
-[2025-11-16 23:58:08.031] BEWEGUNG: (16,13) -> (16,12) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:08.052] === RUNDE 137 ===
-[2025-11-16 23:58:08.052] BEWEGUNG: (16,12) -> (16,11) | Aktion: go north | Grund: Navigatio[2[2025-11-16 23:58:08.068] === RUNDE 138 ===
-[2025-11-16 23:58:08.068] BEWEGUNG: (16,11) -> (16,10) | Aktion: go north | Grund: Navigati[20[2025-11-16 23:58:08.087] === RUNDE 139 ===
-[2025-11-16 23:58:08.087] BEWEGUNG: (16,10) -> (16,9) | Aktion: go north | Grund: Navigat[202[2025-11-16 23:58:08.106] === RUNDE 140 ===
-[2025-11-16 23:58:08.106] BEWEGUNG: (16,9) -> (16,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:08.106] Bot 4 | Level: 2 | Formulare: [1] | Position: (16,8) | Strategie: FormCollectionStrategy | Runde:[2025[2025-11-16 23:58:08.125] === RUNDE 141 ===
-[2025-11-16 23:58:08.125] BEWEGUNG: (16,8) -> (16,7) | Aktion: go north | Grund: Naviga[2025[2025-11-16 23:58:08.144] === RUNDE 142 ===
-[2025-11-16 23:58:08.144] BEWEGUNG: (16,7) -> (16,6) | Aktion: go north | Grund: Naviga[2025[2025-11-16 23:58:08.164] === RUNDE 143 ===
-[2025-11-16 23:58:08.164] BEWEGUNG: (16,6) -> (16,5) | Aktion: go north | Grund: Naviga[2025[2025-11-16 23:58:08.182] === RUNDE 144 ===
-[2025-11-16 23:58:08.182] BEWEGUNG: (16,5) -> (16,4) | Aktion: go north | Grund: Naviga[2025[2025-11-16 23:58:08.202] === RUNDE 145 ===
-[2025-11-16 23:58:08.202] BEWEGUNG: (16,4) -> (16,3) | Aktion: go north | Grund: Naviga[2025[2025-11-16 23:58:08.221] === RUNDE 146 ===
-[2025-11-16 23:58:08.221] BEWEGUNG: (16,3) -> (16,2) | Aktion: go north | Grund: Navig[2025-[2025-11-16 23:58:08.239] === RUNDE 147 ===
-[2025-11-16 23:58:08.239] BEWEGUNG: (16,2) -> (15,2) | Aktion: go west | Grund: Navig[2025-[2025-11-16 23:58:08.256] === RUNDE 148 ===
-[2025-11-16 23:58:08.256] BEWEGUNG: (15,2) -> (14,2) | Aktion: go west | Grund: Naviga[2025[2025-11-16 23:58:08.275] === RUNDE 149 ===
-[2025-11-16 23:58:08.275] BEWEGUNG: (14,2) -> (14,3) | Aktion: go south | Grund: Naviga[2025[2025-11-16 23:58:08.293] === RUNDE 150 ===
-[2025-11-16 23:58:08.293] BEWEGUNG: (14,3) -> (14,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:08.293] Bot 4 | Level: 2 | Formulare: [1] | Position: (14,4) | Strategie: FormCollectionStrategy | Runde: 150
-[2025-11-16 23:58:08.293] [STAT] Statistik Runde 150: Position (14,4) wurde 1x be[2025-[2025-11-16 23:58:08.313] === RUNDE 151 ===
-[2025-11-16 23:58:08.313] BEWEGUNG: (14,4) -> (14,5) | Aktion: go south | Grund: Navig[2025-[2025-11-16 23:58:08.331] === RUNDE 152 ===
-[2025-11-16 23:58:08.331] BEWEGUNG: (14,5) -> (14,6) | Aktion: go south | Grund: Navig[2025-[2025-11-16 23:58:08.349] === RUNDE 153 ===
-[2025-11-16 23:58:08.349] BEWEGUNG: (14,6) -> (14,7) | Aktion: go south | Grund: Navig[2025-[2025-11-16 23:58:08.370] === RUNDE 154 ===
-[2025-11-16 23:58:08.370] BEWEGUNG: (14,7) -> (14,8) | Aktion: go south | Grund: Navi[2025-1[2025-11-16 23:58:08.387] === RUNDE 155 ===
-[2025-11-16 23:58:08.387] BEWEGUNG: (14,8) -> (13,8) | Aktion: go west | Grund: Navi[2025-1[2025-11-16 23:58:08.406] === RUNDE 156 ===
-[2025-11-16 23:58:08.406] BEWEGUNG: (13,8) -> (13,7) | Aktion: go north | Grund: Nav[2025-11[2025-11-16 23:58:08.425] === RUNDE 157 ===
-[2025-11-16 23:58:08.425] BEWEGUNG: (13,7) -> (13,6) | Aktion: go north | Grund: Na[2025-11-[2025-11-16 23:58:08.445] === RUNDE 158 ===
-[2025-11-16 23:58:08.445] BEWEGUNG: (13,6) -> (13,7) | Aktion: go south | Grund: Na[2025-11-[2025-11-16 23:58:08.466] === RUNDE 159 ===
-[2025-11-16 23:58:08.466] BEWEGUNG: (13,7) -> (13,8) | Aktion: go south | Grund: Na[2025-11-[2025-11-16 23:58:08.486] === RUNDE 160 ===
-[2025-11-16 23:58:08.486] BEWEGUNG: (13,8) -> (12,8) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:08.486] Bot 4 | Level: 2 | Formulare: [1] | Position: (12,8) | Strategie: FormCollectionStrategy | Ru[2025-11-[2025-11-16 23:58:08.504] === RUNDE 161 ===
-[2025-11-16 23:58:08.504] BEWEGUNG: (12,8) -> (11,8) | Aktion: go west | Grund: Nav[2025-11[2025-11-16 23:58:08.524] === RUNDE 162 ===
-[2025-11-16 23:58:08.524] BEWEGUNG: (11,8) -> (10,8) | Aktion: go west | Grund: Nav[2025-11[2025-11-16 23:58:08.542] === RUNDE 163 ===
-[2025-11-16 23:58:08.542] BEWEGUNG: (10,8) -> (10,7) | Aktion: go north | Grund: Na[2025-11-[2025-11-16 23:58:08.561] === RUNDE 164 ===
-[2025-11-16 23:58:08.561] BEWEGUNG: (10,7) -> (10,6) | Aktion: go north | Grund: N[2025-11-1[2025-11-16 23:58:08.579] === RUNDE 165 ===
-[2025-11-16 23:58:08.579] BEWEGUNG: (10,6) -> (10,5) | Aktion: go north | Grund: N[2025-11-1[2025-11-16 23:58:08.595] === RUNDE 166 ===
-[2025-11-16 23:58:08.595] BEWEGUNG: (10,5) -> (10,4) | Aktion: go north | Grund: N[2025-11-1[2025-11-16 23:58:08.615] === RUNDE 167 ===
-[2025-11-16 23:58:08.615] BEWEGUNG: (10,4) -> (11,4) | Aktion: go east | Grund: N[2025-11-1[2025-11-16 23:58:08.634] === RUNDE 168 ===
-[2025-11-16 23:58:08.634] BEWEGUNG: (11,4) -> (12,4) | Aktion: go east | Grund: Na[2025-11-[2025-11-16 23:58:08.649] === RUNDE 169 ===
-[2025-11-16 23:58:08.649] BEWEGUNG: (12,4) -> (13,4) | Aktion: go east | Grund: Na[2025-11-[2025-11-16 23:58:08.666] === RUNDE 170 ===
-[2025-11-16 23:58:08.666] BEWEGUNG: (13,4) -> (13,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:08.666] Bot 4 | Level: 2 | Formulare: [1] | Position: (13,3) | Strategie: FormCollectionStrategy | R[2025-11-1[2025-11-16 23:58:08.686] === RUNDE 171 ===
-[2025-11-16 23:58:08.686] BEWEGUNG: (13,3) -> (13,2) | Aktion: go north | Grund: [2025-11-16[2025-11-16 23:58:08.707] === RUNDE 172 ===
-[2025-11-16 23:58:08.707] BEWEGUNG: (13,2) -> (12,2) | Aktion: go west | Grund: N[2025-11-1[2025-11-16 23:58:08.726] === RUNDE 173 ===
-[2025-11-16 23:58:08.726] BEWEGUNG: (12,2) -> (12,1) | Aktion: go north | Grund:[2025-11-16 [2025-11-16 23:58:08.746] === RUNDE 174 ===
-[2025-11-16 23:58:08.746] BEWEGUNG: (12,1) -> (11,1) | Aktion: go west | Grund[2025-11-16 2[2025-11-16 23:58:08.765] === RUNDE 175 ===
-[2025-11-16 23:58:08.765] BEWEGUNG: (11,1) -> (11,2) | Aktion: go south | Gr[2025-11-16 23:5[2025-11-16 23:58:08.784] === RUNDE 176 ===
-[2025-11-16 23:58:08.784] BEWEGUNG: (11,2) -> (10,2) | Aktion: go west | G[2025-11-16 23:58[2025-11-16 23:58:08.804] === RUNDE 177 ===
-[2025-11-16 23:58:08.804] BEWEGUNG: (10,2) -> (10,1) | Aktion: go north [2025-11-16 23:58:08[2025-11-16 23:58:08.821] === RUNDE 178 ===
-[2025-11-16 23:58:08.821] BEWEGUNG: (10,1) -> (9,1) | Aktion: go west [2025-11-16 23:58:08[2025-11-16 23:58:08.838] === RUNDE 179 ===
-[2025-11-16 23:58:08.838] BEWEGUNG: (9,1) -> (9,2) | Aktion: go south [2025-11-16 23:58:08[2025-11-16 23:58:08.855] === RUNDE 180 ===
-[2025-11-16 23:58:08.855] BEWEGUNG: (9,2) -> (8,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:08.855] Bot 4 | Level: 2 | Formulare: [1] | Position: (8,2) | Strategie: FormCollectionS[2025-11-16 23:58:08.[2025-11-16 23:58:08.876] === RUNDE 181 ===
-[2025-11-16 23:58:08.876] BEWEGUNG: (8,2) -> (8,1) | Aktion: go north[2025-11-16 23:58:08.[2025-11-16 23:58:08.892] === RUNDE 182 ===
-[2025-11-16 23:58:08.892] BEWEGUNG: (8,1) -> (7,1) | Aktion: go west [2025-11-16 23:58:08[2025-11-16 23:58:08.913] === RUNDE 183 ===
-[2025-11-16 23:58:08.913] BEWEGUNG: (7,1) -> (7,2) | Aktion: go south [2025-11-16 23:58:08[2025-11-16 23:58:08.933] === RUNDE 184 ===
-[2025-11-16 23:58:08.933] BEWEGUNG: (7,2) -> (7,3) | Aktion: go south [2025-11-16 23:58:08[2025-11-16 23:58:08.948] === RUNDE 185 ===
-[2025-11-16 23:58:08.948] BEWEGUNG: (7,3) -> (8,3) | Aktion: go east |[2025-11-16 23:58:0[2025-11-16 23:58:08.964] === RUNDE 186 ===
-[2025-11-16 23:58:08.964] BEWEGUNG: (8,3) -> (8,4) | Aktion: go south |[2025-11-16 23:58:0[2025-11-16 23:58:08.983] === RUNDE 187 ===
-[2025-11-16 23:58:08.983] BEWEGUNG: (8,4) -> (8,5) | Aktion: go south | [2025-11-16 23:58:[2025-11-16 23:58:09.000] === RUNDE 188 ===
-[2025-11-16 23:58:09.000] BEWEGUNG: (8,5) -> (8,6) | Aktion: go south | G[2025-11-16 23:58[2025-11-16 23:58:09.027] === RUNDE 189 ===
-[2025-11-16 23:58:09.027] BEWEGUNG: (8,6) -> (8,7) | Aktion: go south | Gru[2025-11-16 23:[2025-11-16 23:58:09.046] === RUNDE 190 ===
-[2025-11-16 23:58:09.046] BEWEGUNG: (8,7) -> (8,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.046] Bot 4 | Level: 2 | Formulare: [1] | Position: (8,8) | Strategie: FormCollectionStrategy | [2025-11-16[2025-11-16 23:58:09.063] === RUNDE 191 ===
-[2025-11-16 23:58:09.063] BEWEGUNG: (8,8) -> (8,9) | Aktion: go south | Grund: Nav[2025-11[2025-11-16 23:58:09.082] === RUNDE 192 ===
-[2025-11-16 23:58:09.082] BEWEGUNG: (8,9) -> (8,10) | Aktion: go south | Grund: Navig[2025-[2025-11-16 23:58:09.100] === RUNDE 193 ===
-[2025-11-16 23:58:09.100] BEWEGUNG: (8,10) -> (9,10) | Aktion: go east | Grund: Navigat[202[2025-11-16 23:58:09.119] === RUNDE 194 ===
-[2025-11-16 23:58:09.119] BEWEGUNG: (9,10) -> (10,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.138] === RUNDE 195 ===
-[2025-11-16 23:58:09.138] BEWEGUNG: (10,10) -> (11,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.158] === RUNDE 196 ===
-[2025-11-16 23:58:09.158] BEWEGUNG: (11,10) -> (12,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.177] === RUNDE 197 ===
-[2025-11-16 23:58:09.177] BEWEGUNG: (12,10) -> (13,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.194] === RUNDE 198 ===
-[2025-11-16 23:58:09.194] BEWEGUNG: (13,10) -> (14,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.210] === RUNDE 199 ===
-[2025-11-16 23:58:09.210] FORMULAR: FORM 4 4 | Kann nehmen: false | Grund: Falsche Reihenfolge: Erwartet 2, Gefunden 4
-[2025-11-16 23:58:09.210] BEWEGUNG: (14,10) -> (14,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.228] === RUNDE 200 ===
-[2025-11-16 23:58:09.228] FORMULAR: FORM 3 4 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:09.228] BEWEGUNG: (14,11) -> (13,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.228] Bot 4 | Level: 2 | Formulare: [1] | Position: (13,11) | Strategie: FormCollectionStrategy | Runde: 200
-[2025-11-16 23:58:09.228] [STAT] Statistik Runde 200: Position (13,11) wurde 1x besuch[2[2025-11-16 23:58:09.246] === RUNDE 201 ===
-[2025-11-16 23:58:09.246] BEWEGUNG: (13,11) -> (12,11) | Aktion: go west | Grund: Navigation[[2025-11-16 23:58:09.265] === RUNDE 202 ===
-[2025-11-16 23:58:09.265] BEWEGUNG: (12,11) -> (12,12) | Aktion: go south | Grund: Navigatio[2[2025-11-16 23:58:09.279] === RUNDE 203 ===
-[2025-11-16 23:58:09.279] BEWEGUNG: (12,12) -> (12,13) | Aktion: go south | Grund: Navigati[20[2025-11-16 23:58:09.294] === RUNDE 204 ===
-[2025-11-16 23:58:09.294] BEWEGUNG: (12,13) -> (13,13) | Aktion: go east | Grund: Navigati[20[2025-11-16 23:58:09.309] === RUNDE 205 ===
-[2025-11-16 23:58:09.309] BEWEGUNG: (13,13) -> (14,13) | Aktion: go east | Grund: Navigatio[2[2025-11-16 23:58:09.328] === RUNDE 206 ===
-[2025-11-16 23:58:09.328] BEWEGUNG: (14,13) -> (14,14) | Aktion: go south | Grund: Navigati[20[2025-11-16 23:58:09.342] === RUNDE 207 ===
-[2025-11-16 23:58:09.342] BEWEGUNG: (14,14) -> (13,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.358] === RUNDE 208 ===
-[2025-11-16 23:58:09.358] BEWEGUNG: (13,14) -> (12,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.373] === RUNDE 209 ===
-[2025-11-16 23:58:09.373] BEWEGUNG: (12,14) -> (11,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.390] === RUNDE 210 ===
-[2025-11-16 23:58:09.390] BEWEGUNG: (11,14) -> (11,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.390] Bot 4 | Level: 2 | Formulare: [1] | Position: (11,13) | Strategie: FormCollectionStrategy | Runde: 210
-[2025-11-16 23:58:09.405] === RUNDE 211 ===
-[2025-11-16 23:58:09.405] BEWEGUNG: (11,13) -> (10,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.422] === RUNDE 212 ===
-[2025-11-16 23:58:09.422] FORMULAR: FORM 1 4 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:09.422] BEWEGUNG: (10,13) -> (10,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.435] === RUNDE 213 ===
-[2025-11-16 23:58:09.435] FORMULAR: FORM 2 4 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:09.435] BEWEGUNG: ([2025-11-16 23:58:09.438] === RUNDE 214 ===
-[2025-11-16 2[2025-11-16 23:58:09.450] === RUNDE 214 ===
-[2025-11-16 23:58:09.450] FORMULA[2025-11-16 23:58:09.454] === RUNDE 215 ===
-[2025-11-16 23:58:09.454] BEWEGUNG: (8,1) -> (9,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.470] === RUNDE 216 ===
-[2025-11-16 23:58:09.470] BEWEGUNG: (9,1) -> (10,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.490] === RUNDE 217 ===
-[2025-11-16 23:58:09.490] BEWEGUNG: (10,1) -> (11,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.503] === RUNDE 218 ===
-[2025-11-16 23:58:09.503] BEWEGUNG: (11,1) -> (12,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.520] === RUNDE 219 ===
-[2025-11-16 23:58:09.520] BEWEGUNG: (12,1) -> (13,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.536] === RUNDE 220 ===
-[2025-11-16 23:58:09.536] BEWEGUNG: (13,1) -> (14,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.[2025-11-16[2025-11-16 23:58:09.552] === RUNDE 220 ===
-[2025-11-16 23:58:09.552] BEWEGUNG: (10,11) -> (9,1[2025-11-16 23:58:09.556] === RUNDE 221 ===
-[2025-11-16 23:58:09.556] BEWEGUNG: (14,1) -> (15,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:09.572] === RUNDE 222 ===
-[2025-11-16 23:58:09.572] BEWEGUNG: (15,1) -> (15,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.585] === RUNDE 223 ===
-[2025-11-16 23:58:09.585] BEWEGUNG: (15,2) -> (14,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.600] === RUNDE 224 ===
-[2025-11-16 23:58:09.600] BEWEGUNG: (14,2) -> (14,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.617] === RUNDE 225 ===
-[2025-11-16 23:58:09.617] BEWEGUNG: (14,3) -> (14,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.634] === RUNDE 226 ===
-[2025-11-16 23:58:09.634] BEWEGUNG: (14,4) -> (14,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.653] === RUNDE 227 ===
-[2025-11-16 23:58:09.653] BEWEGUNG: (14,5) -> (14,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.672] === RUNDE 228 ===
-[2025-11-16 23:58:09.672] BEWEGUNG: (14,6) -> (14,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.687] === RUNDE 229 ===
-[2025-11-16 23:58:09.687] BEWEGUNG: (14,7) -> (14,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.701] === RUNDE 230 ===
-[2025-11-16 23:58:09.701] BEWEGUNG: (14,8) -> (13,8) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.70[2025-11-16 [2025-11-16 23:58:09.715] === RUNDE 230 ===
-[2025-11-16 23:58:09.715] BEWEGUNG: (8,19) -> (8[2025-11-16 23:58:09.721] === RUNDE 231 ===
-[2025-11-16 23:58:09.721] BEWEGUNG: (13,8) -> (13,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.740] === RUNDE 232 ===
-[2025-11-16 23:58:09.740] BEWEGUNG: (13,7) -> (13,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.757] === RUNDE 233 ===
-[2025-11-16 23:58:09.757] BEWEGUNG: (13,6) -> (13,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.774] === RUNDE 234 ===
-[2025-11-16 23:58:09.774] BEWEGUNG: (13,5) -> (13,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.790] === RUNDE 235 ===
-[2025-11-16 23:58:09.790] BEWEGUNG: (13,4) -> (13,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:09.807] === RUNDE 236 ===
-[2025-11-16 23:58:09.807] BEWEGUNG: (13,3) -> (13,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.824] === RUNDE 237 ===
-[2025-11-16 23:58:09.824] BEWEGUNG: (13,4) -> (12,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:09.838] === RUNDE 238 ===
-[2025-11-16 23:58:09.838] BEWEGUNG: (12,4) -> (12,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.852] === RUNDE 239 ===
-[2025-11-16 23:58:09.852] BEWEGUNG: (12,5) -> (12,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.868] === RUNDE 240 ===
-[2025-11-16 23:58:09.868] BEWEGUNG: (12,6) -> (12,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:09.868] Bot 1 | Level: [2025[2025-11-16 23:58:09.882] === RUNDE 240 ===
-[2025-11-16 23:58:09.882] BEWEGUNG: ([2025-11-16 23:58:09.886] === RUNDE 241 ===
-[2025-11-16 23:58:09.886] FORMULAR: FORM 2 3 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:09.886] BEWEGUNG: (12,7) -[2025-[2025-11-16 23:58:09.898] === RUNDE 241 ==[2025-11-16 23:58:09.902] === RUNDE 242 ===
-[2025-11-16 23:58:09.902] BEWEGUNG: (12,8) -> [2025[2025-11-16 23:58:09.914] === RUNDE 242 [2025-11-16 23:58:09.917] === RUNDE 243 ===
-[2025-11-16 23:58:09.917] BEWEGUNG: (11,8) -> (11[202[2025-11-16 23:58:09.929] === RUNDE 243[2025-11-16 23:58:09.932] === RUNDE 244 ===
-[2025-11-16 23:58:09.932] BEWEGUNG: (11,7) -> (11,6[20[2025-11-16 23:58:09.945] === RUNDE 24[2025-11-16 23:58:09.951] === RUNDE 245 ===
-[2025-11-16 23:58:09.952] FORMULAR: FORM 1 3 | Kann [20[2025-11-16 23:58:09.964] === RUNDE 245 ===
-[2025-11-16 23:58:09.964] BEWEGUNG: (14,16) -> (14,17) | Aktion: go south | Grund: Navigati[20[2025-11-16 23:58:09.983] === RUNDE 246 ===
-[2025-11-16 23:58:09.983] BEWEGUNG: (14,17) -> (14,18) | Aktion: go south | Grund: Navigati[20[2025-11-16 23:58:10.003] === RUNDE 247 ===
-[2025-11-16 23:58:10.003] BEWEGUNG: (14,18) -> (14,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.022] === RUNDE 248 ===
-[2025-11-16 23:58:10.022] BEWEGUNG: (14,19) -> (14,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.037] === RUNDE 249 ===
-[2025-11-16 23:58:10.037] BEWEGUNG: (14,20) -> (13,20) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:10.050] === RUNDE 250 ===
-[2025-11-16 23:58:10.050] BEWEGUNG: (13,20) -> (13,19) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:10.050] Bot 4 | Level: 2 | Formulare: [1] | Position: (13,19) | Strategie: FormCollectionStrategy | Runde: 250
-[2025-11-16 23:58:10.050] [STAT] Statistik Runde 250: Position (13,19) wurde 1x besucht
-[2025-11-16 23:58:10.064] === RUNDE 251 ===
-[2025-11-16 23:58:10.064] BEWEGUNG: (13,19) -> (13,18) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:10.079] === RUNDE 252 ===
-[2025-11-16 23:58:10.079] FORMULAR: FORM 3 3 | Kann nehmen: false | Grund: Falscher Spieler
-[20[2025-11-16 23:58:10.083] === RUNDE 253 ===
-[2025-11-16 23:58:10.083] BEWEGUNG: (10,7) -> ([2025-11-16 23:58:10.095] === RUNDE 253 ===
-[[2025-11-16 23:58:10.099] === RUNDE 254 ===
-[2025-11-16 23:58:10.099] BEWEGUNG: (10,6) -> (10[2025-11-16 23:58:10.109] === RUNDE 254 ===[2025-11-16 23:58:10.113] === RUNDE 255 ===
-[2025-11-16 23:58:10.113] BEWEGUNG: (10,5) -> (10,[2025-11-16 23:58:10.125] === RUNDE 255 ==[2025-11-16 23:58:10.129] === RUNDE 256 ===
-[2025-11-16 23:58:10.129] BEWEGUNG: (10,4) -> (11,4[2025-11-16 23:58:10.143] === RUNDE 256 [2025-11-16 23:58:10.146] === RUNDE 257 ===
-[2025-11-16 23:58:10.146] BEWEGUNG: (11,4) -> (12,4) |[2025-11-16 23:58:10.159] === RUNDE 2[2025-11-16 23:58:10.164] === RUNDE 258 ===
-[2025-11-16 23:58:10.164] BEWEGUNG: (12,4) -> (13,4) | Ak[2025-11-16 23:58:10.178] === RUND[2025-11-16 23:58:10.183] === RUNDE 259 ===
-[2025-11-16 23:58:10.183] BEWEGUNG: (13,4) -> (13,3) | Akti[2025-11-16 23:58:10.194] === RUN[2025-11-16 23:58:10.198] === RUNDE 260 ===
-[2025-11-16 23:58:10.198] BEWEGUNG: (13,3) -> (13,2) | Aktio[2025-11-16 23:58:10.209] === RUNDE 260 ===
-[2025-11-16 23:58:10.209] BEWEGUNG: (13,22) -> (14,22) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:10.2[2025-11-16 23:58:10.213] === RUNDE 261 ===
-[2025-11-16 23:58:10.213] BEWEGUNG: (13,2) -> (12,2) | Aktion: [2025-11-16 23:58:10.224] ==[2025-11-16 23:58:10.230] === RUNDE 262 ===
-[2025-11-16 23:58:10.230] BEWEGUNG: (12,2) -> (11,2) | Aktion: go [2025-11-16 23:58:10.241][2025-11-16 23:58:10.244] === RUNDE 263 ===
-[2025-11-16 23:58:10.244] BEWEGUNG: (11,2) -> (10,2) | Aktion: go we[2025-11-16 23:58:10.25[2025-11-16 23:58:10.259] === RUNDE 264 ===
-[2025-11-16 23:58:10.259] BEWEGUNG: (10,2) -> (9,2) | Aktion: go west [2025-11-16 23:58:10[2025-11-16 23:58:10.276] === RUNDE 265 ===
-[2025-11-16 23:58:10.276] BEWEGUNG: (9,2) -> (8,2) | Aktion: go west | Gr[2025-11-16 23:5[2025-11-16 23:58:10.291] === RUNDE 266 ===
-[2025-11-16 23:58:10.291] BEWEGUNG: (8,2) -> (7,2) | Aktion: go west | Grund:[2025-11-16 [2025-11-16 23:58:10.306] === RUNDE 267 ===
-[2025-11-16 23:58:10.306] BEWEGUNG: (7,2) -> (7,1) | Aktion: go north | Grund: Na[2025-11-[2025-11-16 23:58:10.323] === RUNDE 268 ===
-[2025-11-16 23:58:10.323] BEWEGUNG: (7,1) -> (7,2) | Aktion: go south | Grund: Navig[2025-[2025-11-16 23:58:10.338] === RUNDE 269 ===
-[2025-11-16 23:58:10.338] BEWEGUNG: (7,2) -> (7,3) | Aktion: go south | Grund: Navigat[202[2025-11-16 23:58:10.352] === RUNDE 270 ===
-[2025-11-16 23:58:10.352] BEWEGUNG: (7,3) -> (7,4) | Aktion: go south | Grund: Navigati[2025-11-16 23:58:10.364] === RUNDE 270 ===
-[2025-11-16 23:58:10.364] BEWEGUNG: (8,23) -> (7,23) | Aktion: go west | Grund: Navig[2025-11-16 23:58:10.368] === RUNDE 271 ===
-[2025-11-16 23:58:10.368] BEWEGUNG: (7,4) -> (7,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.384] === RUNDE 272 ===
-[2025-11-16 23:58:10.384] BEWEGUNG: (7,5) -> (7,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.399] === RUNDE 273 ===
-[2025-11-16 23:58:10.399] BEWEGUNG: (7,6) -> (7,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.420] === RUNDE 274 ===
-[2025-11-16 23:58:10.420] BEWEGUNG: (7,7) -> (7,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.440] === RUNDE 275 ===
-[2025-11-16 23:58:10.440] BEWEGUNG: (7,8) -> (7,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.461] === RUNDE 276 ===
-[2025-11-16 23:58:10.461] BEWEGUNG: (7,9) -> (7,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.476] === RUNDE 277 ===
-[2025-11-16 23:58:10.476] BEWEGUNG: (7,10) -> (7,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.491] === RUNDE 278 ===
-[2025-11-16 23:58:10.491] BEWEGUNG: (7,11) -> (7,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.510] === RUNDE 279 ===
-[2025-11-16 23:58:10.510] BEWEGUNG: (7,12) -> (7,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.525] === RUNDE 280 ===
-[2025-11-16 23:58:10.525] BEWEGUNG: (7,13) -> (7,14) | Aktion: go south | Grund: Navigation
-[2025-11-[2025-11-16 23:58:10.535] === RUNDE 280 ===
-[2025-11-16 23:58:10.535] BEWEGUNG: (7,14) -> (7,13) | Aktion: go north | [2025-11-16 23:58:10.538] === RUNDE 281 ===
-[2025-11-16 23:58:10.538] BEWEGUNG: (7,14) -> (7,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.552] === RUNDE 282 ===
-[2025-11-16 23:58:10.552] BEWEGUNG: (7,15) -> (7,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.565] === RUNDE 283 ===
-[2025-11-16 23:58:10.565] BEWEGUNG: (7,16) -> (7,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.581] === RUNDE 284 ===
-[2025-11-16 23:58:10.581] BEWEGUNG: (7,17) -> (7,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.596] === RUNDE 285 ===
-[2025-11-16 23:58:10.596] BEWEGUNG: (7,18) -> (7,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.611] === RUNDE 286 ===
-[2025-11-16 23:58:10.611] BEWEGUNG: (7,19) -> (7,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.628] === RUNDE 287 ===
-[2025-11-16 23:58:10.628] BEWEGUNG: (7,20) -> (7,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.643] === RUNDE 288 ===
-[2025-11-16 23:58:10.643] BEWEGUNG: (7,21) -> (7,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.659] === RUNDE 289 ===
-[2025-11-16 23:58:10.659] BEWEGUNG: (7,22) -> (7,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:10.676] === RUNDE 290 ===
-[2025-11-16 23:58:10.676] BEWEGUNG: (7,23) -> (7,22) | Aktion: go north | Grund: Navigati[2[2025-11-16 23:58:10.687] === RUNDE 290 ===
-[2025-11-16 23:58:10.687] BEWEGUNG: (7,4) -> (7,5) | Aktion: go south | Grund: Navig[2025-11-16 23:58:10.689] === RUNDE 291 ===
-[2025-11-16 23:58:10.689] BEWEGUNG: (7,22) -> (7,21) | Aktion: go north | Grund: Navig[20[20[2025-11-16 23:58:10.702] === RUNDE 292 ===
-[2025-11-16 23:58:10.702] BEWEGUNG: (7,21) -> (7,20) | Aktion: go north | Grund: Nav[20[2025[2025-11-16 23:58:10.716] === RUNDE 293 ===
-[2025-11-16 23:58:10.716] BEWEGUNG: (7,20) -> (7,19) | Aktion: go north | Grund: N[2[2025-11[2025-11-16 23:58:10.735] === RUNDE 294 ===
-[2025-11-16 23:58:10.735] BEWEGUNG: (7,19) -> (7,18) | Aktion: go north | Grund:[2[2025-11-1[2025-11-16 23:58:10.754] === RUNDE 295 ===
-[2025-11-16 23:58:10.754] BEWEGUNG: (7,18) -> (6,18) | Aktion: go west | Grund[[2025-11-16 [2025-11-16 23:58:10.770] === RUNDE 296 ===
-[2025-11-16 23:58:10.770] BEWEGUNG: (6,18) -> (6,17) | Aktion: go north | Gru[[2025-11-16 23[2025-11-16 23:58:10.791] === RUNDE 297 ===
-[2025-11-16 23:58:10.791] BEWEGUNG: (6,17) -> (5,17) | Aktion: go west | G[2[2025-11-16 23:[2025-11-16 23:58:10.811] === RUNDE 298 ===
-[2025-11-16 23:58:10.811] BEWEGUNG: (5,17) -> (5,18) | Aktion: go south |[2[2025-11-16 23:58[2025-11-16 23:58:10.826] === RUNDE 299 ===
-[2025-11-16 23:58:10.826] BEWEGUNG: (5,18) -> (5,19) | Aktion: go south[2[2025-11-16 23:58:1[2025-11-16 23:58:10.841] === RUNDE 300 ===
-[2025-11-16 23:58:10.841] BEWEGUNG: (5,19) -> (5,20) | Aktion: go sou[2[2025-11-16 23:58:10.856] === RUNDE 300 ===
-[2025-11-16 23:58:10.856] BEWEGUNG: (5,2) -> (5,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:10.856] Bot 4 | Level: 2 | Formulare: [1] | Position: (5,1) | Strategie: FormCollec[2025-11-16 23:58:10.860] === RUNDE 301 ===
-[2025-11-16 23:58:10.860] BEWEGUNG: (5,20) -> (5,21) | Aktion: go[20[2025-11-16 23:58:10.874[2025-11-16 23:58:10.880] === RUNDE 302 ===
-[2025-11-16 23:58:10.880] BEWEGUNG: (5,21) -> (5,22) | Aktion: [2[2025-11-16 23:58:10.894] =[2025-11-16 23:58:10.898] === RUNDE 303 ===
-[2025-11-16 23:58:10.898] BEWEGUNG: (5,22) -> (5,23) | Aktion[2[2025-11-16 23:58:10.911] ===[2025-11-16 23:58:10.914] === RUNDE 304 ===
-[2025-11-16 23:58:10.914] BEWEGUNG: (5,23) -> (4,23) | Akt[20[2025-11-16 23:58:10.927] === [2025-11-16 23:58:10.931] === RUNDE 305 ===
-[2025-11-16 23:58:10.931] BEWEGUNG: (4,23) -> (4,22) | Ak[20[2025-11-16 23:58:10.942] === RU[2025-11-16 23:58:10.946] === RUNDE 306 ===
-[2025-11-16 23:58:10.946] BEWEGUNG: (4,22) -> (4,21) |[202[2025-11-16 23:58:10.961] === RUND[2025-11-16 23:58:10.965] === RUNDE 307 ===
-[2025-11-16 23:58:10.965] BEWEGUNG: (4,21) -> (4,20)[202[2025-11-16 23:58:10.976] === RUNDE [2025-11-16 23:58:10.979] === RUNDE 308 ===
-[2025-11-16 23:58:10.979] BEWEGUNG: (4,20) -> (4,1[202[2025-11-16 23:58:10.991] === RUNDE 30[2025-11-16 23:58:10.997] === RUNDE 309 ===
-[2025-11-16 23:58:10.997] BEWEGUNG: (4,19) -> (4[20[2025-11-16 23:58:11.012] === RUNDE 309 =[2025-11-16 23:58:11.017] === RUNDE 310 ===
-[2025-11-16 23:58:11.017] BEWEGUNG: (4,18) ->[202[2025-11-16 23:58:11.029] === RUNDE 310 ===
-[2025-11-16 23:58:11.029] BEWEGUNG: (3,6) -> (2,6) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:11.029] Bot 4 | Lev[2025-11-16 23:58:11.032] === RUNDE 311 ===
-[2025-11-16 23:58:11.032] BEWEGUNG: (4,17[2025[2025-11-16 23:58:11.043] === RUNDE 311 ===
-[[2025-11-16 23:58:11.047] === RUNDE 312 ===
-[2025-11-16 23:58:11.047] BEWEGUNG: (3,[2025-[2025-11-16 23:58:11.057] === RUNDE 312 ===
-[20[2025-11-16 23:58:11.062] === RUNDE 313 ===
-[2025-11-16 23:58:11.062] BEWEGUNG: (3[2025[2025-11-16 23:58:11.075] === RUNDE 313 ===
-[202[2025-11-16 23:58:11.079] === RUNDE 314 ===
-[2025-11-16 23:58:11.079] BEWEGUNG: (2,[20[2025-11-16 23:58:11.094] === RUNDE 314 ===
-[2025-[2025-11-16 23:58:11.098] === RUNDE 315 ===
-[2025-11-16 23:58:11.098] BEWEGUNG: (2[[2025-11-16 23:58:11.112] === RUNDE 315 ===
-[2025-11-[2025-11-16 23:58:11.115] === RUNDE 316 ===
-[2025-11-16 23:58:11.115] BEWEGUNG: ([[2025-11-16 23:58:11.126] === RUNDE 316 ===
-[2025-11-1[2025-11-16 23:58:11.130] === RUNDE 317 ===
-[2025-11-16 23:58:11.130] BEWEGUNG: [2025-11-16 23:58:11.140] === RUNDE 317 ===
-[2025-11-16 [2025-11-16 23:58:11.149] === RUNDE 318 ===
-[2025-11-16 23:58:11.149] BEWEGUNG: [2025-11-16 23:58:11.160] === RUNDE 318 ===
-[2025-11-16 [2025-11-16 23:58:11.169] === RUNDE 319 ===
-[2025-11-16 23:58:11.169] BEWEGUNG:[2025-11-16 23:58:11.179] === RUNDE 319 ===
-[2025-11-16 [2025-11-16 23:58:11.188] === RUNDE 320 ===
-[2025-11-16 23:58:11.188] BEWEGUNG:[2025-11-16 23:58:11.196] === RUNDE 320 ===
-[2025-11-16 23:58:11.196] BEWEGUNG: (1,9) -> (1,8) | Aktion: go north | Grund: Navigation
-[20[2025-11-16 23:58:11.201] === RUNDE 320 ===
-[2[2025-11-16 23:58:11.206] === RUNDE 321 ===
-[2025-11-16 23:58:11.206] BEWEGUN[2025-11-16 23:58:11.216] === RUNDE 321 ===
-[2025-11-16 23[2025-11-16 23:58:11.222] === RUNDE 322 ===
-[2025-11-16 23:58:11.222] BEWEGU[2025-11-16 23:58:11.231] === RUNDE 322 ===
-[2025-11-16 23:5[2025-11-16 23:58:11.241] === RUNDE 323 ===
-[2025-11-16 23:58:11.241] BEWE[2025-11-16 23:58:11.249] === RUNDE 323 ===
-[2025-11-16 23:58:[2025-11-16 23:58:11.257] === RUNDE 324 ===
-[2025-11-16 23:58:11.257] BE[2025-11-16 23:58:11.264] === RUNDE 324 ===
-[2025-11-16 23:58:1[2025-11-16 23:58:11.272] === RUNDE 325 ===
-[2025-11-16 23:58:11.272] B[2025-11-16 23:58:11.279] === RUNDE 325 ===
-[2025-11-16 23:58:11[2025-11-16 23:58:11.286] === RUNDE 326 ===
-[2025-11-16 23:58:11.286] [2025-11-16 23:58:11.292] === RUNDE 326 ===
-[2025-11-16 23:58:11.[2025-11-16 23:58:11.300] === RUNDE 327 ===
-[2025-11-16 23:58:11.300] [2025-11-16 23:58:11.307] === RUNDE 327 ===
-[2025-11-16 23:58:11.[2025-11-16 23:58:11.314] === RUNDE 328 ===
-[2025-11-16 23:58:11.314] B[2025-11-16 23:58:11.323] === RUNDE 328 ===
-[2025-11-16 23:58:11.[2025-11-16 23:58:11.330] === RUNDE 329 ===
-[2025-11-16 23:58:11.330] B[2025-11-16 23:58:11.340] === RUNDE 329 ===
-[2025-11-16 23:58:11.[2025-11-16 23:58:11.348] === RUNDE 330 ===
-[2025-11-16 23:58:11.348] [2025-11-16 23:58:11.356] === RUNDE 330 ===
-[2025-11-16 23:58:11.356] BEWEGUNG: (1,9) -> (1,8) | Aktion: go north | Grund: Navigat[2025-11-16 23:58:11.359] === RUNDE 330 ===
-[2025-11-16 23:58:1[2025-11-16 23:58:11.363] === RUNDE 331 ===
-[2025-11-16 23:58:11.36[2025-11-16 23:58:11.372] === RUNDE 331 ===
-[2025-11-16 23:58:11.372][2025-11-16 23:58:11.378] === RUNDE 332 ===
-[2025-11-16 23:58:11.[2025-11-16 23:58:11.383] === RUNDE 332 ===
-[2025-11-16 23:58:11.383] B[2025-11-16 23:58:11.393] === RUNDE 333 ===
-[2025-11-16 23:58:1[2025-11-16 23:58:11.399] === RUNDE 333 ===
-[2025-11-16 23:58:11.399] BEW[2025-11-16 23:58:11.407] === RUNDE 334 ===
-[2025-11-16 23:5[2025-11-16 23:58:11.414] === RUNDE 334 ===
-[2025-11-16 23:58:11.414] BEWEGU[2025-11-16 23:58:11.422] === RUNDE 335 ===
-[2025-11-16 2[2025-11-16 23:58:11.430] === RUNDE 335 ===
-[2025-11-16 23:58:11.430] BEWEGUNG[2025-11-16 23:58:11.436] === RUNDE 336 ===
-[2025-11-16[2025-11-16 23:58:11.442] === RUNDE 336 ===
-[2025-11-16 23:58:11.442] BEWEGUNG: [2025-11-16 23:58:11.450] === RUNDE 337 ===
-[2025-11-1[2025-11-16 23:58:11.457] === RUNDE 337 ===
-[2025-11-16 23:58:11.457] BEWEGUNG: ([2025-11-16 23:58:11.465] === RUNDE 338 ===
-[2025-11-[2025-11-16 23:58:11.472] === RUNDE 338 ===
-[2025-11-16 23:58:11.472] BEWEGUNG: (4,[2025-11-16 23:58:11.479] === RUNDE 339 ===
-[2025-[2025-11-16 23:58:11.486] === RUNDE 339 ===
-[2025-11-16 23:58:11.486] BEWEGUNG: (3,4) [2025-11-16 23:58:11.493] === RUNDE 340 ===
-[202[2025-11-16 23:58:11.500] === RUNDE 340 ===
-[2025-11-16 23:58:11.500] BEWEGUNG: (3,3) -> (3,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:11.500][2025-11-16 23:58:11.503] === RUNDE 340 ===
-[2025-11-16[2025-11-16 23:58:11.507] === RUNDE 341 ===
-[2[2025-11-16 23:58:11.517] === RUNDE 341 ===
-[2025-11-16 23:58:11.517] BEWEGUNG: (3,2) -> ([2025-11-16 23:58:11.524] === RUNDE 342 ===
-[2025-11-16 23:58:11.533] === RUNDE 342 ===
-[2025-11-16 23:58:11.533] BEWEGUNG: (3,1) -> (2,[2025-11-16 23:58:11.542] === RUNDE 343 =[2025-11-16 23:58:11.551] === RUNDE 343 ===
-[2025-11-16 23:58:11.551] BEWEGUNG: (2,1) -> (2,2) [2025-11-16 23:58:11.557] === RUNDE 344[2025-11-16 23:58:11.566] === RUNDE 344 ===
-[2025-11-16 23:58:11.566] FORMULAR: FORM 1 1 | Kann [2025-11-16 23:58:11.572] === RUNDE 345 ===
-[2025-11-16 23:58:11.572] BEWEGUNG: (2,23) -> (2,22) | Aktion: go north | Grund: Navig[2025-[2025-11-16 23:58:11.587] === RUNDE 346 ===
-[2025-11-16 23:58:11.587] FORMULAR: FORM 3 1 | Kann nehmen: false | Grund: Falscher [2025-11-16 23:58:11.595] === RUNDE 346 ===
-[2025-11-16 23:58:11.595] BEWEGUNG: (2,4) ->[2025-11-16 [2025-11-16 23:58:11.604] === RUN[2025-11-16 23:58:11.612] === RUNDE 347 ===
-[2025-11-16 23:58:11.612] BEWEGUNG: (1,4) -> (1,3[2025-11-1[2025-11-16 23:58:11.620] === R[2025-11-16 23:58:11.627] === RUNDE 348 ===
-[2025-11-16 23:58:11.627] BEWEGUNG: (1,3) -> (1,2) | [2025-1[2025-11-16 23:58:11.633] === [2025-11-16 23:58:11.641] === RUNDE 349 ===
-[2025-11-16 23:58:11.641] BEWEGUNG: (1,2) -> (1,1) | Akti[2025[2025-11-16 23:58:11.648] ==[2025-11-16 23:58:11.655] === RUNDE 350 ===
-[2025-11-16 23:58:11.655] BEWEGUNG: (1,1) -> (2,1) | Aktion:[2025-11-16 23:58:11.657] === RUNDE 350 ===
-[2025-11-16 23:58:11.657] BEWEGUNG: (11,17) -> (12,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:11.657] Bot 4 | Level: 2 | Formulare: [1, 2] | Position: (12,17[2025-11-16 23:58:11.66[2025-11-16 23:58:11.671] === RUNDE 351 ===
-[2025-11-16 23:58:11.671] BEWEGUNG: (2,1) -> (3,1) | Aktion: go east [2025-11-16 23:58:11[2025-11-16 23:58:11.685] === RUNDE 352 ===
-[2025-11-16 23:58:11.685] BEWEGUNG: (3,1) -> (4,1) | Aktion: go east | G[2025-11-16 23:58[2025-11-16 23:58:11.701] === RUNDE 353 ===
-[2025-11-16 23:58:11.701] BEWEGUNG: (4,1) -> (5,1) | Aktion: go east | Grun[2025-11-16 23[2025-11-16 23:58:11.717] === RUNDE 354 ===
-[2025-11-16 23:58:11.717] BEWEGUNG: (5,1) -> (5,2) | Aktion: go south | Grund:[2025-11-16 [2025-11-16 23:58:11.731] === RUNDE 355 ===
-[2025-11-16 23:58:11.731] BEWEGUNG: (5,2) -> (5,3) | Aktion: go south | Grund: [2025-11-16[2025-11-16 23:58:11.746] === RUNDE 356 ===
-[2025-11-16 23:58:11.746] BEWEGUNG: (5,3) -> (5,4) | Aktion: go south | Grund: N[2025-11-1[2025-11-16 23:58:11.760] === RUNDE 357 ===
-[2025-11-16 23:58:11.760] BEWEGUNG: (5,4) -> (5,5) | Aktion: go south | Grund: Na[2025-11-[2025-11-16 23:58:11.778] === RUNDE 358 ===
-[2025-11-16 23:58:11.778] BEWEGUNG: (5,5) -> (5,6) | Aktion: go south | Grund: Navi[2025-1[2025-11-16 23:58:11.793] === RUNDE 359 ===
-[2025-11-16 23:58:11.793] BEWEGUNG: (5,6) -> (6,6) | Aktion: go east | Grund: Navigat[202[2025-11-16 23:58:11.807] === RUNDE 360 ===
-[2025-11-16 23:58:11.807] BEWEGUNG: (6,6) -> (7,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:11.807] Bot 3 | Level: 2 | Formulare: [] | Position: (7,6) | Strategie: FormCollectionStrategy | Runde: 360
-[2025-11-16 23:58:11.823] === RUNDE 361 ===
-[2025-11-16 23:58:11.823] BEWEGUNG: (7,6) -> (7,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.838] === RUNDE 362 ===
-[2025-11-16 23:58:11.838] BEWEGUNG: (7,7) -> (7,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.852] === RUNDE 363 ===
-[2025-11-16 23:58:11.852] BEWEGUNG: (7,8) -> (7,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.869] === RUNDE 364 ===
-[2025-11-16 23:58:11.869] BEWEGUNG: (7,9) -> (7,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.888] === RUNDE 365 ===
-[2025-11-16 23:58:11.888] BEWEGUNG: (7,10) -> (7,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.903] === RUNDE 366 ===
-[2025-11-16 23:58:11.903] BEWEGUNG: (7,11) -> (7,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.918] === RUNDE 367 ===
-[2025-11-16 23:58:11.918] BEWEGUNG: (7,12) -> (7,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.931] === RUNDE 368 ===
-[2025-11-16 23:58:11.931] BEWEGUNG: (7,13) -> (7,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.946] === RUNDE 369 ===
-[2025-11-16 23:58:11.946] BEWEGUNG: (7,14) -> (7,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.962] === RUNDE 370 ===
-[2025-11-16 23:58:11.962] BEWEGUNG: (7,15) -> (7,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.962] Bot 3 | Level: 2 | Formulare: [] | Position: (7,16) | Strategie: FormCollectionStrategy | Runde: 370
-[2025-11-16 23:58:11.982] === RUNDE 371 ===
-[2025-11-16 23:58:11.982] BEWEGUNG: (7,16) -> (7,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:11.999] === RUNDE 372 ===
-[2025-11-16 23:58:11.999] BEWEGUNG: (7,17) -> (6,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.016] === RUNDE 373 ===
-[2025-11-16 23:58:12.016] BEWEGUNG: (6,17) -> (6,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.031] === RUNDE 374 ===
-[2025-11-16 23:58:12.031] BEWEGUNG: (6,18) -> (5,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.046] === RUNDE 375 ===
-[2025-11-16 23:58:12.046] BEWEGUNG: (5,18) -> (5,17) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.062] === RUNDE 376 ===
-[2025-11-16 23:58:12.062] BEWEGUNG: (5,17) -> (4,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.079] === RUNDE 377 ===
-[2025-11-16 23:58:12.079] BEWEGUNG: (4,17) -> (4,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.097] === RUNDE 378 ===
-[2025-11-16 23:58:12.097] BEWEGUNG: (4,18) -> (4,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.115] === RUNDE 379 ===
-[2025-11-16 23:58:12.115] BEWEGUNG: (4,19) -> (5,19) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.135] === RUNDE 380 ===
-[2025-11-16 23:58:12.135] BEWEGUNG: (5,19) -> (5,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.135] Bot 3 | Level: 2 | Formulare: [] | Position: (5,20) | Strategie: FormCollectionStrategy | Runde: 380
-[2025-11-16 23:58:12.150] === RUNDE 381 ===
-[2025-11-16 23:58:12.150] BEWEGUNG: (5,20) -> (5,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.166] === RUNDE 382 ===
-[2025-11-16 23:58:12.166] BEWEGUNG: (5,21) -> (5,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.182] === RUNDE 383 ===
-[2025-11-16 23:58:12.182] BEWEGUNG: (5,22) -> (5,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.201] === RUNDE 384 ===
-[2025-11-16 23:58:12.201] BEWEGUNG: (5,23) -> (4,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.218] === RUNDE 385 ===
-[2025-11-16 23:58:12.218] BEWEGUNG: (4,23) -> (4,22) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.234] === RUNDE 386 ===
-[2025-11-16 23:58:12.234] BEWEGUNG: (4,22) -> (4,21) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.251] === RUNDE 387 ===
-[2025-11-16 23:58:12.251] BEWEGUNG: (4,21) -> (4,20) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.269] === RUNDE 388 ===
-[2025-11-16 23:58:12.269] BEWEGUNG: (4,20) -> (3,20) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.285] === RUNDE 389 ===
-[2025-11-16 23:58:12.285] BEWEGUNG: (3,20) -> (3,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.299] === RUNDE 390 ===
-[2025-11-16 23:58:12.299] BEWEGUNG: (3,21) -> (3,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.299] Bot 3 | Level: 2 | Formulare: [] | Position: (3,22) | Strategie: FormCollectionStrategy | Runde: 390
-[2025-11-16 23:58:12.312] === RUNDE 391 ===
-[2025-11-16 23:58:12.312] BEWEGUNG: (3,22) -> (2,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:12.327] === RUNDE 392 ===
-[2025-11-16 23:58:12.327] FORMULAR: FORM 3 1 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:12.327] [INFO] Formular genommen: take
-[2025-11-16 23:58:12.328] GESAMMELTE FORMULARE: [1] | Nächstes erwartet: 2
-[2025-11-16 23:58:12.341] === RUNDE 393 ===
-[2025-11-16 23:58:12.341] BEWEGUNG: (2,22) -> (2,21) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.360] === RUNDE 394 ===
-[2025-11-16 23:58:12.360] BEWEGUNG: (2,21) -> (2,20) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.377] === RUNDE 395 ===
-[2025-11-16 23:58:12.377] BEWEGUNG: (2,20) -> (3,20) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.395] === RUNDE 396 ===
-[2025-11-16 23:58:12.395] BEWEGUNG: (3,20) -> (4,20) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.416] === RUNDE 397 ===
-[2025-11-16 23:58:12.416] BEWEGUNG: (4,20) -> (4,19) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.433] === RUNDE 398 ===
-[2025-11-16 23:58:12.433] BEWEGUNG: (4,19) -> (4,18) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.452] === RUNDE 399 ===
-[2025-11-16 23:58:12.452] BEWEGUNG: (4,18) -> (4,17) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.470] === RUNDE 400 ===
-[2025-11-16 23:58:12.470] BEWEGUNG: (4,17) -> (5,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.470] Bot 3 | Level: 2 | Formulare: [1] | Position: (5,17) | Strategie: FormCollectionStrategy | Runde: 400
-[2025-11-16 23:58:12.470] [STAT] Statistik Runde 400: Position (5,17) wurde 2x besucht
-[2025-11-16 23:58:12.490] === RUNDE 401 ===
-[2025-11-16 23:58:12.490] BEWEGUNG: (5,17) -> (6,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.508] === RUNDE 402 ===
-[2025-11-16 23:58:12.508] BEWEGUNG: (6,17) -> (7,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.526] === RUNDE 403 ===
-[2025-11-16 23:58:12.526] BEWEGUNG: (7,17) -> (7,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.543] === RUNDE 404 ===
-[2025-11-16 23:58:12.543] BEWEGUNG: (7,16) -> (7,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.559] === RUNDE 405 ===
-[2025-11-16 23:58:12.559] BEWEGUNG: (7,15) -> (7,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.579] === RUNDE 406 ===
-[2025-11-16 23:58:12.579] BEWEGUNG: (7,14) -> (7,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.599] === RUNDE 407 ===
-[2025-11-16 23:58:12.599] BEWEGUNG: (7,13) -> (7,12) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.614] === RUNDE 408 ===
-[2025-11-16 23:58:12.614] BEWEGUNG: (7,12) -> (7,11) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.630] === RUNDE 409 ===
-[2025-11-16 23:58:12.630] BEWEGUNG: (7,11) -> (8,11) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.645] === RUNDE 410 ===
-[2025-11-16 23:58:12.645] BEWEGUNG: (8,11) -> (9,11) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.645] Bot 3 | Level: 2 | Formulare: [1] | Position: (9,11) | Strategie: FormCollectionStrategy | Runde: 410
-[2025-11-16 23:58:12.662] === RUNDE 411 ===
-[2025-11-16 23:58:12.662] BEWEGUNG: (9,11) -> (10,11) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.675] === RUNDE 412 ===
-[2025-11-16 23:58:12.675] BEWEGUNG: (10,11) -> (11,11) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.689] === RUNDE 413 ===
-[2025-11-16 23:58:12.689] BEWEGUNG: (11,11) -> (12,11) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.707] === RUNDE 414 ===
-[2025-11-16 23:58:12.707] BEWEGUNG: (12,11) -> (12,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.723] === RUNDE 415 ===
-[2025-11-16 23:58:12.723] BEWEGUNG: (12,12) -> (12,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:12.740] === RUNDE 416 ===
-[2025-11-16 23:58:12.740] BEWEGUNG: (12,13) -> (13,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.756] === RUNDE 417 ===
-[2025-11-16 23:58:12.756] BEWEGUNG: (13,13) -> (14,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.771] === RUNDE 418 ===
-[2025-11-16 23:58:12.771] BEWEGUNG: (14,13) -> (15,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.787] === RUNDE 419 ===
-[2025-11-16 23:58:12.787] BEWEGUNG: (15,13) -> (16,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.800] === RUNDE 420 ===
-[2025-11-16 23:58:12.800] BEWEGUNG: (16,13) -> (16,12) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.800] Bot 3 | Level: 2 | Formulare: [1] | Position: (16,12) | Strategie: FormCollectionStrategy | Runde: 420
-[2025-11-16 23:58:12.815] === RUNDE 421 ===
-[2025-11-16 23:58:12.815] BEWEGUNG: (16,12) -> (16,11) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.829] === RUNDE 422 ===
-[2025-11-16 23:58:12.829] BEWEGUNG: (16,11) -> (16,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.852] === RUNDE 423 ===
-[2025-11-16 23:58:12.852] BEWEGUNG: (16,10) -> (16,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.868] === RUNDE 424 ===
-[2025-11-16 23:58:12.868] BEWEGUNG: (16,9) -> (16,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.883] === RUNDE 425 ===
-[2025-11-16 23:58:12.883] BEWEGUNG: (16,8) -> (16,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:12.898] === RUNDE 426 ===
-[2025-11-16 23:58:12.898] BEWEGUNG: (16,7) -> (17,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.921] === RUNDE 427 ===
-[2025-11-16 23:58:12.921] BEWEGUNG: (17,7) -> (18,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.942] === RUNDE 428 ===
-[2025-11-16 23:58:12.942] BEWEGUNG: (18,7) -> (19,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.958] === RUNDE 429 ===
-[2025-11-16 23:58:12.958] BEWEGUNG: (19,7) -> (20,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.972] === RUNDE 430 ===
-[2025-11-16 23:58:12.972] BEWEGUNG: (20,7) -> (21,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:12.972] Bot 3 | Level: 2 | Formulare: [1] | Position: (21,7) | Strategie: FormCollectionStrategy | Runde: 430
-[2025-11-16 23:58:12.991] === RUNDE 431 ===
-[2025-11-16 23:58:12.991] BEWEGUNG: (21,7) -> (22,7) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.006] === RUNDE 432 ===
-[2025-11-16 23:58:13.006] BEWEGUNG: (22,7) -> (22,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.022] === RUNDE 433 ===
-[2025-11-16 23:58:13.022] BEWEGUNG: (22,8) -> (22,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.036] === RUNDE 434 ===
-[2025-11-16 23:58:13.036] BEWEGUNG: (22,9) -> (22,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.050] === RUNDE 435 ===
-[2025-11-16 23:58:13.050] BEWEGUNG: (22,10) -> (21,10) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:13.066] === RUNDE 436 ===
-[2025-11-16 23:58:13.066] FORMULAR: FORM 3 2 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:13.066] [INFO] Formular genommen: take
-[2025-11-16 23:58:13.066] GESAMMELTE FORMULARE: [1, 2] | N�[2025-11-16 23:58:13[2025-11-16 23:58:13.082] === RUNDE 437 ===
-[2025-11-16 23:58:13.082] BEWEGUNG: (21,10) -> (21,9) | Aktion: go nort[2025-11-16 23:58:13.0[2025-11-16 23:58:13.099] === RUNDE 438 ===
-[2025-11-16 23:58:13.099] BEWEGUNG: (21,9) -> (22,9) | Aktion: go ea[2025-11-16 23:58:13.10[2025-11-16 23:58:13.112] === RUNDE 439 ===
-[2025-11-16 23:58:13.112]   ENDLOSSCHLEIFE ERKANNT bei (22,9)
-[2025[2025-11-16 23:58:13.122] === RUNDE 440 ===
-[2025-11-16 23:58:13.122] BEWEGUNG: (1,7) -> (1,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.122] Bot 1 | Level: 2 | Formulare: [] | Position: (1,6) | Strategie: FormCollectionStrategy | Runde: 440
-[2025-11-16 23:58:13.135] === RUNDE 441 ===
-[2025-11-16 23:58:13.135] BEWEGUNG: (1,6) -> (1,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.149] === RUNDE 442 ===
-[2025-11-16 23:58:13.149] BEWEGUNG: (1,7) -> (1,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.164] === RUNDE 443 ===
-[2025-11-16 23:58:13.164] BEWEGUNG: (1,8) -> (1,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.181] === RUNDE 444 ===
-[2025-11-16 23:58:13.181] BEWEGUNG: (1,9) -> (1,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.199] === RUNDE 445 ===
-[2025-11-16 23:58:13.199] BEWEGUNG: (1,10) -> (1,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.222] === RUNDE 446 ===
-[2025-11-16 23:58:13.222] BEWEGUNG: (1,11) -> (1,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.241] === RUNDE 447 ===
-[2025-11-16 23:58:13.241] BEWEGUNG: (1,10) -> (1,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.254] === RUNDE 448 ===
-[2025-11-16 23:58:13.254] BEWEGUNG: (1,9) -> (1,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.273] === RUNDE 449 ===
-[2025-11-16 23:58:13.273] BEWEGUNG: (1,8) -> (1,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.289] === RUNDE 450 ===
-[2025-11-16 23:58:13.289] BEWEGUNG: (1,7) -> (1,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.289] Bot 1 | Level: 2 | Formulare: [] | Position: (1,6) | Strategie: FormCollectionStrategy | Runde: 450
-[2025-11-16 23:58:13.289] [STAT] Statistik Runde 450: Position (1,6) wurde 2x besucht
-[2025-11-16 23:58:13.306] === RUNDE 451 ===
-[2025-11-16 23:58:13.306] BEWEGUNG: (1,6) -> (2,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.325] === RUNDE 452 ===
-[2025-11-16 23:58:13.325] BEWEGUNG: (2,6) -> (3,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.341] === RUNDE 453 ===
-[2025-11-16 23:58:13.341] BEWEGUNG: (3,6) -> (4,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.358] === RUNDE 454 ===
-[2025-11-16 23:58:13.358] BEWEGUNG: (4,6) -> (4,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.373] === RUNDE 455 ===
-[2025-11-16 23:58:13.373] BEWEGUNG: (4,5) -> (4,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.388] === RUNDE 456 ===
-[2025-11-16 23:58:13.388] BEWEGUNG: (4,4) -> (3,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:13.403] === RUNDE 457 ===
-[2025-11-16 23:58:13.403] BEWEGUNG: (3,4) -> (3,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.421] === RUNDE 458 ===
-[2025-11-16 23:58:13.421] BEWEGUNG: (3,3) -> (3,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:13.435] === RUNDE 459 ===
-[2025-11-16 23:58:13.436] BEWEGUNG: (3,2) -> (2,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:13.451] === RUNDE 460 ===
-[2025-11-16 23:58:13.451] FORMULAR: FORM 1 1 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:13.451] [INFO] Formular genommen: take
-[2025-11-16 23:58:13.452] GESAMMELTE FORMULARE: [1] | Nächstes erwartet: 2
-[2025-11-16 23:58:13.465] === RUNDE 461 ===
-[2025-11-16 23:58:13.465] BEWEGUNG: (2,2) -> (3,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.477] === RUNDE 462 ===
-[2025-11-16 23:58:13.477] BEWEGUNG: (3,2) -> (4,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.492] === RUNDE 463 ===
-[2025-11-16 23:58:13.492] BEWEGUNG: (4,2) -> (5,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.510] === RUNDE 464 ===
-[2025-11-16 23:58:13.510] BEWEGUNG: (5,2) -> (5,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.526] === RUNDE 465 ===
-[2025-11-16 23:58:13.526] BEWEGUNG: (5,3) -> (5,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.542] === RUNDE 466 ===
-[2025-11-16 23:58:13.542] BEWEGUNG: (5,4) -> (5,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.557] === RUNDE 467 ===
-[2025-11-16 23:58:13.557] BEWEGUNG: (5,5) -> (5,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.572] === RUNDE 468 ===
-[2025-11-16 23:58:13.572] BEWEGUNG: (5,6) -> (6,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.587] === RUNDE 469 ===
-[2025-11-16 23:58:13.587] BEWEGUNG: (6,6) -> (7,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.607] === RUNDE 470 ===
-[2025-11-16 23:58:13.607] BEWEGUNG: (7,6) -> (8,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.607] Bot 1 | Level: 2 | Formulare: [1] | Position: (8,6) | Strategie: FormCollectionStrategy | Runde: 470
-[2025-11-16 23:58:13.622] === RUNDE 471 ===
-[2025-11-16 23:58:13.622] BEWEGUNG: (8,6) -> (8,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.639] === RUNDE 472 ===
-[2025-11-16 23:58:13.639] BEWEGUNG: (8,7) -> (8,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.658] === RUNDE 473 ===
-[2025-11-16 23:58:13.658] BEWEGUNG: (8,8) -> (8,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.674] === RUNDE 474 ===
-[2025-11-16 23:58:13.674] BEWEGUNG: (8,9) -> (8,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.690] === RUNDE 475 ===
-[2025-11-16 23:58:13.690] BEWEGUNG: (8,10) -> (9,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.705] === RUNDE 476 ===
-[2025-11-16 23:58:13.705] BEWEGUNG: (9,10) -> (10,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.720] === RUNDE 477 ===
-[2025-11-16 23:58:13.720] BEWEGUNG: (10,10) -> (11,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.734] === RUNDE 478 ===
-[2025-11-16 23:58:13.734] BEWEGUNG: (11,10) -> (12,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.753] === RUNDE 479 ===
-[2025-11-16 23:58:13.753] BEWEGUNG: (12,10) -> (12,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.767] === RUNDE 480 ===
-[2025-11-16 23:58:13.767] BEWEGUNG: (12,11) -> (12,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.767] Bot 1 | Level: 2 | Formulare: [1] | Position: (12,12) | Strategie: FormCollectionStrategy | Runde: 480
-[2025-11-16 23:58:13.783] === RUNDE 481 ===
-[2025-11-16 23:58:13.783] BEWEGUNG: (12,12) -> (12,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.798] === RUNDE 482 ===
-[2025-11-16 23:58:13.798] BEWEGUNG: (12,13) -> (13,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.813] === RUNDE 483 ===
-[2025-11-16 23:58:13.813] BEWEGUNG: (13,13) -> (14,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.830] === RUNDE 484 ===
-[2025-11-16 23:58:13.830] BEWEGUNG: (14,13) -> (15,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.847] === RUNDE 485 ===
-[2025-11-16 23:58:13.847] BEWEGUNG: (15,13) -> (16,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.861] === RUNDE 486 ===
-[2025-11-16 23:58:13.861] BEWEGUNG: (16,13) -> (17,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.877] === RUNDE 487 ===
-[2025-11-16 23:58:13.877] BEWEGUNG: (17,13) -> (17,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.894] === RUNDE 488 ===
-[2025-11-16 23:58:13.894] BEWEGUNG: (17,14) -> (17,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.907] === RUNDE 489 ===
-[2025-11-16 23:58:13.907] BEWEGUNG: (17,15) -> (17,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.924] === RUNDE 490 ===
-[2025-11-16 23:58:13.924] BEWEGUNG: (17,16) -> (17,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:13.924] Bot 1 | Level: 2 | Formulare: [1] | Position: (17,17) | Strategie: FormCollectionStrategy | Runde: 490
-[2025-11-16 23:58:13.940] === RUNDE 491 ===
-[2025-11-16 23:58:13.940] BEWEGUNG: (17,17) -> (18,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.955] === RUNDE 492 ===
-[2025-11-16 23:58:13.955] BEWEGUNG: (18,17) -> (19,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.973] === RUNDE 493 ===
-[2025-11-16 23:58:13.973] BEWEGUNG: (19,17) -> (20,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:13.990] === RUNDE 494 ===
-[2025-11-16 23:58:13.990] BEWEGUNG: (20,17) -> (21,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.007] === RUNDE 495 ===
-[2025-11-16 23:58:14.007] BEWEGUNG: (21,17) -> (22,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.024] === RUNDE 496 ===
-[2025-11-16 23:58:14.024] BEWEGUNG: (22,17) -> (22,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.040] === RUNDE 497 ===
-[2025-11-16 23:58:14.040] BEWEGUNG: (22,16) -> (22,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.054] === RUNDE 498 ===
-[2025-11-16 23:58:14.054] BEWEGUNG: (22,15) -> (22,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.067] === RUNDE 499 ===
-[2025-11-16 23:58:14.067] BEWEGUNG: (22,14) -> (21,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.085] === RUNDE 500 ===
-[2025-11-16 23:58:14.085] FORMULAR: FORM 1 2 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:14.085] [INFO] Formular genommen: take
-[2025-11-16 23:58:14.085] GESAMMELTE FORMULARE: [1, 2] | Nächstes erwartet: 3
-[2025-11-16 23:58:14.098] === RUNDE 501 ===
-[2025-11-16 23:58:14.098] BEWEGUNG: (21,14) -> (22,14) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.113] === RUNDE 502 ===
-[2025-11-16 23:58:14.113] BEWEGUNG: (22,14) -> (22,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.127] === RUNDE 503 ===
-[2025-11-16 23:58:14.127] BEWEGUNG: (22,15) -> (22,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.145] === RUNDE 504 ===
-[2025-11-16 23:58:14.145] BEWEGUNG: (22,16) -> (22,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.159] === RUNDE 505 ===
-[2025-11-16 23:58:14.159] BEWEGUNG: (22,17) -> (21,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.175] === RUNDE 506 ===
-[2025-11-16 23:58:14.175] BEWEGUNG: (21,17) -> (20,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.190] === RUNDE 507 ===
-[2025-11-16 23:58:14.190] BEWEGUNG: (20,17) -> (19,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.208] === RUNDE 508 ===
-[2025-11-16 23:58:14.208] BEWEGUNG: (19,17) -> (18,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.226] === RUNDE 509 ===
-[2025-11-16 23:58:14.226] BEWEGUNG: (18,17) -> (17,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.241] === RUNDE 510 ===
-[2025-11-16 23:58:14.241] BEWEGUNG: (17,17) -> (17,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.241] Bot 1 | Level: 2 | Formulare: [1, 2] | Position: (17,16) | Strategie: FormCollectionStrategy | Runde: 510
-[2025-11-16 23:58:14.259] === RUNDE 511 ===
-[2025-11-16 23:58:14.259] BEWEGUNG: (17,16) -> (17,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.273] === RUNDE 512 ===
-[2025-11-16 23:58:14.273] BEWEGUNG: (17,15) -> (17,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.287] === RUNDE 513 ===
-[2025-11-16 23:58:14.287] BEWEGUNG: (17,14) -> (17,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.303] === RUNDE 514 ===
-[2025-11-16 23:58:14.303] BEWEGUNG: (17,13) -> (17,12) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.318] === RUNDE 515 ===
-[2025-11-16 23:58:14.318] BEWEGUNG: (17,12) -> (17,11) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.333] === RUNDE 516 ===
-[2025-11-16 23:58:14.333] BEWEGUNG: (17,11) -> (17,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.347] === RUNDE 517 ===
-[2025-11-16 23:58:14.347] BEWEGUNG: (17,10) -> (17,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.362] === RUNDE 518 ===
-[2025-11-16 23:58:14.362] BEWEGUNG: (17,9) -> (17,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.376] === RUNDE 519 ===
-[2025-11-16 23:58:14.376] BEWEGUNG: (17,8) -> (17,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.392] === RUNDE 520 ===
-[2025-11-16 23:58:14.392] BEWEGUNG: (17,7) -> (17,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.392] Bot 1 | Level: 2 | Formulare: [1, 2] | Position: (17,6) | Strategie: FormCollectionStrategy | Runde: 520
-[2025-11-16 23:58:14.406] === RUNDE 521 ===
-[2025-11-16 23:58:14.406] BEWEGUNG: (17,6) -> (17,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.420] === RUNDE 522 ===
-[2025-11-16 23:58:14.420] BEWEGUNG: (17,5) -> (17,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.440] === RUNDE 523 ===
-[2025-11-16 23:58:14.440] BEWEGUNG: (17,4) -> (17,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.459] === RUNDE 524 ===
-[2025-11-16 23:58:14.459] BEWEGUNG: (17,3) -> (17,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.475] === RUNDE 525 ===
-[2025-11-16 23:58:14.475] BEWEGUNG: (17,2) -> (16,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.490] === RUNDE 526 ===
-[2025-11-16 23:58:14.490] BEWEGUNG: (16,2) -> (15,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.504] === RUNDE 527 ===
-[2025-11-16 23:58:14.504] BEWEGUNG: (15,2) -> (14,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.523] === RUNDE 528 ===
-[2025-11-16 23:58:14.523] BEWEGUNG: (14,2) -> (14,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.543] === RUNDE 529 ===
-[2025-11-16 23:58:14.543] BEWEGUNG: (14,3) -> (14,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.557] === RUNDE 530 ===
-[2025-11-16 23:58:14.557] BEWEGUNG: (14,4) -> (14,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.557] Bot 1 | Level: 2 | Formulare: [1, 2] | Position: (14,5) | Strategie: FormCollectionStrategy | Runde: 530
-[2025-11-16 23:58:14.575] === RUNDE 531 ===
-[2025-11-16 23:58:14.575] BEWEGUNG: (14,5) -> (14,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.590] === RUNDE 532 ===
-[2025-11-16 23:58:14.590] BEWEGUNG: (14,6) -> (13,6) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.606] === RUNDE 533 ===
-[2025-11-16 23:58:14.606] BEWEGUNG: (13,6) -> (12,6) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.624] === RUNDE 534 ===
-[2025-11-16 23:58:14.624] BEWEGUNG: (12,6) -> (11,6) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.645] === RUNDE 535 ===
-[2025-11-16 23:58:14.645] FORMULAR: FORM 1 3 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:14.645] [INFO] Formular genommen: take
-[2025-11-16 23:58:14.645] GESAMMELTE FORMULARE: [1, 2, 3] | Nächstes erwartet: 4
-[2025-11-16 23:58:14.658] === RUNDE 536 ===
-[2025-11-16 23:58:14.658] BEWEGUNG: (11,6) -> (11,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.675] === RUNDE 537 ===
-[2025-11-16 23:58:14.675] BEWEGUNG: (11,5) -> (11,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.688] === RUNDE 538 ===
-[2025-11-16 23:58:14.688] BEWEGUNG: (11,4) -> (12,4) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.702] === RUNDE 539 ===
-[2025-11-16 23:58:14.702] BEWEGUNG: (12,4) -> (13,4) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.720] === RUNDE 540 ===
-[2025-11-16 23:58:14.720] BEWEGUNG: (13,4) -> (13,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.720] Bot 1 | Level: 2 | Formulare: [1, 2, 3] | Position: (13,3) | Strategie: FormCollectionStra[2025-11-16 23:58:[2025-11-16 23:58:14.738] === RUNDE 541 ===
-[2025-11-16 23:58:14.738] BEWEGUNG: (13,3) -> (13,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:14.755] === RUNDE 542 ===
-[2025-11-16 23:58:14.755] BEWEGUNG: (13,2) -> (14,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.770] === RUNDE 543 ===
-[2025-11-16 23:58:14.770] BEWEGUNG: (14,2) -> (15,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.786] === RUNDE 544 ===
-[2025-11-16 23:58:14.786] BEWEGUNG: (15,2) -> (16,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:14.802] === RUNDE 545 ===
-[2025-11-16 23:58:14.802] BEWEGUNG: (16,2) -> (16,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.816] === RUNDE 546 ===
-[2025-11-16 23:58:14.816] BEWEGUNG: (16,3) -> (16,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.830] === RUNDE 547 ===
-[2025-11-16 23:58:14.830] BEWEGUNG: (16,4) -> (16,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.843] === RUNDE 548 ===
-[2025-11-16 23:58:14.843] BEWEGUNG: (16,5) -> (16,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.860] === RUNDE 549 ===
-[2025-11-16 23:58:14.860] BEWEGUNG: (16,6) -> (16,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.875] === RUNDE 550 ===
-[2025-11-16 23:58:14.875] BEWEGUNG: (16,7) -> (16,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.875] Bot 1 | Level: 2 | Formulare: [1, 2, 3] | Position: (16,8) | Strategie: FormCollectionStrategy | Runde: 550
-[2025[2025-11-16 23:58:14.891] === RUNDE 550 ===
-[2025-11-16 23:58:14.891] BEWEGUNG: (1[2025-11-16 23:58:14.895] === RUNDE 551 ===
-[2025-11-16 23:58:14.895] BEWEGUNG: (16,8) -> (16,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.914] === RUNDE 552 ===
-[2025-11-16 23:58:14.914] BEWEGUNG: (16,9) -> (16,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.929] === RUNDE 553 ===
-[2025-11-16 23:58:14.929] BEWEGUNG: (16,10) -> (16,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.944] === RUNDE 554 ===
-[2025-11-16 23:58:14.944] BEWEGUNG: (16,11) -> (16,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.957] === RUNDE 555 ===
-[2025-11-16 23:58:14.957] BEWEGUNG: (16,12) -> (16,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:14.974] === RUNDE 556 ===
-[2025-11-16 23:58:14.974] BEWEGUNG: (16,13) -> (15,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:14.989] === RUNDE 557 ===
-[2025-11-16 23:58:14.989] BEWEGUNG: (15,13) -> (14,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.009] === RUNDE 558 ===
-[2025-11-16 23:58:15.009] BEWEGUNG: (14,13) -> (13,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.025] === RUNDE 559 ===
-[2025-11-16 23:58:15.025] BEWEGUNG: (13,13) -> (12,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.040] === RUNDE 560 ===
-[2025-11-16 23:58:15.040] BEWEGUNG: (12,13) -> (11,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.040] Bot 1 | Level: 2 | Formulare: [1, 2, 3] | Position: (11,13) | Strategie: FormCollectionStrategy | Runde: 560
-[2025-11-16 23:58:15.056] === RUNDE 561 ===
-[2025-11-16 23:58:15.056] BEWEGUNG: (11,13) -> (10,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.073] === RUNDE 562 ===
-[2025-11-16 23:58:15.073] FORMULAR: FORM 1 4 | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-16 23:58:15.073] [INFO] Formular genommen: take
-[2025-11-16 23:58:15.073] GESAMMELTE FORMULARE: [1, 2, 3, 4] | Nächstes erwartet: 5
-[2025-11-16 23:58:15.094] === RUNDE 563 ===
-[2025-11-16 23:58:15.094] BEWEGUNG: (10,13) -> (11,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.111] === RUNDE 564 ===
-[2025-11-16 23:58:15.111] BEWEGUNG: (11,13) -> (12,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.130] === RUNDE 565 ===
-[2025-11-16 23:58:15.130]   ENDLOSSCHLEIFE ERKANNT bei (12,13)
-[2025-11-16 23:58:15.130]    - Besuchszähl[2025-11-16 23:58:15.145] === RUNDE 565 ===
-[2025-11-16 23:58:15.145] BEWEGUNG: (22,15) -> (21,15) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.166] === RUNDE 566 ===
-[2025-11-16 23:58:15.166] BEWEGUNG: (21,15) -> (21,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.183] === RUNDE 567 ===
-[2025-11-16 23:58:15.183] BEWEGUNG: (21,14) -> (21,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.201] === RUNDE 568 ===
-[2025-11-16 23:58:15.201] BEWEGUNG: (21,13) -> (20,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.220] === RUNDE 569 ===
-[2025-11-16 23:58:15.220] BEWEGUNG: (20,13) -> (19,13) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.238] === RUNDE 570 ===
-[2025-11-16 23:58:15.238] BEWEGUNG: (19,13) -> (19,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.238] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (19,14) | Strategie: FormCollectionStrategy | Runde: 570
-[2025-11-16 23:58:15.256] === RUNDE 571 ===
-[2025-11-16 23:58:15.256] BEWEGUNG: (19,14) -> (19,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.273] === RUNDE 572 ===
-[2025-11-16 23:58:15.273] BEWEGUNG: (19,15) -> (20,15) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.292] === RUNDE 573 ===
-[2025-11-16 23:58:15.293] BEWEGUNG: (20,15) -> (21,15) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.311] === RUNDE 574 ===
-[2025-11-16 23:58:15.311] BEWEGUNG: (21,15) -> (21,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.334] === RUNDE 575 ===
-[2025-11-16 23:58:15.334] BEWEGUNG: (21,14) -> (21,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.349] === RUNDE 576 ===
-[2025-11-16 23:58:15.349] BEWEGUNG: (21,13) -> (22,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.365] === RUNDE 577 ===
-[2025-11-16 23:58:15.365] BEWEGUNG: (22,13) -> (23,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.382] === RUNDE 578 ===
-[2025-11-16 23:58:15.382] BEWEGUNG: (23,13) -> (23,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.401] === RUNDE 579 ===
-[2025-11-16 23:58:15.401] BEWEGUNG: (23,14) -> (23,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.417] === RUNDE 580 ===
-[2025-11-16 23:58:15.417] BEWEGUNG: (23,15) -> (23,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.417] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (23,16) | Strategie: FormCollectionStrategy | Runde: 580
-[2025-11-16 23:58:15.438] === RUNDE 581 ===
-[2025-11-16 23:58:15.438] BEWEGUNG: (23,16) -> (23,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.455] === RUNDE 582 ===
-[2025-11-16 23:58:15.455] BEWEGUNG: (23,17) -> (23,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.471] === RUNDE 583 ===
-[2025-11-16 23:58:15.471] BEWEGUNG: (23,18) -> (22,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.490] === RUNDE 584 ===
-[2025-11-16 23:58:15.490] BEWEGUNG: (22,18) -> (21,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.508] === RUNDE 585 ===
-[2025-11-16 23:58:15.508] BEWEGUNG: (21,18) -> (21,17) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.528] === RUNDE 586 ===
-[2025-11-16 23:58:15.528] BEWEGUNG: (21,17) -> (22,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.544] === RUNDE 587 ===
-[2025-11-16 23:58:15.544] BEWEGUNG: (22,17) -> (22,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.560] === RUNDE 588 ===
-[2025-11-16 23:58:15.560] BEWEGUNG: (22,16) -> (22,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.579] === RUNDE 589 ===
-[2025-11-16 23:58:15.579] BEWEGUNG: (22,15) -> (22,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.598] === RUNDE 590 ===
-[2025-11-16 23:58:15.598] BEWEGUNG: (22,14) -> (22,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.598] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (22,13) | Strategie: FormCollectionStrategy | Runde: 590
-[2025-11-16 23:58:15.616] === RUNDE 591 ===
-[2025-11-16 23:58:15.616] BEWEGUNG: (22,13) -> (23,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:15.636] === RUNDE 592 ===
-[2025-11-16 23:58:15.636] BEWEGUNG: (23,13) -> (23,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.653] === RUNDE 593 ===
-[2025-11-16 23:58:15.653] BEWEGUNG: (23,14) -> (23,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.671] === RUNDE 594 ===
-[2025-11-16 23:58:15.671] BEWEGUNG: (23,15) -> (23,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.688] === RUNDE 595 ===
-[2025-11-16 23:58:15.688] BEWEGUNG: (23,16) -> (23,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.706] === RUNDE 596 ===
-[2025-11-16 23:58:15.706] BEWEGUNG: (23,17) -> (23,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.723] === RUNDE 597 ===
-[2025-11-16 23:58:15.723] BEWEGUNG: (23,18) -> (22,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.740] === RUNDE 598 ===
-[2025-11-16 23:58:15.740] BEWEGUNG: (22,18) -> (21,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.759] === RUNDE 599 ===
-[2025-11-16 23:58:15.759] BEWEGUNG: (21,18) -> (20,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.780] === RUNDE 600 ===
-[2025-11-16 23:58:15.780] BEWEGUNG: (20,18) -> (20,17) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:15.780] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (20,17) | Strategie: FormCollectionStrategy | Runde: 600
-[2025-11-16 23:58:15.780] [STAT] Statistik Runde 600: Position (20,17) wurde 3x besuc[20[2025-11-16 23:58:15.799] === RUNDE 601 ===
-[2025-11-16 23:58:15.799] BEWEGUNG: (20,17) -> (19,17) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.819] === RUNDE 602 ===
-[2025-11-16 23:58:15.819] BEWEGUNG: (19,17) -> (19,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.839] === RUNDE 603 ===
-[2025-11-16 23:58:15.839] BEWEGUNG: (19,18) -> (18,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.858] === RUNDE 604 ===
-[2025-11-16 23:58:15.858] BEWEGUNG: (18,18) -> (17,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.875] === RUNDE 605 ===
-[2025-11-16 23:58:15.875] BEWEGUNG: (17,18) -> (17,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.894] === RUNDE 606 ===
-[2025-11-16 23:58:15.894] BEWEGUNG: (17,19) -> (17,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.913] === RUNDE 607 ===
-[2025-11-16 23:58:15.913] BEWEGUNG: (17,20) -> (17,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.932] === RUNDE 608 ===
-[2025-11-16 23:58:15.932] BEWEGUNG: (17,21) -> (17,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.948] === RUNDE 609 ===
-[2025-11-16 23:58:15.948] BEWEGUNG: (17,22) -> (17,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:15.966] === RUNDE 610 ===
-[2025-11-16 23:58:15.966] BEWEGUNG: (17,23) -> (16,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:15.966] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,23) | Strategie: FormCollectionStrategy | Runde: 610
-[2025-11-16 23:58:15.985] === RUNDE 611 ===
-[2025-11-16 23:58:15.985] BEWEGUNG: (16,23) -> (16,22) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.003] === RUNDE 612 ===
-[2025-11-16 23:58:16.003] BEWEGUNG: (16,22) -> (15,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.023] === RUNDE 613 ===
-[2025-11-16 23:58:16.023] BEWEGUNG: (15,22) -> (15,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.042] === RUNDE 614 ===
-[2025-11-16 23:58:16.044] BEWEGUNG: (15,23) -> (15,22) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.064] === RUNDE 615 ===
-[2025-11-16 23:58:16.064] BEWEGUNG: (15,22) -> (14,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.082] === RUNDE 616 ===
-[2025-11-16 23:58:16.082] BEWEGUNG: (14,22) -> (13,22) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.099] === RUNDE 617 ===
-[2025-11-16 23:58:16.099] BEWEGUNG: (13,22) -> (13,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.121] === RUNDE 618 ===
-[2025-11-16 23:58:16.121] BEWEGUNG: (13,23) -> (12,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.139] === RUNDE 619 ===
-[2025-11-16 23:58:16.139] BEWEGUNG: (12,23) -> (12,22) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.158] === RUNDE 620 ===
-[2025-11-16 23:58:16.158] BEWEGUNG: (12,22) -> (13,22) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.158] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (13,22) | Strategie: FormCollectionStrategy | Runde: 620
-[2025-11-16 23:58:16.176] === RUNDE 621 ===
-[2025-11-16 23:58:16.176] BEWEGUNG: (13,22) -> (14,22) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.195] === RUNDE 622 ===
-[2025-11-16 23:58:16.195] BEWEGUNG: (14,22) -> (15,22) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.210] === RUNDE 623 ===
-[2025-11-16 23:58:16.210] BEWEGUNG: (15,22) -> (16,22) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.228] === RUNDE 624 ===
-[2025-11-16 23:58:16.228] BEWEGUNG: (16,22) -> (16,21) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.247] === RUNDE 625 ===
-[2025-11-16 23:58:16.247] BEWEGUNG: (16,21) -> (16,20) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.266] === RUNDE 626 ===
-[2025-11-16 23:58:16.266] BEWEGUNG: (16,20) -> (16,19) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.282] === RUNDE 627 ===
-[2025-11-16 23:58:16.282] BEWEGUNG: (16,19) -> (16,18) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.299] === RUNDE 628 ===
-[2025-11-16 23:58:16.299] BEWEGUNG: (16,18) -> (16,17) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.316] === RUNDE 629 ===
-[2025-11-16 23:58:16.316] BEWEGUNG: (16,17) -> (16,16) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.332] === RUNDE 630 ===
-[2025-11-16 23:58:16.332] BEWEGUNG: (16,16) -> (16,15) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.332] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,15) | Strategie: FormCollectionStrategy | Runde: 630
-[2025-11-16 23:58:16.351] === RUNDE 631 ===
-[2025-11-16 23:58:16.351] BEWEGUNG: (16,15) -> (16,14) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.367] === RUNDE 632 ===
-[2025-11-16 23:58:16.367] BEWEGUNG: (16,14) -> (15,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.385] === RUNDE 633 ===
-[2025-11-16 23:58:16.385] BEWEGUNG: (15,14) -> (15,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.401] === RUNDE 634 ===
-[2025-11-16 23:58:16.401] BEWEGUNG: (15,13) -> (15,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.419] === RUNDE 635 ===
-[2025-11-16 23:58:16.419] BEWEGUNG: (15,14) -> (14,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.437] === RUNDE 636 ===
-[2025-11-16 23:58:16.437] BEWEGUNG: (14,14) -> (13,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.455] === RUNDE 637 ===
-[2025-11-16 23:58:16.455] BEWEGUNG: (13,14) -> (12,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.474] === RUNDE 638 ===
-[2025-11-16 23:58:16.474] BEWEGUNG: (12,14) -> (11,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.494] === RUNDE 639 ===
-[2025-11-16 23:58:16.494] BEWEGUNG: (11,14) -> (10,14) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:16.512] === RUNDE 640 ===
-[2025-11-16 23:58:16.512] FORMULAR: FORM 2 4 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:16.512] BEWEGUNG: (10,14) -> (10,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.512] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (10,13) | Strategie: FormCollectionStrategy | Runde: 640
-[2025-11-16 23:58:16.530] === RUNDE 641 ===
-[2025-11-16 23:58:16.530] BEWEGUNG: (10,13) -> (11,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.546] === RUNDE 642 ===
-[2025-11-16 23:58:16.546] BEWEGUNG: (11,13) -> (11,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.563] === RUNDE 643 ===
-[2025-11-16 23:58:16.563] BEWEGUNG: (11,14) -> (12,14) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.583] === RUNDE 644 ===
-[2025-11-16 23:58:16.583] BEWEGUNG: (12,14) -> (13,14) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.600] === RUNDE 645 ===
-[2025-11-16 23:58:16.600] BEWEGUNG: (13,14) -> (13,13) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.619] === RUNDE 646 ===
-[2025-11-16 23:58:16.619] BEWEGUNG: (13,13) -> (14,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.635] === RUNDE 647 ===
-[2025-11-16 23:58:16.635] BEWEGUNG: (14,13) -> (15,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.650] === RUNDE 648 ===
-[2025-11-16 23:58:16.650] BEWEGUNG: (15,13) -> (16,13) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.669] === RUNDE 649 ===
-[2025-11-16 23:58:16.669] BEWEGUNG: (16,13) -> (16,12) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.685] === RUNDE 650 ===
-[2025-11-16 23:58:16.685] BEWEGUNG: (16,12) -> (16,11) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.685] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,11) | Strategie: FormCollectionStrategy | Runde: 650
-[2025-11-16 23:58:16.685] [STAT] Statistik Runde 650: Position (16,11) wurde 2x besucht
-[2025-11-16 23:58:16.704] === RUNDE 651 ===
-[2025-11-16 23:58:16.704] BEWEGUNG: (16,11) -> (16,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.720] === RUNDE 652 ===
-[2025-11-16 23:58:16.720] BEWEGUNG: (16,10) -> (16,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.734] === RUNDE 653 ===
-[2025-11-16 23:58:16.734] BEWEGUNG: (16,9) -> (16,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.748] === RUNDE 654 ===
-[2025-11-16 23:58:16.748] BEWEGUNG: (16,8) -> (16,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.767] === RUNDE 655 ===
-[2025-11-16 23:58:16.767] BEWEGUNG: (16,7) -> (16,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.782] === RUNDE 656 ===
-[2025-11-16 23:58:16.782] BEWEGUNG: (16,6) -> (16,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.800] === RUNDE 657 ===
-[2025-11-16 23:58:16.800] BEWEGUNG: (16,5) -> (16,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.815] === RUNDE 658 ===
-[2025-11-16 23:58:16.815] BEWEGUNG: (16,4) -> (16,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.832] === RUNDE 659 ===
-[2025-11-16 23:58:16.832] BEWEGUNG: (16,3) -> (16,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.845] === RUNDE 660 ===
-[2025-11-16 23:58:16.845] BEWEGUNG: (16,2) -> (16,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:16.845] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,1) | Strategie: FormCollectionStrategy | Runde: 660
-[2025-11-16 23:58:16.859] === RUNDE 661 ===
-[2025-11-16 23:58:16.859] BEWEGUNG: (16,1) -> (17,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.877] === RUNDE 662 ===
-[2025-11-16 23:58:16.877] BEWEGUNG: (17,1) -> (17,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.890] === RUNDE 663 ===
-[2025-11-16 23:58:16.890] BEWEGUNG: (17,2) -> (17,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.903] === RUNDE 664 ===
-[2025-11-16 23:58:16.903] BEWEGUNG: (17,3) -> (17,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.919] === RUNDE 665 ===
-[2025-11-16 23:58:16.919] BEWEGUNG: (17,4) -> (17,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.939] === RUNDE 666 ===
-[2025-11-16 23:58:16.939] BEWEGUNG: (17,5) -> (17,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:16.957] === RUNDE 667 ===
-[2025-11-16 23:58:16.957] BEWEGUNG: (17,6) -> (18,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.977] === RUNDE 668 ===
-[2025-11-16 23:58:16.977] BEWEGUNG: (18,6) -> (19,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:16.995] === RUNDE 669 ===
-[2025-11-16 23:58:16.995] BEWEGUNG: (19,6) -> (19,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.016] === RUNDE 670 ===
-[2025-11-16 23:58:17.016] BEWEGUNG: (19,5) -> (19,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.016] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (19,4) | Strategie: FormCollectionStrategy | Runde: 670
-[2025-11-16 23:58:17.034] === RUNDE 671 ===
-[2025-11-16 23:58:17.034] BEWEGUNG: (19,4) -> (19,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.049] === RUNDE 672 ===
-[2025-11-16 23:58:17.049] BEWEGUNG: (19,3) -> (20,3) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.069] === RUNDE 673 ===
-[2025-11-16 23:58:17.069] BEWEGUNG: (20,3) -> (20,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.089] === RUNDE 674 ===
-[2025-11-16 23:58:17.089] BEWEGUNG: (20,2) -> (21,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.109] === RUNDE 675 ===
-[2025-11-16 23:58:17.109] BEWEGUNG: (21,2) -> (22,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.127] === RUNDE 676 ===
-[2025-11-16 23:58:17.127] FORMULAR: FORM 2 1 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-16 23:58:17.127] BEWEGUNG: (22,2) -> (22,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.144] === RUNDE 677 ===
-[2025-11-16 23:58:17.144] BEWEGUNG: (22,1) -> (23,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.162] === RUNDE 678 ===
-[2025-11-16 23:58:17.162] BEWEGUNG: (23,1) -> (23,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.183] === RUNDE 679 ===
-[2025-11-16 23:58:17.183] BEWEGUNG: (23,2) -> (23,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.200] === RUNDE 680 ===
-[2025-11-16 23:58:17.200] BEWEGUNG: (23,3) -> (23,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.200] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (23,4) | Strategie: FormCollectionStrategy | Runde: 680
-[2025-11-16 23:58:17.216] === RUNDE 681 ===
-[2025-11-16 23:58:17.216] BEWEGUNG: (23,4) -> (23,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.235] === RUNDE 682 ===
-[2025-11-16 23:58:17.235] BEWEGUNG: (23,3) -> (22,3) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.255] === RUNDE 683 ===
-[2025-11-16 23:58:17.255] BEWEGUNG: (22,3) -> (21,3) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.270] === RUNDE 684 ===
-[2025-11-16 23:58:17.270] BEWEGUNG: (21,3) -> (21,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.285] === RUNDE 685 ===
-[2025-11-16 23:58:17.285] BEWEGUNG: (21,2) -> (21,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.298] === RUNDE 686 ===
-[2025-11-16 23:58:17.298] BEWEGUNG: (21,1) -> (20,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.314] === RUNDE 687 ===
-[2025-11-16 23:58:17.314] BEWEGUNG: (20,1) -> (20,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.332] === RUNDE 688 ===
-[2025-11-16 23:58:17.332] BEWEGUNG: (20,2) -> (20,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.350] === RUNDE 689 ===
-[2025-11-16 23:58:17.350] BEWEGUNG: (20,3) -> (21,3) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.366] === RUNDE 690 ===
-[2025-11-16 23:58:17.366] BEWEGUNG: (21,3) -> (21,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.366] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (21,4) | Strategie: FormCollectionStrategy | Runde: 690
-[2025-11-16 23:58:17.381] === RUNDE 691 ===
-[2025-11-16 23:58:17.381] BEWEGUNG: (21,4) -> (20,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.395] === RUNDE 692 ===
-[2025-11-16 23:58:17.395] BEWEGUNG: (20,4) -> (20,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.411] === RUNDE 693 ===
-[2025-11-16 23:58:17.411] BEWEGUNG: (20,5) -> (20,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.425] === RUNDE 694 ===
-[2025-11-16 23:58:17.425] BEWEGUNG: (20,6) -> (21,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.443] === RUNDE 695 ===
-[2025-11-16 23:58:17.443] BEWEGUNG: (21,6) -> (22,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.457] === RUNDE 696 ===
-[2025-11-16 23:58:17.457] BEWEGUNG: (22,6) -> (23,6) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.473] === RUNDE 697 ===
-[2025-11-16 23:58:17.473] BEWEGUNG: (23,6) -> (23,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.488] === RUNDE 698 ===
-[2025-11-16 23:58:17.488] BEWEGUNG: (23,7) -> (23,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.503] === RUNDE 699 ===
-[2025-11-16 23:58:17.503] BEWEGUNG: (23,8) -> (23,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.520] === RUNDE 700 ===
-[2025-11-16 23:58:17.520] BEWEGUNG: (23,9) -> (23,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.520] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (23,10) | Strategie: FormCollectionStrategy | Runde: 700
-[2025-11-16 23:58:17.520] [STAT] Statistik Runde 700: Position (23,10) wurde 2x besucht
-[2025-11-16 23:58:17.535] === RUNDE 701 ===
-[2025-11-16 23:58:17.535] BEWEGUNG: (23,10) -> (23,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.549] === RUNDE 702 ===
-[2025-11-16 23:58:17.549] BEWEGUNG: (23,11) -> (22,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.563] === RUNDE 703 ===
-[2025-11-16 23:58:17.563] BEWEGUNG: (22,11) -> (22,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.581] === RUNDE 704 ===
-[2025-11-16 23:58:17.581] BEWEGUNG: (22,10) -> (21,10) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.598] === RUNDE 705 ===
-[2025-11-16 23:58:17.598] BEWEGUNG: (21,10) -> (21,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.616] === RUNDE 706 ===
-[2025-11-16 23:58:17.616] BEWEGUNG: (21,11) -> (20,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.635] === RUNDE 707 ===
-[2025-11-16 23:58:17.635] BEWEGUNG: (20,11) -> (19,11) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.652] === RUNDE 708 ===
-[2025-11-16 23:58:17.652] BEWEGUNG: (19,11) -> (19,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.666] === RUNDE 709 ===
-[2025-11-16 23:58:17.666] BEWEGUNG: (19,10) -> (19,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.680] === RUNDE 710 ===
-[2025-11-16 23:58:17.680] BEWEGUNG: (19,9) -> (20,9) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.680] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (20,9) | Strategie: FormCollectionStrategy | Runde: 710
-[2025-11-16 23:58:17.695] === RUNDE 711 ===
-[2025-11-16 23:58:17.695] BEWEGUNG: (20,9) -> (21,9) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.713] === RUNDE 712 ===
-[2025-11-16 23:58:17.713] BEWEGUNG: (21,9) -> (21,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.734] === RUNDE 713 ===
-[2025-11-16 23:58:17.734] BEWEGUNG: (21,10) -> (22,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.747] === RUNDE 714 ===
-[2025-11-16 23:58:17.747] BEWEGUNG: (22,10) -> (23,10) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:17.761] === RUNDE 715 ===
-[2025-11-16 23:58:17.761] BEWEGUNG: (23,10) -> (23,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.779] === RUNDE 716 ===
-[2025-11-16 23:58:17.779] BEWEGUNG: (23,9) -> (23,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.796] === RUNDE 717 ===
-[2025-11-16 23:58:17.796] BEWEGUNG: (23,8) -> (23,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:17.815] === RUNDE 718 ===
-[2025-11-16 23:58:17.815] BEWEGUNG: (23,7) -> (22,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.836] === RUNDE 719 ===
-[2025-11-16 23:58:17.836] BEWEGUNG: (22,7) -> (21,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.857] === RUNDE 720 ===
-[2025-11-16 23:58:17.857] BEWEGUNG: (21,7) -> (20,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.857] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (20,7) | Strategie: FormCollectionStrategy | Runde: 720
-[2025-11-16 23:58:17.874] === RUNDE 721 ===
-[2025-11-16 23:58:17.874] BEWEGUNG: (20,7) -> (19,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.890] === RUNDE 722 ===
-[2025-11-16 23:58:17.890] BEWEGUNG: (19,7) -> (18,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.905] === RUNDE 723 ===
-[2025-11-16 23:58:17.905] BEWEGUNG: (18,7) -> (17,7) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:17.920] === RUNDE 724 ===
-[2025-11-16 23:58:17.920] BEWEGUNG: (17,7) -> (17,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.942] === RUNDE 725 ===
-[2025-11-16 23:58:17.942] BEWEGUNG: (17,8) -> (17,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.961] === RUNDE 726 ===
-[2025-11-16 23:58:17.961] BEWEGUNG: (17,9) -> (17,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.981] === RUNDE 727 ===
-[2025-11-16 23:58:17.981] BEWEGUNG: (17,10) -> (17,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:17.998] === RUNDE 728 ===
-[2025-11-16 23:58:17.998] BEWEGUNG: (17,11) -> (17,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.017] === RUNDE 729 ===
-[2025-11-16 23:58:18.017] BEWEGUNG: (17,12) -> (17,11) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.036] === RUNDE 730 ===
-[2025-11-16 23:58:18.036] BEWEGUNG: (17,11) -> (17,10) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.036] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (17,10) | Strategie: FormCollectionStrategy | Runde: 730
-[2025-11-16 23:58:18.056] === RUNDE 731 ===
-[2025-11-16 23:58:18.056] BEWEGUNG: (17,10) -> (17,9) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.072] === RUNDE 732 ===
-[2025-11-16 23:58:18.072] BEWEGUNG: (17,9) -> (17,8) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.089] === RUNDE 733 ===
-[2025-11-16 23:58:18.089] BEWEGUNG: (17,8) -> (17,7) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.107] === RUNDE 734 ===
-[2025-11-16 23:58:18.107] BEWEGUNG: (17,7) -> (17,6) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.126] === RUNDE 735 ===
-[2025-11-16 23:58:18.126] BEWEGUNG: (17,6) -> (17,5) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.145] === RUNDE 736 ===
-[2025-11-16 23:58:18.145] BEWEGUNG: (17,5) -> (17,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.166] === RUNDE 737 ===
-[2025-11-16 23:58:18.166] BEWEGUNG: (17,4) -> (17,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.184] === RUNDE 738 ===
-[2025-11-16 23:58:18.184] BEWEGUNG: (17,3) -> (17,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.203] === RUNDE 739 ===
-[2025-11-16 23:58:18.203] BEWEGUNG: (17,2) -> (17,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.223] === RUNDE 740 ===
-[2025-11-16 23:58:18.223] BEWEGUNG: (17,1) -> (16,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.223] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,1) | Strategie: FormCollectionStrategy | Runde: 740
-[2025-11-16 23:58:18.244] === RUNDE 741 ===
-[2025-11-16 23:58:18.244] BEWEGUNG: (16,1) -> (15,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.263] === RUNDE 742 ===
-[2025-11-16 23:58:18.263] BEWEGUNG: (15,1) -> (15,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.285] === RUNDE 743 ===
-[2025-11-16 23:58:18.285] BEWEGUNG: (15,2) -> (14,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.301] === RUNDE 744 ===
-[2025-11-16 23:58:18.301] BEWEGUNG: (14,2) -> (14,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.319] === RUNDE 745 ===
-[2025-11-16 23:58:18.319] BEWEGUNG: (14,1) -> (13,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.335] === RUNDE 746 ===
-[2025-11-16 23:58:18.335] BEWEGUNG: (13,1) -> (12,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.353] === RUNDE 747 ===
-[2025-11-16 23:58:18.353] BEWEGUNG: (12,1) -> (12,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.372] === RUNDE 748 ===
-[2025-11-16 23:58:18.372] BEWEGUNG: (12,2) -> (11,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.392] === RUNDE 749 ===
-[2025-11-16 23:58:18.392] BEWEGUNG: (11,2) -> (11,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.409] === RUNDE 750 ===
-[2025-11-16 23:58:18.409] BEWEGUNG: (11,1) -> (10,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.409] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (10,1) | Strategie: FormCollectionStrategy | Runde: 750
-[2025-11-16 23:58:18.409] [STAT] Statistik Runde 750: Position (10,1) wurde 2x besucht
-[2025-11-16 23:58:18.428] === RUNDE 751 ===
-[2025-11-16 23:58:18.428] BEWEGUNG: (10,1) -> (10,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.445] === RUNDE 752 ===
-[2025-11-16 23:58:18.445] BEWEGUNG: (10,2) -> (9,2) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.462] === RUNDE 753 ===
-[2025-11-16 23:58:18.462] BEWEGUNG: (9,2) -> (9,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.477] === RUNDE 754 ===
-[2025-11-16 23:58:18.477] BEWEGUNG: (9,1) -> (8,1) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.492] === RUNDE 755 ===
-[2025-11-16 23:58:18.492] BEWEGUNG: (8,1) -> (8,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.507] === RUNDE 756 ===
-[2025-11-16 23:58:18.507] BEWEGUNG: (8,2) -> (8,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.521] === RUNDE 757 ===
-[2025-11-16 23:58:18.521] BEWEGUNG: (8,3) -> (8,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.535] === RUNDE 758 ===
-[2025-11-16 23:58:18.535] BEWEGUNG: (8,4) -> (8,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.550] === RUNDE 759 ===
-[2025-11-16 23:58:18.550] BEWEGUNG: (8,5) -> (8,4) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.563] === RUNDE 760 ===
-[2025-11-16 23:58:18.563] BEWEGUNG: (8,4) -> (7,4) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:18.563] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (7,4) | Strategie: FormCollectionStrategy | Runde: 760
-[2025-11-16 23:58:18.579] === RUNDE 761 ===
-[2025-11-16 23:58:18.579] BEWEGUNG: (7,4) -> (7,3) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.591] === RUNDE 762 ===
-[2025-11-16 23:58:18.591] BEWEGUNG: (7,3) -> (7,2) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.604] === RUNDE 763 ===
-[2025-11-16 23:58:18.604] BEWEGUNG: (7,2) -> (7,1) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:18.622] === RUNDE 764 ===
-[2025-11-16 23:58:18.622] BEWEGUNG: (7,1) -> (8,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.638] === RUNDE 765 ===
-[2025-11-16 23:58:18.638] BEWEGUNG: (8,1) -> (9,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.651] === RUNDE 766 ===
-[2025-11-16 23:58:18.651] BEWEGUNG: (9,1) -> (10,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.667] === RUNDE 767 ===
-[2025-11-16 23:58:18.667] BEWEGUNG: (10,1) -> (11,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.683] === RUNDE 768 ===
-[2025-11-16 23:58:18.683] BEWEGUNG: (11,1) -> (12,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.696] === RUNDE 769 ===
-[2025-11-16 23:58:18.699] BEWEGUNG: (12,1) -> (13,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.715] === RUNDE 770 ===
-[2025-11-16 23:58:18.715] BEWEGUNG: (13,1) -> (14,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.715] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (14,1) | Strategie: FormCollectionStrategy | Runde: 770
-[2025-11-16 23:58:18.733] === RUNDE 771 ===
-[2025-11-16 23:58:18.733] BEWEGUNG: (14,1) -> (15,1) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.752] === RUNDE 772 ===
-[2025-11-16 23:58:18.752] BEWEGUNG: (15,1) -> (15,2) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.771] === RUNDE 773 ===
-[2025-11-16 23:58:18.771] BEWEGUNG: (15,2) -> (16,2) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.791] === RUNDE 774 ===
-[2025-11-16 23:58:18.791] BEWEGUNG: (16,2) -> (16,3) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.810] === RUNDE 775 ===
-[2025-11-16 23:58:18.810] BEWEGUNG: (16,3) -> (16,4) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.825] === RUNDE 776 ===
-[2025-11-16 23:58:18.825] BEWEGUNG: (16,4) -> (16,5) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.845] === RUNDE 777 ===
-[2025-11-16 23:58:18.845] BEWEGUNG: (16,5) -> (16,6) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.861] === RUNDE 778 ===
-[2025-11-16 23:58:18.861] BEWEGUNG: (16,6) -> (16,7) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.876] === RUNDE 779 ===
-[2025-11-16 23:58:18.876] BEWEGUNG: (16,7) -> (16,8) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.893] === RUNDE 780 ===
-[2025-11-16 23:58:18.893] BEWEGUNG: (16,8) -> (16,9) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.893] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (16,9) | Strategie: FormCollectionStrategy | Runde: 780
-[2025-11-16 23:58:18.910] === RUNDE 781 ===
-[2025-11-16 23:58:18.910] BEWEGUNG: (16,9) -> (16,10) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.923] === RUNDE 782 ===
-[2025-11-16 23:58:18.923] BEWEGUNG: (16,10) -> (16,11) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.940] === RUNDE 783 ===
-[2025-11-16 23:58:18.940] BEWEGUNG: (16,11) -> (16,12) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.954] === RUNDE 784 ===
-[2025-11-16 23:58:18.954] BEWEGUNG: (16,12) -> (17,12) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:18.968] === RUNDE 785 ===
-[2025-11-16 23:58:18.968] BEWEGUNG: (17,12) -> (17,13) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.983] === RUNDE 786 ===
-[2025-11-16 23:58:18.983] BEWEGUNG: (17,13) -> (17,14) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:18.999] === RUNDE 787 ===
-[2025-11-16 23:58:18.999] BEWEGUNG: (17,14) -> (17,15) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.014] === RUNDE 788 ===
-[2025-11-16 23:58:19.014] BEWEGUNG: (17,15) -> (17,16) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.029] === RUNDE 789 ===
-[2025-11-16 23:58:19.029] BEWEGUNG: (17,16) -> (17,17) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.044] === RUNDE 790 ===
-[2025-11-16 23:58:19.044] BEWEGUNG: (17,17) -> (18,17) | Aktion: go east | Grund: Navigation
-[2025-11-16 23:58:19.044] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (18,17) | Strategie: FormCollectionStrategy | Runde: 790
-[2025-11-16 23:58:19.059] === RUNDE 791 ===
-[2025-11-16 23:58:19.059] BEWEGUNG: (18,17) -> (18,18) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.075] === RUNDE 792 ===
-[2025-11-16 23:58:19.075] BEWEGUNG: (18,18) -> (17,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.090] === RUNDE 793 ===
-[2025-11-16 23:58:19.090] BEWEGUNG: (17,18) -> (17,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.104] === RUNDE 794 ===
-[2025-11-16 23:58:19.104] BEWEGUNG: (17,19) -> (17,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.119] === RUNDE 795 ===
-[2025-11-16 23:58:19.119] BEWEGUNG: (17,20) -> (17,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.136] === RUNDE 796 ===
-[2025-11-16 23:58:19.136] BEWEGUNG: (17,21) -> (17,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.152] === RUNDE 797 ===
-[2025-11-16 23:58:19.152] BEWEGUNG: (17,22) -> (17,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.171] === RUNDE 798 ===
-[2025-11-16 23:58:19.171] BEWEGUNG: (17,23) -> (16,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.184] === RUNDE 799 ===
-[2025-11-16 23:58:19.184] BEWEGUNG: (16,23) -> (15,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.198] === RUNDE 800 ===
-[2025-11-16 23:58:19.198] BEWEGUNG: (15,23) -> (14,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.198] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (14,23) | Strategie: FormCollectionStrategy | Runde: 800
-[2025-11-16 23:58:19.198] [STAT] Statistik Runde 800: Position (14,23) wurde 3x besucht
-[2025-11-16 23:58:19.219] === RUNDE 801 ===
-[2025-11-16 23:58:19.219] BEWEGUNG: (14,23) -> (13,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.239] === RUNDE 802 ===
-[2025-11-16 23:58:19.239] BEWEGUNG: (13,23) -> (12,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.258] === RUNDE 803 ===
-[2025-11-16 23:58:19.258] BEWEGUNG: (12,23) -> (11,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.276] === RUNDE 804 ===
-[2025-11-16 23:58:19.276] BEWEGUNG: (11,23) -> (10,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.294] === RUNDE 805 ===
-[2025-11-16 23:58:19.294] BEWEGUNG: (10,23) -> (9,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.313] === RUNDE 806 ===
-[2025-11-16 23:58:19.313] BEWEGUNG: (9,23) -> (8,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.333] === RUNDE 807 ===
-[2025-11-16 23:58:19.333] BEWEGUNG: (8,23) -> (7,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.352] === RUNDE 808 ===
-[2025-11-16 23:58:19.352] BEWEGUNG: (7,23) -> (7,22) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:19.370] === RUNDE 809 ===
-[2025-11-16 23:58:19.370] BEWEGUNG: (7,22) -> (7,21) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:19.391] === RUNDE 810 ===
-[2025-11-16 23:58:19.391] BEWEGUNG: (7,21) -> (7,20) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:19.391] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (7,20) | Strategie: FormCollectionStrategy | Runde: 810
-[2025-11-16 23:58:19.409] === RUNDE 811 ===
-[2025-11-16 23:58:19.409] BEWEGUNG: (7,20) -> (7,19) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:19.428] === RUNDE 812 ===
-[2025-11-16 23:58:19.428] BEWEGUNG: (7,19) -> (7,18) | Aktion: go north | Grund: Navigation
-[2025-11-16 23:58:19.448] === RUNDE 813 ===
-[2025-11-16 23:58:19.448] BEWEGUNG: (7,18) -> (6,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.469] === RUNDE 814 ===
-[2025-11-16 23:58:19.469] BEWEGUNG: (6,18) -> (5,18) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.487] === RUNDE 815 ===
-[2025-11-16 23:58:19.487] BEWEGUNG: (5,18) -> (5,19) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.504] === RUNDE 816 ===
-[2025-11-16 23:58:19.504] BEWEGUNG: (5,19) -> (5,20) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.525] === RUNDE 817 ===
-[2025-11-16 23:58:19.525] BEWEGUNG: (5,20) -> (5,21) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.545] === RUNDE 818 ===
-[2025-11-16 23:58:19.545] BEWEGUNG: (5,21) -> (5,22) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.563] === RUNDE 819 ===
-[2025-11-16 23:58:19.563] BEWEGUNG: (5,22) -> (5,23) | Aktion: go south | Grund: Navigation
-[2025-11-16 23:58:19.584] === RUNDE 820 ===
-[2025-11-16 23:58:19.584] BEWEGUNG: (5,23) -> (4,23) | Aktion: go west | Grund: Navigation
-[2025-11-16 23:58:19.584] Bot 4 | Level: 2 | Formulare: [1, 2, 3, 4] | Position: (4,23) | Strategie: FormCollectionStrategy | Runde: 820
-UNDE 810 ===
+[2025-11-29 17:56:01.803] BOT GESTARTET - Labyrinth: Unknown, Spieler: 4, Level: 3
+[2025-11-29 17:56:01.825]  Bot-Konfiguration erstellt
+[2025-11-29 17:56:01.841] Bot initialisiert - ID: 4, Startposition: (2,2)
+[2025-11-29 17:56:01.841] Level 3: Cell-basierte Gegner-Erkennung aktiv
+[2025-11-29 17:56:01.846] GameController initialisiert
+[2025-11-29 17:56:01.846] GameController (Singleton) initialisiert
+[2025-11-29 17:56:01.849] === RUNDE 1 ===
+[2025-11-29 17:56:01.849] ZELLSTATUS:
+[2025-11-29 17:56:01.850] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5c29bfd | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:01.887] Nord: de.fhms.eti.players.Domain_Klassen.FinishCell@7aec35a | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@67424e82 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@42110406 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@531d72ca | hasOpp=false | Dist=-1
+[2025-11-29 17:56:01.888] [CHANGE] Wechsle zu FormCollectionStrategy für Level 3
+[2025-11-29 17:56:01.939] BEWEGUNG: (2,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5e265ba4 | Grund: Navigation
+[2025-11-29 17:56:01.950] Bot 4 | Level: 3 | Formulare: [] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 1
+[2025-11-29 17:56:01.986] === RUNDE 2 ===
+[2025-11-29 17:56:01.986] ZELLSTATUS:
+[2025-11-29 17:56:01.986] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3fb4f649 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:01.987] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@33833882 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@200a570f | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@16b3fc9e | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@e2d56bf | hasOpp=false | Dist=-1
+[2025-11-29 17:56:01.987] BEWEGUNG: (3,2) -> (4,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@244038d0 | Grund: Navigation
+[2025-11-29 17:56:01.988] Bot 4 | Level: 3 | Formulare: [] | Position: (4,2) | Strategie: FormCollectionStrategy | Runde: 2
+[2025-11-29 17:56:02.006] === RUNDE 3 ===
+[2025-11-29 17:56:02.007] ZELLSTATUS:
+[2025-11-29 17:56:02.007] Aktuell: de.fhms.eti.players.Domain_Klassen.FormCell@5680a178 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.007] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@5fdef03a | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@3b22cdd0 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@1e81f4dc | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@4d591d15 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.014] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@5680a178 | Kann nehmen: false | Grund: Falscher Spieler
+[2025-11-29 17:56:02.015] BEWEGUNG: (4,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@ed17bee | Grund: Navigation
+[2025-11-29 17:56:02.015] Bot 4 | Level: 3 | Formulare: [] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 3
+[2025-11-29 17:56:02.039] === RUNDE 4 ===
+[2025-11-29 17:56:02.040] ZELLSTATUS:
+[2025-11-29 17:56:02.040] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@2a33fae0 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.040] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@707f7052 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@11028347 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@14899482 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@21588809 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.043] BEWEGUNG: (3,2) -> (2,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2aae9190 | Grund: Navigation
+[2025-11-29 17:56:02.044] Bot 4 | Level: 3 | Formulare: [] | Position: (2,2) | Strategie: FormCollectionStrategy | Runde: 4
+[2025-11-29 17:56:02.070] === RUNDE 5 ===
+[2025-11-29 17:56:02.071] ZELLSTATUS:
+[2025-11-29 17:56:02.071] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@2f333739 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.071] Nord: de.fhms.eti.players.Domain_Klassen.FinishCell@77468bd9 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@12bb4df8 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@4cc77c2e | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@7a7b0070 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.073] BEWEGUNG: (2,2) -> (2,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@39a054a5 | Grund: Navigation
+[2025-11-29 17:56:02.073] Bot 4 | Level: 3 | Formulare: [] | Position: (2,3) | Strategie: FormCollectionStrategy | Runde: 5
+[2025-11-29 17:56:02.093] === RUNDE 6 ===
+[2025-11-29 17:56:02.094] ZELLSTATUS:
+[2025-11-29 17:56:02.094] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@71bc1ae4 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.094] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@6ed3ef1 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@2437c6dc | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@1f89ab83 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@e73f9ac | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.095] BEWEGUNG: (2,3) -> (2,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@61064425 | Grund: Navigation
+[2025-11-29 17:56:02.095] Bot 4 | Level: 3 | Formulare: [] | Position: (2,4) | Strategie: FormCollectionStrategy | Runde: 6
+[2025-11-29 17:56:02.115] === RUNDE 7 ===
+[2025-11-29 17:56:02.116] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.116] ZELLSTATUS:
+[2025-11-29 17:56:02.116] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@7b1d7fff | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.117] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@299a06ac | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@383534aa | hasOpp=true | Dist=1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@6bc168e5 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@7b3300e5 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.117] BEWEGUNG: (2,4) -> (3,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2e5c649 | Grund: Navigation
+[2025-11-29 17:56:02.117] Bot 4 | Level: 3 | Formulare: [] | Position: (3,4) | Strategie: FormCollectionStrategy | Runde: 7
+[2025-11-29 17:56:02.137] === RUNDE 8 ===
+[2025-11-29 17:56:02.137] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.137] ZELLSTATUS:
+[2025-11-29 17:56:02.138] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@136432db | hasOpponent=true | Distance=0
+[2025-11-29 17:56:02.138] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@7382f612 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@1055e4af | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@3caeaf62 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@e6ea0c6 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.138] BEWEGUNG: (3,4) -> (4,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6a38e57f | Grund: Navigation
+[2025-11-29 17:56:02.139] Bot 4 | Level: 3 | Formulare: [] | Position: (4,4) | Strategie: FormCollectionStrategy | Runde: 8
+[2025-11-29 17:56:02.164] === RUNDE 9 ===
+[2025-11-29 17:56:02.164] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.164] ZELLSTATUS:
+[2025-11-29 17:56:02.164] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5577140b | hasOpponent=true | Distance=0
+[2025-11-29 17:56:02.164] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@1c6b6478 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@67f89fa3 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@4ac68d3e | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@277c0f21 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.165] BEWEGUNG: (4,4) -> (5,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6073f712 | Grund: Navigation
+[2025-11-29 17:56:02.165] Bot 4 | Level: 3 | Formulare: [] | Position: (5,4) | Strategie: FormCollectionStrategy | Runde: 9
+[2025-11-29 17:56:02.188] === RUNDE 10 ===
+[2025-11-29 17:56:02.188] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.188] ZELLSTATUS:
+[2025-11-29 17:56:02.188] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@43556938 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.188] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@3d04a311 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@7a46a697 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@5f205aa | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@6d86b085 | hasOpp=true | Dist=1
+[2025-11-29 17:56:02.189] BEWEGUNG: (5,4) -> (5,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@75828a0f | Grund: Navigation
+[2025-11-29 17:56:02.189] Bot 4 | Level: 3 | Formulare: [] | Position: (5,5) | Strategie: FormCollectionStrategy | Runde: 10
+[2025-11-29 17:56:02.206] === RUNDE 11 ===
+[2025-11-29 17:56:02.206] ZELLSTATUS:
+[2025-11-29 17:56:02.206] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3abfe836 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.206] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@2ff5659e | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@77afea7d | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@161cd475 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@532760d8 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.207] BEWEGUNG: (5,5) -> (5,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@57fa26b7 | Grund: Navigation
+[2025-11-29 17:56:02.207] Bot 4 | Level: 3 | Formulare: [] | Position: (5,6) | Strategie: FormCollectionStrategy | Runde: 11
+[2025-11-29 17:56:02.224] === RUNDE 12 ===
+[2025-11-29 17:56:02.224] ZELLSTATUS:
+[2025-11-29 17:56:02.225] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5f8ed237 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.225] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@2f410acf | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@47089e5f | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@4141d797 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@68f7aae2 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.225] BEWEGUNG: (5,6) -> (4,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4f47d241 | Grund: Navigation
+[2025-11-29 17:56:02.225] Bot 4 | Level: 3 | Formulare: [] | Position: (4,6) | Strategie: FormCollectionStrategy | Runde: 12
+[2025-11-29 17:56:02.242] === RUNDE 13 ===
+[2025-11-29 17:56:02.242] ZELLSTATUS:
+[2025-11-29 17:56:02.242] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@4c3e4790 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.243] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@38cccef | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@5679c6c6 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@27ddd392 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@19e1023e | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.243] BEWEGUNG: (4,6) -> (3,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@7cef4e59 | Grund: Navigation
+[2025-11-29 17:56:02.243] Bot 4 | Level: 3 | Formulare: [] | Position: (3,6) | Strategie: FormCollectionStrategy | Runde: 13
+[2025-11-29 17:56:02.259] === RUNDE 14 ===
+[2025-11-29 17:56:02.259] ZELLSTATUS:
+[2025-11-29 17:56:02.259] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@64b8f8f4 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.259] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@2db0f6b2 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@3cd1f1c8 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@3a4afd8d | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@1996cd68 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.260] BEWEGUNG: (3,6) -> (3,7) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3339ad8e | Grund: Navigation
+[2025-11-29 17:56:02.260] Bot 4 | Level: 3 | Formulare: [] | Position: (3,7) | Strategie: FormCollectionStrategy | Runde: 14
+[2025-11-29 17:56:02.282] === RUNDE 15 ===
+[2025-11-29 17:56:02.283] ZELLSTATUS:
+[2025-11-29 17:56:02.283] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@555590 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.285] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@6d1e7682 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@424c0bc4 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@3c679bde | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@16b4a017 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.285] BEWEGUNG: (3,7) -> (3,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@8807e25 | Grund: Navigation
+[2025-11-29 17:56:02.285] Bot 4 | Level: 3 | Formulare: [] | Position: (3,8) | Strategie: FormCollectionStrategy | Runde: 15
+[2025-11-29 17:56:02.316] === RUNDE 16 ===
+[2025-11-29 17:56:02.316] ZELLSTATUS:
+[2025-11-29 17:56:02.316] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@2a3046da | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.316] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@2a098129 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@198e2867 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FinishCell@12f40c25 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@3ada9e37 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.317] BEWEGUNG: (3,8) -> (4,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5cbc508c | Grund: Navigation
+[2025-11-29 17:56:02.317] Bot 4 | Level: 3 | Formulare: [] | Position: (4,8) | Strategie: FormCollectionStrategy | Runde: 16
+[2025-11-29 17:56:02.332] === RUNDE 17 ===
+[2025-11-29 17:56:02.332] ZELLSTATUS:
+[2025-11-29 17:56:02.332] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3419866c | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.332] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@63e31ee | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@68fb2c38 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@567d299b | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@2eafffde | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.333] BEWEGUNG: (4,8) -> (5,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@59690aa4 | Grund: Navigation
+[2025-11-29 17:56:02.333] Bot 4 | Level: 3 | Formulare: [] | Position: (5,8) | Strategie: FormCollectionStrategy | Runde: 17
+[2025-11-29 17:56:02.353] === RUNDE 18 ===
+[2025-11-29 17:56:02.353] ZELLSTATUS:
+[2025-11-29 17:56:02.353] Aktuell: de.fhms.eti.players.Domain_Klassen.FormCell@6842775d | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.353] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@574caa3f | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@64cee07 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@1761e840 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@6c629d6e | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.354] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@6842775d | Kann nehmen: false | Grund: Falsche Reihenfolge: Erwartet 1, Gefunden 2
+[2025-11-29 17:56:02.354] BEWEGUNG: (5,8) -> (4,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5ecddf8f | Grund: Navigation
+[2025-11-29 17:56:02.354] Bot 4 | Level: 3 | Formulare: [] | Position: (4,8) | Strategie: FormCollectionStrategy | Runde: 18
+[2025-11-29 17:56:02.371] === RUNDE 19 ===
+[2025-11-29 17:56:02.371] ZELLSTATUS:
+[2025-11-29 17:56:02.372] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3f102e87 | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.372] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@27abe2cd | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@5f5a92bb | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@6fdb1f78 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@51016012 | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.372] BEWEGUNG: (4,8) -> (3,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@29444d75 | Grund: Navigation
+[2025-11-29 17:56:02.372] Bot 4 | Level: 3 | Formulare: [] | Position: (3,8) | Strategie: FormCollectionStrategy | Runde: 19
+[2025-11-29 17:56:02.388] === RUNDE 20 ===
+[2025-11-29 17:56:02.388] ZELLSTATUS:
+[2025-11-29 17:56:02.389] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@2280cdac | hasOpponent=false | Distance=-1
+[2025-11-29 17:56:02.389] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@1517365b | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@4fccd51b | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FinishCell@44e81672 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@60215eee | hasOpp=false | Dist=-1
+[2025-11-29 17:56:02.389] BEWEGUNG: (3,8) -> (3,9) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4ca8195f | Grund: Navigation
+[2025-11-29 17:56:02.389] Bot 4 | Level: 3 | Formulare: [] | Position: (3,9) | Strategie: FormCollectionStrategy | Runde: 20
+[2025-11-29 17:56:02.405] === RUNDE 21 ===
+[2025-11-29 17:56:02.406] [INFO] Form-Count aus FINISH erkannt: 2
+[2025-11-29 17:56:02.406] [INFO] Eigenes Ziel gefunden!
+[2025-11-29 17:56:02.406] [POS] Ziel-Position gemerkt: (3,9)
+[2025-11-29 17:56:02.407] BEWEGUNG: (3,9) -> (3,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@65e579dc | Grund: Navigation
+[2025-11-29 17:56:02.407] Bot 4 | Level: 3 | Formulare: [] | Position: (3,8) | Strategie: FormCollectionStrategy | Runde: 21
+[2025-11-29 17:56:02.424] === RUNDE 22 ===
+[2025-11-29 17:56:02.424] BEWEGUNG: (3,8) -> (2,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@61baa894 | Grund: Navigation
+[2025-11-29 17:56:02.424] Bot 4 | Level: 3 | Formulare: [] | Position: (2,8) | Strategie: FormCollectionStrategy | Runde: 22
+[2025-11-29 17:56:02.444] === RUNDE 23 ===
+[2025-11-29 17:56:02.445] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@b065c63 | Kann nehmen: false | Grund: Falscher Spieler
+[2025-11-29 17:56:02.446] BEWEGUNG: (2,8) -> (3,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@768debd | Grund: Navigation
+[2025-11-29 17:56:02.446] Bot 4 | Level: 3 | Formulare: [] | Position: (3,8) | Strategie: FormCollectionStrategy | Runde: 23
+[2025-11-29 17:56:02.460] === RUNDE 24 ===
+[2025-11-29 17:56:02.461] BEWEGUNG: (3,8) -> (3,7) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@490d6c15 | Grund: Navigation
+[2025-11-29 17:56:02.461] Bot 4 | Level: 3 | Formulare: [] | Position: (3,7) | Strategie: FormCollectionStrategy | Runde: 24
+[2025-11-29 17:56:02.474] === RUNDE 25 ===
+[2025-11-29 17:56:02.475] BEWEGUNG: (3,7) -> (3,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@7d4793a8 | Grund: Navigation
+[2025-11-29 17:56:02.475] Bot 4 | Level: 3 | Formulare: [] | Position: (3,6) | Strategie: FormCollectionStrategy | Runde: 25
+[2025-11-29 17:56:02.489] === RUNDE 26 ===
+[2025-11-29 17:56:02.489] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.490] BEWEGUNG: (3,6) -> (4,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@449b2d27 | Grund: Navigation
+[2025-11-29 17:56:02.490] Bot 4 | Level: 3 | Formulare: [] | Position: (4,6) | Strategie: FormCollectionStrategy | Runde: 26
+[2025-11-29 17:56:02.503] === RUNDE 27 ===
+[2025-11-29 17:56:02.503] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.503] BEWEGUNG: (4,6) -> (5,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5479e3f | Grund: Navigation
+[2025-11-29 17:56:02.504] Bot 4 | Level: 3 | Formulare: [] | Position: (5,6) | Strategie: FormCollectionStrategy | Runde: 27
+[2025-11-29 17:56:02.516] === RUNDE 28 ===
+[2025-11-29 17:56:02.516] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.516] BEWEGUNG: (5,6) -> (6,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@27082746 | Grund: Navigation
+[2025-11-29 17:56:02.516] Bot 4 | Level: 3 | Formulare: [] | Position: (6,6) | Strategie: FormCollectionStrategy | Runde: 28
+[2025-11-29 17:56:02.529] === RUNDE 29 ===
+[2025-11-29 17:56:02.529] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.529] BEWEGUNG: (6,6) -> (6,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@66133adc | Grund: Navigation
+[2025-11-29 17:56:02.530] Bot 4 | Level: 3 | Formulare: [] | Position: (6,5) | Strategie: FormCollectionStrategy | Runde: 29
+[2025-11-29 17:56:02.548] === RUNDE 30 ===
+[2025-11-29 17:56:02.549] BEWEGUNG: (6,5) -> (6,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@24273305 | Grund: Navigation
+[2025-11-29 17:56:02.549] Bot 4 | Level: 3 | Formulare: [] | Position: (6,4) | Strategie: FormCollectionStrategy | Runde: 30
+[2025-11-29 17:56:02.563] === RUNDE 31 ===
+[2025-11-29 17:56:02.563] BEWEGUNG: (6,4) -> (5,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5b1d2887 | Grund: Navigation
+[2025-11-29 17:56:02.564] Bot 4 | Level: 3 | Formulare: [] | Position: (5,4) | Strategie: FormCollectionStrategy | Runde: 31
+[2025-11-29 17:56:02.577] === RUNDE 32 ===
+[2025-11-29 17:56:02.577] BEWEGUNG: (5,4) -> (4,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@46f5f779 | Grund: Navigation
+[2025-11-29 17:56:02.577] Bot 4 | Level: 3 | Formulare: [] | Position: (4,4) | Strategie: FormCollectionStrategy | Runde: 32
+[2025-11-29 17:56:02.591] === RUNDE 33 ===
+[2025-11-29 17:56:02.592] BEWEGUNG: (4,4) -> (4,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1c2c22f3 | Grund: Navigation
+[2025-11-29 17:56:02.594] Bot 4 | Level: 3 | Formulare: [] | Position: (4,3) | Strategie: FormCollectionStrategy | Runde: 33
+[2025-11-29 17:56:02.608] === RUNDE 34 ===
+[2025-11-29 17:56:02.609] BEWEGUNG: (4,3) -> (4,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@18e8568 | Grund: Navigation
+[2025-11-29 17:56:02.609] Bot 4 | Level: 3 | Formulare: [] | Position: (4,2) | Strategie: FormCollectionStrategy | Runde: 34
+[2025-11-29 17:56:02.622] === RUNDE 35 ===
+[2025-11-29 17:56:02.622] BEWEGUNG: (4,2) -> (5,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@33e5ccce | Grund: Navigation
+[2025-11-29 17:56:02.623] Bot 4 | Level: 3 | Formulare: [] | Position: (5,2) | Strategie: FormCollectionStrategy | Runde: 35
+[2025-11-29 17:56:02.641] === RUNDE 36 ===
+[2025-11-29 17:56:02.642] BEWEGUNG: (5,2) -> (6,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5a42bbf4 | Grund: Navigation
+[2025-11-29 17:56:02.642] Bot 4 | Level: 3 | Formulare: [] | Position: (6,2) | Strategie: FormCollectionStrategy | Runde: 36
+[2025-11-29 17:56:02.657] === RUNDE 37 ===
+[2025-11-29 17:56:02.657] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@270421f5 | Kann nehmen: false | Grund: Falscher Spieler
+[2025-11-29 17:56:02.658] BEWEGUNG: (6,2) -> (5,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@52d455b8 | Grund: Navigation
+[2025-11-29 17:56:02.659] Bot 4 | Level: 3 | Formulare: [] | Position: (5,2) | Strategie: FormCollectionStrategy | Runde: 37
+[2025-11-29 17:56:02.674] === RUNDE 38 ===
+[2025-11-29 17:56:02.674] BEWEGUNG: (5,2) -> (4,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4f4a7090 | Grund: Navigation
+[2025-11-29 17:56:02.674] Bot 4 | Level: 3 | Formulare: [] | Position: (4,2) | Strategie: FormCollectionStrategy | Runde: 38
+[2025-11-29 17:56:02.689] === RUNDE 39 ===
+[2025-11-29 17:56:02.689] BEWEGUNG: (4,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@18ef96 | Grund: Navigation
+[2025-11-29 17:56:02.690] Bot 4 | Level: 3 | Formulare: [] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 39
+[2025-11-29 17:56:02.706] === RUNDE 40 ===
+[2025-11-29 17:56:02.706] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@6956de9 | Kann nehmen: true | Grund: Kann genommen werden
+[2025-11-29 17:56:02.713] [INFO] Formular genommen: take
+[2025-11-29 17:56:02.715] GESAMMELTE FORMULARE: [1] | Naechstes erwartet: 2
+[2025-11-29 17:56:02.730] === RUNDE 41 ===
+[2025-11-29 17:56:02.731] BEWEGUNG: (3,2) -> (4,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3ac42916 | Grund: Navigation
+[2025-11-29 17:56:02.731] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,2) | Strategie: FormCollectionStrategy | Runde: 41
+[2025-11-29 17:56:02.746] === RUNDE 42 ===
+[2025-11-29 17:56:02.748] BEWEGUNG: (4,2) -> (4,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@47d384ee | Grund: Navigation
+[2025-11-29 17:56:02.748] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,3) | Strategie: FormCollectionStrategy | Runde: 42
+[2025-11-29 17:56:02.771] === RUNDE 43 ===
+[2025-11-29 17:56:02.772] BEWEGUNG: (4,3) -> (4,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2d6a9952 | Grund: Navigation
+[2025-11-29 17:56:02.772] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,4) | Strategie: FormCollectionStrategy | Runde: 43
+[2025-11-29 17:56:02.789] === RUNDE 44 ===
+[2025-11-29 17:56:02.789] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.790] BEWEGUNG: (4,4) -> (4,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@22a71081 | Grund: Navigation
+[2025-11-29 17:56:02.791] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,3) | Strategie: FormCollectionStrategy | Runde: 44
+[2025-11-29 17:56:02.811] === RUNDE 45 ===
+[2025-11-29 17:56:02.812] BEWEGUNG: (4,3) -> (4,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3930015a | Grund: Navigation
+[2025-11-29 17:56:02.812] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,4) | Strategie: FormCollectionStrategy | Runde: 45
+[2025-11-29 17:56:02.823] === RUNDE 46 ===
+[2025-11-29 17:56:02.823] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.824] BEWEGUNG: (4,4) -> (5,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@629f0666 | Grund: Navigation
+[2025-11-29 17:56:02.824] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,4) | Strategie: FormCollectionStrategy | Runde: 46
+[2025-11-29 17:56:02.834] === RUNDE 47 ===
+[2025-11-29 17:56:02.835] BEWEGUNG: (5,4) -> (6,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1bc6a36e | Grund: Navigation
+[2025-11-29 17:56:02.835] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,4) | Strategie: FormCollectionStrategy | Runde: 47
+[2025-11-29 17:56:02.910] === RUNDE 48 ===
+[2025-11-29 17:56:02.911] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:02.933] BEWEGUNG: (6,4) -> (6,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1ff8b8f | Grund: Navigation
+[2025-11-29 17:56:02.953] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,5) | Strategie: FormCollectionStrategy | Runde: 48
+[2025-11-29 17:56:02.989] === RUNDE 49 ===
+[2025-11-29 17:56:02.991] BEWEGUNG: (6,5) -> (6,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@387c703b | Grund: Navigation
+[2025-11-29 17:56:02.991] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,6) | Strategie: FormCollectionStrategy | Runde: 49
+[2025-11-29 17:56:03.020] === RUNDE 50 ===
+[2025-11-29 17:56:03.021] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.022] BEWEGUNG: (6,6) -> (6,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@224aed64 | Grund: Navigation
+[2025-11-29 17:56:03.022] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,5) | Strategie: FormCollectionStrategy | Runde: 50
+[2025-11-29 17:56:03.025] [STAT] Statistik Runde 50: Position (6,5) wurde 3x besucht
+[2025-11-29 17:56:03.046] === RUNDE 51 ===
+[2025-11-29 17:56:03.046] BEWEGUNG: (6,5) -> (6,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@c39f790 | Grund: Navigation
+[2025-11-29 17:56:03.046] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,4) | Strategie: FormCollectionStrategy | Runde: 51
+[2025-11-29 17:56:03.069] === RUNDE 52 ===
+[2025-11-29 17:56:03.069] BEWEGUNG: (6,4) -> (6,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@71e7a66b | Grund: Navigation
+[2025-11-29 17:56:03.070] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,5) | Strategie: FormCollectionStrategy | Runde: 52
+[2025-11-29 17:56:03.087] === RUNDE 53 ===
+[2025-11-29 17:56:03.088] BEWEGUNG: (6,5) -> (6,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2ac1fdc4 | Grund: Navigation
+[2025-11-29 17:56:03.088] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,6) | Strategie: FormCollectionStrategy | Runde: 53
+[2025-11-29 17:56:03.102] === RUNDE 54 ===
+[2025-11-29 17:56:03.102] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.104] BEWEGUNG: (6,6) -> (5,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5f150435 | Grund: Navigation
+[2025-11-29 17:56:03.105] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,6) | Strategie: FormCollectionStrategy | Runde: 54
+[2025-11-29 17:56:03.130] === RUNDE 55 ===
+[2025-11-29 17:56:03.130] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.131] BEWEGUNG: (5,6) -> (5,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1c53fd30 | Grund: Navigation
+[2025-11-29 17:56:03.133] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,5) | Strategie: FormCollectionStrategy | Runde: 55
+[2025-11-29 17:56:03.145] === RUNDE 56 ===
+[2025-11-29 17:56:03.146] BEWEGUNG: (5,5) -> (5,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@50cbc42f | Grund: Navigation
+[2025-11-29 17:56:03.146] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,4) | Strategie: FormCollectionStrategy | Runde: 56
+[2025-11-29 17:56:03.158] === RUNDE 57 ===
+[2025-11-29 17:56:03.159] BEWEGUNG: (5,4) -> (5,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@75412c2f | Grund: Navigation
+[2025-11-29 17:56:03.159] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,5) | Strategie: FormCollectionStrategy | Runde: 57
+[2025-11-29 17:56:03.176] === RUNDE 58 ===
+[2025-11-29 17:56:03.176] BEWEGUNG: (5,5) -> (5,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@282ba1e | Grund: Navigation
+[2025-11-29 17:56:03.177] Bot 4 | Level: 3 | Formulare: [1] | Position: (5,6) | Strategie: FormCollectionStrategy | Runde: 58
+[2025-11-29 17:56:03.189] === RUNDE 59 ===
+[2025-11-29 17:56:03.190] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.191] BEWEGUNG: (5,6) -> (4,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@13b6d03 | Grund: Navigation
+[2025-11-29 17:56:03.191] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,6) | Strategie: FormCollectionStrategy | Runde: 59
+[2025-11-29 17:56:03.205] === RUNDE 60 ===
+[2025-11-29 17:56:03.205] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.206] BEWEGUNG: (4,6) -> (3,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@f5f2bb7 | Grund: Navigation
+[2025-11-29 17:56:03.206] Bot 4 | Level: 3 | Formulare: [1] | Position: (3,6) | Strategie: FormCollectionStrategy | Runde: 60
+[2025-11-29 17:56:03.225] === RUNDE 61 ===
+[2025-11-29 17:56:03.225] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.226] BEWEGUNG: (3,6) -> (2,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@73035e27 | Grund: Navigation
+[2025-11-29 17:56:03.226] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,6) | Strategie: FormCollectionStrategy | Runde: 61
+[2025-11-29 17:56:03.240] === RUNDE 62 ===
+[2025-11-29 17:56:03.240] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.241] BEWEGUNG: (2,6) -> (2,7) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@64c64813 | Grund: Navigation
+[2025-11-29 17:56:03.242] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,7) | Strategie: FormCollectionStrategy | Runde: 62
+[2025-11-29 17:56:03.264] === RUNDE 63 ===
+[2025-11-29 17:56:03.264] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.265] BEWEGUNG: (2,7) -> (2,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3ecf72fd | Grund: Navigation
+[2025-11-29 17:56:03.265] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,8) | Strategie: FormCollectionStrategy | Runde: 63
+[2025-11-29 17:56:03.287] === RUNDE 64 ===
+[2025-11-29 17:56:03.287] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.287] BEWEGUNG: (2,8) -> (2,9) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@483bf400 | Grund: Navigation
+[2025-11-29 17:56:03.287] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,9) | Strategie: FormCollectionStrategy | Runde: 64
+[2025-11-29 17:56:03.314] === RUNDE 65 ===
+[2025-11-29 17:56:03.314] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.314] BEWEGUNG: (2,9) -> (2,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@21a06946 | Grund: Navigation
+[2025-11-29 17:56:03.314] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,10) | Strategie: FormCollectionStrategy | Runde: 65
+[2025-11-29 17:56:03.332] === RUNDE 66 ===
+[2025-11-29 17:56:03.332] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.333] BEWEGUNG: (2,10) -> (3,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@77f03bb1 | Grund: Navigation
+[2025-11-29 17:56:03.333] Bot 4 | Level: 3 | Formulare: [1] | Position: (3,10) | Strategie: FormCollectionStrategy | Runde: 66
+[2025-11-29 17:56:03.346] === RUNDE 67 ===
+[2025-11-29 17:56:03.346] BEWEGUNG: (3,10) -> (4,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@326de728 | Grund: Navigation
+[2025-11-29 17:56:03.346] Bot 4 | Level: 3 | Formulare: [1] | Position: (4,10) | Strategie: FormCollectionStrategy | Runde: 67
+[2025-11-29 17:56:03.357] === RUNDE 68 ===
+[2025-11-29 17:56:03.357] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.357] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@25618e91 | Kann nehmen: true | Grund: Kann genommen werden
+[2025-11-29 17:56:03.357] [INFO] Formular genommen: take
+[2025-11-29 17:56:03.357] GESAMMELTE FORMULARE: [1, 2] | Naechstes erwartet: 3
+[2025-11-29 17:56:03.387] === RUNDE 69 ===
+[2025-11-29 17:56:03.388] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.394] BEWEGUNG: (4,10) -> (3,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@71f2a7d5 | Grund: Navigation
+[2025-11-29 17:56:03.395] Bot 4 | Level: 3 | Formulare: [1, 2] | Position: (3,10) | Strategie: FormCollectionStrategy | Runde: 69
+[2025-11-29 17:56:03.462] === RUNDE 70 ===
+[2025-11-29 17:56:03.463] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.476] BEWEGUNG: (3,10) -> (4,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2cfb4a64 | Grund: Navigation
+[2025-11-29 17:56:03.479] Bot 4 | Level: 3 | Formulare: [1, 2] | Position: (4,10) | Strategie: FormCollectionStrategy | Runde: 70
+[2025-11-29 17:56:03.547] === RUNDE 71 ===
+[2025-11-29 17:56:03.547] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.548] BEWEGUNG: (4,10) -> (3,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5474c6c | Grund: Navigation
+[2025-11-29 17:56:03.548] Bot 4 | Level: 3 | Formulare: [1, 2] | Position: (3,10) | Strategie: FormCollectionStrategy | Runde: 71
+[2025-11-29 17:56:03.569] === RUNDE 72 ===
+[2025-11-29 17:56:03.569] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.569] BEWEGUNG: (3,10) -> (2,10) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4b6995df | Grund: Navigation
+[2025-11-29 17:56:03.570] Bot 4 | Level: 3 | Formulare: [1, 2] | Position: (2,10) | Strategie: FormCollectionStrategy | Runde: 72
+[2025-11-29 17:56:03.588] === RUNDE 73 ===
+[2025-11-29 17:56:03.588] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.588] BEWEGUNG: (2,10) -> (2,11) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2fc14f68 | Grund: Navigation
+[2025-11-29 17:56:03.591] Bot 4 | Level: 3 | Formulare: [1, 2] | Position: (2,11) | Strategie: FormCollectionStrategy | Runde: 73
+[2025-11-29 17:56:03.614] === RUNDE 74 ===
+[2025-11-29 17:56:03.614] [LEVEL3] 👥 1 Gegner sichtbar
+[2025-11-29 17:56:03.614] [INFO] Eigenes Ziel gefunden!
+[2025-11-29 17:56:03.614] [POS] Ziel-Position gemerkt: (2,11)
+[2025-11-29 17:56:03.616] [SUCCESS] FINISH gesendet - Mission erfÃ¼llt!
+[2025-11-29 17:56:03.617]  Spiel beendet nach 74 Runden
+[2025-11-29 17:56:03.617] BOT BEENDET - Labyrinth: Unknown, Spieler: 4, Level: 3

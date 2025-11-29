@@ -2,7 +2,6 @@ package de.fhms.eti.players.Domain_Klassen;
 
 import java.util.HashMap;
 
-import de.fhms.eti.players.Domain_Klassen.IMazeMemory;
 
 /**
  * Maze stellt das Wissen vom Bots über das Labyrinth dar

@@ -8,18 +8,17 @@ import de.fhms.eti.players.Kommunikations_Klassen.*;
 /**
  * MyBot - Optimierte Version mit Erzeugungsmustern
  * 
- * REFACTORING-ÄNDERUNGEN:
+ * LEVEL 3: Cell-basierte Gegner-Erkennung (KEIN OpponentDetector nötig!)
+ * 
+ * ENTWURFSMUSTER:
  *   Factory Method Pattern für Strategie-Erzeugung
  *   Builder Pattern für Bot-Konfiguration
  *   Singleton Pattern für GameController
- *   Dependency Injection statt hardcodierte Abhängigkeiten
- *   Reduzierte Komplexität der main-Methode
- *   Bessere Trennung von Verantwortlichkeiten (SRP)
- *   Höhere Testbarkeit durch Entkopplung
+ *   Dependency Injection
  * 
  * SOLID-PRINZIPIEN:
  * - SRP: Jede Klasse hat eine klare Verantwortung
- * - OCP: Erweiterbar ohne Änderung (neue Strategien, Konfigurationen)
+ * - OCP: Erweiterbar ohne Änderung
  * - LSP: Alle Strategien sind austauschbar
  * - ISP: Kleine, fokussierte Interfaces
  * - DIP: Abhängigkeit von Abstraktionen
@@ -39,18 +38,16 @@ public class MyBot {
             String mazeName = args.length > 0 ? args[0] : "Unknown";
             logger.initialize(mazeName, initData.playerId, initData.level);
             
-            // [FACTORY] PHASE 2: KOMPONENTEN-ERSTELLUNG MIT ERZEUGUNGSMUSTERN
-            
-            // Erstelle Basis-Komponenten
+            // PHASE 2: KOMPONENTEN-ERSTELLUNG
             Maze maze = new Maze(initData.sizeX, initData.sizeY, initData.level);
             LevelDetector levelDetector = new LevelDetector();
             levelDetector.setCurrentLevel(initData.level);
             FormManager formManager = new FormManager(initData.playerId);
             
-            // Erstelle Factory für Strategien (Factory Method Pattern)
+            // Factory für Strategien
             INavigationStrategyFactory strategyFactory = new NavigationStrategyFactory();
             
-            //  Erstelle Bot-Konfiguration mit Builder Pattern
+            // Builder Pattern für Bot-Konfiguration
             BotConfig botConfig = new BotConfigBuilder()
                 .withMaze(maze)
                 .withFormManager(formManager)
@@ -61,17 +58,18 @@ public class MyBot {
                 .withStartPosition(initData.startPosition)
                 .build();
             
-            logger.log("  Bot-Konfiguration erstellt mit Builder Pattern");
+            logger.log(" Bot-Konfiguration erstellt");
             logger.log("Bot initialisiert - ID: " + initData.playerId + 
                       ", Startposition: " + initData.startPosition);
+            logger.log("Level 3: Cell-basierte Gegner-Erkennung aktiv");
             
-            // PHASE 3: SPIELSTEUERUNG MIT SINGLETON
+            // PHASE 3: SPIELSTEUERUNG
             GameController controller = GameController.getInstance();
             controller.initialize(botConfig, comm);
             
             logger.log("GameController (Singleton) initialisiert");
             
-            // [INFO] PHASE 4: HAUPT-SPIELSCHLEIFE
+            // PHASE 4: HAUPT-SPIELSCHLEIFE
             TurnData turnData;
             int turnCount = 0;
             
@@ -79,29 +77,27 @@ public class MyBot {
                 turnCount++;
                 logger.log("=== RUNDE " + turnCount + " ===");
                 
-                // Verarbeite Runde durch Controller
                 boolean continueGame = controller.processTurn(turnData, turnCount);
                 
                 if (!continueGame) {
-                    break; // Spiel beendet (FINISH erreicht)
+                    break; // Spiel beendet
                 }
                 
-                // Sicherheits-Abbruch
                 if (turnCount > 1000) {
-                    logger.log("[TIMEOUT] ABBRUCH: Zu viele Runden (>1000)");
+                    logger.log("[TIMEOUT] Zu viele Runden (>1000)");
                     break;
                 }
             }
             
-            logger.log("  Spiel beendet nach " + turnCount + " Runden");
+            logger.log(" Spiel beendet nach " + turnCount + " Runden");
             
         } catch (Exception e) {
-            logger.log("[FEHLER] FEHLER: " + e.getMessage());
+            logger.log("[FEHLER] " + e.getMessage());
             e.printStackTrace();
         } finally {
             comm.close();
             logger.close();
-            GameController.reset(); // Reset für nächstes Spiel
+            GameController.reset();
         }
     }
 }

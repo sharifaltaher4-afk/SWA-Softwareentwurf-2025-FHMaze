@@ -7,22 +7,16 @@ import de.fhms.eti.players.Domain_Klassen.Position;
 import de.fhms.eti.players.Kommunikations_Klassen.Logger;
 
 /**
- * Builder für Bot-Konfiguration
+ * Builder fuer Bot-Konfiguration
  * 
  * Implementiert das Builder Pattern (Erzeugungsmuster)
+ * LEVEL 3: OpponentDetector NICHT mehr noetig - Cell enthält Gegner-Info! 
  * 
  * Vorteile:
  * - Schrittweise Konfiguration komplexer Objekte
- * - Fluent Interface für bessere Lesbarkeit
- * - Unveränderliche Konfigurationsobjekte
+ * - Fluent Interface fuer bessere Lesbarkeit
+ * - Unveraenderliche Konfigurationsobjekte
  * - Validierung vor Objekt-Erstellung
- * 
- * Verwendung:
- * BotConfig config = new BotConfigBuilder()
- *     .withMaze(maze)
- *     .withFormManager(formManager)
- *     .withStrategyFactory(factory)
- *     .build();
  */
 public class BotConfigBuilder {
     private Maze maze;
@@ -92,7 +86,7 @@ public class BotConfigBuilder {
     /**
      * Validiert und erstellt die finale Konfiguration
      * 
-     * @return Unveränderliche BotConfig
+     * @return Unveraenderliche BotConfig
      * @throws IllegalStateException wenn erforderliche Parameter fehlen
      */
     public BotConfig build() {
@@ -115,7 +109,6 @@ public class BotConfigBuilder {
         if (startPosition == null) {
             throw new IllegalStateException("StartPosition ist erforderlich");
         }
-        
         return new BotConfig(maze, formManager, strategyFactory, logger, 
                            levelDetector, playerId, startPosition);
     }

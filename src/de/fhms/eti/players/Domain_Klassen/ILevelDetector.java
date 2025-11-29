@@ -1,5 +1,4 @@
 package de.fhms.eti.players.Domain_Klassen;
-import java.lang.String;
 
 public interface ILevelDetector {
     /**

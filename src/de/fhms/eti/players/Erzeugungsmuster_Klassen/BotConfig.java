@@ -10,7 +10,7 @@ import de.fhms.eti.players.Kommunikations_Klassen.Logger;
  * Unveränderliche Bot-Konfiguration
  * 
  * Wird durch BotConfigBuilder erstellt (Builder Pattern)
- * 
+ * LEVEL 3: OpponentDetector NICHT mehr nötig - Cell enthält Gegner-Info! 
  * Vorteile:
  * - Immutable: Keine versehentlichen Änderungen
  * - Thread-Safe: Kann sicher geteilt werden
@@ -27,7 +27,7 @@ public class BotConfig {
     
     /**
      * Public Konstruktor - durch Builder aufrufbar
-     *   WICHTIG: Public weil Builder in gleichem Subpackage ist
+     *
      */
     public BotConfig(Maze maze, FormManager formManager, INavigationStrategyFactory strategyFactory,
              Logger logger, LevelDetector levelDetector, int playerId, Position startPosition) {

@@ -2,7 +2,6 @@ package de.fhms.eti.players.Strategie_Klassen;
 
 import de.fhms.eti.players.Domain_Klassen.*;
 
-import java.nio.file.DirectoryStream;
 
 /**
  * RightHandRuleStrategy folgt immer der rechten Wand

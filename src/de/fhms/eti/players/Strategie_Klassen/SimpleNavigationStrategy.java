@@ -15,7 +15,7 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
     
     @Override
     public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
-        // KRITISCH: FINISH-Priorität MUSS ZUERST kommen!
+        // KRITISCH: FINISH-Priorität MUSS ZUERST kommen
         GoAction finishDir = checkFinishPriority(northCell, eastCell, southCell, westCell);
         if (finishDir != null) {
             System.err.println("FINISH in Sichtweite: " + finishDir);
@@ -36,8 +36,8 @@ public class SimpleNavigationStrategy implements INavigationStrategy {
                 continue;
             }
             
-            // Ist Richtung frei?
-            if (!cells[i].equals("WALL")) {
+            // Ist Richtung frei? (prüfe ob nicht Wand)
+            if (!(cells[i] instanceof WallCell)) {
                 Position nextPos = currentPos.move(directions[i]);
                 int visits = maze.getVisitCount(nextPos);
                 

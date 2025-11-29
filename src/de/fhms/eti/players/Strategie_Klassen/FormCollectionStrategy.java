@@ -33,7 +33,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
         this.formManager = formManager;
         this.formPositions = new HashMap<>();
         this.pathFinder = pathFinder;
-        this.fallbackStrategy = new RightHandRuleStrategy();
+        this.fallbackStrategy = new SimpleNavigationStrategy(maze);
         this.currentPlan = new ArrayDeque<>();
         this.activeTarget = null;
         this.myPlayerId = -1;
@@ -48,7 +48,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
 
     @Override
     public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
-                                 Cell southCell, Cell westCell) {
+            Cell southCell, Cell westCell) {
         pathFinder.updateKnowledge(currentPos, northCell, eastCell, southCell, westCell);
         scanAndSave(currentPos, Direction.north, northCell);
         scanAndSave(currentPos, Direction.east, eastCell);
@@ -96,7 +96,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private GoAction tryFrontierPlan(Position currentPos, Cell northCell, Cell eastCell,
-                                   Cell southCell, Cell westCell) {
+            Cell southCell, Cell westCell) {
         Deque<GoAction> frontierPlan = pathFinder.buildPathToFrontier(currentPos, myPlayerId);
         if (frontierPlan == null || frontierPlan.isEmpty()) {
             return null;
@@ -107,7 +107,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private boolean isMoveCurrentlyPossible(GoAction action, Cell northCell, Cell eastCell,
-                                            Cell southCell, Cell westCell) {
+            Cell southCell, Cell westCell) {
         Cell cellStatus = getCellInDirection(action.getDirection(), northCell, eastCell, southCell, westCell);
         return canMove(cellStatus);
     }
@@ -130,7 +130,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
         }
 
         if (cellStatus instanceof FormCell formCell) {
-            int formId =  formCell.getFormId();
+            int formId = formCell.getFormId();
             if (formId == myPlayerId && !formPositions.containsKey(formCell.getFormId())) {
                 formPositions.put(formId, neighborPos);
             }
@@ -160,8 +160,8 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private GoAction explore(Position curr, Cell north, Cell east, Cell south, Cell west) {
-        Direction[] dirs = {Direction.north, Direction.east, Direction.south, Direction.west};
-        Cell[] cells = {north, east, south, west};
+        Direction[] dirs = { Direction.north, Direction.east, Direction.south, Direction.west };
+        Cell[] cells = { north, east, south, west };
 
         Direction bestDirection = null;
         int minVisits = Integer.MAX_VALUE;
@@ -175,9 +175,15 @@ public class FormCollectionStrategy implements INavigationStrategy {
                     bestDirection = dirs[i];
                 }
             }
+        } // ← Schleife ENDET HIER!
+
+        // NACH der Schleife:
+        if (bestDirection != null) {
+            return new GoAction(bestDirection);
         }
 
-        return new GoAction(bestDirection);
+        // Fallback wenn alle Richtungen blockiert
+        return fallbackStrategy.decideNextMove(curr, north, east, south, west);
     }
 
     private boolean canMove(Cell cell) {

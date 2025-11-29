@@ -84,7 +84,7 @@ public class Logger {
                               Cell east, Cell south, Cell west) {
         log("ZELLSTATUS bei " + pos + ":");
         log("Aktuell: " + current);
-        log("Nord: " + north + " | Ost: " + east + " | Süd: " + south + " | West: " + west);
+        log("Nord: " + north + " | Ost: " + east + " | Sued: " + south + " | West: " + west);
     }
 
     public void logFormInfo(Cell cellStatus, boolean canTake, String reason) {
@@ -100,7 +100,7 @@ public class Logger {
     }
 
     public void logCollectedForms(java.util.List<Integer> forms, int nextExpected) {
-        log("GESAMMELTE FORMULARE: " + forms + " | Nächstes erwartet: " + nextExpected);
+        log("GESAMMELTE FORMULARE: " + forms + " | Naechstes erwartet: " + nextExpected);
     }
 
     public void close() {

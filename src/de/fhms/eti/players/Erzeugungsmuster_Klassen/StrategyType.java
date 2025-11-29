@@ -7,7 +7,5 @@ package de.fhms.eti.players.Erzeugungsmuster_Klassen;
  */
 public enum StrategyType {
     SIMPLE,                    // SimpleNavigationStrategy - bevorzugt unbesuchte Felder
-    RIGHT_HAND_RULE,          // RightHandRuleStrategy - folgt rechter Wand
     FORM_COLLECTION,          // FormCollectionStrategy - sammelt Formulare
-    INTELLIGENT_EXPLORATION   // IntelligentExplorationStrategy - A* Pathfinding
 }

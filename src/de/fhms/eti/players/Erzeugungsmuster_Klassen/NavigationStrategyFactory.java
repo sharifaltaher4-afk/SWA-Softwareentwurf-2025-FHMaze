@@ -5,8 +5,6 @@ import de.fhms.eti.players.Domain_Klassen.Maze;
 import de.fhms.eti.players.Strategie_Klassen.BFSPathFinderStrategy;
 import de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
 import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
-import de.fhms.eti.players.Strategie_Klassen.IntelligentExplorationStrategy;
-import de.fhms.eti.players.Strategie_Klassen.RightHandRuleStrategy;
 import de.fhms.eti.players.Strategie_Klassen.SimpleNavigationStrategy;
 
 /**
@@ -77,12 +75,6 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
                 System.err.println("Factory: Erstelle SimpleNavigationStrategy");
                 strategy = new SimpleNavigationStrategy(maze);
                 break;
-
-            case RIGHT_HAND_RULE:
-                System.err.println("[FACTORY] Factory: Erstelle RightHandRuleStrategy");
-                strategy = new RightHandRuleStrategy();
-                break;
-
             case FORM_COLLECTION:
                 System.err.println("[FACTORY] Factory: Erstelle FormCollectionStrategy");
                 if (formManager == null) {
@@ -90,12 +82,6 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
                 }
                 strategy = new FormCollectionStrategy(maze, formManager, new BFSPathFinderStrategy());
                 break;
-
-            case INTELLIGENT_EXPLORATION:
-                System.err.println("[FACTORY] Factory: Erstelle IntelligentExplorationStrategy");
-                strategy = new IntelligentExplorationStrategy(maze);
-                break;
-
             default:
                 System.err.println("  Unbekannter Strategietyp - nutze SimpleNavigationStrategy");
                 strategy = new SimpleNavigationStrategy(maze);

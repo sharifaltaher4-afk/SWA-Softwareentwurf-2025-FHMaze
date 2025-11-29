@@ -80,48 +80,13 @@ public class GameController {
 
     /**
      * Verarbeitet eine einzelne Spielrunde
-     * 
      * LEVEL 3: Cell-Objekte enthalten jetzt direkt Gegner-Info!
-     * → Viel einfacher und sauberer als RAW-Strings
-     * 
      * @param turnData  Rundendaten
      * @param turnCount Rundennummer
      * @return true wenn Spiel weitergehen soll, false bei Beendigung
      */
     public boolean processTurn(TurnData turnData, int turnCount) {
         Position currentPos = navigator.getCurrentPosition();
-        // LEVEL 3: "Gespräch"-Erkennung
-        // LEVEL 3: Prüfe Gegner direkt aus Cell-Objekten!
-        // boolean opponentOnCurrentField = turnData.currentCell.hasOpponent();
-        /*boolean opponentOnCurrentField = turnData.currentCell.hasOpponent()
-                && turnData.currentCell.getOpponentDistance() == 0;
-
-        if (opponentOnCurrentField) {
-            config.getLogger().log("[LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)");
-
-            // 50% Chance zu warten, 50% Chance sich zu bewegen
-            if (Math.random() < 0.5) {
-                config.getLogger().log("[LEVEL3] ⏸WARTE: Sende POSITION-Aktion");
-                comm.sendAction(new PositionAction());
-            } else {
-                // Versuche eine zufällige Richtung
-                Direction[] directions = { Direction.north, Direction.east, Direction.south, Direction.west };
-                Cell[] cells = { turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell };
-
-                Direction chosenDirection = Direction.north; // Fallback
-                for (int i = 0; i < 4; i++) {
-                    if (!(cells[i] instanceof WallCell)) {
-                        chosenDirection = directions[i];
-                        break;
-                    }
-                }
-
-                config.getLogger().log("[LEVEL3] ZUFALL: Versuche Bewegung " + chosenDirection);
-                comm.sendAction(new GoAction(chosenDirection));
-            }
-            return true;
-        }*/
-
         // Logging Gegner-Status (aus Cell-Objekten!)
         int opponentCount = countOpponents(turnData);
         if (opponentCount > 0) {
@@ -454,48 +419,7 @@ public class GameController {
      */
     private GoAction avoidOpponentCollision(GoAction plannedAction, TurnData turnData) {
         // Gegner-Info direkt aus Cells!
-        Cell[] cells = { turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell };
-        Direction[] directions = { Direction.north, Direction.east, Direction.south, Direction.west };
-
-        // Prüfe ob geplante Richtung einen Gegner hat
-        int plannedIndex = getDirectionIndex(plannedAction.getDirection());
-        Cell plannedCell = cells[plannedIndex];
-
-        // KRITISCH: Vermeide Gegner AUF dem Feld (Distance 0) UND NEBEN dem Feld
-        // (Distance <=1)!
-        // Distance 0 = Kollision, Distance 1 = GESPRÄCH (Endlosschleife!)
-        /*if (plannedCell.hasOpponent() && plannedCell.getOpponentDistance() <= 1) {
-            config.getLogger().log("[LEVEL3]  Gegner in Richtung " + plannedAction.getDirection() +
-                    " (Distance: " + plannedCell.getOpponentDistance() + ")");
-            config.getLogger().log("[LEVEL3]  KOLLISION/GESPRÄCH droht! Suche alternative Richtung...");
-
-            // Suche alternative Richtung ohne nahe Gegner
-            for (int i = 0; i < 4; i++) {
-                boolean hasNearOpponent = cells[i].hasOpponent() && cells[i].getOpponentDistance() <= 1;
-                boolean isWall = cells[i] instanceof WallCell;
-
-                if (!hasNearOpponent && !isWall) {
-                    config.getLogger().log("[LEVEL3]  Alternative gefunden: " + directions[i]);
-                    return new GoAction(directions[i]);
-                }
-            }
-
-            config.getLogger().log("[LEVEL3]  Keine Alternative! Akzeptiere Kollision/Gespräch.");
-        }*/
-
         return plannedAction; // Keine Änderung nötig
-    }
-
-    /**
-     * Hilfsmethode: Direction → Index (0=north, 1=east, 2=south, 3=west)
-     */
-    private int getDirectionIndex(Direction dir) {
-        return switch (dir) {
-            case Direction.north -> 0;
-            case Direction.east -> 1;
-            case Direction.south -> 2;
-            case Direction.west -> 3;
-        };
     }
 
     /**

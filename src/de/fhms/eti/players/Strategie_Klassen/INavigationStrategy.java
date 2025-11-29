@@ -9,7 +9,6 @@ import de.fhms.eti.players.Domain_Klassen.Position;
  * Interface für verschiedene Navigationsstrategien (ISP ) 
  * Ermöglicht verschiedene Algorithmen für die Navigation:
  * - SimpleNavigationStrategy (bevorzugt unbesuchte Felder)
- * - RightHandRuleStrategy (folgt der rechten Wand)
  * 
  * Erfüllt:
  * - OCP (Open/Closed): Neue Strategien ohne Ã„nderung bestehenden Codes

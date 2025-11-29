@@ -17,9 +17,6 @@ import java.util.Map;
  * - "FORM 0 1 !3" = Formular + Gegner 3 Felder entfernt
  */
 public class OpponentDetector {
-    
-    private final int myPlayerId;
-    
     // Speichert für jede Richtung: Gegner vorhanden + Distanz
     private Map<String, OpponentInfo> opponentsByDirection;
     
@@ -31,7 +28,7 @@ public class OpponentDetector {
      * @param myPlayerId Eigene Spieler-ID
      */
     public OpponentDetector(int myPlayerId) {
-        this.myPlayerId = myPlayerId;
+        //this.myPlayerId = myPlayerId;
         this.opponentsByDirection = new HashMap<>();
         this.opponentOnCurrentField = false;
     }
@@ -186,11 +183,11 @@ public class OpponentDetector {
      */
     private static class OpponentInfo {
         final int distance;
-        final int playerId;
+        //final int playerId;
         
         OpponentInfo(int distance, int playerId) {
             this.distance = distance;
-            this.playerId = playerId;
+            //this.playerId = playerId;
         }
     }
 }

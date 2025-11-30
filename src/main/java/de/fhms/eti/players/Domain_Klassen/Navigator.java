@@ -1,6 +1,6 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 
-import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
+import main.java.de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
 
 /**
  * Navigator organisiert Position und Navigationsstrategie

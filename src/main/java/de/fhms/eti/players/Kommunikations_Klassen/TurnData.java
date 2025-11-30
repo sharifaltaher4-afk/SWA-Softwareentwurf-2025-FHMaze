@@ -1,6 +1,6 @@
-package de.fhms.eti.players.Kommunikations_Klassen;
+package main.java.de.fhms.eti.players.Kommunikations_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.Cell;
+import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
 
 /**
  * Data Transfer Object (DTO) für Rundendaten

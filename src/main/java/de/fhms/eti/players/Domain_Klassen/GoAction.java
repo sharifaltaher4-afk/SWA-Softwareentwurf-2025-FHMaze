@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 
 public final class GoAction extends Action {
     private final Direction direction;

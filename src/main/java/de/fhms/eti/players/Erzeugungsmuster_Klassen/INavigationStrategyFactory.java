@@ -1,8 +1,8 @@
-package de.fhms.eti.players.Erzeugungsmuster_Klassen;
+package main.java.de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Domain_Klassen.IFormManager;
-import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
+import main.java.de.fhms.eti.players.Domain_Klassen.Maze;
+import main.java.de.fhms.eti.players.Domain_Klassen.IFormManager;
+import main.java.de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
 
 /**
  * Factory-Interface für die Erstellung von Navigationsstrategien

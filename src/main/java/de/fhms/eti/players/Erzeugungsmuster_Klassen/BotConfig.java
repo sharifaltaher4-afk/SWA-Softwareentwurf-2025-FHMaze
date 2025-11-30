@@ -1,10 +1,10 @@
-package de.fhms.eti.players.Erzeugungsmuster_Klassen;
+package main.java.de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.FormManager;
-import de.fhms.eti.players.Domain_Klassen.LevelDetector;
-import de.fhms.eti.players.Domain_Klassen.Maze;
-import de.fhms.eti.players.Domain_Klassen.Position;
-import de.fhms.eti.players.Kommunikations_Klassen.Logger;
+import main.java.de.fhms.eti.players.Domain_Klassen.FormManager;
+import main.java.de.fhms.eti.players.Domain_Klassen.LevelDetector;
+import main.java.de.fhms.eti.players.Domain_Klassen.Maze;
+import main.java.de.fhms.eti.players.Domain_Klassen.Position;
+import main.java.de.fhms.eti.players.Kommunikations_Klassen.Logger;
 
 /**
  * Unveränderliche Bot-Konfiguration

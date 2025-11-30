@@ -1,11 +1,11 @@
-package de.fhms.eti.players.Strategie_Klassen;
+package main.java.de.fhms.eti.players.Strategie_Klassen;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.fhms.eti.players.Domain_Klassen.*;
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
 
 /**
  * FormCollectionStrategy - SCHNELL & SMART

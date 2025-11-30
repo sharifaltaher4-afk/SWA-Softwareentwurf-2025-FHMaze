@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Erzeugungsmuster_Klassen;
+package main.java.de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
 /**
  * Enum für verfügbare Strategietypen

@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 
 /**
  * Der LevelDetector erkennt und verwaltet das aktuelle Spieoelevel

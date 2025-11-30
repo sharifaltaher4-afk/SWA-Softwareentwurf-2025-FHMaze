@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 /**
  * LEVEL 3: FormCell kann auch Gegner-Info haben
  * Z.B "FORM 0 1 !2" = Formular + Gegner 2 Felder entfernt

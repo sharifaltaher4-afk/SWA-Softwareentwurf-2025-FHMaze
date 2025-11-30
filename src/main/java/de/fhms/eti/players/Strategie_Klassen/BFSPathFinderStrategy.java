@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Strategie_Klassen;
+package main.java.de.fhms.eti.players.Strategie_Klassen;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-import de.fhms.eti.players.Domain_Klassen.*;
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
 
 /**
  * BFSPathFinderStrategy - Pfadsuche auf Basis einer einfachen Breitensuche.

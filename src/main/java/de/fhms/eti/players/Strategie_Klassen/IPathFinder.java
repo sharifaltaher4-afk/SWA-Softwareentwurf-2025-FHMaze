@@ -1,10 +1,10 @@
-package de.fhms.eti.players.Strategie_Klassen;
+package main.java.de.fhms.eti.players.Strategie_Klassen;
 
 import java.util.Deque;
 
-import de.fhms.eti.players.Domain_Klassen.Cell;
-import de.fhms.eti.players.Domain_Klassen.GoAction;
-import de.fhms.eti.players.Domain_Klassen.Position;
+import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
+import main.java.de.fhms.eti.players.Domain_Klassen.GoAction;
+import main.java.de.fhms.eti.players.Domain_Klassen.Position;
 
 /**
  * Abstraktion für Pfadfindungs-Algorithmen.

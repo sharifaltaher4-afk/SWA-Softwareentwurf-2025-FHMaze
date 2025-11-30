@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 
 /**
  * A floor cell on which a player can walk.

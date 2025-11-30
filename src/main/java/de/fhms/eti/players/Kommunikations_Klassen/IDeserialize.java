@@ -1,6 +1,6 @@
-package de.fhms.eti.players.Kommunikations_Klassen;
+package main.java.de.fhms.eti.players.Kommunikations_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.Action;
+import main.java.de.fhms.eti.players.Domain_Klassen.Action;
 
 /**
  * Interface providing methods to deserialize data which can be sent to the maze game.

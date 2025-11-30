@@ -1,4 +1,4 @@
-package de.fhms.eti.players.Domain_Klassen;
+package main.java.de.fhms.eti.players.Domain_Klassen;
 
 import java.util.HashMap;
 import java.util.Map;

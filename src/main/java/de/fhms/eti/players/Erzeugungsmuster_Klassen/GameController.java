@@ -1,10 +1,10 @@
-package de.fhms.eti.players.Erzeugungsmuster_Klassen;
+package main.java.de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.*;
-import de.fhms.eti.players.Kommunikations_Klassen.GameCommunication;
-import de.fhms.eti.players.Kommunikations_Klassen.TurnData;
-import de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
-import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
+import main.java.de.fhms.eti.players.Kommunikations_Klassen.GameCommunication;
+import main.java.de.fhms.eti.players.Kommunikations_Klassen.TurnData;
+import main.java.de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
+import main.java.de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
 
 /**
  * GameController - Zentrale Spielsteuerung

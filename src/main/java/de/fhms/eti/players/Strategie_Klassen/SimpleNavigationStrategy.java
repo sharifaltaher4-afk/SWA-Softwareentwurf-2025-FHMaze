@@ -1,8 +1,8 @@
-package de.fhms.eti.players.Strategie_Klassen;
+package main.java.de.fhms.eti.players.Strategie_Klassen;
  //SimpleNavigationStrategy - Intelligente Navigationsstrategie
  //mit KORRIGIERTER FINISH-Priorität und Formular-Suche
 
-import de.fhms.eti.players.Domain_Klassen.*;
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
 
 public class SimpleNavigationStrategy implements INavigationStrategy {
     private Maze maze;

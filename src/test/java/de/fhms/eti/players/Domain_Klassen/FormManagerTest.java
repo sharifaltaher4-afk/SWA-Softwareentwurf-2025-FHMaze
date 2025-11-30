@@ -1,8 +1,5 @@
-package test.java.de.fhms.eti.players.Domain_Klassen;
+package de.fhms.eti.players.Domain_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.FormCell;
-import de.fhms.eti.players.Domain_Klassen.FormManager;
-import de.fhms.eti.players.Domain_Klassen.Position;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

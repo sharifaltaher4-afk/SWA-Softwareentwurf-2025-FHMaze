@@ -109,7 +109,11 @@ public class FormCollectionStrategy implements INavigationStrategy {
     private boolean isMoveCurrentlyPossible(GoAction action, Cell northCell, Cell eastCell,
             Cell southCell, Cell westCell) {
         Cell cellStatus = getCellInDirection(action.getDirection(), northCell, eastCell, southCell, westCell);
-        return canMove(cellStatus);
+        // Prüfe ob Feld begehbar ist
+        if (!canMove(cellStatus)) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -131,7 +135,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
 
         if (cellStatus instanceof FormCell formCell) {
             int formId = formCell.getFormId();
-            if (formId == myPlayerId && !formPositions.containsKey(formCell.getFormId())) {
+            if (/*formId == myPlayerId &&*/ formCell.getPlayerId() == myPlayerId /*&& !formPositions.containsKey(formCell.getFormId())*/) {
                 formPositions.put(formId, neighborPos);
             }
         }

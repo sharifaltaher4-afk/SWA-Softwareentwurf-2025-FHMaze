@@ -27,9 +27,6 @@ public class GameController {
     private BotConfig config;
     private Navigator navigator;
     private GameCommunication comm;
-
-    private Position lastPosition;
-    private int stuckCounter;
     private boolean useSimpleStrategyOnly;
     private int simpleStrategyForceRounds;
 
@@ -37,7 +34,6 @@ public class GameController {
      * Private Konstruktor fuer Singleton
      */
     private GameController() {
-        this.stuckCounter = 0;
         this.useSimpleStrategyOnly = false;
         this.simpleStrategyForceRounds = 0;
     }
@@ -72,15 +68,13 @@ public class GameController {
 
         // Erstelle Navigator
         this.navigator = new Navigator(config.getMaze(), config.getStartPosition(), initialStrategy);
-
-        this.lastPosition = config.getStartPosition();
-
         config.getLogger().log("GameController initialisiert");
     }
 
     /**
      * Verarbeitet eine einzelne Spielrunde
-     * LEVEL 3: Cell-Objekte enthalten jetzt direkt Gegner-Info!
+     * LEVEL 3: CellObjekte enthalten jetzt direkt Gegner-Info 
+     * 
      * @param turnData  Rundendaten
      * @param turnCount Rundennummer
      * @return true wenn Spiel weitergehen soll, false bei Beendigung
@@ -93,8 +87,37 @@ public class GameController {
             config.getLogger().log("[LEVEL3]  " + opponentCount + " Gegner sichtbar");
         }
 
+        boolean opponentOnCurrentField = turnData.currentCell.hasOpponent()
+                && turnData.currentCell.getOpponentDistance() == 0;
+
+        if (opponentOnCurrentField) {
+            config.getLogger().log("[LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)");
+
+            // 50% Chance zu warten, 50% Chance sich zu bewegen
+            if (Math.random() < 0.5) {
+                config.getLogger().log("[LEVEL3] WARTE: Sende POSITION-Aktion");
+                comm.sendAction(new PositionAction());
+            } else {
+                // Versuche eine zufällige Richtung
+                Direction[] directions = { Direction.north, Direction.east, Direction.south, Direction.west };
+                Cell[] cells = { turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell };
+
+                Direction chosenDirection = Direction.north; // Fallback
+                for (int i = 0; i < 4; i++) {
+                    if (!(cells[i] instanceof WallCell)) {
+                        chosenDirection = directions[i];
+                        break;
+                    }
+                }
+
+                config.getLogger().log("[LEVEL3] ZUFALL: Versuche Bewegung " + chosenDirection);
+                comm.sendAction(new GoAction(chosenDirection));
+            }
+            return true;
+        }
+
         // Logging
-        if (turnCount <= 20) {
+        if (turnCount <= 100) {
             config.getLogger().log("ZELLSTATUS:");
             config.getLogger().log("Aktuell: " + turnData.currentCell +
                     " | hasOpponent=" + turnData.currentCell.hasOpponent() +
@@ -129,8 +152,21 @@ public class GameController {
         if (turnData.currentCell instanceof FinishCell finishCell) {
             processFinishCell(finishCell);
         }
+        // NEU: Verarbeite auch Nachbar-FinishCells!
+        if (turnData.northCell instanceof FinishCell northFinish) {
+            processFinishCell(northFinish);
+        }
+        if (turnData.eastCell instanceof FinishCell eastFinish) {
+            processFinishCell(eastFinish);
+        }
+        if (turnData.southCell instanceof FinishCell southFinish) {
+            processFinishCell(southFinish);
+        }
+        if (turnData.westCell instanceof FinishCell westFinish) {
+            processFinishCell(westFinish);
+        }
 
-        // Pruefe ob finish mÃ¶glich
+        // Pruefe ob finish moeglich
         if (shouldFinish(turnData.currentCell)) {
             comm.sendAction(new FinishAction());
             config.getLogger().log("[SUCCESS] FINISH gesendet - Mission erfuellt!");
@@ -165,8 +201,6 @@ public class GameController {
             logStatus(turnCount);
         }
 
-        lastPosition = currentPos;
-
         return true; // Spiel weitergehen
     }
 
@@ -200,13 +234,13 @@ public class GameController {
                     config.getLogger().logCollectedForms(
                             config.getFormManager().getCollectedForms(),
                             config.getFormManager().getNextFormId());
-                    return true; // â† Formular genommen, KEINE Bewegung mehr!
+                    return true; // Formular genommen, kein Bewegung mehr
                 }
             } else {
                 logFormRejectionReason(formCell);
             }
         }
-        return false; // WICHTIG! Kein Formular genommen, Bewegung erlauben
+        return false; // Kein Formular genommen, Bewegung erlauben
     }
 
     /**
@@ -231,18 +265,18 @@ public class GameController {
     private void processFinishCell(FinishCell finishCell) {
         int finishPlayerId = finishCell.getPlayerId();
 
-        // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt für ALLE Spieler!)
+        // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt für ALLE Spieler)
         if (config.getLevelDetector().isLevel2() || config.getLevelDetector().isLevel3()) {
             int formCount = finishCell.getFormCount();
 
-            // Setze Form-Count auch wenn es fremdes FINISH ist!
-            // In Level 2/3 haben alle Spieler die gleiche Anzahl Formulare!
+            // Setze Form-Count auch wenn es fremdes FINISH ist
+            // In Level 2/3 haben alle Spieler die gleiche Anzahl Formulare
             if (config.getFormManager().getTotalFormsNeeded() == -1) {
                 config.getFormManager().setTotalFormsNeeded(formCount);
                 config.getLogger().log("[INFO] Form-Count aus FINISH erkannt: " + formCount);
             }
 
-            // Zusätzliche Infos wenn es UNSER FINISH ist
+            // Zusaetzliche Infos wenn es UNSER FINISH ist
             if (finishPlayerId == config.getPlayerId()) {
                 config.getLogger().log("[INFO] Eigenes Ziel gefunden!");
 
@@ -294,63 +328,41 @@ public class GameController {
      */
     private void manageStrategy(int turnCount, Position currentPos) {
         // Strategie-Wechsel zu FormCollectionStrategy für Level 2 UND Level 3
-        if ((config.getLevelDetector().isLevel2() || config.getLevelDetector().isLevel3()) &&
-                !(navigator.getStrategy() instanceof FormCollectionStrategy) &&
-                !useSimpleStrategyOnly) {
-
-            int level = config.getLevelDetector().isLevel3() ? 3 : 2;
-            config.getLogger().log("[CHANGE] Wechsle zu FormCollectionStrategy für Level " + level);
-            INavigationStrategy newStrategy = config.getStrategyFactory()
-                    .createStrategyByType(StrategyType.FORM_COLLECTION,
-                            config.getMaze(),
-                            config.getFormManager());
-            newStrategy.setPlayerId(config.getPlayerId());
-            navigator.setStrategy(newStrategy);
-        }
-
-        // Countdown fuer Force-Rounds
+        
+        // Countdown für Force-Rounds (SimpleStrategy-Sperre)
         if (simpleStrategyForceRounds > 0) {
             simpleStrategyForceRounds--;
+            config.getLogger().log("[DEBUG] SimpleStrategy-Sperre: noch " + simpleStrategyForceRounds + " Runden"); // 3p.NEU
             if (simpleStrategyForceRounds == 0) {
                 useSimpleStrategyOnly = false;
                 config.getLogger().log("  SimpleStrategy-Sperre aufgehoben");
             }
         }
 
+        // WICHTIG: Wenn wir Formulare brauchen, MUSS FormCollection aktiv sein!
+        boolean needsFormCollection = !config.getFormManager().isComplete();
+        boolean isLevel2or3 = config.getLevelDetector().isLevel2() || config.getLevelDetector().isLevel3();
+
+        // Aktiviere FormCollectionStrategy wenn nötig UND nicht blockiert
+        if (isLevel2or3 && needsFormCollection && !useSimpleStrategyOnly) {
+            if (!(navigator.getStrategy() instanceof FormCollectionStrategy)) {
+                int level = config.getLevelDetector().isLevel3() ? 3 : 2;
+                config.getLogger().log("[CHANGE] Wechsle zu FormCollectionStrategy für Level " + level);
+
+                INavigationStrategy newStrategy = config.getStrategyFactory()
+                        .createStrategyByType(StrategyType.FORM_COLLECTION,
+                                config.getMaze(),
+                                config.getFormManager());
+                newStrategy.setPlayerId(config.getPlayerId());
+                navigator.setStrategy(newStrategy);
+            }
+        }
+
         // Endlosschleifen-Erkennung
-        if (turnCount > 50 && navigator.getStrategy() instanceof FormCollectionStrategy) {
-            detectAndHandleLoop(currentPos);
-        }
-    }
-
-    /**
-     * Erkennt und behandelt Endlosschleifen
-     */
-    private void detectAndHandleLoop(Position currentPos) {
-        int visitCount = config.getMaze().getVisitCount(currentPos);
-
-        if (currentPos.equals(lastPosition)) {
-            stuckCounter++;
-        } else {
-            stuckCounter = 0;
-        }
-
-        if (visitCount >= 5 || stuckCounter >= 5) {
-            config.getLogger().log("  ENDLOSSCHLEIFE ERKANNT bei " + currentPos);
-            config.getLogger().log("   - BesuchszÃ¤hler: " + visitCount);
-            config.getLogger().log("   - Stuck-Counter: " + stuckCounter);
-            config.getLogger().log("[CHANGE] Wechsle zurueck zu SimpleNavigationStrategy");
-
-            INavigationStrategy simpleStrat = config.getStrategyFactory()
-                    .createStrategyByType(StrategyType.SIMPLE, config.getMaze(), null);
-            simpleStrat.setPlayerId(config.getPlayerId());
-            navigator.setStrategy(simpleStrat);
-            stuckCounter = 0;
-
-            useSimpleStrategyOnly = true;
-            simpleStrategyForceRounds = 100;
-            config.getLogger().log("ðŸ”’ FormCollectionStrategy fuer 100 Runden blockiert");
-        }
+        // if (turnCount > 50 && navigator.getStrategy() instanceof
+        // FormCollectionStrategy) {
+        // detectAndHandleLoop(currentPos);
+        // }
     }
 
     /**
@@ -408,7 +420,7 @@ public class GameController {
     }
 
     /**
-     * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert!)
+     * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert)
      * 
      * Prüft ob die geplante Aktion zu einem Feld mit Gegner führt.
      * Falls ja, wähle alternative Richtung ohne Gegner.
@@ -418,7 +430,7 @@ public class GameController {
      * @return Sichere Aktion (ohne Gegner-Kollision wenn möglich)
      */
     private GoAction avoidOpponentCollision(GoAction plannedAction, TurnData turnData) {
-        // Gegner-Info direkt aus Cells!
+        // Gegner-Info direkt aus Cells
         return plannedAction; // Keine Änderung nötig
     }
 

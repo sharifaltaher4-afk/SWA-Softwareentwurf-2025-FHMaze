@@ -1,211 +1,67 @@
-[2025-11-29 23:13:07.879] BOT GESTARTET - Labyrinth: Unknown, Spieler: 4, Level: 3
-[2025-11-29 23:13:07.900]  Bot-Konfiguration erstellt
-[2025-11-29 23:13:07.915] Bot initialisiert - ID: 4, Startposition: (2,2)
-[2025-11-29 23:13:07.915] Level 3: Cell-basierte Gegner-Erkennung aktiv
-[2025-11-29 23:13:07.921] GameController initialisiert
-[2025-11-29 23:13:07.922] GameController (Singleton) initialisiert
-[2025-11-29 23:13:07.925] === RUNDE 1 ===
-[2025-11-29 23:13:07.925] ZELLSTATUS:
-[2025-11-29 23:13:07.926] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@67424e82 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:07.960] Nord: de.fhms.eti.players.Domain_Klassen.FinishCell@42110406 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@531d72ca | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@22d8cfe0 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@579bb367 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:07.961] [CHANGE] Wechsle zu FormCollectionStrategy für Level 3
-[2025-11-29 23:13:08.002] BEWEGUNG: (2,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1c4af82c | Grund: Navigation
-[2025-11-29 23:13:08.013] Bot 4 | Level: 3 | Formulare: [] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 1
-[2025-11-29 23:13:08.115] === RUNDE 2 ===
-[2025-11-29 23:13:08.117] ZELLSTATUS:
-[2025-11-29 23:13:08.121] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@606d8acf | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.122] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@782830e | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@470e2030 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@3fb4f649 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@33833882 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.122] BEWEGUNG: (3,2) -> (4,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@200a570f | Grund: Navigation
-[2025-11-29 23:13:08.122] Bot 4 | Level: 3 | Formulare: [] | Position: (4,2) | Strategie: FormCollectionStrategy | Runde: 2
-[2025-11-29 23:13:08.172] === RUNDE 3 ===
-[2025-11-29 23:13:08.172] ZELLSTATUS:
-[2025-11-29 23:13:08.172] Aktuell: de.fhms.eti.players.Domain_Klassen.FormCell@16b3fc9e | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.173] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@e2d56bf | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@244038d0 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@5680a178 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@5fdef03a | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.195] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@16b3fc9e | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-29 23:13:08.195] BEWEGUNG: (4,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@16f65612 | Grund: Navigation
-[2025-11-29 23:13:08.198] Bot 4 | Level: 3 | Formulare: [] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 3
-[2025-11-29 23:13:08.245] === RUNDE 4 ===
-[2025-11-29 23:13:08.245] ZELLSTATUS:
-[2025-11-29 23:13:08.245] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@311d617d | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.245] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@7c53a9eb | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@ed17bee | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@2a33fae0 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@707f7052 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.246] BEWEGUNG: (3,2) -> (2,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@11028347 | Grund: Navigation
-[2025-11-29 23:13:08.246] Bot 4 | Level: 3 | Formulare: [] | Position: (2,2) | Strategie: FormCollectionStrategy | Runde: 4
-[2025-11-29 23:13:08.283] === RUNDE 5 ===
-[2025-11-29 23:13:08.284] ZELLSTATUS:
-[2025-11-29 23:13:08.284] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@14899482 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.284] Nord: de.fhms.eti.players.Domain_Klassen.FinishCell@21588809 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@2aae9190 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@2f333739 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@77468bd9 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.285] BEWEGUNG: (2,2) -> (2,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@12bb4df8 | Grund: Navigation
-[2025-11-29 23:13:08.287] Bot 4 | Level: 3 | Formulare: [] | Position: (2,3) | Strategie: FormCollectionStrategy | Runde: 5
-[2025-11-29 23:13:08.307] === RUNDE 6 ===
-[2025-11-29 23:13:08.308] ZELLSTATUS:
-[2025-11-29 23:13:08.308] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@4cc77c2e | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.308] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@7a7b0070 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@39a054a5 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@71bc1ae4 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@6ed3ef1 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.309] BEWEGUNG: (2,3) -> (2,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2437c6dc | Grund: Navigation
-[2025-11-29 23:13:08.309] Bot 4 | Level: 3 | Formulare: [] | Position: (2,4) | Strategie: FormCollectionStrategy | Runde: 6
-[2025-11-29 23:13:08.325] === RUNDE 7 ===
-[2025-11-29 23:13:08.325] [LEVEL3]  1 Gegner sichtbar
-[2025-11-29 23:13:08.325] ZELLSTATUS:
-[2025-11-29 23:13:08.326] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@1f89ab83 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.326] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@e73f9ac | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@61064425 | hasOpp=true | Dist=1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@7b1d7fff | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@299a06ac | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.326] BEWEGUNG: (2,4) -> (3,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@383534aa | Grund: Navigation
-[2025-11-29 23:13:08.326] Bot 4 | Level: 3 | Formulare: [] | Position: (3,4) | Strategie: FormCollectionStrategy | Runde: 7
-[2025-11-29 23:13:08.343] === RUNDE 8 ===
-[2025-11-29 23:13:08.344] [LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)
-[2025-11-29 23:13:08.344] [LEVEL3] ⏸WARTE: Sende POSITION-Aktion
-[2025-11-29 23:13:08.362] === RUNDE 9 ===
-[2025-11-29 23:13:08.362] [LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)
-[2025-11-29 23:13:08.362] [LEVEL3] ⏸WARTE: Sende POSITION-Aktion
-[2025-11-29 23:13:08.376] === RUNDE 10 ===
-[2025-11-29 23:13:08.376] [LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)
-[2025-11-29 23:13:08.376] [LEVEL3] ⏸WARTE: Sende POSITION-Aktion
-[2025-11-29 23:13:08.390] === RUNDE 11 ===
-[2025-11-29 23:13:08.390] [LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)
-[2025-11-29 23:13:08.390] [LEVEL3] ZUFALL: Versuche Bewegung east
-[2025-11-29 23:13:08.404] === RUNDE 12 ===
-[2025-11-29 23:13:08.404] [LEVEL3]  1 Gegner sichtbar
-[2025-11-29 23:13:08.404] ZELLSTATUS:
-[2025-11-29 23:13:08.404] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@136432db | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.404] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@7382f612 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@1055e4af | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@3caeaf62 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@e6ea0c6 | hasOpp=true | Dist=0
-[2025-11-29 23:13:08.404] BEWEGUNG: (3,4) -> (3,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6a38e57f | Grund: Navigation
-[2025-11-29 23:13:08.405] Bot 4 | Level: 3 | Formulare: [] | Position: (3,5) | Strategie: FormCollectionStrategy | Runde: 12
-[2025-11-29 23:13:08.419] === RUNDE 13 ===
-[2025-11-29 23:13:08.420] ZELLSTATUS:
-[2025-11-29 23:13:08.420] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5577140b | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.420] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@1c6b6478 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@67f89fa3 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@4ac68d3e | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@277c0f21 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.420] BEWEGUNG: (3,5) -> (3,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6073f712 | Grund: Navigation
-[2025-11-29 23:13:08.420] Bot 4 | Level: 3 | Formulare: [] | Position: (3,6) | Strategie: FormCollectionStrategy | Runde: 13
-[2025-11-29 23:13:08.435] === RUNDE 14 ===
-[2025-11-29 23:13:08.435] ZELLSTATUS:
-[2025-11-29 23:13:08.436] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@43556938 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.436] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@3d04a311 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@7a46a697 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@5f205aa | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@6d86b085 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.436] BEWEGUNG: (3,6) -> (2,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@75828a0f | Grund: Navigation
-[2025-11-29 23:13:08.436] Bot 4 | Level: 3 | Formulare: [] | Position: (2,6) | Strategie: FormCollectionStrategy | Runde: 14
-[2025-11-29 23:13:08.455] === RUNDE 15 ===
-[2025-11-29 23:13:08.455] ZELLSTATUS:
-[2025-11-29 23:13:08.455] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3abfe836 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.455] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@2ff5659e | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@77afea7d | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@161cd475 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@532760d8 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.456] BEWEGUNG: (2,6) -> (1,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@57fa26b7 | Grund: Navigation
-[2025-11-29 23:13:08.456] Bot 4 | Level: 3 | Formulare: [] | Position: (1,6) | Strategie: FormCollectionStrategy | Runde: 15
-[2025-11-29 23:13:08.482] === RUNDE 16 ===
-[2025-11-29 23:13:08.483] ZELLSTATUS:
-[2025-11-29 23:13:08.483] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5f8ed237 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.483] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@2f410acf | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@47089e5f | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@4141d797 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@68f7aae2 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.483] BEWEGUNG: (1,6) -> (1,7) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4f47d241 | Grund: Navigation
-[2025-11-29 23:13:08.483] Bot 4 | Level: 3 | Formulare: [] | Position: (1,7) | Strategie: FormCollectionStrategy | Runde: 16
-[2025-11-29 23:13:08.496] === RUNDE 17 ===
-[2025-11-29 23:13:08.497] ZELLSTATUS:
-[2025-11-29 23:13:08.497] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@4c3e4790 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.497] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@38cccef | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@5679c6c6 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@27ddd392 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@19e1023e | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.497] BEWEGUNG: (1,7) -> (1,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@7cef4e59 | Grund: Navigation
-[2025-11-29 23:13:08.498] Bot 4 | Level: 3 | Formulare: [] | Position: (1,8) | Strategie: FormCollectionStrategy | Runde: 17
-[2025-11-29 23:13:08.511] === RUNDE 18 ===
-[2025-11-29 23:13:08.511] ZELLSTATUS:
-[2025-11-29 23:13:08.511] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@64b8f8f4 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.511] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@2db0f6b2 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FloorCell@3cd1f1c8 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FinishCell@3a4afd8d | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FormCell@1996cd68 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.511] BEWEGUNG: (1,8) -> (2,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3339ad8e | Grund: Navigation
-[2025-11-29 23:13:08.512] Bot 4 | Level: 3 | Formulare: [] | Position: (2,8) | Strategie: FormCollectionStrategy | Runde: 18
-[2025-11-29 23:13:08.530] === RUNDE 19 ===
-[2025-11-29 23:13:08.530] ZELLSTATUS:
-[2025-11-29 23:13:08.530] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@555590 | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.531] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@6d1e7682 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.FormCell@424c0bc4 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@3c679bde | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@16b4a017 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.531] BEWEGUNG: (2,8) -> (3,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@8807e25 | Grund: Navigation
-[2025-11-29 23:13:08.531] Bot 4 | Level: 3 | Formulare: [] | Position: (3,8) | Strategie: FormCollectionStrategy | Runde: 19
-[2025-11-29 23:13:08.546] === RUNDE 20 ===
-[2025-11-29 23:13:08.546] ZELLSTATUS:
-[2025-11-29 23:13:08.546] Aktuell: de.fhms.eti.players.Domain_Klassen.FormCell@2a3046da | hasOpponent=false | Distance=-1
-[2025-11-29 23:13:08.546] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@2a098129 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@198e2867 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@12f40c25 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.FloorCell@3ada9e37 | hasOpp=false | Dist=-1
-[2025-11-29 23:13:08.547] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@2a3046da | Kann nehmen: false | Grund: Falsche Reihenfolge: Erwartet 1, Gefunden 2
-[2025-11-29 23:13:08.547] BEWEGUNG: (3,8) -> (2,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5cbc508c | Grund: Navigation
-[2025-11-29 23:13:08.548] Bot 4 | Level: 3 | Formulare: [] | Position: (2,8) | Strategie: FormCollectionStrategy | Runde: 20
-[2025-11-29 23:13:08.559] === RUNDE 21 ===
-[2025-11-29 23:13:08.560] BEWEGUNG: (2,8) -> (1,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3419866c | Grund: Navigation
-[2025-11-29 23:13:08.560] Bot 4 | Level: 3 | Formulare: [] | Position: (1,8) | Strategie: FormCollectionStrategy | Runde: 21
-[2025-11-29 23:13:08.572] === RUNDE 22 ===
-[2025-11-29 23:13:08.572] BEWEGUNG: (1,8) -> (1,9) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@63e31ee | Grund: Navigation
-[2025-11-29 23:13:08.573] Bot 4 | Level: 3 | Formulare: [] | Position: (1,9) | Strategie: FormCollectionStrategy | Runde: 22
-[2025-11-29 23:13:08.585] === RUNDE 23 ===
-[2025-11-29 23:13:08.586] [INFO] Form-Count aus FINISH erkannt: 2
-[2025-11-29 23:13:08.587] [INFO] Eigenes Ziel gefunden!
-[2025-11-29 23:13:08.587] [POS] Ziel-Position gemerkt: (1,9)
-[2025-11-29 23:13:08.587] BEWEGUNG: (1,9) -> (1,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@68fb2c38 | Grund: Navigation
-[2025-11-29 23:13:08.587] Bot 4 | Level: 3 | Formulare: [] | Position: (1,8) | Strategie: FormCollectionStrategy | Runde: 23
-[2025-11-29 23:13:08.599] === RUNDE 24 ===
-[2025-11-29 23:13:08.599] BEWEGUNG: (1,8) -> (0,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@567d299b | Grund: Navigation
-[2025-11-29 23:13:08.600] Bot 4 | Level: 3 | Formulare: [] | Position: (0,8) | Strategie: FormCollectionStrategy | Runde: 24
-[2025-11-29 23:13:08.615] === RUNDE 25 ===
-[2025-11-29 23:13:08.616] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@2eafffde | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-29 23:13:08.618] BEWEGUNG: (0,8) -> (1,8) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@59690aa4 | Grund: Navigation
-[2025-11-29 23:13:08.618] Bot 4 | Level: 3 | Formulare: [] | Position: (1,8) | Strategie: FormCollectionStrategy | Runde: 25
-[2025-11-29 23:13:08.636] === RUNDE 26 ===
-[2025-11-29 23:13:08.637] BEWEGUNG: (1,8) -> (1,7) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6842775d | Grund: Navigation
-[2025-11-29 23:13:08.637] Bot 4 | Level: 3 | Formulare: [] | Position: (1,7) | Strategie: FormCollectionStrategy | Runde: 26
-[2025-11-29 23:13:08.661] === RUNDE 27 ===
-[2025-11-29 23:13:08.663] BEWEGUNG: (1,7) -> (1,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@574caa3f | Grund: Navigation
-[2025-11-29 23:13:08.663] Bot 4 | Level: 3 | Formulare: [] | Position: (1,6) | Strategie: FormCollectionStrategy | Runde: 27
-[2025-11-29 23:13:08.678] === RUNDE 28 ===
-[2025-11-29 23:13:08.679] BEWEGUNG: (1,6) -> (2,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@64cee07 | Grund: Navigation
-[2025-11-29 23:13:08.679] Bot 4 | Level: 3 | Formulare: [] | Position: (2,6) | Strategie: FormCollectionStrategy | Runde: 28
-[2025-11-29 23:13:08.692] === RUNDE 29 ===
-[2025-11-29 23:13:08.692] [LEVEL3]  1 Gegner sichtbar
-[2025-11-29 23:13:08.692] BEWEGUNG: (2,6) -> (3,6) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@1761e840 | Grund: Navigation
-[2025-11-29 23:13:08.694] Bot 4 | Level: 3 | Formulare: [] | Position: (3,6) | Strategie: FormCollectionStrategy | Runde: 29
-[2025-11-29 23:13:08.712] === RUNDE 30 ===
-[2025-11-29 23:13:08.712] [LEVEL3]  1 Gegner sichtbar
-[2025-11-29 23:13:08.714] BEWEGUNG: (3,6) -> (3,5) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@3f102e87 | Grund: Navigation
-[2025-11-29 23:13:08.714] Bot 4 | Level: 3 | Formulare: [] | Position: (3,5) | Strategie: FormCollectionStrategy | Runde: 30
-[2025-11-29 23:13:08.731] === RUNDE 31 ===
-[2025-11-29 23:13:08.731] BEWEGUNG: (3,5) -> (3,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@27abe2cd | Grund: Navigation
-[2025-11-29 23:13:08.731] Bot 4 | Level: 3 | Formulare: [] | Position: (3,4) | Strategie: FormCollectionStrategy | Runde: 31
-[2025-11-29 23:13:08.752] === RUNDE 32 ===
-[2025-11-29 23:13:08.753] BEWEGUNG: (3,4) -> (2,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5f5a92bb | Grund: Navigation
-[2025-11-29 23:13:08.754] Bot 4 | Level: 3 | Formulare: [] | Position: (2,4) | Strategie: FormCollectionStrategy | Runde: 32
-[2025-11-29 23:13:08.772] === RUNDE 33 ===
-[2025-11-29 23:13:08.773] BEWEGUNG: (2,4) -> (1,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6fdb1f78 | Grund: Navigation
-[2025-11-29 23:13:08.773] Bot 4 | Level: 3 | Formulare: [] | Position: (1,4) | Strategie: FormCollectionStrategy | Runde: 33
-[2025-11-29 23:13:08.796] === RUNDE 34 ===
-[2025-11-29 23:13:08.796] BEWEGUNG: (1,4) -> (1,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@51016012 | Grund: Navigation
-[2025-11-29 23:13:08.797] Bot 4 | Level: 3 | Formulare: [] | Position: (1,3) | Strategie: FormCollectionStrategy | Runde: 34
-[2025-11-29 23:13:08.812] === RUNDE 35 ===
-[2025-11-29 23:13:08.814] BEWEGUNG: (1,3) -> (1,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@29444d75 | Grund: Navigation
-[2025-11-29 23:13:08.816] Bot 4 | Level: 3 | Formulare: [] | Position: (1,2) | Strategie: FormCollectionStrategy | Runde: 35
-[2025-11-29 23:13:08.827] === RUNDE 36 ===
-[2025-11-29 23:13:08.827] BEWEGUNG: (1,2) -> (0,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@2280cdac | Grund: Navigation
-[2025-11-29 23:13:08.827] Bot 4 | Level: 3 | Formulare: [] | Position: (0,2) | Strategie: FormCollectionStrategy | Runde: 36
-[2025-11-29 23:13:08.837] === RUNDE 37 ===
-[2025-11-29 23:13:08.838] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@1517365b | Kann nehmen: true | Grund: Kann genommen werden
-[2025-11-29 23:13:08.849] [INFO] Formular genommen: take
-[2025-11-29 23:13:08.855] GESAMMELTE FORMULARE: [1] | Naechstes erwartet: 2
-[2025-11-29 23:13:08.871] === RUNDE 38 ===
-[2025-11-29 23:13:08.871] BEWEGUNG: (0,2) -> (1,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@33e5ccce | Grund: Navigation
-[2025-11-29 23:13:08.871] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,2) | Strategie: FormCollectionStrategy | Runde: 38
-[2025-11-29 23:13:08.883] === RUNDE 39 ===
-[2025-11-29 23:13:08.883] BEWEGUNG: (1,2) -> (1,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5a42bbf4 | Grund: Navigation
-[2025-11-29 23:13:08.883] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,3) | Strategie: FormCollectionStrategy | Runde: 39
-[2025-11-29 23:13:08.893] === RUNDE 40 ===
-[2025-11-29 23:13:08.893] BEWEGUNG: (1,3) -> (1,4) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@270421f5 | Grund: Navigation
-[2025-11-29 23:13:08.893] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,4) | Strategie: FormCollectionStrategy | Runde: 40
-[2025-11-29 23:13:08.903] === RUNDE 41 ===
-[2025-11-29 23:13:08.904] BEWEGUNG: (1,4) -> (1,3) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@52d455b8 | Grund: Navigation
-[2025-11-29 23:13:08.904] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,3) | Strategie: FormCollectionStrategy | Runde: 41
-[2025-11-29 23:13:08.915] === RUNDE 42 ===
-[2025-11-29 23:13:08.917] BEWEGUNG: (1,3) -> (1,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4f4a7090 | Grund: Navigation
-[2025-11-29 23:13:08.917] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,2) | Strategie: FormCollectionStrategy | Runde: 42
-[2025-11-29 23:13:08.930] === RUNDE 43 ===
-[2025-11-29 23:13:08.931] BEWEGUNG: (1,2) -> (0,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@18ef96 | Grund: Navigation
-[2025-11-29 23:13:08.931] Bot 4 | Level: 3 | Formulare: [1] | Position: (0,2) | Strategie: FormCollectionStrategy | Runde: 43
-[2025-11-29 23:13:08.942] === RUNDE 44 ===
-[2025-11-29 23:13:08.943] BEWEGUNG: (0,2) -> (1,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6956de9 | Grund: Navigation
-[2025-11-29 23:13:08.943] Bot 4 | Level: 3 | Formulare: [1] | Position: (1,2) | Strategie: FormCollectionStrategy | Runde: 44
-[2025-11-29 23:13:08.952] === RUNDE 45 ===
-[2025-11-29 23:13:08.953] BEWEGUNG: (1,2) -> (2,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@769c9116 | Grund: Navigation
-[2025-11-29 23:13:08.953] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,2) | Strategie: FormCollectionStrategy | Runde: 45
-[2025-11-29 23:13:08.963] === RUNDE 46 ===
-[2025-11-29 23:13:08.963] BEWEGUNG: (2,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6aceb1a5 | Grund: Navigation
-[2025-11-29 23:13:08.963] Bot 4 | Level: 3 | Formulare: [1] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 46
-[2025-11-29 23:13:08.974] === RUNDE 47 ===
-[2025-11-29 23:13:08.975] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@2d6d8735 | Kann nehmen: false | Grund: Falscher Spieler
-[2025-11-29 23:13:08.975] BEWEGUNG: (3,2) -> (2,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@ba4d54 | Grund: Navigation
-[2025-11-29 23:13:08.975] Bot 4 | Level: 3 | Formulare: [1] | Position: (2,2) | Strategie: FormCollectionStrategy | Runde: 47
-[2025-11-29 23:13:08.986] === RUNDE 48 ===
-[2025-11-29 23:13:08.987] BEWEGUNG: (2,2) -> (3,2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@12bc6874 | Grund: Navigation
-[2025-11-29 23:13:08.988] Bot 4 | Level: 3 | Formulare: [1] | Position: (3,2) | Strategie: FormCollectionStrategy | Runde: 48
+[2025-11-30 12:57:19.068] BOT GESTARTET - Labyrinth: Unknown, Spieler: 4, Level: 3
+[2025-11-30 12:57:19.097]  Bot-Konfiguration erstellt
+[2025-11-30 12:57:19.115] Bot initialisiert - ID: 4, Startposition: (6,2)
+[2025-11-30 12:57:19.116] Level 3: Cell-basierte Gegner-Erkennung aktiv
+[2025-11-30 12:57:19.123] GameController initialisiert
+[2025-11-30 12:57:19.123] GameController (Singleton) initialisiert
+[2025-11-30 12:57:19.126] === RUNDE 1 ===
+[2025-11-30 12:57:19.126] ZELLSTATUS:
+[2025-11-30 12:57:19.128] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@7aec35a | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.162] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@67424e82 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@42110406 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.WallCell@531d72ca | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@22d8cfe0 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.163] [CHANGE] Wechsle zu FormCollectionStrategy für Level 3
+[2025-11-30 12:57:19.221] BEWEGUNG: (6,2) -> (6,1) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5e91993f | Grund: Navigation
+[2025-11-30 12:57:19.248] Bot 4 | Level: 3 | Formulare: [] | Position: (6,1) | Strategie: FormCollectionStrategy | Runde: 1
+[2025-11-30 12:57:19.290] === RUNDE 2 ===
+[2025-11-30 12:57:19.290] ZELLSTATUS:
+[2025-11-30 12:57:19.291] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@69222c14 | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.291] Nord: de.fhms.eti.players.Domain_Klassen.FinishCell@606d8acf | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@782830e | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@470e2030 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@3fb4f649 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.292] [INFO] Form-Count aus FINISH erkannt: 1
+[2025-11-30 12:57:19.295] [INFO] Eigenes Ziel gefunden!
+[2025-11-30 12:57:19.295] [POS] Ziel-Position gemerkt: (6,1)
+[2025-11-30 12:57:19.296] BEWEGUNG: (6,1) -> (6,0) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@33833882 | Grund: Navigation
+[2025-11-30 12:57:19.296] Bot 4 | Level: 3 | Formulare: [] | Position: (6,0) | Strategie: FormCollectionStrategy | Runde: 2
+[2025-11-30 12:57:19.329] === RUNDE 3 ===
+[2025-11-30 12:57:19.329] ZELLSTATUS:
+[2025-11-30 12:57:19.330] Aktuell: de.fhms.eti.players.Domain_Klassen.FinishCell@200a570f | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.330] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@16b3fc9e | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@e2d56bf | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@244038d0 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@5680a178 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.331] [INFO] Eigenes Ziel gefunden!
+[2025-11-30 12:57:19.331] [POS] Ziel-Position gemerkt: (6,0)
+[2025-11-30 12:57:19.331] BEWEGUNG: (6,0) -> (6,-1) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@5fdef03a | Grund: Navigation
+[2025-11-30 12:57:19.332] Bot 4 | Level: 3 | Formulare: [] | Position: (6,-1) | Strategie: FormCollectionStrategy | Runde: 3
+[2025-11-30 12:57:19.376] === RUNDE 4 ===
+[2025-11-30 12:57:19.376] ZELLSTATUS:
+[2025-11-30 12:57:19.376] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@1e81f4dc | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.376] Nord: de.fhms.eti.players.Domain_Klassen.FormCell@4d591d15 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@65ae6ba4 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FinishCell@48cf768c | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@59f95c5d | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.377] [INFO] Eigenes Ziel gefunden!
+[2025-11-30 12:57:19.377] [POS] Ziel-Position gemerkt: (6,-1)
+[2025-11-30 12:57:19.388] BEWEGUNG: (6,-1) -> (6,-2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@4aa8f0b4 | Grund: Navigation
+[2025-11-30 12:57:19.391] Bot 4 | Level: 3 | Formulare: [] | Position: (6,-2) | Strategie: FormCollectionStrategy | Runde: 4
+[2025-11-30 12:57:19.505] === RUNDE 5 ===
+[2025-11-30 12:57:19.507] ZELLSTATUS:
+[2025-11-30 12:57:19.507] Aktuell: de.fhms.eti.players.Domain_Klassen.FormCell@7960847b | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.508] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@6a6824be | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@5c8da962 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@512ddf17 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@2c13da15 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.532] FORMULAR: de.fhms.eti.players.Domain_Klassen.FormCell@7960847b | Kann nehmen: true | Grund: Kann genommen werden
+[2025-11-30 12:57:19.557] [INFO] Formular genommen: take
+[2025-11-30 12:57:19.562] GESAMMELTE FORMULARE: [1] | Naechstes erwartet: 2
+[2025-11-30 12:57:19.626] === RUNDE 6 ===
+[2025-11-30 12:57:19.626] ZELLSTATUS:
+[2025-11-30 12:57:19.626] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@5577140b | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.626] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@1c6b6478 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@67f89fa3 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@4ac68d3e | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@277c0f21 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.627] BEWEGUNG: (6,-2) -> (6,-1) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@6073f712 | Grund: Navigation
+[2025-11-30 12:57:19.628] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,-1) | Strategie: FormCollectionStrategy | Runde: 6
+[2025-11-30 12:57:19.664] === RUNDE 7 ===
+[2025-11-30 12:57:19.664] ZELLSTATUS:
+[2025-11-30 12:57:19.664] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@43556938 | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.665] Nord: de.fhms.eti.players.Domain_Klassen.FloorCell@3d04a311 | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@7a46a697 | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FinishCell@5f205aa | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@6d86b085 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.665] [INFO] Eigenes Ziel gefunden!
+[2025-11-30 12:57:19.665] [POS] Ziel-Position gemerkt: (6,-1)
+[2025-11-30 12:57:19.666] BEWEGUNG: (6,-1) -> (6,-2) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@75828a0f | Grund: Navigation
+[2025-11-30 12:57:19.666] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,-2) | Strategie: FormCollectionStrategy | Runde: 7
+[2025-11-30 12:57:19.709] === RUNDE 8 ===
+[2025-11-30 12:57:19.710] ZELLSTATUS:
+[2025-11-30 12:57:19.710] Aktuell: de.fhms.eti.players.Domain_Klassen.FloorCell@3abfe836 | hasOpponent=false | Distance=-1
+[2025-11-30 12:57:19.711] Nord: de.fhms.eti.players.Domain_Klassen.WallCell@2ff5659e | hasOpp=false | Dist=-1 | Ost: de.fhms.eti.players.Domain_Klassen.WallCell@77afea7d | hasOpp=false | Dist=-1 | Sued: de.fhms.eti.players.Domain_Klassen.FloorCell@161cd475 | hasOpp=false | Dist=-1 | West: de.fhms.eti.players.Domain_Klassen.WallCell@532760d8 | hasOpp=false | Dist=-1
+[2025-11-30 12:57:19.712] BEWEGUNG: (6,-2) -> (6,-1) | Aktion: de.fhms.eti.players.Domain_Klassen.GoAction@57fa26b7 | Grund: Navigation
+[2025-11-30 12:57:19.712] Bot 4 | Level: 3 | Formulare: [1] | Position: (6,-1) | Strategie: FormCollectionStrategy | Runde: 8
+[2025-11-30 12:57:19.725]  Spiel beendet nach 8 Runden
+[2025-11-30 12:57:19.729] BOT BEENDET - Labyrinth: Unknown, Spieler: 4, Level: 3

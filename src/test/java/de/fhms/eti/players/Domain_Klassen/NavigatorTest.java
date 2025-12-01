@@ -115,7 +115,7 @@ public class NavigatorTest {
         Cell west = new FloorCell();
         
         GoAction result = navigator.decideNextMove(north, east, south, west);
-        assertEquals(Direction.south, result.getDirection(), "Neue Strategie wird verwendet");
+        assertEquals(Direction.south, result.getDirection(), "Neue Strategie wird vrwendet");
     }
     
     @Test

@@ -7,7 +7,7 @@ import de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
 import de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
 
 /**
- * GameController - Zentrale Spielsteuerung
+ * GameController Zentrale Spielsteuerung
  * 
  * Implementiert Singleton Pattern (Erzeugungsmuster)
  * 
@@ -73,7 +73,7 @@ public class GameController {
 
     /**
      * Verarbeitet eine einzelne Spielrunde
-     * LEVEL 3: CellObjekte enthalten jetzt direkt Gegner-Info 
+     * LEVEL 3: CellObjekte enthalten jetzt direkt Gegner-Info
      * 
      * @param turnData  Rundendaten
      * @param turnCount Rundennummer
@@ -152,7 +152,7 @@ public class GameController {
         if (turnData.currentCell instanceof FinishCell finishCell) {
             processFinishCell(finishCell);
         }
-        // NEU: Verarbeite auch Nachbar-FinishCells!
+        // Verarbeite auch Nachbar-FinishCells!
         if (turnData.northCell instanceof FinishCell northFinish) {
             processFinishCell(northFinish);
         }
@@ -234,7 +234,7 @@ public class GameController {
                     config.getLogger().logCollectedForms(
                             config.getFormManager().getCollectedForms(),
                             config.getFormManager().getNextFormId());
-                    return true; // Formular genommen, kein Bewegung mehr
+                    return true; //  Formular genommen, kein Bewegung mehr
                 }
             } else {
                 logFormRejectionReason(formCell);
@@ -328,7 +328,7 @@ public class GameController {
      */
     private void manageStrategy(int turnCount, Position currentPos) {
         // Strategie-Wechsel zu FormCollectionStrategy für Level 2 UND Level 3
-        
+
         // Countdown für Force-Rounds (SimpleStrategy-Sperre)
         if (simpleStrategyForceRounds > 0) {
             simpleStrategyForceRounds--;
@@ -339,7 +339,7 @@ public class GameController {
             }
         }
 
-        // WICHTIG: Wenn wir Formulare brauchen, MUSS FormCollection aktiv sein!
+        // WICHTIG: Wenn wir Formulare brauchen, MUSS FormCollection aktiv sein
         boolean needsFormCollection = !config.getFormManager().isComplete();
         boolean isLevel2or3 = config.getLevelDetector().isLevel2() || config.getLevelDetector().isLevel3();
 
@@ -420,18 +420,114 @@ public class GameController {
     }
 
     /**
-     * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert)
+     * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert!)
      * 
      * Prüft ob die geplante Aktion zu einem Feld mit Gegner führt.
      * Falls ja, wähle alternative Richtung ohne Gegner.
+     * 
+     * STRATEGIE:
+     * - Vermeide Distance ≤1 (Distance 0 = Kollision, Distance 1 = Gespräch droht!)
+     * - Suche alternative Richtung ohne nahe Gegner
+     * - Falls keine Alternative: Akzeptiere Kollision (besser als Wand)
      * 
      * @param plannedAction Ursprüngliche geplante Aktion
      * @param turnData      Aktuelle Rundendaten
      * @return Sichere Aktion (ohne Gegner-Kollision wenn möglich)
      */
     private GoAction avoidOpponentCollision(GoAction plannedAction, TurnData turnData) {
-        // Gegner-Info direkt aus Cells
-        return plannedAction; // Keine Änderung nötig
+        // Alle Zellen und Richtungen
+        Cell[] cells = {
+                turnData.northCell,
+                turnData.eastCell,
+                turnData.southCell,
+                turnData.westCell
+        };
+
+        Direction[] directions = {
+                Direction.north,
+                Direction.east,
+                Direction.south,
+                Direction.west
+        };
+
+        // Finde Index der geplanten Richtung
+        int plannedIndex = getDirectionIndex(plannedAction.getDirection());
+        Cell plannedCell = cells[plannedIndex];
+
+        // KRITISCH: Vermeide Gegner mit Distance ≤1
+        // Distance 0 = Kollision (beide Bots auf gleichem Feld)
+        // Distance 1 = Gespräch droht nächste Runde!
+        boolean hasNearOpponent = plannedCell.hasOpponent() &&
+                plannedCell.getOpponentDistance() <= 1;
+
+        if (hasNearOpponent) {
+            config.getLogger().log("[LEVEL3] Gegner in Richtung " + plannedAction.getDirection() +
+                    " (Distance: " + plannedCell.getOpponentDistance() + ")");
+            config.getLogger().log("[LEVEL3] KOLLISION/GESPRÄCH droht! Suche Alternative...");
+
+            // Suche alternative Richtung ohne nahe Gegner
+            for (int i = 0; i < 4; i++) {
+                Cell cell = cells[i];
+
+                // Prüfe: Kein naher Gegner UND keine Wand
+                boolean cellHasNearOpponent = cell.hasOpponent() &&
+                        cell.getOpponentDistance() <= 1;
+                boolean isWall = cell instanceof WallCell;
+
+                if (/*!cellHasNearOpponent && */ !isWall) {
+                    config.getLogger().log("[LEVEL3] Alternative gefunden: " + directions[i] +
+                            " (keine nahen Gegner)");
+                    return new GoAction(directions[i]);
+                }
+            }
+
+            // Keine sichere Alternative gefunden
+            // Strategie: Wähle Richtung mit größter Distance (weniger schlimm)
+            config.getLogger().log("[LEVEL3] Keine gegner-freie Alternative!");
+
+            int bestIndex = -1;
+            int maxDistance = -1;
+
+            for (int i = 0; i < 4; i++) {
+                // Keine Wände
+                if (cells[i] instanceof WallCell)
+                    continue;
+
+                int distance = cells[i].hasOpponent() ? cells[i].getOpponentDistance() : 999; // Kein Gegner = sehr hoch
+
+                if (distance > maxDistance) {
+                    maxDistance = distance;
+                    bestIndex = i;
+                }
+            }
+
+            if (bestIndex != -1) {
+                config.getLogger().log("[LEVEL3] Wähle Richtung mit größter Distance: " +
+                        directions[bestIndex] + " (Distance: " + maxDistance + ")");
+                return new GoAction(directions[bestIndex]);
+            }
+
+            // Falls immer noch nichts: Original behalten (besser als gar nichts)
+            config.getLogger().log("[LEVEL3] Keine Alternative! Akzeptiere geplante Richtung.");
+        }
+
+        // Keine Änderung nötig  geplante Richtung ist sicher
+        return plannedAction;
+    }
+
+    /**
+     * Hilfsmethode: Wandelt Direction in Array-Index um
+     * 
+     * @param direction Die Richtung
+     * @return Index (0=north, 1=east, 2=south, 3=west)
+     */
+    private int getDirectionIndex(Direction direction) {
+        return switch (direction) {
+            case north -> 0;
+            case east -> 1;
+            case south -> 2;
+            case west -> 3;
+        };
     }
 
     /**

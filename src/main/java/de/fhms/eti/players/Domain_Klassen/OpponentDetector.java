@@ -115,12 +115,12 @@ public class OpponentDetector {
 
             // Kein Gegner auf Nachbarfeld (nur Marker)
             if (afterExcl.isEmpty()) {
-                return new OpponentInfo(0, -1);
+                return new OpponentInfo(0);
             }
 
             // Parse Distanz
             int distance = Integer.parseInt(afterExcl);
-            return new OpponentInfo(distance, -1);
+            return new OpponentInfo(distance);
 
         } catch (NumberFormatException e) {
             System.err.println(" Fehler beim Parsen von Gegner-Info: " + cellStatus);
@@ -146,7 +146,7 @@ public class OpponentDetector {
      */
     public int getOpponentDistance(String direction) {
         OpponentInfo info = opponentsByDirection.get(direction);
-        return info != null ? info.distance : -1;
+        return info != null ? info.distance() : -1;
     }
 
     /**
@@ -170,20 +170,7 @@ public class OpponentDetector {
         System.err.println("  OpponentDetector Status:");
         System.err.println("   - Auf aktuellem Feld: " + opponentOnCurrentField);
         for (Map.Entry<String, OpponentInfo> entry : opponentsByDirection.entrySet()) {
-            System.err.println("   - " + entry.getKey() + ": Distanz " + entry.getValue().distance);
-        }
-    }
-
-    /**
-     * Innere Klasse für Gegner-Informationen
-     */
-    private static class OpponentInfo {
-        final int distance;
-        //final int playerId;
-
-        OpponentInfo(int distance, int playerId) {
-            this.distance = distance;
-            //this.playerId = playerId;
+            System.err.println("   - " + entry.getKey() + ": Distanz " + entry.getValue().distance());
         }
     }
 }

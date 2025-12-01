@@ -140,10 +140,10 @@ public class FormCollectionStrategy implements INavigationStrategy {
 
     private Position calculatePos(Position pos, Direction dir) {
         return switch (dir) {
-            case Direction.north -> new Position(pos.getX(), pos.getY() - 1);
-            case Direction.east -> new Position(pos.getX() + 1, pos.getY());
-            case Direction.south -> new Position(pos.getX(), pos.getY() + 1);
-            case Direction.west -> new Position(pos.getX() - 1, pos.getY());
+            case Direction.north -> new Position(pos.x(), pos.y() - 1);
+            case Direction.east -> new Position(pos.x() + 1, pos.y());
+            case Direction.south -> new Position(pos.x(), pos.y() + 1);
+            case Direction.west -> new Position(pos.x() - 1, pos.y());
         };
     }
 

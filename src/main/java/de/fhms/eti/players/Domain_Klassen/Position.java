@@ -7,29 +7,19 @@ package main.java.de.fhms.eti.players.Domain_Klassen;
  * - Speichert x und y Koordinaten
  * - Berechnet neue Positionen nach Bewegung
  * - Stellt eine Vergleichbarkeit sicher (für Hashset/HashMap)
+ *
+ * @param x Horizontal
+ * @param y Vertikal
  */
 
-public class Position {
-    private final int x; // Horizontal
-    private final int y; // Vertikal
-
+public record Position(int x, int y) {
     /**
      * Konstruktor erstellt eine neue Position
      *
      * @param x X Koordinate
      * @param y Y Koordinate
      */
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+    public Position {
     }
 
 
@@ -50,7 +40,6 @@ public class Position {
             case south -> new Position(x, y + 1);
             case east -> new Position(x + 1, y);
             case west -> new Position(x - 1, y);
-            default -> this; // Bei ungültige Richtung gibt die aktuelle Pos. züruck
         };
     }
 
@@ -65,22 +54,8 @@ public class Position {
      */
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Position other)) return false;
-        return this.x == other.x && this.y == other.y;
-    }
-
-    /**
-     * Erzeugt einen Hash-Code für die Pos.
-     * Notwendig für HashSet und HashMap
-     * <p>
-     * Positionen und den gleichen Koordinaten müssen den gleichen Hash-Code haben
-     *
-     * @return Hash-Code
-     */
-    @Override
-    public int hashCode() {
-        //Voraussetzung Das Labyrinth ist maximal 1000 breit (sizeX â‰¤ 1000)
-        return x * 1000 + y;
+        if (!(obj instanceof Position(int x1, int y1))) return false;
+        return this.x == x1 && this.y == y1;
     }
 
     /**

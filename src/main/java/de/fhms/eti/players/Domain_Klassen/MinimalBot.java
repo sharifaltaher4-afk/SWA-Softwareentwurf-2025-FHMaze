@@ -8,6 +8,7 @@ import java.util.Scanner;
  * @author Patrick.Stalljohann
  * @version 1.0
  */
+@SuppressWarnings("all")
 public class MinimalBot {
 
     /**

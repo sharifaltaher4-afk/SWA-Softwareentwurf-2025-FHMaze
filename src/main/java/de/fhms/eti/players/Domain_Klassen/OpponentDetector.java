@@ -25,10 +25,8 @@ public class OpponentDetector {
 
     /**
      * Konstruktor
-     *
-     * @param myPlayerId Eigene Spieler-ID
      */
-    public OpponentDetector(int myPlayerId) {
+    public OpponentDetector() {
         //this.myPlayerId = myPlayerId;
         this.opponentsByDirection = new HashMap<>();
         this.opponentOnCurrentField = false;

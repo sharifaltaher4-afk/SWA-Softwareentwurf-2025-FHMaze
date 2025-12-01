@@ -12,7 +12,7 @@ class OpponentDetectorTest {
 
     @Test
     void test_01_detectsOpponentOnAdjacentCell() {
-        OpponentDetector detector = new OpponentDetector(0);
+        OpponentDetector detector = new OpponentDetector();
         detector.scanForOpponents("FLOOR", "FLOOR !", "FLOOR", "FLOOR", "FLOOR");
 
         assertTrue(detector.hasOpponentInDirection("north"));
@@ -22,7 +22,7 @@ class OpponentDetectorTest {
 
     @Test
     void test_02_detectsDistanceMarker() {
-        OpponentDetector detector = new OpponentDetector(0);
+        OpponentDetector detector = new OpponentDetector();
         detector.scanForOpponents("FLOOR", "FLOOR !3", "FLOOR", "FLOOR", "FLOOR");
 
         assertTrue(detector.hasOpponentInDirection("north"));
@@ -31,7 +31,7 @@ class OpponentDetectorTest {
 
     @Test
     void test_03_currentFieldMarker() {
-        OpponentDetector detector = new OpponentDetector(0);
+        OpponentDetector detector = new OpponentDetector();
         detector.scanForOpponents("FLOOR !", "FLOOR", "FLOOR", "FLOOR", "FLOOR");
 
         assertTrue(detector.hasOpponentOnCurrentField());

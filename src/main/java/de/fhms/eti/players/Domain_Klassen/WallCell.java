@@ -8,10 +8,11 @@ final public class WallCell extends Cell {
     public WallCell() {
         super();
     }
-    
+
     public WallCell(boolean hasOpponent, int opponentDistance) {
         super(hasOpponent, opponentDistance);
     }
+
     @Override
     public boolean isAccessable() {
         return false;

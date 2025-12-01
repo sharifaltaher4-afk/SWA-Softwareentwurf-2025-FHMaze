@@ -8,14 +8,14 @@ import main.java.de.fhms.eti.players.Strategie_Klassen.INavigationStrategy;
 
 /**
  * GameController Zentrale Spielsteuerung
- * 
+ * <p>
  * Implementiert Singleton Pattern (Erzeugungsmuster)
- * 
+ * <p>
  * Verantwortung (SRP):
  * - Koordination des Spielablaufs
  * - Verwaltung von Komponenten
  * - Strategie-Wechsel
- * 
+ * <p>
  * Erfuellt SOLID:
  * - SRP: Nur Spielablauf-Koordination
  * - OCP: Erweiterbar durch neue Strategien
@@ -49,8 +49,15 @@ public class GameController {
     }
 
     /**
+     * Reset für neues Spiel
+     */
+    public static void reset() {
+        instance = null;
+    }
+
+    /**
      * Initialisiert den Controller mit Konfiguration
-     * 
+     *
      * @param config Bot-Konfiguration
      * @param comm   GameCommunication
      */
@@ -74,7 +81,7 @@ public class GameController {
     /**
      * Verarbeitet eine einzelne Spielrunde
      * LEVEL 3: CellObjekte enthalten jetzt direkt Gegner-Info
-     * 
+     *
      * @param turnData  Rundendaten
      * @param turnCount Rundennummer
      * @return true wenn Spiel weitergehen soll, false bei Beendigung
@@ -99,8 +106,8 @@ public class GameController {
                 comm.sendAction(new PositionAction());
             } else {
                 // Versuche eine zufällige Richtung
-                Direction[] directions = { Direction.north, Direction.east, Direction.south, Direction.west };
-                Cell[] cells = { turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell };
+                Direction[] directions = {Direction.north, Direction.east, Direction.south, Direction.west};
+                Cell[] cells = {turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell};
 
                 Direction chosenDirection = Direction.north; // Fallback
                 for (int i = 0; i < 4; i++) {
@@ -421,15 +428,15 @@ public class GameController {
 
     /**
      * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert!)
-     * 
+     * <p>
      * Prüft ob die geplante Aktion zu einem Feld mit Gegner führt.
      * Falls ja, wähle alternative Richtung ohne Gegner.
-     * 
+     * <p>
      * STRATEGIE:
      * - Vermeide Distance ≤1 (Distance 0 = Kollision, Distance 1 = Gespräch droht!)
      * - Suche alternative Richtung ohne nahe Gegner
      * - Falls keine Alternative: Akzeptiere Kollision (besser als Wand)
-     * 
+     *
      * @param plannedAction Ursprüngliche geplante Aktion
      * @param turnData      Aktuelle Rundendaten
      * @return Sichere Aktion (ohne Gegner-Kollision wenn möglich)
@@ -517,7 +524,7 @@ public class GameController {
 
     /**
      * Hilfsmethode: Wandelt Direction in Array-Index um
-     * 
+     *
      * @param direction Die Richtung
      * @return Index (0=north, 1=east, 2=south, 3=west)
      */
@@ -528,12 +535,5 @@ public class GameController {
             case south -> 2;
             case west -> 3;
         };
-    }
-
-    /**
-     * Reset für neues Spiel
-     */
-    public static void reset() {
-        instance = null;
     }
 }

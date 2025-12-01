@@ -1,29 +1,28 @@
 package main.java.de.fhms.eti.players.Kommunikations_Klassen;
 
+import main.java.de.fhms.eti.players.Domain_Klassen.Action;
+import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
+import main.java.de.fhms.eti.players.Domain_Klassen.Position;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import main.java.de.fhms.eti.players.Domain_Klassen.Action;
-import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
-import main.java.de.fhms.eti.players.Domain_Klassen.Position;
-
 public class Logger {
 
+    private static final int MAX_LINES = 2000;
     private static Logger instance;
     private FileWriter logWriter;
     private SimpleDateFormat dateFormat;
-
     private String mazeName;
     private int playerId;
     private int level;
-
-    private static final int MAX_LINES = 2000;
     private int lineCount = 0;
 
-    private Logger() {}
+    private Logger() {
+    }
 
     public static Logger getInstance() {
         if (instance == null) {
@@ -49,7 +48,7 @@ public class Logger {
             logWriter = new FileWriter(file, false);
 
             log("BOT GESTARTET - Labyrinth: " + mazeName +
-                ", Spieler: " + playerId + ", Level: " + level);
+                    ", Spieler: " + playerId + ", Level: " + level);
 
         } catch (IOException e) {
             System.err.println("Logger-Error: " + e.getMessage());
@@ -105,7 +104,7 @@ public class Logger {
 
     public void close() {
         log("BOT BEENDET - Labyrinth: " + mazeName +
-            ", Spieler: " + playerId + ", Level: " + level);
+                ", Spieler: " + playerId + ", Level: " + level);
 
         if (logWriter != null) {
             try {

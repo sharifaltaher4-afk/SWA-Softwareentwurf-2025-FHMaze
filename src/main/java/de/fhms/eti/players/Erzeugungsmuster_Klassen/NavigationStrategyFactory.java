@@ -9,14 +9,14 @@ import main.java.de.fhms.eti.players.Strategie_Klassen.SimpleNavigationStrategy;
 
 /**
  * Konkrete Factory für Navigationsstrategien
- * 
+ * <p>
  * Implementiert das Factory Method Pattern
- * 
+ * <p>
  * Verantwortung (SRP):
  * - Kapselung der Objekt-Erzeugung
  * - Auswahl der passenden Strategie basierend auf Level/Typ
  * - Konfiguration der erstellten Strategien
- * 
+ * <p>
  * Erfüllt SOLID:
  * - SRP: Nur für Erzeugung zuständig
  * - OCP: Erweiterbar ohne Änderung (neue Strategien hinzufügen)
@@ -26,12 +26,12 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
 
     /**
      * Erstellt Strategie basierend auf Level
-     * 
+     * <p>
      * Level 1: SimpleNavigationStrategy (einfache Erkundung)
      * Level 2: FormCollectionStrategy (Formular-Sammlung)
-     * 
-     * @param level Das Spiellevel
-     * @param maze Das Labyrinth-Gedächtnis
+     *
+     * @param level       Das Spiellevel
+     * @param maze        Das Labyrinth-Gedächtnis
      * @param formManager Der FormManager
      * @return Passende Navigationsstrategie
      */
@@ -55,15 +55,15 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
 
         return strategy;
     }
-    
+
     /**
      * Erstellt Strategie basierend auf explizitem Typ
-     * 
+     * <p>
      * Ermöglicht manuelle Strategie-Auswahl
-     * 
+     *
      * @param strategyType Der gewünschte Strategietyp
-     * @param maze Das Labyrinth-Gedächtnis
-     * @param formManager Der FormManager (optional)
+     * @param maze         Das Labyrinth-Gedächtnis
+     * @param formManager  Der FormManager (optional)
      * @return Gewünschte Navigationsstrategie
      */
     @Override

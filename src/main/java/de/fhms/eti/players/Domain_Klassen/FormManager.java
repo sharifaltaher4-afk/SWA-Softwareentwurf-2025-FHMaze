@@ -7,26 +7,26 @@ import java.util.Map;
 
 /**
  * FormManager Verwaltet das Sammeln von formularen in Level 2
- * 
+ * <p>
  * Verantwortung (SRP):
  * - Prüft ob Formulare aufgenommen werden können
  * - Verwaltet die Reihenfolge der Formulare (A=0, B=1, C=2, ...)
  * - Zählt gesammelte Formulare
  * - Prüft ob alle benötigten Formulare gesammelt wurden
- * 
+ * <p>
  * FORM-Format: "FORM <playerId> <formId>"
  * Beispiel: "FORM 0 1" ==> Formular B für Spieler 0
  */
 public class FormManager implements IFormManager {
-    private int myPlayerId; // Eigene Spieler-ID
-    private List<Integer> collectedForms; // Gesammelte Formular-IDs
+    private final int myPlayerId; // Eigene Spieler-ID
+    private final List<Integer> collectedForms; // Gesammelte Formular-IDs
     private int nextFormId; // Nächste erwartete Formular-ID ""Reihenfolge
     private int totalFormsNeeded; // Anzahl benötigter Formulare
-    private Map<Integer, Position> foundFormPositions;// Formular Positionen
+    private final Map<Integer, Position> foundFormPositions;// Formular Positionen
 
     /**
      * Konstruktor Initialisiert den FormManager
-     * 
+     *
      * @param playerId Die eigene Spieler-ID
      */
     public FormManager(int playerId) {
@@ -40,12 +40,12 @@ public class FormManager implements IFormManager {
 
     /**
      * Prüft ob ein Formular auf der aktuellen Zelle aufgenommen werden kann
-     * 
+     * <p>
      * Bedingungen für take:
      * 1. Zelle muss FORM-String enthalten
      * 2. Formular muss für diesen Spieler sein
      * 3. Formular muss in der richtigen Reihenfolge sein (nächste erwartete ID)
-     * 
+     *
      * @param cellStatus Der Zellstatus-String
      * @return true wenn Formular aufgenommen werden kann sonst false
      */
@@ -71,7 +71,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Nimmt ein Formular auf und fügt es zur Sammlung hinzu
-     * 
+     *
      * @param cellStatus Der Zellstatus-String mit FORM-Information
      * @return true wenn Formular erfolgreich aufgenommen wurde, sonst false
      */
@@ -97,7 +97,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Prüft ob alle benötigten Formulare gesammelt wurden
-     * 
+     *
      * @return true wenn alle Formulare gesammelt, sonst false
      */
     @Override
@@ -117,7 +117,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Prüft ob alle Formulare gesammelt wurden
-     * 
+     *
      * @return true wenn alle benötigten Formulare gesammelt wurden
      */
     public boolean isComplete() {
@@ -126,7 +126,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Gibt die ID des nächsten erwarteten Formulars zurück
-     * 
+     *
      * @return Nächste Formular ID (A=0, B=1, C=2, ...)
      */
     @Override
@@ -136,22 +136,12 @@ public class FormManager implements IFormManager {
 
     /**
      * Gibt die Liste der gesammelten Formulare zurück
-     * 
+     *
      * @return Liste mit Formular-IDs
      */
     @Override
     public List<Integer> getCollectedForms() {
         return new ArrayList<>(collectedForms); // Kopie zurückgeben
-    }
-
-    /**
-     * Setzt die Anzahl der benötigten Formulare (vom FINISH-String)
-     * 
-     * @param formCount Anzahl der benötigten Formulare
-     */
-    public void setTotalFormsNeeded(int formCount) {
-        this.totalFormsNeeded = formCount;
-        System.err.println("Benötigte Formulare: " + formCount);
     }
 
     /**
@@ -162,8 +152,18 @@ public class FormManager implements IFormManager {
     }
 
     /**
+     * Setzt die Anzahl der benötigten Formulare (vom FINISH-String)
+     *
+     * @param formCount Anzahl der benötigten Formulare
+     */
+    public void setTotalFormsNeeded(int formCount) {
+        this.totalFormsNeeded = formCount;
+        System.err.println("Benötigte Formulare: " + formCount);
+    }
+
+    /**
      * Parst einen FORM-String und extrahiert die Informationen
-     * 
+     *
      * @param cellStatus FORM-String z.B. "FORM 0 1"
      * @return FormInfo-Objekt oder null bei Fehler
      */
@@ -173,7 +173,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Prüft ob die Formular-ID der richtigen Reihenfolge entspricht
-     * 
+     *
      * @param formId Die zu prüfende Formular-ID
      * @return true wenn Reihenfolge korrekt, sonst false
      */
@@ -183,7 +183,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Merkt sich die Position eines Formulars
-     * 
+     *
      * @param formId
      * @param position
      */
@@ -194,7 +194,7 @@ public class FormManager implements IFormManager {
 
     /**
      * Gibt die gemerkte Position eines Formulars zurück
-     * 
+     *
      * @param formId
      * @return
      */
@@ -204,8 +204,8 @@ public class FormManager implements IFormManager {
 
     /**
      * prüft ob die Anzahl benötigter Formulare bekannt ist
-     * 
-     * @return (totalFormsNeeded != -1)
+     *
+     * @return (totalFormsNeeded ! = - 1)
      */
     public boolean knowsTotalForms() {
         return totalFormsNeeded != -1;

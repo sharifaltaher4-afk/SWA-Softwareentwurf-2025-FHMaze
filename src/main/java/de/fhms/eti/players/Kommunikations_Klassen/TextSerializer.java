@@ -1,6 +1,7 @@
 package main.java.de.fhms.eti.players.Kommunikations_Klassen;
 
 import main.java.de.fhms.eti.players.Domain_Klassen.*;
+
 /**
  * LEVEL 3 REFACTORING:
  * - Parsed Gegner nformationen direkt in Cell Objekte
@@ -13,7 +14,7 @@ public class TextSerializer implements ISerialize {
         if (input == null || input.isEmpty()) {
             return null;
         }
-        
+
         // LEVEL 3: Parse Gegner-Informationen
         OpponentInfo opponentInfo = parseOpponentInfo(input);
         boolean hasOpponent = opponentInfo.hasOpponent;
@@ -24,7 +25,7 @@ public class TextSerializer implements ISerialize {
         // "FORM 0 1 !2" ==> "FORM 0 1"
         String cleanedInput = OpponentDetector.removeOpponentMarker(input);
         //String[] parts = input.split(" ");
-        String [] parts = cleanedInput.split(" ");
+        String[] parts = cleanedInput.split(" ");
         return switch (parts[0]) {
             case "WALL" -> new WallCell(hasOpponent, opponentDistance);
             case "FLOOR" -> new FloorCell(hasOpponent, opponentDistance);
@@ -44,7 +45,7 @@ public class TextSerializer implements ISerialize {
 
     /**
      * LEVEL 3: Parsed Gegner Informationen aus Cell-Status
-     * 
+     * <p>
      * Beispiele:
      * - "FLOOR" ==> OpponentInfo(false, -1)
      * - "FLOOR !" ==> OpponentInfo(true, 0)
@@ -55,33 +56,33 @@ public class TextSerializer implements ISerialize {
         if (cellStatus == null || !cellStatus.contains("!")) {
             return new OpponentInfo(false, -1);
         }
-        
+
         try {
             int exclIndex = cellStatus.indexOf("!");
             String afterExcl = cellStatus.substring(exclIndex + 1).trim();
-            
+
             // Kein Gegner direkt hier (nur Marker)
             if (afterExcl.isEmpty()) {
                 return new OpponentInfo(true, 0);
             }
-            
+
             // Parse Distanz
             int distance = Integer.parseInt(afterExcl);
             return new OpponentInfo(true, distance);
-            
+
         } catch (NumberFormatException e) {
             System.err.println("Fehler beim Parsen von Gegner-Info: " + cellStatus);
             return new OpponentInfo(false, -1);
         }
     }
-    
+
     /**
      * Hilfklasse für Gegner Informationen
      */
     private static class OpponentInfo {
         final boolean hasOpponent;
         final int distance;
-        
+
         OpponentInfo(boolean hasOpponent, int distance) {
             this.hasOpponent = hasOpponent;
             this.distance = distance;

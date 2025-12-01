@@ -4,7 +4,7 @@ import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
 
 /**
  * Data Transfer Object (DTO) für Rundendaten
- * 
+ * <p>
  * Speichert alle Informationen die der Bot in jede Runde erhält:
  * - Ergebnis der letzten Aktion
  * - Status der aktuellen Zelle
@@ -12,7 +12,7 @@ import main.java.de.fhms.eti.players.Domain_Klassen.Cell;
  * LEVEL 3 ERWEITERUNG:
  * - Speichert zusaetzlich RAW-Strings fuer Gegner-Erkennung
  * - Raw-Strings enthalten Gegner-Marker ("!")
- * 
+ * <p>
  * Wird in jeder Runde neu erstellt.
  */
 public class TurnData {
@@ -23,7 +23,7 @@ public class TurnData {
     public final Cell southCell;
     public final Cell westCell;
 
-    
+
     public TurnData(String lastActionResult, Cell currentCell, Cell northCell, Cell eastCell, Cell southCell, Cell westCell) {
         this.lastActionResult = lastActionResult;
         this.currentCell = currentCell;

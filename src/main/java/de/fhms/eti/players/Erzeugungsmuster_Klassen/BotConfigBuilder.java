@@ -8,10 +8,10 @@ import main.java.de.fhms.eti.players.Kommunikations_Klassen.Logger;
 
 /**
  * Builder fuer Bot-Konfiguration
- * 
+ * <p>
  * Implementiert das Builder Pattern (Erzeugungsmuster)
- * LEVEL 3: OpponentDetector NICHT mehr noetig - Cell enthält Gegner-Info! 
- * 
+ * LEVEL 3: OpponentDetector NICHT mehr noetig - Cell enthält Gegner-Info!
+ * <p>
  * Vorteile:
  * - Schrittweise Konfiguration komplexer Objekte
  * - Fluent Interface fuer bessere Lesbarkeit
@@ -26,7 +26,7 @@ public class BotConfigBuilder {
     private LevelDetector levelDetector;
     private int playerId;
     private Position startPosition;
-    
+
     /**
      * Setzt das Labyrinth
      */
@@ -34,7 +34,7 @@ public class BotConfigBuilder {
         this.maze = maze;
         return this;
     }
-    
+
     /**
      * Setzt den FormManager
      */
@@ -42,7 +42,7 @@ public class BotConfigBuilder {
         this.formManager = formManager;
         return this;
     }
-    
+
     /**
      * Setzt die Strategy Factory
      */
@@ -50,7 +50,7 @@ public class BotConfigBuilder {
         this.strategyFactory = strategyFactory;
         return this;
     }
-    
+
     /**
      * Setzt den Logger
      */
@@ -58,7 +58,7 @@ public class BotConfigBuilder {
         this.logger = logger;
         return this;
     }
-    
+
     /**
      * Setzt den LevelDetector
      */
@@ -66,7 +66,7 @@ public class BotConfigBuilder {
         this.levelDetector = levelDetector;
         return this;
     }
-    
+
     /**
      * Setzt die Spieler-ID
      */
@@ -74,7 +74,7 @@ public class BotConfigBuilder {
         this.playerId = playerId;
         return this;
     }
-    
+
     /**
      * Setzt die Startposition
      */
@@ -82,10 +82,10 @@ public class BotConfigBuilder {
         this.startPosition = startPosition;
         return this;
     }
-    
+
     /**
      * Validiert und erstellt die finale Konfiguration
-     * 
+     *
      * @return Unveraenderliche BotConfig
      * @throws IllegalStateException wenn erforderliche Parameter fehlen
      */
@@ -109,7 +109,7 @@ public class BotConfigBuilder {
         if (startPosition == null) {
             throw new IllegalStateException("StartPosition ist erforderlich");
         }
-        return new BotConfig(maze, formManager, strategyFactory, logger, 
-                           levelDetector, playerId, startPosition);
+        return new BotConfig(maze, formManager, strategyFactory, logger,
+                levelDetector, playerId, startPosition);
     }
 }

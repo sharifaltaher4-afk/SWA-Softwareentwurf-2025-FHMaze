@@ -2,15 +2,14 @@ package main.java.de.fhms.eti.players.Domain_Klassen;
 
 /**
  * Der LevelDetector erkennt und verwaltet das aktuelle Spieoelevel
- * 
+ * <p>
  * Verantwortung(SRP):
  * Analysiert Zellstatus um Level 1 und zwei von eonerander zu unterscheiden
  * verwaltet den aktuellen Level Zustand
- * 
+ * <p>
  * Level Eerkennung basiert auf dem FINISH-String:
  * Level 1: "FINISH 0" (nur playerId)
  * Level 2: "FINISH 0 3" (playerId + formCount)
- * 
  */
 public class LevelDetector implements ILevelDetector {
     private int currentLevel; // 1, 2 oder 3
@@ -23,17 +22,14 @@ public class LevelDetector implements ILevelDetector {
     }
 
     /**
-     * 
      * @param finishCell Der FINISH-Zellstatus String
      * @return Erkanntes Level (1 oder 2)
      */
     @Override
     public int detectLevel(Cell finishCell) {
-        if (!(finishCell instanceof FinishCell)) {
+        if (!(finishCell instanceof FinishCell finish)) {
             return currentLevel;
         }
-
-        FinishCell finish = (FinishCell) finishCell;
 
         // Level-Erkennung basierend auf FinishCell
         if (finish.getFormCount() > 0) {
@@ -55,7 +51,7 @@ public class LevelDetector implements ILevelDetector {
 
     /**
      * Gibt zurueck ob aktuell Level 1 gespielt wird
-     * 
+     *
      * @return true wenn Level 1, sonst false
      */
     @Override
@@ -65,7 +61,7 @@ public class LevelDetector implements ILevelDetector {
 
     /**
      * Gibt zurueck ob aktuell Level 2 gespielt wird
-     * 
+     *
      * @return true wenn Level 2, sonst false
      */
     @Override
@@ -75,7 +71,7 @@ public class LevelDetector implements ILevelDetector {
 
     /**
      * Gibt zurueck ob aktuell Level 3 gespielt wird
-     * 
+     *
      * @return true wenn Level 3, sonst false
      */
     public boolean isLevel3() {
@@ -84,7 +80,7 @@ public class LevelDetector implements ILevelDetector {
 
     /**
      * Gibt das aktuell erkannte Level zurueck
-     * 
+     *
      * @return 1 oder 2
      */
     @Override

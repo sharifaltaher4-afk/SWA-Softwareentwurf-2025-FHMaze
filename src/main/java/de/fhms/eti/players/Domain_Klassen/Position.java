@@ -1,19 +1,21 @@
 package main.java.de.fhms.eti.players.Domain_Klassen;
+
 /**
  * Position stellt eine Koordinate im Labyrinth
- * 
+ * <p>
  * Verantwortung(SRP):
- *  - Speichert x und y Koordinaten
- *  - Berechnet neue Positionen nach Bewegung
- *  - Stellt eine Vergleichbarkeit sicher (für Hashset/HashMap)
+ * - Speichert x und y Koordinaten
+ * - Berechnet neue Positionen nach Bewegung
+ * - Stellt eine Vergleichbarkeit sicher (für Hashset/HashMap)
  */
 
 public class Position {
-    private int x; // Horizontal
-    private int y; // Vertikal
-    
+    private final int x; // Horizontal
+    private final int y; // Vertikal
+
     /**
      * Konstruktor erstellt eine neue Position
+     *
      * @param x X Koordinate
      * @param y Y Koordinate
      */
@@ -21,21 +23,23 @@ public class Position {
         this.x = x;
         this.y = y;
     }
-    
+
     public int getX() {
         return x;
     }
-    
+
     public int getY() {
         return y;
     }
-    
-    
+
+
     // Neue Position nach Bewegung berechnen
+
     /**
      * Berechnet eine neue Position basierend auf einer Bewegungsrichtung.
      * Diese Methode ändert die aktuelle Position nicht (immutable)
      * sondern erstellt eine neue Position
+     *
      * @param direction Richtungen
      * @return Neue Position nch der Bewegung
      */
@@ -49,27 +53,28 @@ public class Position {
             default -> this; // Bei ungültige Richtung gibt die aktuelle Pos. züruck
         };
     }
-    
+
     /**
      * Verhleicht zwei Posi. auf Gleichheit.
      * notwendig für Hashset und HashMap
-     * 
+     * <p>
      * zwei Posi. sind nur dann gleich, wenn x und y identisch sind.
+     *
      * @param obj Objekt zum Vergleichen
      * @return true wenn Positionen gleich sonst false.
      */
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Position)) return false;
-        Position other = (Position) obj;
+        if (!(obj instanceof Position other)) return false;
         return this.x == other.x && this.y == other.y;
     }
-    
+
     /**
      * Erzeugt einen Hash-Code für die Pos.
      * Notwendig für HashSet und HashMap
-     * 
+     * <p>
      * Positionen und den gleichen Koordinaten müssen den gleichen Hash-Code haben
+     *
      * @return Hash-Code
      */
     @Override
@@ -80,6 +85,7 @@ public class Position {
 
     /**
      * String-Representation for Debugging
+     *
      * @return Position als String, z.B. "(5,3)"
      */
     @Override

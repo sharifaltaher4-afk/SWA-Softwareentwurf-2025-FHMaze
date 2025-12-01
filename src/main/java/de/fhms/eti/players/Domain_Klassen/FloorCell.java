@@ -2,7 +2,7 @@ package main.java.de.fhms.eti.players.Domain_Klassen;
 
 /**
  * A floor cell on which a player can walk.
- * 
+ * <p>
  * LEVEL 3: Kann jetzt Gegner Informationen enthalten
  */
 public final class FloorCell extends Cell {
@@ -12,7 +12,7 @@ public final class FloorCell extends Cell {
     public FloorCell() {
         super();
     }
-    
+
     /**
      * LEVEL 3: Konstruktor mit Gegner Informationen
      */

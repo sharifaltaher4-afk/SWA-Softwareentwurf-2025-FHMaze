@@ -1,15 +1,15 @@
 package main.java.de.fhms.eti.players.Strategie_Klassen;
 
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.java.de.fhms.eti.players.Domain_Klassen.*;
-
 /**
  * FormCollectionStrategy - SCHNELL & SMART
- * 
+ * <p>
  * OPTIMIERUNGEN:
  * 1. Minimale Berechnungen (< 50ms)
  * 2. Speichert Formulare SOFORT beim ersten Sehen
@@ -48,7 +48,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
 
     @Override
     public GoAction decideNextMove(Position currentPos, Cell northCell, Cell eastCell,
-            Cell southCell, Cell westCell) {
+                                   Cell southCell, Cell westCell) {
         pathFinder.updateKnowledge(currentPos, northCell, eastCell, southCell, westCell);
         scanAndSave(currentPos, Direction.north, northCell);
         scanAndSave(currentPos, Direction.east, eastCell);
@@ -96,7 +96,7 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private GoAction tryFrontierPlan(Position currentPos, Cell northCell, Cell eastCell,
-            Cell southCell, Cell westCell) {
+                                     Cell southCell, Cell westCell) {
         Deque<GoAction> frontierPlan = pathFinder.buildPathToFrontier(currentPos, myPlayerId);
         if (frontierPlan == null || frontierPlan.isEmpty()) {
             return null;
@@ -107,13 +107,10 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private boolean isMoveCurrentlyPossible(GoAction action, Cell northCell, Cell eastCell,
-            Cell southCell, Cell westCell) {
+                                            Cell southCell, Cell westCell) {
         Cell cellStatus = getCellInDirection(action.getDirection(), northCell, eastCell, southCell, westCell);
         // Prüfe ob Feld begehbar ist
-        if (!canMove(cellStatus)) {
-            return false;
-        }
-        return true;
+        return canMove(cellStatus);
     }
 
     /**
@@ -164,8 +161,8 @@ public class FormCollectionStrategy implements INavigationStrategy {
     }
 
     private GoAction explore(Position curr, Cell north, Cell east, Cell south, Cell west) {
-        Direction[] dirs = { Direction.north, Direction.east, Direction.south, Direction.west };
-        Cell[] cells = { north, east, south, west };
+        Direction[] dirs = {Direction.north, Direction.east, Direction.south, Direction.west};
+        Cell[] cells = {north, east, south, west};
 
         Direction bestDirection = null;
         int minVisits = Integer.MAX_VALUE;

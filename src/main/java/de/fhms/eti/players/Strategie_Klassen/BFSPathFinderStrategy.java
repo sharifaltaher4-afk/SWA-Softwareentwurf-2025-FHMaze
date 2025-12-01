@@ -1,23 +1,16 @@
 package main.java.de.fhms.eti.players.Strategie_Klassen;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-
 import main.java.de.fhms.eti.players.Domain_Klassen.*;
+
+import java.util.*;
 
 /**
  * BFSPathFinderStrategy - Pfadsuche auf Basis einer einfachen Breitensuche.
- *
+ * <p>
  * Verantwortung (SRP):
- *  - Speichert alle bereits gesehenen Zellen
- *  - Berechnet den kürzesten Weg zu einem Ziel oder zur nächsten Front (unerforschte Nachbarn)
- *
+ * - Speichert alle bereits gesehenen Zellen
+ * - Berechnet den kürzesten Weg zu einem Ziel oder zur nächsten Front (unerforschte Nachbarn)
+ * <p>
  * Strategien nutzen ausschließlich das {@link IPathFinder}-Interface (DIP),
  * sodass die Pfadlogik sauber gekapselt ist.
  */

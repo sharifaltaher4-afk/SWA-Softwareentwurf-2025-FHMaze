@@ -1,9 +1,6 @@
 package main.java.de.fhms.eti.players.Kommunikations_Klassen;
-import main.java.de.fhms.eti.players.Domain_Klassen.Action;
-import main.java.de.fhms.eti.players.Domain_Klassen.FinishAction;
-import main.java.de.fhms.eti.players.Domain_Klassen.GoAction;
-import main.java.de.fhms.eti.players.Domain_Klassen.PositionAction;
-import main.java.de.fhms.eti.players.Domain_Klassen.TakeAction;
+
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
 
 public class TextDeserializer implements IDeserialize {
     @Override

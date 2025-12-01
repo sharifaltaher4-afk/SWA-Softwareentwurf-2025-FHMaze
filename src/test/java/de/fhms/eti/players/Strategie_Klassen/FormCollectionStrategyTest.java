@@ -1,7 +1,8 @@
-package de.fhms.eti.players.Strategie_Klassen;
+package test.java.de.fhms.eti.players.Strategie_Klassen;
 
-import de.fhms.eti.players.Domain_Klassen.*;
-
+import main.java.de.fhms.eti.players.Domain_Klassen.*;
+import main.java.de.fhms.eti.players.Strategie_Klassen.FormCollectionStrategy;
+import main.java.de.fhms.eti.players.Strategie_Klassen.IPathFinder;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;

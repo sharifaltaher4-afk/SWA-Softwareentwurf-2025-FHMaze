@@ -1,5 +1,6 @@
-package de.fhms.eti.players.Erzeugungsmuster_Klassen;
+package test.java.de.fhms.eti.players.Erzeugungsmuster_Klassen;
 
+import main.java.de.fhms.eti.players.Erzeugungsmuster_Klassen.GameController;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotSame;

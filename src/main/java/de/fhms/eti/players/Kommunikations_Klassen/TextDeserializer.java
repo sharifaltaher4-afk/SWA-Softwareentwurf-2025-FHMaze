@@ -7,10 +7,9 @@ public class TextDeserializer implements IDeserialize {
     public String deserializeAction(Action action) {
         return switch (action) {
             case GoAction goAction -> "go " + goAction.getDirection().toString();
-            case FinishAction finishAction -> "finish";
-            case PositionAction positionAction -> "position";
-            case TakeAction takeAction -> "take";
-            default -> "position"; // Fallback statt null
+            case FinishAction _ -> "finish";
+            case PositionAction _ -> "position";
+            case TakeAction _ -> "take";
         };
     }
 }

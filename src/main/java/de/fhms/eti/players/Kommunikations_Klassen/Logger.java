@@ -42,7 +42,7 @@ public class Logger {
             File file = new File("bot.log");
 
             if (file.exists()) {
-                file.delete();
+                boolean _ = file.delete();
             }
 
             logWriter = new FileWriter(file, false);

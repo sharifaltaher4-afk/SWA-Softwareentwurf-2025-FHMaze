@@ -87,7 +87,6 @@ public class GameController {
      * @return true wenn Spiel weitergehen soll, false bei Beendigung
      */
     public boolean processTurn(TurnData turnData, int turnCount) {
-        Position currentPos = navigator.getCurrentPosition();
         // Logging Gegner-Status (aus Cell-Objekten!)
         int opponentCount = countOpponents(turnData);
         if (opponentCount > 0) {
@@ -151,7 +150,7 @@ public class GameController {
         }
 
         // Formular-Verarbeitung
-        if (processFormActions(turnData, turnCount)) {
+        if (processFormActions(turnData)) {
             return true; // Formular genommen, Runde beenden
         }
 
@@ -181,7 +180,7 @@ public class GameController {
         }
 
         // Strategie-Management
-        manageStrategy(turnCount, currentPos);
+        manageStrategy();
 
         // Bewegungsentscheidung
         GoAction action = navigator.decideNextMove(
@@ -228,7 +227,7 @@ public class GameController {
     /**
      * Verarbeitet Formular-Aktionen
      */
-    private boolean processFormActions(TurnData turnData, int turnCount) {
+    private boolean processFormActions(TurnData turnData) {
         if (turnData.currentCell instanceof FormCell formCell) {
             boolean canTake = config.formManager().canTakeForm(formCell);
 
@@ -333,7 +332,7 @@ public class GameController {
     /**
      * Verwaltet Strategie-Wechsel basierend auf Spielsituation
      */
-    private void manageStrategy(int turnCount, Position currentPos) {
+    private void manageStrategy() {
         // Strategie-Wechsel zu FormCollectionStrategy für Level 2 UND Level 3
 
         // Countdown für Force-Rounds (SimpleStrategy-Sperre)
@@ -364,12 +363,6 @@ public class GameController {
                 navigator.setStrategy(newStrategy);
             }
         }
-
-        // Endlosschleifen-Erkennung
-        // if (turnCount > 50 && navigator.getStrategy() instanceof
-        // FormCollectionStrategy) {
-        // detectAndHandleLoop(currentPos);
-        // }
     }
 
     /**
@@ -477,11 +470,9 @@ public class GameController {
                 Cell cell = cells[i];
 
                 // Prüfe: Kein naher Gegner UND keine Wand
-                boolean cellHasNearOpponent = cell.hasOpponent() &&
-                        cell.getOpponentDistance() <= 1;
                 boolean isWall = cell instanceof WallCell;
 
-                if (/*!cellHasNearOpponent && */ !isWall) {
+                if (!isWall) {
                     config.logger().log("[LEVEL3] Alternative gefunden: " + directions[i] +
                             " (keine nahen Gegner)");
                     return new GoAction(directions[i]);

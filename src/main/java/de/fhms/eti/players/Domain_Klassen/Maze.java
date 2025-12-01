@@ -71,14 +71,23 @@ public class Maze implements IMazeMemory {
         return visitCount.getOrDefault(pos, 0);
     }
 
+    /**
+     * Die Breite des Labyrinths.
+     */
     public int getSizeX() {
         return sizeX;
     }
 
+    /**
+     * Die Höhe des Labyrinths.
+     */
     public int getSizeY() {
         return sizeY;
     }
 
+    /**
+     * Die Level-ID des Spiels.
+     */
     public int getLevel() {
         return level;
     }

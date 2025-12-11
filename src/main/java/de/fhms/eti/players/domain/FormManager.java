@@ -51,21 +51,19 @@ public class FormManager implements IFormManager {
      */
     @Override
     public boolean canTakeForm(FormCell cellStatus) {
-        FormInfo formInfo = parseFormCell(cellStatus); // TODO: redundant
-
         // PRÜFUNG 1: Gehört das Formular diesem Spieler?
-        if (!formInfo.isValidForPlayer(myPlayerId)) {
-            System.err.println("Formular gehört Spieler " + formInfo.getPlayerId() + "  nicht mir!");
+        if (!isFormForThisPlayer(cellStatus)) {
+            System.err.println("Formular gehört Spieler " + cellStatus.getPlayerId() + "  nicht mir!");
             return false;
         }
 
         // PRÜFUNG 2: Ist es das nächste Formular in der Reihenfolge?
-        if (!isValidFormOrder(formInfo.getFormId())) {
-            System.err.println("Falsche Reihenfolge! Erwartet: " + nextFormId + ", Gefunden: " + formInfo.getFormId());
+        if (!isValidFormOrder(cellStatus.getFormId())) {
+            System.err.println("Falsche Reihenfolge! Erwartet: " + nextFormId + ", Gefunden: " + cellStatus.getFormId());
             return false;
         }
 
-        System.err.println("Kann Formular " + formInfo.getFormId() + " aufnehmen!");
+        System.err.println("Kann Formular " + cellStatus.getFormId() + " aufnehmen!");
         return true;
     }
 
@@ -81,18 +79,13 @@ public class FormManager implements IFormManager {
             return false; // Formular kann nicht aufgenommen werden
         }
 
-        FormInfo formInfo = parseFormCell(cellStatus);
-        if (formInfo != null) {
-            // Formular zur Sammlung hinzufügen
-            collectedForms.add(formInfo.getFormId());
-            nextFormId++; // Nächstes Formular in der Reihenfolge erwarten
+        // Formular zur Sammlung hinzufügen
+        collectedForms.add(cellStatus.getFormId());
+        nextFormId++; // Nächstes Formular in der Reihenfolge erwarten
 
-            System.err.println("Formular " + formInfo.getFormId() + " aufgenommen! " +
-                    "Gesammelt: " + collectedForms + ", Nächstes: " + nextFormId);
-            return true;
-        }
-
-        return false;
+        System.err.println("Formular " + cellStatus.getFormId() + " aufgenommen! " +
+                "Gesammelt: " + collectedForms + ", Nächstes: " + nextFormId);
+        return true;
     }
 
     /**
@@ -161,14 +154,8 @@ public class FormManager implements IFormManager {
         System.err.println("Benötigte Formulare: " + formCount);
     }
 
-    /**
-     * Parst einen FORM-String und extrahiert die Informationen
-     *
-     * @param cellStatus FORM-String z.B. "FORM 0 1"
-     * @return FormInfo-Objekt oder null bei Fehler
-     */
-    private FormInfo parseFormCell(FormCell cellStatus) {
-        return new FormInfo(cellStatus.getPlayerId(), cellStatus.getFormId()); // TODO: redundant
+    private boolean isFormForThisPlayer(FormCell cellStatus) {
+        return cellStatus.getPlayerId() == myPlayerId;
     }
 
     /**
@@ -207,6 +194,7 @@ public class FormManager implements IFormManager {
      *
      * @return (totalFormsNeeded ! = - 1)
      */
+    @SuppressWarnings("unused")
     public boolean knowsTotalForms() {
         return totalFormsNeeded != -1;
     }

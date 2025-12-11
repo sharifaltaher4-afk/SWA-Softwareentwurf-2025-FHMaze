@@ -6,8 +6,6 @@ import main.java.de.fhms.eti.players.communication.TurnData;
 import main.java.de.fhms.eti.players.strategy.FormCollectionStrategy;
 import main.java.de.fhms.eti.players.strategy.INavigationStrategy;
 
-import java.util.Random;
-
 /**
  * GameController Zentrale Spielsteuerung
  * <p>
@@ -21,7 +19,7 @@ import java.util.Random;
  * Erfuellt SOLID:
  * - SRP: Nur Spielablauf-Koordination
  * - OCP: Erweiterbar durch neue Strategien
- * - DIP: AbhÃ¤ngig von Interfaces
+ * - DIP: Abhängig von Interfaces
  */
 public class GameController {
     private static GameController instance;
@@ -31,6 +29,8 @@ public class GameController {
     private GameCommunication comm;
     private boolean useSimpleStrategyOnly;
     private int simpleStrategyForceRounds;
+    private int collisionWaitRounds;
+    private Direction collisionForcedDirection;
 
     /**
      * Private Konstruktor fuer Singleton
@@ -38,6 +38,8 @@ public class GameController {
     private GameController() {
         this.useSimpleStrategyOnly = false;
         this.simpleStrategyForceRounds = 0;
+        this.collisionWaitRounds = 0;
+        this.collisionForcedDirection = null;
     }
 
     /**
@@ -101,30 +103,44 @@ public class GameController {
         if (opponentOnCurrentField) {
             config.logger().log("[LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)");
 
-            // Pseudo-Zufall: 50% Chance zu warten, 50% Chance sich zu bewegen
-            int playerId = 1; // TODO: Tatsächliche Spieler ID zuweisen
-            Random rng = new Random(playerId);
-            if (rng.nextBoolean()) {
-                config.logger().log("[LEVEL3] WARTE: Sende POSITION-Aktion");
+            if (collisionWaitRounds > 0) {
+                collisionWaitRounds--;
+                config.logger().log("[LEVEL3] AUSWEICHEN: Runde aussetzen (Wait " + (collisionWaitRounds + 1) + ")");
                 comm.sendAction(new PositionAction());
-            } else {
-                // Versuche eine zufällige Richtung
-                Direction[] directions = {Direction.north, Direction.east, Direction.south, Direction.west};
-                Cell[] cells = {turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell};
-
-                Direction chosenDirection = Direction.north; // Fallback
-                for (int i = 0; i < 4; i++) {
-                    if (!(cells[i] instanceof WallCell)) {
-                        chosenDirection = directions[i];
-                        break;
-                    }
-                }
-
-                config.logger().log("[LEVEL3] ZUFALL: Versuche Bewegung " + chosenDirection);
-                comm.sendAction(new GoAction(chosenDirection));
+                return true;
             }
+
+            int playerId = config.playerId();
+            if (collisionForcedDirection == null) {
+                switch (playerId) {
+                    case 1 -> {
+                        collisionWaitRounds = 1;
+                        collisionForcedDirection = Direction.north;
+                    }
+                    case 2 -> {
+                        collisionWaitRounds = 0;
+                        collisionForcedDirection = Direction.south;
+                    }
+                    case 3 -> {
+                        collisionWaitRounds = 2;
+                        collisionForcedDirection = Direction.west;
+                    }
+                    case 4 ->
+                        collisionForcedDirection = Direction.east;
+
+                    default -> collisionForcedDirection = Direction.north;
+                }
+            }
+
+            Direction chosenDirection = choosePreferredOrLeastVisited(collisionForcedDirection, turnData);
+            collisionForcedDirection = null;
+
+            config.logger().log("[LEVEL3] AUSWEICHEN (Spieler " + playerId + "): Bewegung " + chosenDirection);
+            comm.sendAction(new GoAction(chosenDirection));
             return true;
         }
+        collisionWaitRounds = 0;
+        collisionForcedDirection = null;
 
         // Logging
         if (turnCount <= 100) {
@@ -515,6 +531,54 @@ public class GameController {
 
         // Keine Änderung nötig  geplante Richtung ist sicher
         return plannedAction;
+    }
+
+    private Direction preferredCollisionDirection(int playerId) {
+        return switch (playerId) {
+            case 1 -> Direction.north;
+            case 2 -> Direction.south;
+            case 3 -> Direction.east;
+            case 4 -> Direction.west;
+            default -> Direction.north;
+        };
+    }
+
+    private Direction choosePreferredOrLeastVisited(Direction preferred, TurnData turnData) {
+        if (!isWall(preferred, turnData)) {
+            return preferred;
+        }
+        return chooseLeastVisitedAny(turnData);
+    }
+
+    private Direction chooseLeastVisitedAny(TurnData turnData) {
+        Direction[] dirs = {Direction.north, Direction.east, Direction.south, Direction.west};
+        Cell[] cells = {turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell};
+
+        Direction best = Direction.north;
+        int bestVisits = Integer.MAX_VALUE;
+        Position current = navigator.getCurrentPosition();
+
+        for (int i = 0; i < dirs.length; i++) {
+            if (cells[i] instanceof WallCell) {
+                continue;
+            }
+            int visits = config.maze().getVisitCount(current.move(dirs[i]));
+            if (visits < bestVisits) {
+                bestVisits = visits;
+                best = dirs[i];
+            }
+        }
+
+        return best;
+    }
+
+    private boolean isWall(Direction direction, TurnData turnData) {
+        return switch (direction) {
+            case north -> turnData.northCell instanceof WallCell;
+            case east -> turnData.eastCell instanceof WallCell;
+            case south -> turnData.southCell instanceof WallCell;
+            case west -> turnData.westCell instanceof WallCell;
+        };
     }
 
     /**

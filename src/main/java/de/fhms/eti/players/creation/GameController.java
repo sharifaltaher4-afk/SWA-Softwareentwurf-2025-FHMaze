@@ -389,17 +389,30 @@ public class GameController {
      * Fallback-Aktion wenn keine optimale Richtung gefunden
      */
     private GoAction getFallbackAction(TurnData turnData) {
-        // TODO: Verbesserung: switch-case
-        if (!(turnData.northCell instanceof WallCell))
-            return new GoAction(Direction.north);
-        else if (!(turnData.eastCell instanceof WallCell))
-            return new GoAction(Direction.east);
-        else if (!(turnData.southCell instanceof WallCell))
-            return new GoAction(Direction.south);
-        else if (!(turnData.westCell instanceof WallCell))
-            return new GoAction(Direction.west);
-        else
-            return new GoAction(Direction.north);
+        int openIndex = findFirstOpenDirectionIndex(turnData);
+        return switch (openIndex) {
+            case 0 -> new GoAction(Direction.north);
+            case 1 -> new GoAction(Direction.east);
+            case 2 -> new GoAction(Direction.south);
+            case 3 -> new GoAction(Direction.west);
+            default -> new GoAction(Direction.north);
+        };
+    }
+
+    private int findFirstOpenDirectionIndex(TurnData turnData) {
+        Cell[] neighbors = {
+                turnData.northCell,
+                turnData.eastCell,
+                turnData.southCell,
+                turnData.westCell
+        };
+
+        for (int i = 0; i < neighbors.length; i++) {
+            if (!(neighbors[i] instanceof WallCell)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**

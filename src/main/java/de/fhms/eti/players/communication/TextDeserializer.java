@@ -10,6 +10,7 @@ public class TextDeserializer implements IDeserialize {
             case FinishAction _ -> "finish";
             case PositionAction _ -> "position";
             case TakeAction _ -> "take";
+            case KickAction kickAction -> "kick " + kickAction.getDirection().toString();
         };
     }
 }

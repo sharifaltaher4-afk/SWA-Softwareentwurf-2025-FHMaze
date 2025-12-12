@@ -12,7 +12,7 @@ package main.java.de.fhms.eti.players.domain;
  * Level 2: "FINISH 0 3" (playerId + formCount)
  */
 public class LevelDetector implements ILevelDetector {
-    private int currentLevel; // 1, 2 oder 3
+    private int currentLevel; // 1, 2, 3 oder 4
 
     /**
      * Konstruktor Startet mit Level 1
@@ -27,6 +27,10 @@ public class LevelDetector implements ILevelDetector {
      */
     @Override
     public int detectLevel(Cell finishCell) {
+        if (currentLevel == 4) {
+            return currentLevel;
+        }
+
         if (!(finishCell instanceof FinishCell finish)) {
             return currentLevel;
         }
@@ -74,8 +78,19 @@ public class LevelDetector implements ILevelDetector {
      *
      * @return true wenn Level 3, sonst false
      */
+    @Override
     public boolean isLevel3() {
         return currentLevel == 3;
+    }
+
+    /**
+     * Gibt zurueck ob aktuell Level 4 gespielt wird
+     *
+     * @return true wenn Level 4, sonst false
+     */
+    @Override
+    public boolean isLevel4() {
+        return currentLevel == 4;
     }
 
     /**
@@ -88,8 +103,9 @@ public class LevelDetector implements ILevelDetector {
         return currentLevel;
     }
 
+    @Override
     public void setCurrentLevel(int level) {
-        if (level == 1 || level == 2 || level == 3) {
+        if (level == 1 || level == 2 || level == 3 || level == 4) {
             this.currentLevel = level;
             System.err.println("Level manuell gesetzt auf: " + level);
         }

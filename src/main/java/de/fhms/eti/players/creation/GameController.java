@@ -31,6 +31,7 @@ public class GameController {
     private int simpleStrategyForceRounds;
     private int collisionWaitRounds;
     private Direction collisionForcedDirection;
+    private KickManager kickManager;
 
     /**
      * Private Konstruktor fuer Singleton
@@ -79,6 +80,7 @@ public class GameController {
 
         // Erstelle Navigator
         this.navigator = new Navigator(config.maze(), config.startPosition(), initialStrategy);
+        this.kickManager = new KickManager(config);
         config.logger().log("GameController initialisiert");
     }
 
@@ -263,6 +265,14 @@ public class GameController {
                     return true; //  Formular genommen, kein Bewegung mehr
                 }
             } else {
+                // Level 4: Formular kicken, wenn es nicht genommen werden kann
+                KickAction kickAction = kickManager.decideKick(turnData, navigator.getCurrentPosition());
+                if (kickAction != null) {
+                    config.logger().log("[LEVEL4] Formular kicken nach " + kickAction.getDirection());
+                    comm.sendAction(kickAction);
+                    return true;
+                }
+
                 logFormRejectionReason(formCell);
             }
         }
@@ -292,7 +302,7 @@ public class GameController {
         int finishPlayerId = finishCell.getPlayerId();
 
         // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt für ALLE Spieler)
-        if (config.levelDetector().isLevel2() || config.levelDetector().isLevel3()) {
+        if (config.levelDetector().isLevel2() || config.levelDetector().isLevel3() || config.levelDetector().isLevel4()) {
             int formCount = finishCell.getFormCount();
 
             // Setze Form-Count auch wenn es fremdes FINISH ist
@@ -341,6 +351,8 @@ public class GameController {
                 return config.formManager().hasAllForms(); // Level 2: Alle Formulare
             } else if (config.levelDetector().isLevel3()) {
                 return config.formManager().hasAllForms(); // Level 3: Alle Formulare + Gegner vermeiden
+            } else if (config.levelDetector().isLevel4()) {
+                return config.formManager().hasAllForms(); // Level 4: Alle Formulare, trotz Kick-Chaos
             }
         } catch (NumberFormatException e) {
             config.logger().log("  Fehler beim Parsen: " + currentCell);

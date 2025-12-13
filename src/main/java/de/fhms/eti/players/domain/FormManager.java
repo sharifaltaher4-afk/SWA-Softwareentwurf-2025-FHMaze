@@ -1,4 +1,4 @@
-package main.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -187,15 +187,5 @@ public class FormManager implements IFormManager {
      */
     public Position getRememberedFormPosition(int formId) {
         return foundFormPositions.get(formId);
-    }
-
-    /**
-     * prüft ob die Anzahl benötigter Formulare bekannt ist
-     *
-     * @return (totalFormsNeeded ! = - 1)
-     */
-    @SuppressWarnings("unused")
-    public boolean knowsTotalForms() {
-        return totalFormsNeeded != -1;
     }
 }

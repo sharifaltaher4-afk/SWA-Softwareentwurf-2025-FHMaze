@@ -31,7 +31,7 @@ echo ""
 echo "Erstelle JAR-Dateien..."
 
 # MyBot.jar erstellen
-echo "Main-Class: de.fhms.eti.players.Erzeugungsmuster_Klassen.MyBot" > target/MyBot.mf
+echo "Main-Class: de.fhms.eti.players.creation.MyBot" > target/MyBot.mf
 jar cfm target/MyBot.jar target/MyBot.mf -C target/classes de/fhms/eti/players
 
 if [ $? -eq 0 ]; then
@@ -42,7 +42,7 @@ else
 fi
 
 # MinimalBot.jar erstellen
-echo "Main-Class: de.fhms.eti.players.Domain_Klassen.MinimalBot" > target/MinimalBot.mf
+echo "Main-Class: de.fhms.eti.players.domain.MinimalBot" > target/MinimalBot.mf
 jar cfm target/MinimalBot.jar target/MinimalBot.mf -C target/classes de/fhms/eti/players
 
 if [ $? -eq 0 ]; then

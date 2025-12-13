@@ -1,6 +1,6 @@
-package main.java.de.fhms.eti.players.communication;
+package de.fhms.eti.players.communication;
 
-import main.java.de.fhms.eti.players.domain.Cell;
+import de.fhms.eti.players.domain.Cell;
 
 /**
  * Interface providing methods to serialize messages coming from the maze game.

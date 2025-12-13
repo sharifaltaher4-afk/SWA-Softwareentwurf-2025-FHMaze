@@ -1,4 +1,4 @@
-package main.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
 /**
  * Level-4 Aktion: Kicken eines Formulars in eine Richtung.

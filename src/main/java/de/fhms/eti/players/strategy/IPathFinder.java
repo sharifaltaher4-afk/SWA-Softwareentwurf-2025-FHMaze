@@ -1,8 +1,8 @@
-package main.java.de.fhms.eti.players.strategy;
+package de.fhms.eti.players.strategy;
 
-import main.java.de.fhms.eti.players.domain.Cell;
-import main.java.de.fhms.eti.players.domain.GoAction;
-import main.java.de.fhms.eti.players.domain.Position;
+import de.fhms.eti.players.domain.Cell;
+import de.fhms.eti.players.domain.GoAction;
+import de.fhms.eti.players.domain.Position;
 
 import java.util.Deque;
 

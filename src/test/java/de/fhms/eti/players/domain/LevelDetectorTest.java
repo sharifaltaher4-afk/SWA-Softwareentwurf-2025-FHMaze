@@ -1,6 +1,5 @@
-package test.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
-import main.java.de.fhms.eti.players.domain.LevelDetector;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package main.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
 /**
  * Interface für Labyrinthen-Gedächtnis(ISP Interface Segregation Principle)

@@ -1,4 +1,4 @@
-package main.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
 /**
  * LEVEL 3: FormCell kann auch Gegner-Info haben

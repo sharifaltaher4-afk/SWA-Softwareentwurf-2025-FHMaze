@@ -1,7 +1,6 @@
-package test.java.de.fhms.eti.players.strategy;
+package de.fhms.eti.players.strategy;
 
-import main.java.de.fhms.eti.players.domain.*;
-import main.java.de.fhms.eti.players.strategy.SimpleNavigationStrategy;
+import de.fhms.eti.players.domain.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

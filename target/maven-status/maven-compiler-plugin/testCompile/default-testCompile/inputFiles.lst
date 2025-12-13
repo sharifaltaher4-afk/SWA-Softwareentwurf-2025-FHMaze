@@ -1,5 +1,11 @@
-/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/Domain_Klassen/CellTest.java
-/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/Domain_Klassen/FormManagerTest.java
-/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/Domain_Klassen/LevelDetectorTest.java
-/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/Domain_Klassen/NavigatorTest.java
-/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/Domain_Klassen/OpponentDetectorTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/communication/TextSerializerTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/creation/GameControllerTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/creation/KickmanagerTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/domain/FormManagerTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/domain/LevelDetectorTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/domain/NavigatorTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/domain/OpponentDetectorTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/domain/PositionTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/strategy/BfspathfinderstrategyTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/strategy/FormCollectionStrategyTest.java
+/home/shaif/fhmaze_pg2_2_prak_2025/src/test/java/de/fhms/eti/players/strategy/NavigationStrategyTest.java

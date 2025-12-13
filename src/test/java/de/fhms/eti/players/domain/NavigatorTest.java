@@ -1,7 +1,6 @@
-package test.java.de.fhms.eti.players.domain;
+package de.fhms.eti.players.domain;
 
-import main.java.de.fhms.eti.players.domain.*;
-import main.java.de.fhms.eti.players.strategy.*;
+import de.fhms.eti.players.strategy.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
@@ -157,6 +156,7 @@ public class NavigatorTest {
     
     private static class TestStrategy implements INavigationStrategy {
         private Direction nextMove = Direction.north;
+        @SuppressWarnings("unused")
         private int playerId = 0;
         
         public void setNextMove(Direction direction) {

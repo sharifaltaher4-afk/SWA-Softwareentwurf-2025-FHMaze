@@ -1,6 +1,6 @@
-package test.java.de.fhms.eti.players.creation;
+package de.fhms.eti.players.creation;
 
-import main.java.de.fhms.eti.players.creation.GameController;
+//import de.fhms.eti.players.creation.GameController;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotSame;

@@ -1,6 +1,6 @@
-package main.java.de.fhms.eti.players.communication;
+package de.fhms.eti.players.communication;
 
-import main.java.de.fhms.eti.players.domain.Position;
+import de.fhms.eti.players.domain.Position;
 
 /**
  * Data Transfer Object (DTO) für Initialisierungsdaten

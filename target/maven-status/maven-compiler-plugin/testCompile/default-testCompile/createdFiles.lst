@@ -1,0 +1,14 @@
+de/fhms/eti/players/creation/KickActionTest.class
+de/fhms/eti/players/domain/FormManagerTest.class
+de/fhms/eti/players/strategy/FormCollectionStrategyTest.class
+de/fhms/eti/players/creation/GameControllerTest.class
+de/fhms/eti/players/strategy/NavigationStrategyTest.class
+de/fhms/eti/players/domain/OpponentDetectorTest.class
+de/fhms/eti/players/domain/PositionTest.class
+de/fhms/eti/players/domain/LevelDetectorTest.class
+de/fhms/eti/players/strategy/FormCollectionStrategyTest$FakeFormManager.class
+de/fhms/eti/players/communication/TextSerializerTest.class
+de/fhms/eti/players/strategy/FormCollectionStrategyTest$FakePathFinder.class
+de/fhms/eti/players/domain/NavigatorTest.class
+de/fhms/eti/players/strategy/BFSPathFinderStrategyTest.class
+de/fhms/eti/players/domain/NavigatorTest$TestStrategy.class

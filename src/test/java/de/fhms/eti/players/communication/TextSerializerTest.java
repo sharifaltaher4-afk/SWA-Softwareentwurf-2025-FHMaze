@@ -1,7 +1,6 @@
-package test.java.de.fhms.eti.players.communication;
+package de.fhms.eti.players.communication;
 
-import main.java.de.fhms.eti.players.domain.*;
-import main.java.de.fhms.eti.players.communication.*;
+import de.fhms.eti.players.domain.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

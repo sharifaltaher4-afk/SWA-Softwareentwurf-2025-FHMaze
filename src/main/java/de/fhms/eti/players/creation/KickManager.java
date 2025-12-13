@@ -1,7 +1,7 @@
-package main.java.de.fhms.eti.players.creation;
+package de.fhms.eti.players.creation;
 
-import main.java.de.fhms.eti.players.communication.TurnData;
-import main.java.de.fhms.eti.players.domain.*;
+import de.fhms.eti.players.communication.TurnData;
+import de.fhms.eti.players.domain.*;
 
 /**
  * Verwaltet die Kick-Entscheidung für Level 4, damit der GameController klein bleibt.

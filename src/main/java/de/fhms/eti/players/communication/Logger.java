@@ -1,8 +1,8 @@
-package main.java.de.fhms.eti.players.communication;
+package de.fhms.eti.players.communication;
 
-import main.java.de.fhms.eti.players.domain.Action;
-import main.java.de.fhms.eti.players.domain.Cell;
-import main.java.de.fhms.eti.players.domain.Position;
+import de.fhms.eti.players.domain.Action;
+import de.fhms.eti.players.domain.Cell;
+import de.fhms.eti.players.domain.Position;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -42,7 +42,8 @@ public class Logger {
             File file = new File("bot.log");
 
             if (file.exists()) {
-                boolean _ = file.delete();
+                //boolean _ = file.delete();
+                file.delete();
             }
 
             logWriter = new FileWriter(file, false);

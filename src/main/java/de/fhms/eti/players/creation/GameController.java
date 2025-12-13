@@ -1,10 +1,10 @@
-package main.java.de.fhms.eti.players.creation;
+package de.fhms.eti.players.creation;
 
-import main.java.de.fhms.eti.players.domain.*;
-import main.java.de.fhms.eti.players.communication.GameCommunication;
-import main.java.de.fhms.eti.players.communication.TurnData;
-import main.java.de.fhms.eti.players.strategy.FormCollectionStrategy;
-import main.java.de.fhms.eti.players.strategy.INavigationStrategy;
+import de.fhms.eti.players.domain.*;
+import de.fhms.eti.players.communication.GameCommunication;
+import de.fhms.eti.players.communication.TurnData;
+import de.fhms.eti.players.strategy.FormCollectionStrategy;
+import de.fhms.eti.players.strategy.INavigationStrategy;
 
 /**
  * GameController Zentrale Spielsteuerung
@@ -556,16 +556,6 @@ public class GameController {
 
         // Keine Änderung nötig  geplante Richtung ist sicher
         return plannedAction;
-    }
-
-    private Direction preferredCollisionDirection(int playerId) {
-        return switch (playerId) {
-            case 1 -> Direction.north;
-            case 2 -> Direction.south;
-            case 3 -> Direction.east;
-            case 4 -> Direction.west;
-            default -> Direction.north;
-        };
     }
 
     private Direction choosePreferredOrLeastVisited(Direction preferred, TurnData turnData) {

@@ -1,11 +1,11 @@
-package main.java.de.fhms.eti.players.creation;
+package de.fhms.eti.players.creation;
 
-import main.java.de.fhms.eti.players.domain.IFormManager;
-import main.java.de.fhms.eti.players.domain.Maze;
-import main.java.de.fhms.eti.players.strategy.BFSPathFinderStrategy;
-import main.java.de.fhms.eti.players.strategy.FormCollectionStrategy;
-import main.java.de.fhms.eti.players.strategy.INavigationStrategy;
-import main.java.de.fhms.eti.players.strategy.SimpleNavigationStrategy;
+import de.fhms.eti.players.domain.IFormManager;
+import de.fhms.eti.players.domain.Maze;
+import de.fhms.eti.players.strategy.BFSPathFinderStrategy;
+import de.fhms.eti.players.strategy.FormCollectionStrategy;
+import de.fhms.eti.players.strategy.INavigationStrategy;
+import de.fhms.eti.players.strategy.SimpleNavigationStrategy;
 
 /**
  * Konkrete Factory für Navigationsstrategien

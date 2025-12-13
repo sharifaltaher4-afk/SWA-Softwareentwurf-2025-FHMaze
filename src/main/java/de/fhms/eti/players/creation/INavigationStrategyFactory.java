@@ -1,8 +1,8 @@
-package main.java.de.fhms.eti.players.creation;
+package de.fhms.eti.players.creation;
 
-import main.java.de.fhms.eti.players.domain.IFormManager;
-import main.java.de.fhms.eti.players.domain.Maze;
-import main.java.de.fhms.eti.players.strategy.INavigationStrategy;
+import de.fhms.eti.players.domain.IFormManager;
+import de.fhms.eti.players.domain.Maze;
+import de.fhms.eti.players.strategy.INavigationStrategy;
 
 /**
  * Factory-Interface für die Erstellung von Navigationsstrategien

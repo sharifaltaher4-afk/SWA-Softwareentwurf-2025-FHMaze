@@ -1,8 +1,6 @@
-package test.java.de.fhms.eti.players.strategy;
+package de.fhms.eti.players.strategy;
 
-import main.java.de.fhms.eti.players.domain.*;
-import main.java.de.fhms.eti.players.strategy.FormCollectionStrategy;
-import main.java.de.fhms.eti.players.strategy.IPathFinder;
+import de.fhms.eti.players.domain.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
@@ -181,10 +179,6 @@ class FormCollectionStrategyTest {
 
         void setNextFormId(int nextFormId) {
             this.nextFormId = nextFormId;
-        }
-
-        void setHasAllForms(boolean hasAllForms) {
-            this.hasAllForms = hasAllForms;
         }
 
         @Override

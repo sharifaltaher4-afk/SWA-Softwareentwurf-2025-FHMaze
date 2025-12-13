@@ -1,6 +1,6 @@
-package main.java.de.fhms.eti.players.strategy;
+package de.fhms.eti.players.strategy;
 
-import main.java.de.fhms.eti.players.domain.*;
+import de.fhms.eti.players.domain.*;
 
 import java.util.*;
 

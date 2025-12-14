@@ -1,0 +1,94 @@
+@startuml
+hide package
+set namespaceSeparator .
+left to right direction
+skinparam linetype ortho
+!theme plain
+
+package "Box.communication" {
+  class GameCommunication
+  class InitData
+  class TurnData
+  class Logger
+  class TextDeserializer
+  class TextSerializer
+
+  interface IDeserialize
+  interface ISerialize
+}
+
+package "Box.creation" {
+  class BotConfig
+  class BotConfigBuilder
+  class GameController
+  class KickManager
+  class MyBot
+  class NavigationStrategyFactory
+  enum StrategyType
+
+  interface INavigationStrategyFactory
+}
+
+package "Box.domain" {
+  class Action
+  class GoAction
+  class KickAction
+  class TakeAction
+  class FinishAction
+  class PositionAction
+
+  class Cell
+  class FloorCell
+  class WallCell
+  class FinishCell
+  class FormCell
+
+  class Maze
+  class Navigator
+  class Position
+  class FormInfo
+  class FormManager
+  class MinimalBot
+  class LevelDetector
+  class OpponentDetector
+  class OpponentInfo
+
+  enum Direction
+
+  interface IMazeMemory
+  interface IFormManager
+  interface ILevelDetector
+}
+
+package "Box.strategy" {
+  interface INavigationStrategy
+  interface IPathFinder
+
+  class BFSPathFinderStrategy
+  class SimpleNavigationStrategy
+  class FormCollectionStrategy
+}
+
+Action <|-- GoAction
+Action <|-- KickAction
+Action <|-- TakeAction
+Action <|-- FinishAction
+Action <|-- PositionAction
+
+Cell <|-- FloorCell
+Cell <|-- WallCell
+Cell <|-- FinishCell
+Cell <|-- FormCell
+
+IMazeMemory <|.. Maze
+IFormManager <|.. FormManager
+ILevelDetector <|.. LevelDetector
+
+INavigationStrategy <|.. SimpleNavigationStrategy
+INavigationStrategy <|.. FormCollectionStrategy
+IPathFinder <|.. BFSPathFinderStrategy
+
+INavigationStrategyFactory <|.. NavigationStrategyFactory
+IDeserialize <|.. TextDeserializer
+ISerialize <|.. TextSerializer
+@enduml

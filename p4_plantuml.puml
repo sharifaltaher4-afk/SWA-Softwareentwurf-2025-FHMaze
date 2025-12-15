@@ -1,0 +1,141 @@
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Action
+class BFSPathFinderStrategy
+entity BotConfig << record >>
+class BotConfigBuilder
+class Cell
+enum Direction << enumeration >>
+class FinishAction
+class FinishCell
+class FloorCell
+class FormCell
+class FormCollectionStrategy
+class FormInfo
+class FormManager
+class GameCommunication
+class GameController
+class GoAction
+interface IDeserialize << interface >>
+interface IFormManager << interface >>
+interface ILevelDetector << interface >>
+interface IMazeMemory << interface >>
+interface INavigationStrategy << interface >>
+interface INavigationStrategyFactory << interface >>
+interface IPathFinder << interface >>
+interface ISerialize << interface >>
+class InitData
+class KickAction
+class KickManager
+class LevelDetector
+class Logger
+class Maze
+class MinimalBot
+class MyBot
+class NavigationStrategyFactory
+class Navigator
+class OpponentDetector
+entity OpponentInfo << record >>
+entity Position << record >>
+class PositionAction
+class SimpleNavigationStrategy
+enum StrategyType << enumeration >>
+class TakeAction
+class TextDeserializer
+class TextSerializer
+class TurnData
+class WallCell
+
+BFSPathFinderStrategy      *--> "knownCells" Cell
+BFSPathFinderStrategy      *--> "DIRECTIONS" Direction
+BFSPathFinderStrategy       ..|>  FloorCell                  : "«create»"
+BFSPathFinderStrategy       ..|>  GoAction                   : "«create»"
+BFSPathFinderStrategy       ..|>  IPathFinder
+BFSPathFinderStrategy      *--> "knownCells" Position
+BotConfig                  *--> "maze" Maze
+BotConfigBuilder            ..|>  BotConfig                  : "«create»"
+BotConfigBuilder           *--> "formManager" FormManager
+BotConfigBuilder           *--> "strategyFactory" INavigationStrategyFactory
+BotConfigBuilder           *--> "levelDetector" LevelDetector
+BotConfigBuilder           *--> "logger" Logger
+BotConfigBuilder           *--> "maze" Maze
+BotConfigBuilder           *--> "startPosition" Position
+FinishAction                --^  Action
+FinishCell                  --^  Cell
+FloorCell                   --^  Cell
+FormCell                    --^  Cell
+FormCollectionStrategy      ..|>  GoAction                   : "«create»"
+FormCollectionStrategy     *--> "currentPlan" GoAction
+FormCollectionStrategy     *--> "formManager" IFormManager
+FormCollectionStrategy      ..|>  INavigationStrategy
+FormCollectionStrategy     *--> "fallbackStrategy" INavigationStrategy
+FormCollectionStrategy     *--> "pathFinder" IPathFinder
+FormCollectionStrategy     *--> "maze" Maze
+FormCollectionStrategy     *--> "formPositions" Position
+FormCollectionStrategy      ..|>  Position                   : "«create»"
+FormCollectionStrategy      ..|>  SimpleNavigationStrategy   : "«create»"
+FormManager                 ..|>  IFormManager
+FormManager                *--> "foundFormPositions" Position
+GameCommunication          *--> "deserializer" IDeserialize
+GameCommunication          *--> "serializer" ISerialize
+GameCommunication           ..|>  InitData                   : "«create»"
+GameCommunication           ..|>  TurnData                   : "«create»"
+GameController             *--> "config" BotConfig
+GameController             *--> "collisionForcedDirection" Direction
+GameController              ..|>  FinishAction               : "«create»"
+GameController             *--> "comm" GameCommunication
+GameController              ..|>  GoAction                   : "«create»"
+GameController              ..|>  KickManager                : "«create»"
+GameController             *--> "kickManager" KickManager
+GameController              ..|>  Navigator                  : "«create»"
+GameController             *--> "navigator" Navigator
+GameController              ..|>  PositionAction             : "«create»"
+GameController              ..|>  TakeAction                 : "«create»"
+GoAction                    --^  Action
+GoAction                   *--> "direction" Direction
+InitData                   *--> "startPosition" Position
+InitData                    ..|>  Position                   : "«create»"
+KickAction                  --^  Action
+KickAction                 *--> "direction" Direction
+KickManager                *--> "config" BotConfig
+KickManager                *--> "lastKickDirection" Direction
+KickManager                *--> "levelDetector" ILevelDetector
+KickManager                 ..|>  KickAction                 : "«create»"
+KickManager                *--> "lastKickPosition" Position
+LevelDetector               ..|>  ILevelDetector
+Maze                        ..|>  IMazeMemory
+Maze                       *--> "visitCount" Position
+MyBot                       ..|>  BotConfigBuilder           : "«create»"
+MyBot                       ..|>  FormManager                : "«create»"
+MyBot                       ..|>  GameCommunication          : "«create»"
+MyBot                       ..|>  LevelDetector              : "«create»"
+MyBot                       ..|>  Maze                       : "«create»"
+MyBot                       ..|>  NavigationStrategyFactory  : "«create»"
+MyBot                       ..|>  TextDeserializer           : "«create»"
+MyBot                       ..|>  TextSerializer             : "«create»"
+NavigationStrategyFactory   ..|>  BFSPathFinderStrategy      : "«create»"
+NavigationStrategyFactory   ..|>  FormCollectionStrategy     : "«create»"
+NavigationStrategyFactory   ..|>  INavigationStrategyFactory
+NavigationStrategyFactory   ..|>  SimpleNavigationStrategy   : "«create»"
+Navigator                  *--> "strategy" INavigationStrategy
+Navigator                  *--> "maze" Maze
+Navigator                  *--> "currentPosition" Position
+OpponentDetector           *--> "opponentsByDirection" OpponentInfo
+OpponentDetector            ..|>  OpponentInfo               : "«create»"
+PositionAction              --^  Action
+SimpleNavigationStrategy    ..|>  GoAction                   : "«create»"
+SimpleNavigationStrategy    ..|>  INavigationStrategy
+SimpleNavigationStrategy   *--> "maze" Maze
+TakeAction                  --^  Action
+TextDeserializer            ..|>  IDeserialize
+TextSerializer              ..|>  FinishCell                 : "«create»"
+TextSerializer              ..|>  FloorCell                  : "«create»"
+TextSerializer              ..|>  FormCell                   : "«create»"
+TextSerializer              ..|>  ISerialize
+TextSerializer              ..|>  WallCell                   : "«create»"
+TurnData                   *--> "currentCell" Cell
+WallCell                    --^  Cell
+@enduml

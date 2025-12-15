@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Testet die Breitensuche (BFS) zur Pfadfindung im Labyrinth.
  * BFS findet immer den kürzesten Weg zwischen zwei Punkten.
  */
-class BFSPathFinderStrategyTest {
+class BfspathfinderstrategyTest {
 
     private BFSPathFinderStrategy pathFinder;
     private static final int MY_PLAYER_ID = 0;

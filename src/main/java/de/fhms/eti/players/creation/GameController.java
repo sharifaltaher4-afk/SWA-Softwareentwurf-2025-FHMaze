@@ -262,7 +262,7 @@ public class GameController {
                     config.logger().logCollectedForms(
                             config.formManager().getCollectedForms(),
                             config.formManager().getNextFormId());
-                    return true; //  Formular genommen, kein Bewegung mehr
+                    return true; // Formular genommen, kein Bewegung mehr
                 }
             } else {
                 // Level 4: Formular kicken, wenn es nicht genommen werden kann

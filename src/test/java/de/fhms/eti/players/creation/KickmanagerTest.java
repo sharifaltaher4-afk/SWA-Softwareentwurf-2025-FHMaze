@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Testet die Kick-Aktion, mit der Formulare weggeschoben werden können.
  * Die KickAction speichert nur die Richtung, in die gekickt werden soll.
  */
-class KickActionTest {
+class KickmanagerTest {
 
     /**
      * Test 1: KickAction mit Richtung NORD erstellen und abrufen.

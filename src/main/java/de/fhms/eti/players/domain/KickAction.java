@@ -1,8 +1,7 @@
 package de.fhms.eti.players.domain;
 
 /**
- * Level-4 Aktion: Kicken eines Formulars in eine Richtung.
- * Bewegt nur das Formular, nicht den Spieler.
+ * Level 4 Aktion: Kicken eines Formulars in eine Richtung.
  */
 public final class KickAction extends Action {
     private final Direction direction;

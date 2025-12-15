@@ -29,7 +29,7 @@ public class KickManager {
         if (!levelDetector.isLevel4()) {
             return null;
         }
-
+        // Wenn kein Formular  dann kan natürlich nicht NICHTS gekickt werden
         if (!(turnData.currentCell instanceof FormCell formCell)) {
             return null;
         }
@@ -44,10 +44,12 @@ public class KickManager {
             return null;
         }
 
+        //Nächste Zell nach dem Kicken muss lee sein !!Also keine WAND oder so...
         Direction freeDirection = findFirstFreeDirection(turnData, null);
         if (freeDirection == null) {
             return null;
         }
+
 
         // Wiederholtes Kicken derselben Form aus gleicher Position/Richtung vermeiden
         if (isRepeatedKick(currentPosition, freeDirection, formCell)) {
@@ -61,6 +63,7 @@ public class KickManager {
         rememberLastKick(currentPosition, freeDirection, formCell);
         return new KickAction(freeDirection);
     }
+
 
     private boolean isRepeatedKick(Position pos, Direction dir, FormCell formCell) {
         return lastKickPosition != null

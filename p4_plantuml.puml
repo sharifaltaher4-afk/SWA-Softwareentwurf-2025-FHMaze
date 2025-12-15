@@ -3,7 +3,7 @@
 top to bottom direction
 skinparam linetype ortho
 
-class Action
+abstract class Action
 class BFSPathFinderStrategy
 entity BotConfig << record >>
 class BotConfigBuilder
@@ -14,7 +14,6 @@ class FinishCell
 class FloorCell
 class FormCell
 class FormCollectionStrategy
-class FormInfo
 class FormManager
 class GameCommunication
 class GameController
@@ -33,7 +32,6 @@ class KickManager
 class LevelDetector
 class Logger
 class Maze
-class MinimalBot
 class MyBot
 class NavigationStrategyFactory
 class Navigator

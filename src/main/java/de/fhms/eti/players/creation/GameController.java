@@ -171,6 +171,11 @@ public class GameController {
             handleLevelChange(newLevel);
         }
 
+        // SHEET-Zelle Verarbeitung
+        if (turnData.currentCell instanceof SheetCell sheetCell) {
+            processSheetCell(sheetCell);
+        }
+
         // Formular-Verarbeitung
         if (processFormActions(turnData)) {
             return true; // Formular genommen, Runde beenden
@@ -293,6 +298,10 @@ public class GameController {
             config.logger().logFormInfo(cellStatus, false,
                     "Falsche Reihenfolge: Erwartet " + expectedId + ", Gefunden " + formId);
         }
+    }
+
+    private void processSheetCell(SheetCell cellStatus) {
+        // TODO: Naive Strategie: Immer Blatt aufnehmen
     }
 
     /**

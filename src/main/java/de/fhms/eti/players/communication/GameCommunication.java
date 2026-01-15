@@ -3,6 +3,7 @@ package de.fhms.eti.players.communication;
 import de.fhms.eti.players.domain.Action;
 import de.fhms.eti.players.domain.Cell;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -48,9 +49,13 @@ public class GameCommunication {
         int playerId = input.nextInt();
         int startX = input.nextInt();
         int startY = input.nextInt();
+        int sheetCount = 0;
+        try {
+            sheetCount = input.nextInt();
+        } catch (InputMismatchException _ex) {}
         input.nextLine();
 
-        return new InitData(sizeX, sizeY, level, playerId, startX, startY);
+        return new InitData(sizeX, sizeY, level, playerId, startX, startY, sheetCount);
     }
 
     // Runden-Daten einlesen

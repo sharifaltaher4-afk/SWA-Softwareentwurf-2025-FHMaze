@@ -20,22 +20,25 @@ public class InitData {
     public final int sizeX, sizeY, level;
     public final int playerId;
     public final Position startPosition;
+    public final int sheetCount;
 
     /**
      * Konstruktor: Erstellt InitData aus den eingelesenen Werten
      *
-     * @param sizeX    Breite des Labyrinths
-     * @param sizeY    Höhe des Labyrinths
-     * @param level    Level des Spiels
-     * @param playerId ID des Spielers
-     * @param startX   X-Koordinate der Startposition
-     * @param startY   Y-Koordinate der Startposition
+     * @param sizeX      Breite des Labyrinths
+     * @param sizeY      Höhe des Labyrinths
+     * @param level      Level des Spiels
+     * @param playerId   ID des Spielers
+     * @param startX     X-Koordinate der Startposition
+     * @param startY     Y-Koordinate der Startposition
+     * @param sheetCount Die Anzahl der zur Verfügung stehenden Blätter
      */
-    public InitData(int sizeX, int sizeY, int level, int playerId, int startX, int startY) {
+    public InitData(int sizeX, int sizeY, int level, int playerId, int startX, int startY, int sheetCount) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.level = level;
         this.playerId = playerId;
         this.startPosition = new Position(startX, startY);
+        this.sheetCount = sheetCount;
     }
 }

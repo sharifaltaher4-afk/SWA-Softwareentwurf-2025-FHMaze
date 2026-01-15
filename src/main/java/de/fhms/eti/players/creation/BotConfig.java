@@ -16,7 +16,7 @@ import de.fhms.eti.players.communication.Logger;
  * - Thread-Safe: Kann sicher geteilt werden
  * - Klarheit: Alle benötigten Komponenten an einem Ort
  */
-public record BotConfig(Maze maze, FormManager formManager, INavigationStrategyFactory strategyFactory, Logger logger,
+public record BotConfig(Maze maze, FormManager formManager, SheetManager sheetManager, INavigationStrategyFactory strategyFactory, Logger logger,
                         LevelDetector levelDetector, int playerId, Position startPosition) {
     /**
      * Public Konstruktor - durch Builder aufrufbar

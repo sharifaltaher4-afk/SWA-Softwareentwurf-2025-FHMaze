@@ -11,6 +11,7 @@ public class TextDeserializer implements IDeserialize {
             case PositionAction p -> "position";
             case TakeAction t -> "take";
             case KickAction kickAction -> "kick " + kickAction.getDirection().toString();
+            case PutAction p -> "put";
         };
     }
 }

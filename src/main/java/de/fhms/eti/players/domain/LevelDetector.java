@@ -27,7 +27,7 @@ public class LevelDetector implements ILevelDetector {
      */
     @Override
     public int detectLevel(Cell finishCell) {
-        if (currentLevel == 4) {
+        if (currentLevel >= 5) {
             return currentLevel;
         }
 
@@ -94,6 +94,16 @@ public class LevelDetector implements ILevelDetector {
     }
 
     /**
+     * Gibt zurueck ob aktuell Level 5 gespielt wird
+     *
+     * @return true wenn Level 5, sonst false
+     */
+    @Override
+    public boolean isLevel5() {
+        return currentLevel == 5;
+    }
+
+    /**
      * Gibt das aktuell erkannte Level zurueck
      *
      * @return 1 oder 2
@@ -105,7 +115,7 @@ public class LevelDetector implements ILevelDetector {
 
     @Override
     public void setCurrentLevel(int level) {
-        if (level == 1 || level == 2 || level == 3 || level == 4) {
+        if (level == 1 || level == 2 || level == 3 || level == 4 || level == 5) {
             this.currentLevel = level;
             System.err.println("Level manuell gesetzt auf: " + level);
         }

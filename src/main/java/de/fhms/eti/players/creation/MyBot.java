@@ -3,6 +3,7 @@ package de.fhms.eti.players.creation;
 import de.fhms.eti.players.domain.FormManager;
 import de.fhms.eti.players.domain.LevelDetector;
 import de.fhms.eti.players.domain.Maze;
+import de.fhms.eti.players.domain.SheetManager;
 import de.fhms.eti.players.communication.*;
 
 /**
@@ -43,6 +44,7 @@ public class MyBot {
             LevelDetector levelDetector = new LevelDetector();
             levelDetector.setCurrentLevel(initData.level);
             FormManager formManager = new FormManager(initData.playerId);
+            SheetManager sheetManager = new SheetManager(initData.sheetCount);
 
             // Factory für Strategien
             INavigationStrategyFactory strategyFactory = new NavigationStrategyFactory();
@@ -51,6 +53,7 @@ public class MyBot {
             BotConfig botConfig = new BotConfigBuilder()
                     .withMaze(maze)
                     .withFormManager(formManager)
+                    .withSheetManager(sheetManager)
                     .withStrategyFactory(strategyFactory)
                     .withLogger(logger)
                     .withLevelDetector(levelDetector)

@@ -42,7 +42,7 @@ public class NavigationStrategyFactory implements INavigationStrategyFactory {
         if (level == 1) {
             System.err.println("[FACTORY] Factory: Erstelle SimpleNavigationStrategy fuer Level 1");
             strategy = new SimpleNavigationStrategy(maze);
-        } else if (level == 2 || level == 3 || level == 4) {
+        } else if (level == 2 || level == 3 || level == 4 || level == 5) {
             System.err.println("[FACTORY] Factory: Erstelle FormCollectionStrategy fuer Level " + level);
             if (formManager == null) {
                 throw new IllegalArgumentException("FormManager erforderlich fuer Level 2");

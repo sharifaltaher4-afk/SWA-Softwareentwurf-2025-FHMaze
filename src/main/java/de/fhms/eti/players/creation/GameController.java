@@ -32,6 +32,7 @@ public class GameController {
     private int collisionWaitRounds;
     private Direction collisionForcedDirection;
     private KickManager kickManager;
+    private ActionResultTracker actionResultTracker;
 
     /**
      * Private Konstruktor fuer Singleton
@@ -41,6 +42,7 @@ public class GameController {
         this.simpleStrategyForceRounds = 0;
         this.collisionWaitRounds = 0;
         this.collisionForcedDirection = null;
+        this.actionResultTracker = new ActionResultTracker();
     }
 
     /**
@@ -93,6 +95,14 @@ public class GameController {
      * @return true wenn Spiel weitergehen soll, false bei Beendigung
      */
     public boolean processTurn(TurnData turnData, int turnCount) {
+        reconcileLastActionResult(turnData);
+
+        if (actionResultTracker.isTakingOrTalking(turnData.lastActionResult)) {
+            config.logger().log("[LEVEL5] Aufnahme laeuft, Runde aussetzen");
+            sendAndTrackAction(new PositionAction());
+            return true;
+        }
+
         // Logging Gegner-Status (aus Cell-Objekten!)
         int opponentCount = countOpponents(turnData);
         if (opponentCount > 0) {
@@ -108,7 +118,7 @@ public class GameController {
             if (collisionWaitRounds > 0) {
                 collisionWaitRounds--;
                 config.logger().log("[LEVEL3] AUSWEICHEN: Runde aussetzen (Wait " + (collisionWaitRounds + 1) + ")");
-                comm.sendAction(new PositionAction());
+                sendAndTrackAction(new PositionAction());
                 return true;
             }
 
@@ -138,7 +148,7 @@ public class GameController {
             collisionForcedDirection = null;
 
             config.logger().log("[LEVEL3] AUSWEICHEN (Spieler " + playerId + "): Bewegung " + chosenDirection);
-            comm.sendAction(new GoAction(chosenDirection));
+            sendAndTrackAction(new GoAction(chosenDirection));
             return true;
         }
         collisionWaitRounds = 0;
@@ -171,9 +181,14 @@ public class GameController {
             handleLevelChange(newLevel);
         }
 
-        // Formular-Verarbeitung
-        if (processFormActions(turnData)) {
-            return true; // Formular genommen, Runde beenden
+        // Level 5: Bei nahem Gegner keine Blatt/Form-Aktion, sondern ausweichen
+        if (config.levelDetector().isLevel5() && hasNearbyOpponent(turnData)) {
+            config.logger().log("[LEVEL5] Gegner nah - Form/Blatt Aktion uebersprungen");
+        } else {
+            // Formular-Verarbeitung
+            if (processFormActions(turnData)) {
+                return true; // Formular genommen, Runde beenden
+            }
         }
 
         // FINISH-Zelle Verarbeitung
@@ -196,7 +211,7 @@ public class GameController {
 
         // Pruefe ob finish moeglich
         if (shouldFinish(turnData.currentCell)) {
-            comm.sendAction(new FinishAction());
+            sendAndTrackAction(new FinishAction());
             config.logger().log("[SUCCESS] FINISH gesendet - Mission erfuellt!");
             return false; // Spiel beenden
         }
@@ -218,11 +233,13 @@ public class GameController {
         action = avoidOpponentCollision(action, turnData);
 
         // Aktion ausfuehren
-        comm.sendAction(action);
         Position oldPos = navigator.getCurrentPosition();
-        navigator.updatePosition(action);
-        Position newPos = navigator.getCurrentPosition();
-        config.logger().logMovement(oldPos, newPos, action, "Navigation");
+        sendAndTrackAction(action);
+        if (action instanceof GoAction goAction) {
+            navigator.updatePosition(goAction);
+            Position newPos = navigator.getCurrentPosition();
+            config.logger().logMovement(oldPos, newPos, action, "Navigation");
+        }
 
         // Status-Logging
         if (turnCount < 100 || turnCount % 10 == 0) {
@@ -250,14 +267,33 @@ public class GameController {
      * Verarbeitet Formular-Aktionen
      */
     private boolean processFormActions(TurnData turnData) {
+        if (turnData.currentCell instanceof SheetCell) {
+            if (config.levelDetector().isLevel5()
+                    && actionResultTracker.canTakeSheet(navigator.getCurrentPosition(), config.sheetManager())) {
+                sendAndTrackAction(new TakeAction());
+                config.logger().log("[LEVEL5] Blatt aufgenommen: take");
+                return true;
+            }
+        }
+
         if (turnData.currentCell instanceof FormCell formCell) {
+            if (config.levelDetector().isLevel5()
+                    && formCell.getPlayerId() != config.playerId()
+                    && config.sheetManager().hasSheets()
+                    && !actionResultTracker.isSheetEmptyKnown()
+                    && !actionResultTracker.isSameAsLastPut(navigator.getCurrentPosition())) {
+                sendAndTrackAction(new PutAction());
+                config.logger().log("[LEVEL5] Blatt abgelegt: put");
+                return true;
+            }
+
             boolean canTake = config.formManager().canTakeForm(formCell);
 
             if (canTake) {
                 config.logger().logFormInfo(turnData.currentCell, true, "Kann genommen werden");
                 boolean success = config.formManager().takeForm(formCell);
                 if (success) {
-                    comm.sendAction(new TakeAction());
+                    sendAndTrackAction(new TakeAction());
                     config.logger().log("[INFO] Formular genommen: take");
                     config.logger().logCollectedForms(
                             config.formManager().getCollectedForms(),
@@ -269,7 +305,7 @@ public class GameController {
                 KickAction kickAction = kickManager.decideKick(turnData, navigator.getCurrentPosition());
                 if (kickAction != null) {
                     config.logger().log("[LEVEL4] Formular kicken nach " + kickAction.getDirection());
-                    comm.sendAction(kickAction);
+                    sendAndTrackAction(kickAction);
                     return true;
                 }
 
@@ -277,6 +313,14 @@ public class GameController {
             }
         }
         return false; // Kein Formular genommen, Bewegung erlauben
+    }
+
+    private void reconcileLastActionResult(TurnData turnData) {
+        actionResultTracker.reconcile(turnData, navigator, config.sheetManager());
+    }
+
+    private void sendAndTrackAction(Action action) {
+        actionResultTracker.recordAndSend(action, navigator.getCurrentPosition(), comm);
     }
 
     /**
@@ -302,7 +346,8 @@ public class GameController {
         int finishPlayerId = finishCell.getPlayerId();
 
         // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt für ALLE Spieler)
-        if (config.levelDetector().isLevel2() || config.levelDetector().isLevel3() || config.levelDetector().isLevel4()) {
+        if (config.levelDetector().isLevel2() || config.levelDetector().isLevel3()
+                || config.levelDetector().isLevel4() || config.levelDetector().isLevel5()) {
             int formCount = finishCell.getFormCount();
 
             // Setze Form-Count auch wenn es fremdes FINISH ist
@@ -353,6 +398,8 @@ public class GameController {
                 return config.formManager().hasAllForms(); // Level 3: Alle Formulare + Gegner vermeiden
             } else if (config.levelDetector().isLevel4()) {
                 return config.formManager().hasAllForms(); // Level 4: Alle Formulare, trotz Kick-Chaos
+            } else if (config.levelDetector().isLevel5()) {
+                return config.formManager().hasAllForms(); // Level 5: Alle Formulare mit Blatt-Mechanik
             }
         } catch (NumberFormatException e) {
             config.logger().log("  Fehler beim Parsen: " + currentCell);
@@ -462,6 +509,20 @@ public class GameController {
         if (turnData.westCell.hasOpponent())
             count++;
         return count;
+    }
+
+    /**
+     * Level 5: Prueft ob ein Gegner direkt benachbart ist (Distance <= 1)
+     */
+    private boolean hasNearbyOpponent(TurnData turnData) {
+        return isNearby(turnData.northCell)
+                || isNearby(turnData.eastCell)
+                || isNearby(turnData.southCell)
+                || isNearby(turnData.westCell);
+    }
+
+    private boolean isNearby(Cell cell) {
+        return cell.hasOpponent() && cell.getOpponentDistance() <= 1;
     }
 
     /**

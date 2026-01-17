@@ -26,7 +26,7 @@ public class KickManager {
      * es nicht genommen werden kann und ein freies Ziel existiert. Sonst null.
      */
     public KickAction decideKick(TurnData turnData, Position currentPosition) {
-        if (!levelDetector.isLevel4()) {
+        if (!levelDetector.isLevel4() && !levelDetector.isLevel5()) {
             return null;
         }
         // Wenn kein Formular  dann kan natürlich nicht NICHTS gekickt werden

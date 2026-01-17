@@ -48,9 +48,13 @@ public class GameCommunication {
         int playerId = input.nextInt();
         int startX = input.nextInt();
         int startY = input.nextInt();
+        int sheetCount = 0;
+        if (level >= 5 && input.hasNextInt()) {
+            sheetCount = input.nextInt();
+        }
         input.nextLine();
 
-        return new InitData(sizeX, sizeY, level, playerId, startX, startY);
+        return new InitData(sizeX, sizeY, level, playerId, startX, startY, sheetCount);
     }
 
     // Runden-Daten einlesen

@@ -38,6 +38,13 @@ public interface ILevelDetector {
     boolean isLevel4();
 
     /**
+     * Gibt zurueck ob aktuell Level 5 gespielt wird
+     *
+     * @return true wenn Level 5, sonst false
+     */
+    boolean isLevel5();
+
+    /**
      * Gibt das aktuell erkannte Level zurück
      *
      * @return 1 oder 2

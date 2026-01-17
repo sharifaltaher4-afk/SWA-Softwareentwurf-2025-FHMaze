@@ -29,6 +29,7 @@ public class TextSerializer implements ISerialize {
         return switch (parts[0]) {
             case "WALL" -> new WallCell(hasOpponent, opponentDistance);
             case "FLOOR" -> new FloorCell(hasOpponent, opponentDistance);
+            case "SHEET" -> new SheetCell(hasOpponent, opponentDistance);
             case "FINISH" -> {
                 int playerId = Integer.parseInt(parts[1]);
                 int formCount = Integer.parseInt(parts[2]);

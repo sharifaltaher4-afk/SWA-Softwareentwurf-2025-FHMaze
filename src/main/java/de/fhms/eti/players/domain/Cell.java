@@ -6,7 +6,7 @@ package de.fhms.eti.players.domain;
  * - hasOpponent: Gegner auf diesem Feld?
  * - opponentDistance: Wie weit ist der Gegner entfernt?
  */
-abstract sealed public class Cell permits WallCell, FinishCell, FormCell, FloorCell {
+abstract sealed public class Cell permits WallCell, FinishCell, FormCell, FloorCell, SheetCell {
     // LEVEL 3: Gegner-Informationen
     private final boolean hasOpponent;
     private final int opponentDistance; // 0 = direkt hier, 1+ = Felder entfernt in dieser Richtung

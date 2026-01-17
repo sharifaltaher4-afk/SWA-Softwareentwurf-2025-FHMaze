@@ -1,6 +1,7 @@
 package de.fhms.eti.players.creation;
 
 import de.fhms.eti.players.domain.FormManager;
+import de.fhms.eti.players.domain.ISheetManager;
 import de.fhms.eti.players.domain.LevelDetector;
 import de.fhms.eti.players.domain.Maze;
 import de.fhms.eti.players.domain.Position;
@@ -21,6 +22,7 @@ import de.fhms.eti.players.communication.Logger;
 public class BotConfigBuilder {
     private Maze maze;
     private FormManager formManager;
+    private ISheetManager sheetManager;
     private INavigationStrategyFactory strategyFactory;
     private Logger logger;
     private LevelDetector levelDetector;
@@ -40,6 +42,14 @@ public class BotConfigBuilder {
      */
     public BotConfigBuilder withFormManager(FormManager formManager) {
         this.formManager = formManager;
+        return this;
+    }
+
+    /**
+     * Setzt den SheetManager
+     */
+    public BotConfigBuilder withSheetManager(ISheetManager sheetManager) {
+        this.sheetManager = sheetManager;
         return this;
     }
 
@@ -97,6 +107,9 @@ public class BotConfigBuilder {
         if (formManager == null) {
             throw new IllegalStateException("FormManager ist erforderlich");
         }
+        if (sheetManager == null) {
+            throw new IllegalStateException("SheetManager ist erforderlich");
+        }
         if (strategyFactory == null) {
             throw new IllegalStateException("StrategyFactory ist erforderlich");
         }
@@ -109,7 +122,7 @@ public class BotConfigBuilder {
         if (startPosition == null) {
             throw new IllegalStateException("StartPosition ist erforderlich");
         }
-        return new BotConfig(maze, formManager, strategyFactory, logger,
+        return new BotConfig(maze, formManager, sheetManager, strategyFactory, logger,
                 levelDetector, playerId, startPosition);
     }
 }

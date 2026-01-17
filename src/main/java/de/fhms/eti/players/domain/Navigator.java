@@ -61,6 +61,13 @@ public class Navigator {
     }
 
     /**
+     * Setzt die aktuelle Position direkt (z.B. nach abgelehnter Aktion)
+     */
+    public void setCurrentPosition(Position position) {
+        this.currentPosition = position;
+    }
+
+    /**
      * Gibt die aktuelle Strategie zurück
      * Wichtig für Strategy-Wechsel in MyBot
      *

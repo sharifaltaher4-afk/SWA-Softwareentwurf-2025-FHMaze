@@ -20,6 +20,7 @@ public class InitData {
     public final int sizeX, sizeY, level;
     public final int playerId;
     public final Position startPosition;
+    public final int sheetCount;
 
     /**
      * Konstruktor: Erstellt InitData aus den eingelesenen Werten
@@ -32,10 +33,20 @@ public class InitData {
      * @param startY   Y-Koordinate der Startposition
      */
     public InitData(int sizeX, int sizeY, int level, int playerId, int startX, int startY) {
+        this(sizeX, sizeY, level, playerId, startX, startY, 0);
+    }
+
+    /**
+     * Konstruktor: Erstellt InitData aus den eingelesenen Werten (Level 5)
+     *
+     * @param sheetCount Anzahl der anfaenglich verfuegbaren Blaetter
+     */
+    public InitData(int sizeX, int sizeY, int level, int playerId, int startX, int startY, int sheetCount) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.level = level;
         this.playerId = playerId;
         this.startPosition = new Position(startX, startY);
+        this.sheetCount = sheetCount;
     }
 }

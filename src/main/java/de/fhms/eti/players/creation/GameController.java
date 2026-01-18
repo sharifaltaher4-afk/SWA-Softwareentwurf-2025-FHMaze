@@ -19,7 +19,7 @@ import de.fhms.eti.players.strategy.INavigationStrategy;
  * Erfuellt SOLID:
  * - SRP: Nur Spielablauf-Koordination
  * - OCP: Erweiterbar durch neue Strategien
- * - DIP: Abhängig von Interfaces
+ * - DIP: AbhÃ¤ngig von Interfaces
  */
 public class GameController {
     private static GameController instance;
@@ -56,7 +56,7 @@ public class GameController {
     }
 
     /**
-     * Reset für neues Spiel
+     * Reset fÃ¼r neues Spiel
      */
     public static void reset() {
         instance = null;
@@ -113,7 +113,7 @@ public class GameController {
                 && turnData.currentCell.getOpponentDistance() == 0;
 
         if (opponentOnCurrentField) {
-            config.logger().log("[LEVEL3] Gespräch erkannt! Gegner auf gleichem Feld (Distance 0)");
+            config.logger().log("[LEVEL3] GesprÃ¤ch erkannt! Gegner auf gleichem Feld (Distance 0)");
 
             if (collisionWaitRounds > 0) {
                 collisionWaitRounds--;
@@ -265,19 +265,38 @@ public class GameController {
     }
 
     /**
-     * Verarbeitet Formular-Aktionen
+     * Verarbeitet Formular- und Sheet-Aktionen
+     * 
+     * LEVEL 5 ERWEITERUNG:
+     * - Sheets können aufgenommen werden (TAKE)
+     * - Sheets können gekickt werden (KICK) - NEU!
+     * - Formulare können mit Sheets verdeckt werden (PUT)
      */
     private boolean processFormActions(TurnData turnData) {
+        // LEVEL 5: SHEET HANDLING
         if (turnData.currentCell instanceof SheetCell) {
-            if (config.levelDetector().isLevel5()
-                    && actionResultTracker.canTakeSheet(navigator.getCurrentPosition(), config.sheetManager())) {
-                sendAndTrackAction(new TakeAction());
-                config.logger().log("[LEVEL5] Blatt aufgenommen: take");
-                return true;
+            if (config.levelDetector().isLevel5()) {
+                // Option 1: Versuche Sheet aufzunehmen wenn wir es brauchen
+                if (actionResultTracker.canTakeSheet(navigator.getCurrentPosition(), config.sheetManager())) {
+                    sendAndTrackAction(new TakeAction());
+                    config.logger().log("[LEVEL5] Blatt aufgenommen: take");
+                    return true;
+                }
+                
+                // Option 2: Sheet wegkicken (um zu sehen was darunter ist)
+                KickAction kickAction = kickManager.decideKick(turnData, navigator.getCurrentPosition());
+                if (kickAction != null) {
+                    config.logger().log("[LEVEL5] Sheet kicken nach " + kickAction.getDirection());
+                    sendAndTrackAction(kickAction);
+                    return true;
+                }
             }
+            // Wenn weder TAKE noch KICK moeglich -> weitergehen
         }
 
+        // LEVEL 4 & 5: FORMULAR HANDLING
         if (turnData.currentCell instanceof FormCell formCell) {
+            // Level 5: Gegner-Formular mit Sheet verdecken
             if (config.levelDetector().isLevel5()
                     && formCell.getPlayerId() != config.playerId()
                     && config.sheetManager().hasSheets()
@@ -299,13 +318,13 @@ public class GameController {
                     config.logger().logCollectedForms(
                             config.formManager().getCollectedForms(),
                             config.formManager().getNextFormId());
-                    return true; // Formular genommen, kein Bewegung mehr
+                    return true; // Formular genommen, keine Bewegung mehr
                 }
             } else {
-                // Level 4: Formular kicken, wenn es nicht genommen werden kann
+                // Level 4 & 5: Formular kicken, wenn es nicht genommen werden kann
                 KickAction kickAction = kickManager.decideKick(turnData, navigator.getCurrentPosition());
                 if (kickAction != null) {
-                    config.logger().log("[LEVEL4] Formular kicken nach " + kickAction.getDirection());
+                    config.logger().log("[LEVEL4/5] Formular kicken nach " + kickAction.getDirection());
                     sendAndTrackAction(kickAction);
                     return true;
                 }
@@ -313,7 +332,7 @@ public class GameController {
                 logFormRejectionReason(formCell);
             }
         }
-        return false; // Kein Formular genommen, Bewegung erlauben
+        return false; // Keine Aktion, Bewegung erlauben
     }
 
     private void reconcileLastActionResult(TurnData turnData) {
@@ -346,7 +365,7 @@ public class GameController {
     private void processFinishCell(FinishCell finishCell) {
         int finishPlayerId = finishCell.getPlayerId();
 
-        // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt für ALLE Spieler)
+        // Level 2/3: Form-Count aus FINISH-Zelle holen (gilt fÃ¼r ALLE Spieler)
         if (config.levelDetector().isLevel2() || config.levelDetector().isLevel3()
                 || config.levelDetector().isLevel4() || config.levelDetector().isLevel5()) {
             int formCount = finishCell.getFormCount();
@@ -413,9 +432,9 @@ public class GameController {
      * Verwaltet Strategie-Wechsel basierend auf Spielsituation
      */
     private void manageStrategy() {
-        // Strategie-Wechsel zu FormCollectionStrategy für Level 2 UND Level 3
+        // Strategie-Wechsel zu FormCollectionStrategy fÃ¼r Level 2 UND Level 3
 
-        // Countdown für Force-Rounds (SimpleStrategy-Sperre)
+        // Countdown fÃ¼r Force-Rounds (SimpleStrategy-Sperre)
         if (simpleStrategyForceRounds > 0) {
             simpleStrategyForceRounds--;
             config.logger().log("[DEBUG] SimpleStrategy-Sperre: noch " + simpleStrategyForceRounds + " Runden"); // 3p.NEU
@@ -429,11 +448,11 @@ public class GameController {
         boolean needsFormCollection = !config.formManager().isComplete();
         boolean isLevel2or3 = config.levelDetector().isLevel2() || config.levelDetector().isLevel3();
 
-        // Aktiviere FormCollectionStrategy wenn nötig UND nicht blockiert
+        // Aktiviere FormCollectionStrategy wenn nÃ¶tig UND nicht blockiert
         if (isLevel2or3 && needsFormCollection && !useSimpleStrategyOnly) {
             if (!(navigator.getStrategy() instanceof FormCollectionStrategy)) {
                 int level = config.levelDetector().isLevel3() ? 3 : 2;
-                config.logger().log("[CHANGE] Wechsle zu FormCollectionStrategy für Level " + level);
+                config.logger().log("[CHANGE] Wechsle zu FormCollectionStrategy fÃ¼r Level " + level);
 
                 INavigationStrategy newStrategy = config.strategyFactory()
                         .createStrategyByType(StrategyType.FORM_COLLECTION,
@@ -495,7 +514,7 @@ public class GameController {
     }
 
     /**
-     * LEVEL 3: Zählt Gegner aus Cell-Objekten
+     * LEVEL 3: ZÃ¤hlt Gegner aus Cell-Objekten
      */
     private int countOpponents(TurnData turnData) {
         int count = 0;
@@ -529,17 +548,17 @@ public class GameController {
     /**
      * LEVEL 3: Vermeidet Kollisionen mit Gegnern (Cell-basiert!)
      * <p>
-     * Prüft ob die geplante Aktion zu einem Feld mit Gegner führt.
-     * Falls ja, wähle alternative Richtung ohne Gegner.
+     * PrÃ¼ft ob die geplante Aktion zu einem Feld mit Gegner fÃ¼hrt.
+     * Falls ja, wÃ¤hle alternative Richtung ohne Gegner.
      * <p>
      * STRATEGIE:
-     * - Vermeide Distance ≤1 (Distance 0 = Kollision, Distance 1 = Gespräch droht!)
+     * - Vermeide Distance â‰¤1 (Distance 0 = Kollision, Distance 1 = GesprÃ¤ch droht!)
      * - Suche alternative Richtung ohne nahe Gegner
      * - Falls keine Alternative: Akzeptiere Kollision (besser als Wand)
      *
-     * @param plannedAction Ursprüngliche geplante Aktion
+     * @param plannedAction UrsprÃ¼ngliche geplante Aktion
      * @param turnData      Aktuelle Rundendaten
-     * @return Sichere Aktion (ohne Gegner-Kollision wenn möglich)
+     * @return Sichere Aktion (ohne Gegner-Kollision wenn mÃ¶glich)
      */
     private GoAction avoidOpponentCollision(GoAction plannedAction, TurnData turnData) {
         // Alle Zellen und Richtungen
@@ -561,22 +580,22 @@ public class GameController {
         int plannedIndex = getDirectionIndex(plannedAction.getDirection());
         Cell plannedCell = cells[plannedIndex];
 
-        // KRITISCH: Vermeide Gegner mit Distance ≤1
+        // KRITISCH: Vermeide Gegner mit Distance â‰¤1
         // Distance 0 = Kollision (beide Bots auf gleichem Feld)
-        // Distance 1 = Gespräch droht nächste Runde!
+        // Distance 1 = GesprÃ¤ch droht nÃ¤chste Runde!
         boolean hasNearOpponent = plannedCell.hasOpponent() &&
                 plannedCell.getOpponentDistance() <= 1;
 
         if (hasNearOpponent) {
             config.logger().log("[LEVEL3] Gegner in Richtung " + plannedAction.getDirection() +
                     " (Distance: " + plannedCell.getOpponentDistance() + ")");
-            config.logger().log("[LEVEL3] KOLLISION/GESPRÄCH droht! Suche Alternative...");
+            config.logger().log("[LEVEL3] KOLLISION/GESPRÃ„CH droht! Suche Alternative...");
 
             // Suche alternative Richtung ohne nahe Gegner
             for (int i = 0; i < 4; i++) {
                 Cell cell = cells[i];
 
-                // Prüfe: Kein naher Gegner UND keine Wand
+                // PrÃ¼fe: Kein naher Gegner UND keine Wand
                 boolean isWall = cell instanceof WallCell;
 
                 if (!isWall) {
@@ -587,14 +606,14 @@ public class GameController {
             }
 
             // Keine sichere Alternative gefunden
-            // Strategie: Wähle Richtung mit größter Distance (weniger schlimm)
+            // Strategie: WÃ¤hle Richtung mit grÃ¶ÃŸter Distance (weniger schlimm)
             config.logger().log("[LEVEL3] Keine gegner-freie Alternative!");
 
             int bestIndex = -1;
             int maxDistance = -1;
 
             for (int i = 0; i < 4; i++) {
-                // Keine Wände
+                // Keine WÃ¤nde
                 if (cells[i] instanceof WallCell)
                     continue;
 
@@ -607,7 +626,7 @@ public class GameController {
             }
 
             if (bestIndex != -1) {
-                config.logger().log("[LEVEL3] Wähle Richtung mit größter Distance: " +
+                config.logger().log("[LEVEL3] WÃ¤hle Richtung mit grÃ¶ÃŸter Distance: " +
                         directions[bestIndex] + " (Distance: " + maxDistance + ")");
                 return new GoAction(directions[bestIndex]);
             }
@@ -616,7 +635,7 @@ public class GameController {
             config.logger().log("[LEVEL3] Keine Alternative! Akzeptiere geplante Richtung.");
         }
 
-        // Keine Änderung nötig  geplante Richtung ist sicher
+        // Keine Ã„nderung nÃ¶tig  geplante Richtung ist sicher
         return plannedAction;
     }
 

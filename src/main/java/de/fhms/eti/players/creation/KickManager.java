@@ -4,8 +4,13 @@ import de.fhms.eti.players.communication.TurnData;
 import de.fhms.eti.players.domain.*;
 
 /**
- * Verwaltet die Kick-Entscheidung für Level 4, damit der GameController klein bleibt.
- * Kicken verschiebt ein Formular von der aktuellen Zelle auf eine freie Nachbarzelle.
+ * Verwaltet die Kick-Entscheidung für Level 4 und 5.
+ * 
+ * Level 4: Kicken von Formularen
+ * Level 5: Kicken von Formularen UND Sheets (Blättern)
+ * 
+ * Kicken verschiebt ein Formular oder Sheet von der aktuellen Zelle 
+ * auf eine freie Nachbarzelle.
  */
 public class KickManager {
 
@@ -15,6 +20,7 @@ public class KickManager {
     private Direction lastKickDirection;
     private int lastKickFormId = -1;
     private int lastKickPlayerId = -1;
+    private boolean lastKickWasSheet = false;
 
     public KickManager(BotConfig config) {
         this.config = config;
@@ -22,64 +28,140 @@ public class KickManager {
     }
 
     /**
-     * Liefert eine KickAction, wenn Level 4 aktiv ist, wir auf einem Formular stehen,
-     * es nicht genommen werden kann und ein freies Ziel existiert. Sonst null.
+     * Liefert eine KickAction, wenn:
+     * - Level 4: Wir auf einem fremden Formular stehen, das nicht genommen werden kann
+     * - Level 5: Zusätzlich auch wenn wir auf einem Sheet stehen
+     * 
+     * @param turnData Aktuelle Rundendaten
+     * @param currentPosition Aktuelle Position des Bots
+     * @return KickAction oder null wenn nicht gekickt werden soll
      */
     public KickAction decideKick(TurnData turnData, Position currentPosition) {
+        // Nur in Level 4 und 5 aktiv
         if (!levelDetector.isLevel4() && !levelDetector.isLevel5()) {
             return null;
         }
-        // Wenn kein Formular  dann kan natürlich nicht NICHTS gekickt werden
-        if (!(turnData.currentCell instanceof FormCell formCell)) {
-            return null;
+
+        // Level 5: Prüfe zuerst ob wir auf einem Sheet stehen
+        if (levelDetector.isLevel5() && turnData.currentCell instanceof SheetCell) {
+            return decideSheetKick(turnData, currentPosition);
         }
 
-        // Eigene Formulare nicht kicken
-        if (formCell.getPlayerId() == config.playerId()) {
-            return null;
+        // Level 4 & 5: Prüfe ob wir auf einem Formular stehen
+        if (turnData.currentCell instanceof FormCell formCell) {
+            return decideFormKick(turnData, currentPosition, formCell);
         }
 
-        // Wenn das Formular direkt genommen werden kann, nicht kicken.
-        if (config.formManager().canTakeForm(formCell)) {
-            return null;
-        }
+        return null;
+    }
 
-        //Nächste Zell nach dem Kicken muss lee sein !!Also keine WAND oder so...
+    /**
+     * Entscheidet ob ein Sheet gekickt werden soll (Level 5).
+     * 
+     * Ein Sheet sollte gekickt werden wenn:
+     * - Es im Weg liegt (z.B. verdeckt potentiell ein eigenes Formular)
+     * - Oder wir es wegkicken wollen um weiterzugehen
+     */
+    private KickAction decideSheetKick(TurnData turnData, Position currentPosition) {
+        // Finde freie Richtung zum Kicken
         Direction freeDirection = findFirstFreeDirection(turnData, null);
         if (freeDirection == null) {
-            return null;
+            return null; // Kein freies Ziel - kann nicht kicken
         }
 
-
-        // Wiederholtes Kicken derselben Form aus gleicher Position/Richtung vermeiden
-        if (isRepeatedKick(currentPosition, freeDirection, formCell)) {
+        // Wiederholtes Kicken desselben Sheets vermeiden
+        if (isRepeatedSheetKick(currentPosition, freeDirection)) {
             Direction alt = findFirstFreeDirection(turnData, freeDirection);
-            if (alt == null || isRepeatedKick(currentPosition, alt, formCell)) {
+            if (alt == null || isRepeatedSheetKick(currentPosition, alt)) {
                 return null;
             }
             freeDirection = alt;
         }
 
-        rememberLastKick(currentPosition, freeDirection, formCell);
+        rememberLastSheetKick(currentPosition, freeDirection);
         return new KickAction(freeDirection);
     }
 
+    /**
+     * Entscheidet ob ein Formular gekickt werden soll (Level 4 & 5).
+     */
+    private KickAction decideFormKick(TurnData turnData, Position currentPosition, FormCell formCell) {
+        // Eigene Formulare nicht kicken
+        if (formCell.getPlayerId() == config.playerId()) {
+            return null;
+        }
 
-    private boolean isRepeatedKick(Position pos, Direction dir, FormCell formCell) {
-        return lastKickPosition != null
+        // Wenn das Formular direkt genommen werden kann, nicht kicken
+        if (config.formManager().canTakeForm(formCell)) {
+            return null;
+        }
+
+        // Nächste Zelle nach dem Kicken muss frei sein
+        Direction freeDirection = findFirstFreeDirection(turnData, null);
+        if (freeDirection == null) {
+            return null;
+        }
+
+        // Wiederholtes Kicken derselben Form aus gleicher Position/Richtung vermeiden
+        if (isRepeatedFormKick(currentPosition, freeDirection, formCell)) {
+            Direction alt = findFirstFreeDirection(turnData, freeDirection);
+            if (alt == null || isRepeatedFormKick(currentPosition, alt, formCell)) {
+                return null;
+            }
+            freeDirection = alt;
+        }
+
+        rememberLastFormKick(currentPosition, freeDirection, formCell);
+        return new KickAction(freeDirection);
+    }
+
+    /**
+     * Prüft ob es ein wiederholter Kick desselben Formulars ist.
+     */
+    private boolean isRepeatedFormKick(Position pos, Direction dir, FormCell formCell) {
+        return !lastKickWasSheet
+                && lastKickPosition != null
                 && lastKickPosition.equals(pos)
                 && lastKickDirection == dir
                 && lastKickFormId == formCell.getFormId()
                 && lastKickPlayerId == formCell.getPlayerId();
     }
 
-    private void rememberLastKick(Position pos, Direction dir, FormCell formCell) {
+    /**
+     * Prüft ob es ein wiederholter Kick desselben Sheets ist.
+     */
+    private boolean isRepeatedSheetKick(Position pos, Direction dir) {
+        return lastKickWasSheet
+                && lastKickPosition != null
+                && lastKickPosition.equals(pos)
+                && lastKickDirection == dir;
+    }
+
+    /**
+     * Merkt sich den letzten Formular-Kick.
+     */
+    private void rememberLastFormKick(Position pos, Direction dir, FormCell formCell) {
         this.lastKickPosition = pos;
         this.lastKickDirection = dir;
         this.lastKickFormId = formCell.getFormId();
         this.lastKickPlayerId = formCell.getPlayerId();
+        this.lastKickWasSheet = false;
     }
 
+    /**
+     * Merkt sich den letzten Sheet-Kick.
+     */
+    private void rememberLastSheetKick(Position pos, Direction dir) {
+        this.lastKickPosition = pos;
+        this.lastKickDirection = dir;
+        this.lastKickFormId = -1;
+        this.lastKickPlayerId = -1;
+        this.lastKickWasSheet = true;
+    }
+
+    /**
+     * Findet die erste freie Richtung zum Kicken.
+     */
     private Direction findFirstFreeDirection(TurnData turnData, Direction avoidDirection) {
         Direction[] directions = {Direction.north, Direction.east, Direction.south, Direction.west};
         Cell[] cells = {turnData.northCell, turnData.eastCell, turnData.southCell, turnData.westCell};
@@ -95,13 +177,19 @@ public class KickManager {
         return null;
     }
 
+    /**
+     * Prüft ob eine Zelle ein gültiges Ziel für einen Kick ist.
+     * Ein Kick-Ziel muss FREI sein (Floor ohne Hindernisse).
+     */
     private boolean isFreeTargetCell(Cell cell) {
-        // Frei falls keine Wand, kein Formular, kein Ziel (Finish), kein Gegner
         if (cell instanceof WallCell) {
             return false;
         }
         if (cell instanceof FormCell) {
             return false;
+        }
+        if (cell instanceof SheetCell) {
+            return false; // Auf ein Sheet kann man nicht kicken
         }
         if (cell instanceof FinishCell) {
             return false;

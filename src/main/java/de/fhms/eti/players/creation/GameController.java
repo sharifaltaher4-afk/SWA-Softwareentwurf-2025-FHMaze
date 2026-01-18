@@ -97,7 +97,7 @@ public class GameController {
     public boolean processTurn(TurnData turnData, int turnCount) {
         reconcileLastActionResult(turnData);
 
-        if (actionResultTracker.isTakingOrTalking(turnData.lastActionResult)) {
+        if (config.levelDetector().isLevel5() && actionResultTracker.consumeSheetCooldown()) {
             config.logger().log("[LEVEL5] Aufnahme laeuft, Runde aussetzen");
             sendAndTrackAction(new PositionAction());
             return true;
@@ -149,6 +149,7 @@ public class GameController {
 
             config.logger().log("[LEVEL3] AUSWEICHEN (Spieler " + playerId + "): Bewegung " + chosenDirection);
             sendAndTrackAction(new GoAction(chosenDirection));
+            navigator.updatePosition(new GoAction(chosenDirection));
             return true;
         }
         collisionWaitRounds = 0;

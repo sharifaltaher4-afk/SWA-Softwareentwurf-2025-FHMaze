@@ -12,6 +12,7 @@ public class ActionResultTracker {
     private Position lastSentPosition;
     private Position lastPutPosition;
     private boolean sheetEmptyKnown;
+    private boolean sheetCooldownPending;
 
     public void recordAndSend(Action action, Position currentPosition, GameCommunication comm) {
         lastSentAction = action;
@@ -30,6 +31,14 @@ public class ActionResultTracker {
     public boolean canTakeSheet(Position currentPosition, ISheetManager sheetManager) {
         return sheetManager.getSheetCount() == 0
                 && (lastPutPosition == null || !lastPutPosition.equals(currentPosition));
+    }
+
+    public boolean consumeSheetCooldown() {
+        if (!sheetCooldownPending) {
+            return false;
+        }
+        sheetCooldownPending = false;
+        return true;
     }
 
     public boolean isTakingOrTalking(String lastActionResult) {
@@ -72,6 +81,7 @@ public class ActionResultTracker {
             if (result == ActionResult.OK_SHEET) {
                 sheetManager.addSheet();
                 sheetEmptyKnown = false;
+                sheetCooldownPending = true; // Aufnahme eines Blatts kostet eine Extra-Runde
             }
         }
     }

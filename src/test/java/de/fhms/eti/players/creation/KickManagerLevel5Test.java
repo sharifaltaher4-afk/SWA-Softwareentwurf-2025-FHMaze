@@ -141,28 +141,6 @@ class KickManagerLevel5Test {
     // ==========================================
 
     @Test
-    @DisplayName("Test 11: Dokumentation - Wann wird Sheet gekickt")
-    void test_11_documentationWhenSheetIsKicked() {
-        /*
-         * Ein Sheet sollte gekickt werden wenn:
-         * 
-         * 1. Bot steht auf SheetCell (currentCell instanceof SheetCell)
-         * 2. Level 5 ist aktiv (levelDetector.isLevel5())
-         * 3. Ein freies Ziel existiert (kein Wall, Form, Sheet, Finish, Gegner)
-         * 
-         * Der KickManager.decideSheetKick() prüft diese Bedingungen.
-         * 
-         * Mögliche Ergebnisse nach dem Kick:
-         * - OK <DIRECTION>: Kick erfolgreich
-         * - NOK BLOCKED: Ziel war blockiert
-         * - NOK EMPTY: Kein Sheet auf aktuellem Feld (sollte nicht passieren wenn korrekt geprüft)
-         */
-        
-        // Dieser Test dokumentiert das erwartete Verhalten
-        assertTrue(true);
-    }
-
-    @Test
     @DisplayName("Test 12: Dokumentation - Unterschied Form-Kick vs Sheet-Kick")
     void test_12_documentationFormKickVsSheetKick() {
         /*

@@ -5,11 +5,11 @@ import de.fhms.eti.players.domain.*;
 
 /**
  * Verwaltet die Kick-Entscheidung für Level 4 und 5.
- * 
+ * <p>
  * Level 4: Kicken von Formularen
  * Level 5: Kicken von Formularen UND Sheets (Blättern)
- * 
- * Kicken verschiebt ein Formular oder Sheet von der aktuellen Zelle 
+ * <p>
+ * Kicken verschiebt ein Formular oder Sheet von der aktuellen Zelle
  * auf eine freie Nachbarzelle.
  */
 public class KickManager {
@@ -31,8 +31,8 @@ public class KickManager {
      * Liefert eine KickAction, wenn:
      * - Level 4: Wir auf einem fremden Formular stehen, das nicht genommen werden kann
      * - Level 5: Zusätzlich auch wenn wir auf einem Sheet stehen
-     * 
-     * @param turnData Aktuelle Rundendaten
+     *
+     * @param turnData        Aktuelle Rundendaten
      * @param currentPosition Aktuelle Position des Bots
      * @return KickAction oder null wenn nicht gekickt werden soll
      */
@@ -57,7 +57,7 @@ public class KickManager {
 
     /**
      * Entscheidet ob ein Sheet gekickt werden soll (Level 5).
-     * 
+     * <p>
      * Ein Sheet sollte gekickt werden wenn:
      * - Es im Weg liegt (z.B. verdeckt potentiell ein eigenes Formular)
      * - Oder wir es wegkicken wollen um weiterzugehen

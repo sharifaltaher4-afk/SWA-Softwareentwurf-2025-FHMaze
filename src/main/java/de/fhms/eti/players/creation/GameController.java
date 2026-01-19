@@ -1,8 +1,8 @@
 package de.fhms.eti.players.creation;
 
-import de.fhms.eti.players.domain.*;
 import de.fhms.eti.players.communication.GameCommunication;
 import de.fhms.eti.players.communication.TurnData;
+import de.fhms.eti.players.domain.*;
 import de.fhms.eti.players.strategy.FormCollectionStrategy;
 import de.fhms.eti.players.strategy.INavigationStrategy;
 
@@ -137,8 +137,7 @@ public class GameController {
                         collisionWaitRounds = 2;
                         collisionForcedDirection = Direction.west;
                     }
-                    case 4 ->
-                        collisionForcedDirection = Direction.east;
+                    case 4 -> collisionForcedDirection = Direction.east;
 
                     default -> collisionForcedDirection = Direction.north;
                 }
@@ -266,7 +265,7 @@ public class GameController {
 
     /**
      * Verarbeitet Formular- und Sheet-Aktionen
-     * 
+     * <p>
      * LEVEL 5 ERWEITERUNG:
      * - Sheets können aufgenommen werden (TAKE)
      * - Sheets können gekickt werden (KICK) - NEU!
@@ -282,7 +281,7 @@ public class GameController {
                     config.logger().log("[LEVEL5] Blatt aufgenommen: take");
                     return true;
                 }
-                
+
                 // Option 2: Sheet wegkicken (um zu sehen was darunter ist)
                 KickAction kickAction = kickManager.decideKick(turnData, navigator.getCurrentPosition());
                 if (kickAction != null) {

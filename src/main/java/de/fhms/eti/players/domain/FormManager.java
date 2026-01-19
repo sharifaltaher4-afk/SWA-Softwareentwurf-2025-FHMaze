@@ -20,9 +20,9 @@ import java.util.Map;
 public class FormManager implements IFormManager {
     private final int myPlayerId; // Eigene Spieler-ID
     private final List<Integer> collectedForms; // Gesammelte Formular-IDs
+    private final Map<Integer, Position> foundFormPositions;// Formular Positionen
     private int nextFormId; // Nächste erwartete Formular-ID ""Reihenfolge
     private int totalFormsNeeded; // Anzahl benötigter Formulare
-    private final Map<Integer, Position> foundFormPositions;// Formular Positionen
 
     /**
      * Konstruktor Initialisiert den FormManager

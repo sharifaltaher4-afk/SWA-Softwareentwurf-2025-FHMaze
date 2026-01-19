@@ -1,10 +1,10 @@
 package de.fhms.eti.players.creation;
 
+import de.fhms.eti.players.communication.*;
 import de.fhms.eti.players.domain.FormManager;
 import de.fhms.eti.players.domain.LevelDetector;
 import de.fhms.eti.players.domain.Maze;
 import de.fhms.eti.players.domain.SheetManager;
-import de.fhms.eti.players.communication.*;
 
 /**
  * MyBot - Optimierte Version mit Erzeugungsmustern

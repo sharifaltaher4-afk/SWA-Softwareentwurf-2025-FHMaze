@@ -1,11 +1,7 @@
 package de.fhms.eti.players.creation;
 
-import de.fhms.eti.players.domain.FormManager;
-import de.fhms.eti.players.domain.ISheetManager;
-import de.fhms.eti.players.domain.LevelDetector;
-import de.fhms.eti.players.domain.Maze;
-import de.fhms.eti.players.domain.Position;
 import de.fhms.eti.players.communication.Logger;
+import de.fhms.eti.players.domain.*;
 
 /**
  * Unveränderliche Bot-Konfiguration

@@ -1,0 +1,224 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Action
+class ActionResultTracker
+class BFSPathFinderStrategy
+entity BotConfig << record >>
+class BotConfigBuilder
+class Cell
+enum Direction << enumeration >>
+class FinishAction
+class FinishCell
+class FloorCell
+class FormCell
+class FormCollectionStrategy
+class FormManager
+class GameCommunication
+class GameController
+class GoAction
+interface IDeserialize << interface >>
+interface IFormManager << interface >>
+interface ILevelDetector << interface >>
+interface IMazeMemory << interface >>
+interface INavigationStrategy << interface >>
+interface INavigationStrategyFactory << interface >>
+interface IPathFinder << interface >>
+interface ISerialize << interface >>
+interface ISheetManager << interface >>
+class InitData
+class KickAction
+class KickManager
+class LevelDetector
+class Logger
+class Maze
+class MinimalBot
+class MyBot
+class NavigationStrategyFactory
+class Navigator
+class OpponentDetector
+entity OpponentInfo << record >>
+entity Position << record >>
+class PositionAction
+class PutAction
+class SheetCell
+class SheetManager
+class SimpleNavigationStrategy
+enum StrategyType << enumeration >>
+class TakeAction
+class TextDeserializer
+class TextSerializer
+class TurnData
+class WallCell
+
+Action                      ..>  FinishAction               
+Action                      ..>  GoAction                   
+Action                      ..>  KickAction                 
+Action                      ..>  PositionAction             
+Action                      ..>  PutAction                  
+Action                      ..>  TakeAction                 
+ActionResultTracker        "1" *--> "lastSentAction\n1" Action                     
+ActionResultTracker         ..>  GameCommunication          
+ActionResultTracker         ..>  GoAction                   
+ActionResultTracker         ..>  ISheetManager              
+ActionResultTracker         ..>  Navigator                  
+ActionResultTracker        "1" *--> "lastSentPosition\n1" Position                   
+ActionResultTracker         ..>  PutAction                  
+ActionResultTracker         ..>  TakeAction                 
+ActionResultTracker         ..>  TurnData                   
+BFSPathFinderStrategy      "1" *--> "knownCells\n*" Cell                       
+BFSPathFinderStrategy      "1" *--> "DIRECTIONS\n*" Direction                  
+BFSPathFinderStrategy       ..>  FinishCell                 
+BFSPathFinderStrategy       ..>  INavigationStrategy        
+BFSPathFinderStrategy       ..|>  IPathFinder                
+BFSPathFinderStrategy      "1" *--> "knownCells\n*" Position                   
+BFSPathFinderStrategy       ..>  WallCell                   
+BotConfig                  "1" *--> "maze\n1" Maze                       
+BotConfigBuilder           "1" *--> "formManager\n1" FormManager                
+BotConfigBuilder           "1" *--> "strategyFactory\n1" INavigationStrategyFactory 
+BotConfigBuilder           "1" *--> "sheetManager\n1" ISheetManager              
+BotConfigBuilder           "1" *--> "levelDetector\n1" LevelDetector              
+BotConfigBuilder           "1" *--> "logger\n1" Logger                     
+BotConfigBuilder           "1" *--> "maze\n1" Maze                       
+BotConfigBuilder           "1" *--> "startPosition\n1" Position                   
+Cell                        ..>  FinishCell                 
+Cell                        ..>  FloorCell                  
+Cell                        ..>  FormCell                   
+Cell                        ..>  SheetCell                  
+Cell                        ..>  WallCell                   
+FinishAction                --|>  Action                      
+FinishCell                  --|>  Cell                        
+FloorCell                   --|>  Cell                        
+FormCell                    --|>  Cell                        
+FormCollectionStrategy      ..>  Cell                        
+FormCollectionStrategy      ..>  Direction                   
+FormCollectionStrategy      ..>  FinishCell                  
+FormCollectionStrategy      ..>  FormCell                    
+FormCollectionStrategy     "1" *--> "currentPlan\n*" GoAction                   
+FormCollectionStrategy     "1" *--> "formManager\n1" IFormManager               
+FormCollectionStrategy      ..|>  INavigationStrategy        
+FormCollectionStrategy     "1" *--> "fallbackStrategy\n1" INavigationStrategy        
+FormCollectionStrategy     "1" *--> "pathFinder\n1" IPathFinder                
+FormCollectionStrategy     "1" *--> "maze\n1" Maze                       
+FormCollectionStrategy     "1" *--> "formPositions\n*" Position                   
+FormCollectionStrategy      ..>  WallCell                   
+FormManager                 ..>  FormCell                    
+FormManager                 ..|>  IFormManager                
+FormManager                "1" *--> "foundFormPositions\n*" Position                   
+GameCommunication           ..>  Action                      
+GameCommunication           ..>  Cell                        
+GameCommunication          "1" *--> "deserializer\n1" IDeserialize               
+GameCommunication          "1" *--> "serializer\n1" ISerialize                 
+GameController              ..>  Action                      
+GameController             "1" *--> "actionResultTracker\n1" ActionResultTracker        
+GameController             "1" *--> "config\n1" BotConfig                  
+GameController              ..>  Cell                        
+GameController             "1" *--> "collisionForcedDirection\n1" Direction                  
+GameController              ..>  FinishCell                  
+GameController              ..>  FormCell                    
+GameController              ..>  FormCollectionStrategy      
+GameController              ..>  FormManager                 
+GameController             "1" *--> "comm\n1" GameCommunication          
+GameController              ..>  INavigationStrategy         
+GameController              ..>  INavigationStrategyFactory 
+GameController              ..>  ISheetManager               
+GameController              ..>  KickAction                  
+GameController             "1" *--> "kickManager\n1" KickManager                
+GameController              ..>  LevelDetector               
+GameController              ..>  Logger                      
+GameController              ..>  Maze                        
+GameController             "1" *--> "navigator\n1" Navigator                  
+GameController              ..>  Position                    
+GameController              ..>  SheetCell                   
+GameController              ..>  StrategyType               
+GameController              ..>  TurnData                    
+GameController              ..>  WallCell                    
+GoAction                    --|>  Action                      
+GoAction                   "1" *--> "direction\n1" Direction                  
+IDeserialize                ..>  Action                      
+IFormManager                ..>  FormCell                    
+ILevelDetector              ..>  Cell                        
+IMazeMemory                 ..>  Position                   
+INavigationStrategy         ..>  Cell                        
+INavigationStrategy         ..>  FinishCell                  
+INavigationStrategy         ..>  GoAction                    
+INavigationStrategy         ..>  Position                    
+INavigationStrategyFactory  ..>  IFormManager                
+INavigationStrategyFactory  ..>  INavigationStrategy         
+INavigationStrategyFactory  ..>  Maze                        
+INavigationStrategyFactory  ..>  StrategyType               
+IPathFinder                 ..>  Cell                        
+IPathFinder                 ..>  GoAction                    
+IPathFinder                 ..>  Position                   
+ISerialize                  ..>  Cell                        
+InitData                   "1" *--> "startPosition\n1" Position                   
+KickAction                  --|>  Action                      
+KickAction                 "1" *--> "direction\n1" Direction                  
+KickManager                "1" *--> "config\n1" BotConfig                  
+KickManager                 ..>  Cell                        
+KickManager                "1" *--> "lastKickDirection\n1" Direction                  
+KickManager                 ..>  FinishCell                  
+KickManager                 ..>  FormCell                    
+KickManager                 ..>  FormManager                 
+KickManager                "1" *--> "levelDetector\n1" ILevelDetector              
+KickManager                "1" *--> "lastKickPosition\n1" Position                   
+KickManager                 ..>  SheetCell                   
+KickManager                 ..>  TurnData                    
+KickManager                 ..>  WallCell                    
+LevelDetector               ..>  Cell                        
+LevelDetector               ..>  FinishCell                  
+LevelDetector               ..|>  ILevelDetector              
+Logger                      ..>  Action                      
+Logger                      ..>  Cell                        
+Logger                      ..>  Position                    
+Maze                        ..|>  IMazeMemory                
+Maze                       "1" *--> "visitCount\n*" Position                   
+MyBot                       ..>  BotConfig                  
+MyBot                       ..>  GameController             
+MyBot                       ..>  IDeserialize               
+MyBot                       ..>  INavigationStrategyFactory 
+MyBot                       ..>  ISerialize                 
+MyBot                       ..>  InitData                   
+MyBot                       ..>  Logger                      
+MyBot                       ..>  TurnData                    
+NavigationStrategyFactory   ..>  IFormManager                
+NavigationStrategyFactory   ..>  INavigationStrategy         
+NavigationStrategyFactory   ..|>  INavigationStrategyFactory 
+NavigationStrategyFactory   ..>  Maze                        
+NavigationStrategyFactory   ..>  StrategyType               
+Navigator                   ..>  Cell                        
+Navigator                   ..>  GoAction                    
+Navigator                  "1" *--> "strategy\n1" INavigationStrategy        
+Navigator                  "1" *--> "maze\n1" Maze                       
+Navigator                  "1" *--> "currentPosition\n1" Position                   
+OpponentDetector           "1" *--> "opponentsByDirection\n*" OpponentInfo                
+Position                    ..>  Direction                   
+PositionAction              --|>  Action                      
+PutAction                   --|>  Action                      
+SheetCell                   --|>  Cell                        
+SheetManager                ..|>  ISheetManager               
+SimpleNavigationStrategy    ..>  Cell                        
+SimpleNavigationStrategy    ..>  Direction                   
+SimpleNavigationStrategy    ..>  FinishCell                  
+SimpleNavigationStrategy    ..|>  INavigationStrategy        
+SimpleNavigationStrategy   "1" *--> "maze\n1" Maze                       
+SimpleNavigationStrategy    ..>  Position                   
+SimpleNavigationStrategy    ..>  WallCell                    
+TakeAction                  --|>  Action                      
+TextDeserializer            ..>  Action                      
+TextDeserializer            ..>  FinishAction                
+TextDeserializer            ..>  GoAction                    
+TextDeserializer            ..|>  IDeserialize                
+TextDeserializer            ..>  KickAction                  
+TextDeserializer            ..>  PositionAction              
+TextDeserializer            ..>  PutAction                   
+TextDeserializer            ..>  TakeAction                  
+TextSerializer              ..>  Cell                        
+TextSerializer              ..|>  ISerialize                  
+TextSerializer              ..>  OpponentDetector            
+TurnData                   "1" *--> "currentCell\n1" Cell                       
+WallCell                    --|>  Cell                        
+@enduml

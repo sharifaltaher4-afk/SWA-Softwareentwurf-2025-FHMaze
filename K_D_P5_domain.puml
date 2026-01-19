@@ -1,0 +1,34 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+enum Direction << enumeration >>
+class FormManager
+interface IFormManager << interface >>
+interface ILevelDetector << interface >>
+interface IMazeMemory << interface >>
+interface ISheetManager << interface >>
+class LevelDetector
+class Maze
+class MinimalBot
+class Navigator
+class OpponentDetector
+entity OpponentInfo << record >>
+entity Position << record >>
+class SheetManager
+
+FormManager                 ..|>  IFormManager                
+FormManager                "1" *--> "foundFormPositions\n*" Position                   
+IMazeMemory                 ..>  Position                   
+LevelDetector               ..|>  ILevelDetector              
+Maze                        ..|>  IMazeMemory                
+Maze                       "1" *--> "visitCount\n*" Position                   
+Navigator                  "1" *--> "maze\n1" Maze                       
+Navigator                  "1" *--> "currentPosition\n1" Position                   
+OpponentDetector           "1" *--> "opponentsByDirection\n*" OpponentInfo                
+OpponentDetector            ..>  OpponentInfo               : "®create¯"
+Position                    ..>  Direction                   
+SheetManager                ..|>  ISheetManager               
+@enduml

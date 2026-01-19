@@ -1,0 +1,82 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Action
+class ActionResultTracker
+entity BotConfig << record >>
+class FormCollectionStrategy
+class FormManager
+class GameCommunication
+class GameController
+class GoAction
+interface ILevelDetector << interface >>
+interface INavigationStrategy << interface >>
+interface INavigationStrategyFactory << interface >>
+interface ISheetManager << interface >>
+class KickManager
+class LevelDetector
+class Maze
+class NavigationStrategyFactory
+class Navigator
+class SheetManager
+class SimpleNavigationStrategy
+enum StrategyType << enumeration >>
+
+Action                      ..>  GoAction                   
+ActionResultTracker        "1" *--> "lastSentAction\n1" Action                     
+ActionResultTracker         ..>  GameCommunication          
+ActionResultTracker         ..>  GoAction                   
+ActionResultTracker         ..>  ISheetManager              
+ActionResultTracker         ..>  Navigator                  
+BotConfig                  "1" *--> "maze\n1" Maze                       
+FormCollectionStrategy     "1" *--> "currentPlan\n*" GoAction                   
+FormCollectionStrategy      ..>  GoAction                   : "®create¯"
+FormCollectionStrategy      ..|>  INavigationStrategy        
+FormCollectionStrategy     "1" *--> "fallbackStrategy\n1" INavigationStrategy        
+FormCollectionStrategy     "1" *--> "maze\n1" Maze                       
+FormCollectionStrategy      ..>  SimpleNavigationStrategy   : "®create¯"
+GameCommunication           ..>  Action                      
+GameController              ..>  Action                      
+GameController             "1" *--> "actionResultTracker\n1" ActionResultTracker        
+GameController              ..>  ActionResultTracker        : "®create¯"
+GameController             "1" *--> "config\n1" BotConfig                  
+GameController              ..>  FormCollectionStrategy      
+GameController              ..>  FormManager                 
+GameController             "1" *--> "comm\n1" GameCommunication          
+GameController              ..>  GoAction                   : "®create¯"
+GameController              ..>  INavigationStrategy         
+GameController              ..>  INavigationStrategyFactory 
+GameController              ..>  ISheetManager               
+GameController             "1" *--> "kickManager\n1" KickManager                
+GameController              ..>  KickManager                : "®create¯"
+GameController              ..>  LevelDetector               
+GameController              ..>  Maze                        
+GameController              ..>  Navigator                  : "®create¯"
+GameController             "1" *--> "navigator\n1" Navigator                  
+GameController              ..>  StrategyType               
+GoAction                    --|>  Action                      
+INavigationStrategy         ..>  GoAction                    
+INavigationStrategyFactory  ..>  INavigationStrategy         
+INavigationStrategyFactory  ..>  Maze                        
+INavigationStrategyFactory  ..>  StrategyType               
+KickManager                "1" *--> "config\n1" BotConfig                  
+KickManager                 ..>  FormManager                 
+KickManager                "1" *--> "levelDetector\n1" ILevelDetector              
+LevelDetector               ..|>  ILevelDetector              
+NavigationStrategyFactory   ..>  FormCollectionStrategy     : "®create¯"
+NavigationStrategyFactory   ..>  INavigationStrategy         
+NavigationStrategyFactory   ..|>  INavigationStrategyFactory 
+NavigationStrategyFactory   ..>  Maze                        
+NavigationStrategyFactory   ..>  SimpleNavigationStrategy   : "®create¯"
+NavigationStrategyFactory   ..>  StrategyType               
+Navigator                   ..>  GoAction                    
+Navigator                  "1" *--> "strategy\n1" INavigationStrategy        
+Navigator                  "1" *--> "maze\n1" Maze                       
+SheetManager                ..|>  ISheetManager               
+SimpleNavigationStrategy    ..>  GoAction                   : "®create¯"
+SimpleNavigationStrategy    ..|>  INavigationStrategy        
+SimpleNavigationStrategy   "1" *--> "maze\n1" Maze                       
+@enduml

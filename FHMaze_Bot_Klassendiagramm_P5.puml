@@ -1,0 +1,573 @@
+@startuml FHMaze_Bot_Klassendiagramm
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam groupInheritance 2
+
+title FHMaze Bot - UML-Klassendiagramm (Level 1-5)\nPraktikum 5: Verdecken
+
+' ==========================================
+' PACKAGES
+' ==========================================
+
+package "de.fhms.eti.players.creation" as creation #LightBlue {
+    
+    class MyBot <<Main>> {
+        + {static} main(args: String[]): void
+    }
+    
+    class GameController <<Singleton>> {
+        - {static} instance: GameController
+        - config: BotConfig
+        - navigator: Navigator
+        - comm: GameCommunication
+        - kickManager: KickManager
+        - actionResultTracker: ActionResultTracker
+        - useSimpleStrategyOnly: boolean
+        - simpleStrategyForceRounds: int
+        - collisionWaitRounds: int
+        - collisionForcedDirection: Direction
+        --
+        - GameController()
+        + {static} getInstance(): GameController
+        + {static} reset(): void
+        + initialize(config: BotConfig, comm: GameCommunication): void
+        + processTurn(turnData: TurnData, turnCount: int): boolean
+        - handleLevelChange(newLevel: int): void
+        - processFormActions(turnData: TurnData): boolean
+        - avoidOpponentCollision(action: GoAction, turnData: TurnData): GoAction
+        - shouldFinish(cell: Cell): boolean
+    }
+    
+    class KickManager {
+        - levelDetector: ILevelDetector
+        - config: BotConfig
+        - lastKickPosition: Position
+        - lastKickDirection: Direction
+        - lastKickFormId: int
+        - lastKickPlayerId: int
+        - lastKickWasSheet: boolean
+        --
+        + KickManager(config: BotConfig)
+        + decideKick(turnData: TurnData, currentPos: Position): KickAction
+        - decideSheetKick(turnData: TurnData, currentPos: Position): KickAction
+        - decideFormKick(turnData: TurnData, currentPos: Position, formCell: FormCell): KickAction
+        - findFirstFreeDirection(turnData: TurnData, avoid: Direction): Direction
+        - isFreeTargetCell(cell: Cell): boolean
+    }
+    
+    class ActionResultTracker {
+        - lastSentAction: Action
+        - lastSentPosition: Position
+        - lastPutPosition: Position
+        - sheetEmptyKnown: boolean
+        - sheetCooldownPending: boolean
+        --
+        + recordAndSend(action: Action, pos: Position, comm: GameCommunication): void
+        + reconcile(turnData: TurnData, nav: Navigator, sheetMgr: ISheetManager): void
+        + canTakeSheet(pos: Position, sheetMgr: ISheetManager): boolean
+        + consumeSheetCooldown(): boolean
+        + isSheetEmptyKnown(): boolean
+        + isSameAsLastPut(pos: Position): boolean
+    }
+    
+    class BotConfig {
+        + maze: Maze
+        + formManager: FormManager
+        + sheetManager: ISheetManager
+        + strategyFactory: INavigationStrategyFactory
+        + logger: Logger
+        + levelDetector: LevelDetector
+        + playerId: int
+        + startPosition: Position
+    }
+    
+    class BotConfigBuilder <<Builder>> {
+        - maze: Maze
+        - formManager: FormManager
+        - sheetManager: ISheetManager
+        - strategyFactory: INavigationStrategyFactory
+        - logger: Logger
+        - levelDetector: LevelDetector
+        - playerId: int
+        - startPosition: Position
+        --
+        + withMaze(maze: Maze): BotConfigBuilder
+        + withFormManager(fm: FormManager): BotConfigBuilder
+        + withSheetManager(sm: ISheetManager): BotConfigBuilder
+        + withStrategyFactory(sf: INavigationStrategyFactory): BotConfigBuilder
+        + withLogger(logger: Logger): BotConfigBuilder
+        + withLevelDetector(ld: LevelDetector): BotConfigBuilder
+        + withPlayerId(id: int): BotConfigBuilder
+        + withStartPosition(pos: Position): BotConfigBuilder
+        + build(): BotConfig
+    }
+    
+    interface INavigationStrategyFactory <<interface>> {
+        + createStrategy(level: int, maze: Maze, fm: IFormManager): INavigationStrategy
+        + createStrategyByType(type: StrategyType, maze: Maze, fm: IFormManager): INavigationStrategy
+    }
+    
+    class NavigationStrategyFactory <<Factory Method>> {
+        + createStrategy(level: int, maze: Maze, fm: IFormManager): INavigationStrategy
+        + createStrategyByType(type: StrategyType, maze: Maze, fm: IFormManager): INavigationStrategy
+    }
+    
+    enum StrategyType {
+        SIMPLE
+        FORM_COLLECTION
+    }
+}
+
+package "de.fhms.eti.players.domain" as domain #LightGreen {
+    
+    class Navigator {
+        - maze: Maze
+        - currentPosition: Position
+        - strategy: INavigationStrategy
+        --
+        + Navigator(maze: Maze, startPos: Position, strategy: INavigationStrategy)
+        + decideNextMove(north: Cell, east: Cell, south: Cell, west: Cell): GoAction
+        + updatePosition(action: GoAction): void
+        + getCurrentPosition(): Position
+        + setCurrentPosition(pos: Position): void
+        + getStrategy(): INavigationStrategy
+        + setStrategy(strategy: INavigationStrategy): void
+    }
+    
+    class Position <<Value Object>> {
+        + x: int
+        + y: int
+        --
+        + move(direction: Direction): Position
+        + equals(obj: Object): boolean
+        + hashCode(): int
+    }
+    
+    enum Direction {
+        north
+        east
+        south
+        west
+    }
+    
+    class Maze <<Memory>> {
+        - sizeX: int
+        - sizeY: int
+        - level: int
+        - visitCounts: int[][]
+        --
+        + Maze(sizeX: int, sizeY: int, level: int)
+        + markVisited(pos: Position): void
+        + getVisitCount(pos: Position): int
+        + isInBounds(pos: Position): boolean
+    }
+    
+    ' --- CELL HIERARCHY ---
+    abstract class Cell {
+        - hasOpponent: boolean
+        - opponentDistance: int
+        --
+        + Cell()
+        + Cell(hasOpponent: boolean, distance: int)
+        + hasOpponent(): boolean
+        + getOpponentDistance(): int
+        + {abstract} isAccessable(): boolean
+    }
+    
+    class FloorCell {
+        + isAccessable(): boolean
+    }
+    
+    class WallCell {
+        + isAccessable(): boolean
+    }
+    
+    class FormCell {
+        - playerId: int
+        - formId: int
+        --
+        + FormCell(playerId: int, formId: int, hasOpp: boolean, dist: int)
+        + getPlayerId(): int
+        + getFormId(): int
+        + isAccessable(): boolean
+    }
+    
+    class FinishCell {
+        - playerId: int
+        - formCount: int
+        --
+        + FinishCell(playerId: int, formCount: int, hasOpp: boolean, dist: int)
+        + getPlayerId(): int
+        + getFormCount(): int
+        + isAccessable(): boolean
+    }
+    
+    class SheetCell {
+        + SheetCell()
+        + SheetCell(hasOpponent: boolean, distance: int)
+        + isAccessable(): boolean
+    }
+    
+    ' --- ACTION HIERARCHY ---
+    abstract class Action <<sealed>>
+    
+    class GoAction {
+        - direction: Direction
+        --
+        + GoAction(direction: Direction)
+        + getDirection(): Direction
+    }
+    
+    class FinishAction
+    class PositionAction
+    class TakeAction
+    class PutAction
+    
+    class KickAction {
+        - direction: Direction
+        --
+        + KickAction(direction: Direction)
+        + getDirection(): Direction
+    }
+    
+    ' --- MANAGERS ---
+    interface IFormManager <<interface>> {
+        + canTakeForm(cell: FormCell): boolean
+        + takeForm(cell: FormCell): boolean
+        + hasAllForms(): boolean
+        + getNextFormId(): int
+        + getCollectedForms(): List<Integer>
+    }
+    
+    class FormManager {
+        - playerId: int
+        - collectedForms: List<Integer>
+        - requiredFormCount: int
+        --
+        + FormManager(playerId: int)
+        + canTakeForm(cell: FormCell): boolean
+        + takeForm(cell: FormCell): boolean
+        + hasAllForms(): boolean
+        + getNextFormId(): int
+        + getCollectedForms(): List<Integer>
+        + updateRequiredFormCount(count: int): void
+    }
+    
+    interface ISheetManager <<interface>> {
+        + getSheetCount(): int
+        + hasSheets(): boolean
+        + addSheet(): void
+        + consumeSheet(): boolean
+    }
+    
+    class SheetManager {
+        - sheetCount: int
+        --
+        + SheetManager(sheetCount: int)
+        + getSheetCount(): int
+        + hasSheets(): boolean
+        + addSheet(): void
+        + consumeSheet(): boolean
+    }
+    
+    interface ILevelDetector <<interface>> {
+        + detectLevel(cell: Cell): int
+        + isLevel1(): boolean
+        + isLevel2(): boolean
+        + isLevel3(): boolean
+        + isLevel4(): boolean
+        + isLevel5(): boolean
+        + getCurrentLevel(): int
+        + setCurrentLevel(level: int): void
+    }
+    
+    class LevelDetector {
+        - currentLevel: int
+        --
+        + detectLevel(cell: Cell): int
+        + isLevel1(): boolean
+        + isLevel2(): boolean
+        + isLevel3(): boolean
+        + isLevel4(): boolean
+        + isLevel5(): boolean
+        + getCurrentLevel(): int
+        + setCurrentLevel(level: int): void
+    }
+    
+    class OpponentDetector <<Utility>> {
+        + {static} removeOpponentMarker(input: String): String
+    }
+    
+    class OpponentInfo {
+        + hasOpponent: boolean
+        + distance: int
+    }
+}
+
+package "de.fhms.eti.players.strategy" as strategy #LightYellow {
+    
+    interface INavigationStrategy <<interface>> {
+        + decideNextMove(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): GoAction
+        + setPlayerId(playerId: int): void
+        + {static} isOtherPlayersFinish(cell: Cell, myPlayerId: int): boolean
+    }
+    
+    class SimpleNavigationStrategy {
+        - maze: Maze
+        - myPlayerId: int
+        --
+        + SimpleNavigationStrategy(maze: Maze)
+        + decideNextMove(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): GoAction
+        + setPlayerId(playerId: int): void
+        - chooseLeastVisited(pos: Position, cells: Cell[], dirs: Direction[]): GoAction
+    }
+    
+    class FormCollectionStrategy {
+        - maze: Maze
+        - formManager: IFormManager
+        - formPositions: Map<Integer, Position>
+        - pathFinder: IPathFinder
+        - fallbackStrategy: INavigationStrategy
+        - myPlayerId: int
+        - finishPosition: Position
+        - currentPlan: Deque<GoAction>
+        - activeTarget: Position
+        --
+        + FormCollectionStrategy(maze: Maze, fm: IFormManager, pf: IPathFinder)
+        + decideNextMove(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): GoAction
+        + setPlayerId(playerId: int): void
+        - scanAndSave(pos: Position, dir: Direction, cell: Cell): void
+        - determineTarget(): Position
+        - refreshPlan(currentPos: Position, target: Position): void
+        - explore(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): GoAction
+    }
+    
+    interface IPathFinder <<interface>> {
+        + updateKnowledge(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): void
+        + buildPath(start: Position, target: Position, playerId: int): Deque<GoAction>
+        + buildPathToFrontier(start: Position, playerId: int): Deque<GoAction>
+    }
+    
+    class BFSPathFinderStrategy {
+        - knownCells: Map<Position, Cell>
+        --
+        + updateKnowledge(pos: Position, north: Cell, east: Cell, south: Cell, west: Cell): void
+        + buildPath(start: Position, target: Position, playerId: int): Deque<GoAction>
+        + buildPathToFrontier(start: Position, playerId: int): Deque<GoAction>
+        - runBfs(start: Position, playerId: int, condition: Predicate<Position>): MapData
+        - isWalkable(cell: Cell, playerId: int): boolean
+        - hasUnknownNeighbor(pos: Position): boolean
+    }
+}
+
+package "de.fhms.eti.players.communication" as communication #LightPink {
+    
+    class GameCommunication {
+        - serializer: ISerialize
+        - deserializer: IDeserialize
+        - input: Scanner
+        --
+        + GameCommunication(serializer: ISerialize, deserializer: IDeserialize)
+        + readInit(): InitData
+        + readTurn(): TurnData
+        + sendAction(action: Action): void
+        + close(): void
+    }
+    
+    interface ISerialize <<interface>> {
+        + serializeCellStatus(input: String): Cell
+    }
+    
+    class TextSerializer {
+        + serializeCellStatus(input: String): Cell
+        - parseOpponentInfo(cellStatus: String): OpponentInfo
+    }
+    
+    interface IDeserialize <<interface>> {
+        + deserializeAction(action: Action): String
+    }
+    
+    class TextDeserializer {
+        + deserializeAction(action: Action): String
+    }
+    
+    class InitData {
+        + sizeX: int
+        + sizeY: int
+        + level: int
+        + playerId: int
+        + startX: int
+        + startY: int
+        + sheetCount: int
+        + startPosition: Position
+    }
+    
+    class TurnData {
+        + lastActionResult: String
+        + currentCell: Cell
+        + northCell: Cell
+        + eastCell: Cell
+        + southCell: Cell
+        + westCell: Cell
+    }
+    
+    class Logger <<Singleton>> {
+        - {static} instance: Logger
+        - writer: PrintWriter
+        --
+        + {static} getInstance(): Logger
+        + initialize(mazeName: String, playerId: int, level: int): void
+        + log(message: String): void
+        + logMovement(from: Position, to: Position, action: Action, context: String): void
+        + logFormInfo(cell: Cell, canTake: boolean, reason: String): void
+        + logLevelDetection(cell: Cell, level: int): void
+        + logCollectedForms(forms: List<Integer>, nextId: int): void
+        + close(): void
+    }
+}
+
+' ==========================================
+' RELATIONSHIPS
+' ==========================================
+
+' --- Inheritance ---
+Cell <|-- FloorCell
+Cell <|-- WallCell
+Cell <|-- FormCell
+Cell <|-- FinishCell
+Cell <|-- SheetCell
+
+Action <|-- GoAction
+Action <|-- FinishAction
+Action <|-- PositionAction
+Action <|-- TakeAction
+Action <|-- PutAction
+Action <|-- KickAction
+
+INavigationStrategy <|.. SimpleNavigationStrategy
+INavigationStrategy <|.. FormCollectionStrategy
+IPathFinder <|.. BFSPathFinderStrategy
+IFormManager <|.. FormManager
+ISheetManager <|.. SheetManager
+ILevelDetector <|.. LevelDetector
+INavigationStrategyFactory <|.. NavigationStrategyFactory
+ISerialize <|.. TextSerializer
+IDeserialize <|.. TextDeserializer
+
+' --- Composition & Aggregation ---
+MyBot ..> GameController : uses
+MyBot ..> GameCommunication : creates
+MyBot ..> BotConfigBuilder : uses
+
+GameController --> BotConfig : uses
+GameController --> Navigator : has
+GameController --> GameCommunication : uses
+GameController --> KickManager : has
+GameController --> ActionResultTracker : has
+
+BotConfigBuilder ..> BotConfig : creates
+BotConfig --> Maze : references
+BotConfig --> FormManager : references
+BotConfig --> ISheetManager : references
+BotConfig --> INavigationStrategyFactory : references
+BotConfig --> Logger : references
+BotConfig --> LevelDetector : references
+BotConfig --> Position : references
+
+Navigator --> Maze : uses
+Navigator --> Position : has
+Navigator --> INavigationStrategy : uses
+
+KickManager --> ILevelDetector : uses
+KickManager --> BotConfig : uses
+
+FormCollectionStrategy --> IFormManager : uses
+FormCollectionStrategy --> IPathFinder : uses
+FormCollectionStrategy --> Maze : uses
+FormCollectionStrategy ..> INavigationStrategy : fallback
+
+SimpleNavigationStrategy --> Maze : uses
+
+NavigationStrategyFactory ..> SimpleNavigationStrategy : creates
+NavigationStrategyFactory ..> FormCollectionStrategy : creates
+NavigationStrategyFactory ..> BFSPathFinderStrategy : creates
+
+GameCommunication --> ISerialize : uses
+GameCommunication --> IDeserialize : uses
+GameCommunication ..> InitData : creates
+GameCommunication ..> TurnData : creates
+
+TextSerializer ..> Cell : creates
+TextSerializer ..> OpponentDetector : uses
+TextDeserializer ..> Action : reads
+
+' ==========================================
+' NOTES
+' ==========================================
+
+note right of GameController
+  <b>Singleton Pattern</b>
+  Zentrale Spielsteuerung
+  koordiniert alle Komponenten
+end note
+
+note right of BotConfigBuilder
+  <b>Builder Pattern</b>
+  Erstellt immutable BotConfig
+  Schritt für Schritt
+end note
+
+note right of NavigationStrategyFactory
+  <b>Factory Method Pattern</b>
+  Erzeugt Strategien basierend
+  auf Level oder Typ
+end note
+
+note right of INavigationStrategy
+  <b>Strategy Pattern</b>
+  Austauschbare Algorithmen
+  für Navigation
+end note
+
+note right of Cell
+  <b>Level 3 Erweiterung</b>
+  Zellen enthalten jetzt
+  Gegner-Informationen
+end note
+
+note right of SheetCell
+  <b>Level 5 NEU</b>
+  Zelle mit Blatt belegt
+  Kann gekickt oder
+  aufgenommen werden
+end note
+
+note right of KickManager
+  <b>Level 4 & 5</b>
+  Kickt Formulare (L4)
+  und Sheets (L5)
+end note
+
+legend right
+  |= Farbe |= Package |
+  | <#LightBlue> | creation (Erzeugung) |
+  | <#LightGreen> | domain (Spiellogik) |
+  | <#LightYellow> | strategy (Navigation) |
+  | <#LightPink> | communication (I/O) |
+  
+  <b>Verwendete Entwurfsmuster:</b>
+  • Singleton (GameController, Logger)
+  • Builder (BotConfigBuilder)
+  • Factory Method (NavigationStrategyFactory)
+  • Strategy (INavigationStrategy)
+  
+  <b>SOLID-Prinzipien:</b>
+  • SRP: Jede Klasse eine Verantwortung
+  • OCP: Erweiterbar durch neue Strategien
+  • LSP: Alle Strategien austauschbar
+  • ISP: Kleine, fokussierte Interfaces
+  • DIP: Abhängigkeit von Abstraktionen
+endlegend
+
+@enduml

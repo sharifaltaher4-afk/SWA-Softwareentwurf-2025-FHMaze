@@ -1,0 +1,35 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class ActionResultTracker
+entity BotConfig << record >>
+class BotConfigBuilder
+class GameController
+interface INavigationStrategyFactory << interface >>
+class KickManager
+class MyBot
+class NavigationStrategyFactory
+enum StrategyType << enumeration >>
+
+BotConfigBuilder            ..>  BotConfig                  : "®create¯"
+BotConfigBuilder           "1" *--> "strategyFactory\n1" INavigationStrategyFactory 
+GameController             "1" *--> "actionResultTracker\n1" ActionResultTracker        
+GameController              ..>  ActionResultTracker        : "®create¯"
+GameController             "1" *--> "config\n1" BotConfig                  
+GameController              ..>  INavigationStrategyFactory 
+GameController             "1" *--> "kickManager\n1" KickManager                
+GameController              ..>  KickManager                : "®create¯"
+GameController              ..>  StrategyType               
+INavigationStrategyFactory  ..>  StrategyType               
+KickManager                "1" *--> "config\n1" BotConfig                  
+MyBot                       ..>  BotConfig                  
+MyBot                       ..>  BotConfigBuilder           : "®create¯"
+MyBot                       ..>  GameController             
+MyBot                       ..>  INavigationStrategyFactory 
+MyBot                       ..>  NavigationStrategyFactory  : "®create¯"
+NavigationStrategyFactory   ..|>  INavigationStrategyFactory 
+NavigationStrategyFactory   ..>  StrategyType               
+@enduml

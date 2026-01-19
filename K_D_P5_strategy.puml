@@ -1,0 +1,20 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class BFSPathFinderStrategy
+class FormCollectionStrategy
+interface INavigationStrategy << interface >>
+interface IPathFinder << interface >>
+class SimpleNavigationStrategy
+
+BFSPathFinderStrategy       ..>  INavigationStrategy        
+BFSPathFinderStrategy       ..|>  IPathFinder                
+FormCollectionStrategy      ..|>  INavigationStrategy        
+FormCollectionStrategy     "1" *--> "fallbackStrategy\n1" INavigationStrategy        
+FormCollectionStrategy     "1" *--> "pathFinder\n1" IPathFinder                
+FormCollectionStrategy      ..>  SimpleNavigationStrategy   : "®create¯"
+SimpleNavigationStrategy    ..|>  INavigationStrategy        
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class GameCommunication
+interface IDeserialize << interface >>
+interface ISerialize << interface >>
+class InitData
+class Logger
+class TextDeserializer
+class TextSerializer
+class TurnData
+
+GameCommunication          "1" *--> "deserializer\n1" IDeserialize               
+GameCommunication          "1" *--> "serializer\n1" ISerialize                 
+GameCommunication           ..>  InitData                   : "®create¯"
+GameCommunication           ..>  TurnData                   : "®create¯"
+TextDeserializer            ..|>  IDeserialize                
+TextSerializer              ..|>  ISerialize                  
+@enduml
